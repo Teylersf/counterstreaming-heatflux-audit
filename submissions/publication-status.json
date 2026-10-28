@@ -2,14 +2,101 @@
   "canonical_author": "Taylor Kalin",
   "canonical_version": "1.0.0",
   "canonical_repository": "https://github.com/Teylersf/counterstreaming-heatflux-audit",
-  "status": "preparing_publication",
+  "status": "preprints_published_review_active",
   "source_version": "arXiv:2607.07106v1",
   "review_sequence": "GitHub and AiraXiv preprint; Publish.fun review; agent-only venues after verified review closure or release",
   "platforms": {
-    "github": {"status": "prepared", "url": "https://github.com/Teylersf/counterstreaming-heatflux-audit"},
-    "airaxiv": {"status": "not_submitted", "public_id": null, "submission_id": null},
-    "publishfun": {"status": "not_submitted", "id": null, "public_id": null},
-    "agentpub": {"status": "preparing", "paper_id": null, "human_operator": "Taylor Kalin"},
-    "aaes": {"status": "preparing", "paper_id": null, "human_operator": "Taylor Kalin"}
+    "github": {
+      "status": "published",
+      "url": "https://github.com/Teylersf/counterstreaming-heatflux-audit",
+      "release": "https://github.com/Teylersf/counterstreaming-heatflux-audit/releases/tag/v1.0.0",
+      "version": "1.0.0",
+      "release_status": "published"
+    },
+    "airaxiv": {
+      "status": "published_preprint",
+      "public_id": "2610.0109",
+      "submission_id": "1266",
+      "public_version": 1,
+      "canonical_version": "1.0.0",
+      "url": "https://airaxiv.com/papers/view/2610.0109/",
+      "pdf_sha256": "9a15769cf16c4581a67ba1b75f7a047724b272d1e578b7b2fad0da5e35f16fbb",
+      "pdf_bytes": 186583,
+      "matches_canonical_pdf": true,
+      "peer_review_acceptance_claimed": false,
+      "publication_observation_receipt": "airaxiv-publication-observation.json",
+      "pdf_verification_receipt": "airaxiv-pdf-verification.json"
+    },
+    "publishfun": {
+      "status": "under_review",
+      "id": "p_WA-Y00P8vp0DOnGc",
+      "public_id": null,
+      "round": 1,
+      "editorial_state": "active",
+      "account_status_url": "https://publish.fun/dashboard/papers/p_WA-Y00P8vp0DOnGc",
+      "reviewed_manuscript_version": "1.0.0",
+      "checked_at_utc": "2026-10-28T23:26:51.271779+00:00",
+      "accepted_by_venue": false,
+      "editorial_decision": null
+    },
+    "agentpub": {
+      "status": "prepared_not_submitted",
+      "paper_id": null,
+      "human_operator": "Taylor Kalin",
+      "agent_byline": "Lattice Audit Agent",
+      "package_version": "1.0.0",
+      "submission_gate_open": false,
+      "reason": "Publish.fun round 1 editorial record is active; AgentPub and AAES submissions remain sequenced after verified review closure or release.",
+      "preflight_passed": true,
+      "preflight_http_status": 200,
+      "would_submit": true,
+      "preflight_checked_at_utc": "2026-10-28T23:24:49.564700+00:00",
+      "preflight_warnings": [
+        "content: Placeholder or unfinished text found: ['xxx']. The draft is not complete."
+      ],
+      "warning_assessment": "The token xxx is the legitimate xxx third-moment tensor component notation; no unfinished placeholder is intended.",
+      "prepared_repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication"
+    },
+    "aaes": {
+      "status": "prepared_not_submitted",
+      "paper_id": null,
+      "human_operator": "Taylor Kalin",
+      "agent_byline": "Lattice Audit Agent",
+      "package_version": "1.0.0",
+      "submission_gate_open": false,
+      "reason": "Publish.fun round 1 editorial record is active; AgentPub and AAES submissions remain sequenced after verified review closure or release.",
+      "registration_claimed": false,
+      "prepared_repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication"
+    }
+  },
+  "checked_at_utc": "2026-10-28T23:30:16.452643+00:00",
+  "canonical_release": "https://github.com/Teylersf/counterstreaming-heatflux-audit/releases/tag/v1.0.0",
+  "immutable_code_commit": "e1ebd1aaee17bc5cd486d40387eb655aefd70c20",
+  "agent_edition": {
+    "status": "public_prepared_not_submitted",
+    "intended_repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
+    "public_repository_verified": true,
+    "package_version": "1.0.0",
+    "repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
+    "main_commit_short": "a4c4943",
+    "discussions_enabled": true,
+    "aaes_review_category": {
+      "name": "AAES-Review",
+      "format": "open-ended",
+      "id": "DIC_kwDOVbIjF84DJ3kQ",
+      "id_verification": "verified_github_graphql"
+    }
+  },
+  "format_qa": {
+    "status": "browser_math_and_figures_passed",
+    "math_expressions": 237,
+    "math_errors": 0,
+    "loaded_figures": 2,
+    "figure_natural_widths": [
+      1474,
+      1474
+    ],
+    "figures_checked_after_lazy_scroll": true,
+    "receipt": "browser-format-observation.json"
   }
 }

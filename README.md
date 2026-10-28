@@ -35,6 +35,7 @@ charge-conserving deposited current.
 ## Read and reproduce
 
 - [Paper PDF](paper/main.pdf) and [LaTeX source](paper/main.tex)
+- [AiraXiv preprint 2610.0109 (v1)](https://airaxiv.com/papers/view/2610.0109/)
 - [Source provenance](SOURCE.md) and [selective source evidence](source-excerpts/README.md)
 - [Data definitions and retrieval](data/README.md)
 - [Verification results](results/verification.json) and [execution log](results/execution.log)

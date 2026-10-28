@@ -1,0 +1,23 @@
+{
+  "commit": "e1ebd1aaee17bc5cd486d40387eb655aefd70c20",
+  "repository": "https://github.com/Teylersf/counterstreaming-heatflux-audit",
+  "verification_sha256": "6e724e564d4ca23bf718d4add4eded9311aa6ebbeb161c4abc606ec750f01491",
+  "source_files": [
+    {
+      "path": "experiments/verify.py",
+      "sha256": "23c64243de9e58d493fc87b18b4c47edf917fb67d11853898009e6e8824903e6"
+    },
+    {
+      "path": "experiments/closure_checks.py",
+      "sha256": "797fa1a2c85b36e09531fcff343ebed773674ecfe5a1caf8bd6518826ed3efbb"
+    },
+    {
+      "path": "experiments/data_checks.py",
+      "sha256": "fb2253e5f1970e80baea7a5349a8ac0cbf0e847b0cfe3f04eadb99b1e32e064b"
+    },
+    {
+      "path": "experiments/fetch_data.py",
+      "sha256": "9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0"
+    }
+  ]
+}

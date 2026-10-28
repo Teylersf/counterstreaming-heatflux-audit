@@ -1,0 +1,54 @@
+\section{Consequences for controlled validation}
+\label{sec:discussion}
+An initialization audit should precede attributing every later difference to
+the heat-flux closure. The current test exposes a mismatch in physical moments
+despite matching algebraic drift expressions. A controlled repeat should match
+density, ordinary mean velocity and the selected pressure definition, and
+report the initial magnetic curl and moment current on their actual staggered
+locations. If relativistic particle initialization and a nonrelativistic fluid
+model are compared, the conversion and the target moment convention must be
+stated explicitly. The cold proper-velocity conversion alone is not a proof
+that finite-temperature moments have been matched.
+
+The measured initial mismatch does not determine the sign or size of its
+effect at the reported $t=300\omega_{pe}^{-1}$ snapshot. Reconnection may relax
+some initial differences, amplify others, or preserve the qualitative advantage
+of retaining two populations. A matched-initial-state comparison and resolution
+or relaxation-rate studies are needed to separate those possibilities. We
+therefore do not infer that correcting the drift would eliminate the reported
+single-fluid density deficit, reproduce all PIC heat flux with one fluid, or
+reverse the source's qualitative conclusion.
+
+The homogeneous stability test supplies a separate validation requirement.
+Retaining population drift creates the possibility of streaming modes; it
+does not ensure the correct kinetic susceptibility or growth rate. The
+implemented relaxation should be included in the dispersion calculation.
+Finite relaxation can change a spectrum even when the unperturbed pressure
+is isotropic and the relaxation source vanishes at equilibrium. In the stated
+example the resulting growing mode is a false positive relative to the
+collisionless kinetic reference. This is a test of a model's continuum
+response, not evidence that the original simulation visibly contains that mode.
+
+The pressure-source diagnostic should also distinguish a third-moment amplitude
+from its divergence. The scale proxy $p\,d_e/|q|$ used in the source is a useful
+estimate when $d_e$ is an appropriate gradient length. It is not identical to
+$p/|\nabla\!\cdot q|$. A spatially constant nonzero heat-flux tensor has a finite
+amplitude proxy and zero divergence. The source explicitly notes that its
+isotropization closure constrains a divergence and omits the reconstructed
+fluid tensor from some plots; we do not characterize that disclosure as a
+hidden omission. Direct source-term comparisons and rate convergence would
+make the approximation more informative.
+
+Finally, the source's time-maximum spatial score is a best-time diagnostic,
+not a uniform-in-time error bound or a forward prediction test at every scan
+point. The conditioned estimate above explains why both absolute residuals
+and a nondegenerate denominator are needed when assessing relative accuracy.
+These qualifications preserve the observed scan and suggest measurements
+needed before extending its interpretation to new current sheets, later
+island recirculation, or turbulence.
+
+The valid component-to-aggregate moment decomposition remains the foundation
+of this analysis. Additional labels carry information absent from a generic
+state described only by total density, velocity and pressure. The corrections
+identify controls and assumptions needed for using that additional information
+reliably, rather than a general rejection of multicomponent fluid modeling.

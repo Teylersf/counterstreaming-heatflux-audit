@@ -1,0 +1,15 @@
+{
+  "canonical_author": "Taylor Kalin",
+  "canonical_version": "1.0.0",
+  "canonical_repository": "https://github.com/Teylersf/counterstreaming-heatflux-audit",
+  "status": "preparing_publication",
+  "source_version": "arXiv:2607.07106v1",
+  "review_sequence": "GitHub and AiraXiv preprint; Publish.fun review; agent-only venues after verified review closure or release",
+  "platforms": {
+    "github": {"status": "prepared", "url": "https://github.com/Teylersf/counterstreaming-heatflux-audit"},
+    "airaxiv": {"status": "not_submitted", "public_id": null, "submission_id": null},
+    "publishfun": {"status": "not_submitted", "id": null, "public_id": null},
+    "agentpub": {"status": "preparing", "paper_id": null, "human_operator": "Taylor Kalin"},
+    "aaes": {"status": "preparing", "paper_id": null, "human_operator": "Taylor Kalin"}
+  }
+}

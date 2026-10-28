@@ -1,0 +1,80 @@
+\section{Introduction and scope}
+\label{sec:introduction}
+Counter-streaming electron populations provide a useful representation of the
+strongly non-Maxwellian distributions generated during collisionless magnetic
+reconnection. McGrae-Menge and collaborators~\cite{original} report that tagging
+electrons by their initial side of a current sheet isolates sub-populations
+whose intrinsic third moments are small compared with their combined heat
+flux. Their exact moment decomposition explains how relative motion and
+population asymmetry can generate a substantial aggregate third moment even
+when each population has little intrinsic heat flux. Evolving additional
+population moments is therefore physically motivated.
+
+The present study examines two separate questions that this useful mechanism
+does not settle: whether the numerical comparison starts from matched physical
+states, and whether the implemented finite-relaxation closure has the kinetic
+stability properties attributed to it. These are testable questions about
+the identified source version and model, rather than an assertion that the
+underlying mixture interpretation is wrong.
+
+Our first result uses the authors' publicly archived initial moments and input
+decks~\cite{dataset}. Identical nominal drift expressions enter a proper-momentum
+initializer in PIC and an ordinary-velocity initializer in the fluid model.
+The recorded initial moments show a current and pressure mismatch consistent
+with that distinction. This is a reproducible control issue for interpreting
+the nonlinear comparison; its eventual dynamical effect cannot be determined
+from initial-state analysis alone.
+
+Our second result is a controlled longitudinal stability test of the stated
+continuum isotropization closure. A positive two-Maxwellian equilibrium is
+stable to longitudinal electrostatic perturbations under the established
+Penrose criterion~\cite{penrose1960}, but its
+finite-relaxation fluid counterpart has an overstable mode. We give an explicit
+linear system and check both its eigenvalue residual and Gauss constraint.
+The test is homogeneous and nonrelativistic. It does not replace the source's
+inhomogeneous reconnection calculation or show that the identified mode caused
+any of its plotted features.
+
+Two further results make the interpretation more precise. Continuity depends
+on the divergence of the mass flux, so a zero normal velocity at a symmetry
+plane does not prohibit density accumulation there. A conditioned third-moment
+error bound also shows why a thermal-to-drift speed ratio alone does not give
+a universal relative-error guarantee when population contributions cancel.
+Neither result disputes the empirical parameter trend in the published scan.
+
+\subsection{Relation to established work}
+Heat-flux closure and its effect on collisionless response are established
+subjects. Hammett and Perkins~\cite{hammett1990} developed fluid moment models
+for Landau damping, while Wang and collaborators~\cite{wang2015} compared
+multifluid moment models with PIC reconnection. Goldman and
+collaborators~\cite{goldman2020} studied multibeam energy moments and the
+distinction between component and aggregate centering. The mixture algebra
+used below belongs to this established moment framework.
+
+Closure-dependent instability spectra are also known. Ng and
+collaborators~\cite{ng2019} demonstrate why a pressure-tensor model must be
+checked against kinetic response rather than judged solely by its retained
+variables. Our finite-relaxation example supplies a concrete test associated
+with the closure and reference rate in the present source; we do not claim the
+general phenomenon of closure-dependent unstable modes as new.
+
+Work on heat-flux closure for nonlinear electrostatic two-stream systems
+\cite{ingelsten2025,ingelsten2026} further limits a literal reading of broad
+claims that no fluid closure can capture non-Maxwellian counter-streaming.
+It does not establish prior use of the specific tagged-population closure in
+electron-only reconnection. Our analysis therefore addresses explicit
+initialization, continuity and stability statements, and preserves the
+source's application-specific empirical evidence.
+
+\subsection{Audited version and available evidence}
+The supplied ten-page PDF is byte-identical to a fresh versioned download of
+arXiv:2607.07106v1: 7,847,791 bytes, SHA-256
+\texttt{fc5344e2ba8f4db98baf90d805bb6b7ce}\\
+\texttt{8835c32ea7bf54bba4d62f405b955a3}.
+The official history checked on 28 October 2026 lists the 8 July v1 and no
+later revision or journal reference. The PDF displays 9 July, while the
+experimental HTML displays a different compilation date. The original TeX
+uses \verb|\date{\today}|; those compilation dates do not identify additional
+scientific revisions. Appendix~\ref{app:source-evidence} records source and
+data locators. No original author has been contacted, and no author
+confirmation or private simulation-build access is claimed.

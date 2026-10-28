@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
+\usepackage{graphicx,booktabs,array,microtype,xcolor}
+\usepackage{hyperref}
+\emergencystretch=3em
+\raggedbottom
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,pdftitle={Initial-state matching and stability diagnostics for a counter-streaming electron-fluid closure},pdfauthor={Taylor Kalin}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}[1]{\mathbb E\!\left[#1\right]}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\dd}{\mathrm d}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{corollary}[proposition]{Corollary}
+\title{Initial-state matching and stability diagnostics for a counter-streaming electron-fluid closure}
+\author{\textbf{Taylor Kalin}\\[3pt]
+\small\href{https://taylorkalin.com}{taylorkalin.com}\quad
+\href{mailto:teylersf@gmail.com}{teylersf@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0003-9000-9315}{0009-0003-9000-9315}}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We examine the initial-state matching and closure interpretation in
+arXiv:2607.07106v1 using its published input decks, archived initial moments,
+and explicit continuum tests. The central two-population pressure and
+third-moment identities are correct. However, the PIC input specifies a
+proper-momentum drift where the fluid input specifies ordinary velocity.
+In the two archived cells straddling the lower current-sheet center, the
+density-weighted initial PIC moment current differs by about 11.5\% from
+the magnetostatic current implied by the staggered magnetic curl. Its
+Cartesian thermal pressures are about 20\% below the fluid initialization in
+$p_{xx}$ and 38.4\% below in $p_{zz}$.
+A matched-state rerun
+is needed to determine the effect on the nonlinear comparison. Separately,
+the stated finite-isotropization closure has an overstable longitudinal
+mode with growth about $0.00952\omega_{pe}$ in a homogeneous two-Maxwellian
+equilibrium certified as stable to collisionless longitudinal electrostatic
+perturbations by the Penrose criterion.
+We give the linear system, constraint checks, a correction to the
+symmetry-plane density argument, and a relative heat-flux error bound
+that accounts for imbalance and cancellation. The calculations distinguish
+valid mixture algebra, empirical benchmark evidence, and claims requiring
+additional validation. No new PIC or Gkeyll reconnection simulation is claimed.
+\end{abstract}
+\input{sections/introduction}
+\input{sections/initialization}
+\input{sections/stability}
+\input{sections/continuity}
+\input{sections/conditioning}
+\input{sections/entropy}
+\input{sections/reproducibility}
+\input{sections/discussion}
+\section{Conclusion}
+Matching a nominal drift expression does not match a proper-momentum PIC
+initialization to an ordinary-velocity fluid initialization. The archived
+initial moments make that distinction quantitatively testable.
+Resolving two populations also does not ensure faithful kinetic instability
+growth: finite isotropization must be validated as part of the closure.
+The exact moment decomposition remains valid and useful. Correcting the
+density-transport explanation and conditioning relative-error statements
+provides a constructive basis for further comparison, without asserting
+that the reported nonlinear reconnection results have been disproved.
+
+\section*{Author and methods disclosure}
+Taylor Kalin is the author and is responsible for this study. OpenAI Codex
+assisted with source inspection, derivations, code, data analysis, and manuscript
+preparation under his direction. Separate AI-agent checks were used during
+preparation; they are not represented as independent human expert review.
+Reported results are deterministic classical computations and reanalysis of
+public archived moments. No new reconnection simulation or experimental
+measurement is claimed.
+
+\paragraph{Funding and competing interests.}
+This study was self-funded by Taylor Kalin, including computing resources and
+AI tools. No external funding was received. No competing interests were
+reported for this study.
+
+\section*{Prior dissemination and review sequencing}
+This is one study. GitHub and AiraXiv deposits are preprint versions of the same
+work. Agent-only editions, where used, identify Taylor Kalin as canonical
+author and human operator; they are not independent new findings.
+Review venues are sequenced to avoid concurrent consideration of the same
+manuscript. Actual identifiers and outcomes are recorded at
+\url{https://github.com/Teylersf/counterstreaming-heatflux-audit}
+in the publication-status record.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+\appendix
+\input{sections/source-evidence}
+\input{sections/execution}
+\end{document}

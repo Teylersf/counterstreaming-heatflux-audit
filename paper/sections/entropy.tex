@@ -1,0 +1,47 @@
+\section{Finite isotropization over a comparison interval}
+\label{sec:entropy}
+The source openly retains isotropization for numerical stability~\cite{original}.
+Its smallness relative to a fast local heat-flux scale does not establish
+closeness to zero-intrinsic-heat-flux evolution over an entire simulation.
+A homogeneous calculation makes the distinct finite-time parameter explicit.
+
+At fixed density, let $p$ be a positive-definite pressure tensor and
+$\bar p=\tr p/3$. The relaxation part alone satisfies
+\begin{equation}
+ \dot p=-\nu(p-\bar p I),\qquad
+ p(t)=\bar p I+e^{-\nu t}\bigl(p(0)-\bar p I\bigr).
+ \label{eq:homogeneous-isotropization}
+\end{equation}
+Its trace, and thus its thermal energy, are constant. For the Gaussian
+entropy diagnostic per particle,
+$s_G=\tfrac12\log\det p-\tfrac52\log n+\text{constant}$, one obtains
+\begin{equation}
+ \dot s_G=\frac{\nu}{2}
+ \bigl(\bar p\,\tr(p^{-1})-3\bigr)\ge0,
+ \label{eq:entropy-production}
+\end{equation}
+with equality only at isotropy. The inequality follows by applying the
+arithmetic--harmonic mean inequality to the three positive eigenvalues of $p$.
+This is an entropy diagnostic of the moment model, not a measurement of
+PIC entropy or evidence of external heat input.
+
+The deviation from the zero-relaxation homogeneous pressure is controlled by
+$1-e^{-\nu T}$, not by $\nu$ alone. At the ideal reference-scale rate
+$\nu/\omega_{pe}=1/(40\sqrt5)$ and $T=300\omega_{pe}^{-1}$,
+\begin{equation}
+ \nu T=3.354101966\ldots,\qquad
+ e^{-\nu T}=0.0349407340\ldots.
+ \label{eq:finite-relaxation-duration}
+\end{equation}
+Thus an initially present homogeneous anisotropy would retain about $3.49\%$
+of its amplitude over that interval. For the example
+$p(0)=\diag(2,1/2,1/2)$ at unit density, the entropy diagnostic increases
+by $0.3461208970\ldots$ while the trace remains three.
+
+This example does not establish how much relaxation changes the evolving
+source current sheet, whose anisotropy is time-dependent. It shows why a
+finite-duration sensitivity study in $\kappa$, or a direct comparison of the
+retained pressure-source terms, is needed when interpreting the implementation
+as approximately zero-heat-flux evolution. It does not dispute the source's
+disclosed need for finite stabilization, nor identify irreversible adiabatic
+relaxation with external energy transfer.

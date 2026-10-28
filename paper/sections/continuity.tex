@@ -1,0 +1,42 @@
+\section{Density can grow at a symmetry-plane stagnation point}
+\label{sec:continuity}
+On PDF p.~5, the source attributes its one-fluid density deficit to the
+vanishing of $u_y$ at the symmetric mid-plane, describing this as blocking
+transport into the sheet~\cite{original}. The value of a flux at one plane
+does not determine its divergence:
+\begin{equation}
+ \partial_t n=-\partial_x(nu_x)-\partial_y(nu_y).
+ \label{eq:continuity-law}
+\end{equation}
+In particular, $\partial_y(nu_y)$ can be nonzero where $u_y=0$.
+
+\begin{proposition}[A periodic density-accumulation example]
+\label{prop:stagnation-density}
+For $a,n_0>0$, on a periodic coordinate $y\in[0,2\pi)$,
+\begin{equation}
+ u_y(y)=-a\sin y,\qquad
+ n(y,t)=\frac{n_0}{\cosh(at)-\cos y\,\sinh(at)}
+ \label{eq:periodic-counterexample}
+\end{equation}
+is a smooth positive solution of the one-dimensional continuity equation.
+Its total mass is $2\pi n_0$, and
+$u_y(0)=0$ while $n(0,t)=n_0e^{at}$.
+\end{proposition}
+\begin{proof}
+The denominator is positive for every finite $t$.
+Differentiating \eqref{eq:periodic-counterexample} gives
+$\partial_tn+\partial_y(nu_y)=0$ directly. The standard integral
+$\int_0^{2\pi}(A-B\cos y)^{-1}\dd y=2\pi/(A^2-B^2)^{1/2}$,
+with $A=\cosh(at)$ and $B=\sinh(at)$, gives the conserved mass.
+Evaluation at zero gives the stated increasing central density.
+\end{proof}
+
+This is an exact kinematic transport example, not a self-consistent
+plasma--Maxwell solution or a substitute reconnection run. It refutes the
+inference from symmetry alone. The two-population model's total density and
+density-weighted velocity obey exactly the same continuity equation after
+the population equations are summed. A one-fluid model loses the separate
+population-crossing information, but it is not geometrically forbidden from
+supplying or accumulating total density within a finite-width layer.
+Differences in the evolution of aggregate pressure and higher moments can
+still explain a particular benchmark failure.

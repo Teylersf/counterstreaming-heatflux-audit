@@ -1,0 +1,166 @@
+\section{Initial-state matching in the supplied input decks}
+\label{sec:initialization}
+
+The source compares a relativistic PIC calculation with nonrelativistic
+ten-moment fluid calculations and describes their common initialization in
+Appendices A and C~\cite{original}. The deposited reference-case decks and
+initial moments make the physical matching of those states directly
+testable~\cite{dataset}. Equal numerical drift and temperature parameters
+need not specify equal laboratory-frame velocity moments in the two codes.
+This issue concerns the controlled comparison; the mixture identities do
+not depend on either code's initialization convention.
+
+\subsection{A proper-momentum parameter is used as a fluid velocity}
+The PIC deck sets \texttt{use\_spatial\_ufl=.true.} and supplies the curl-derived
+drift expressions as \texttt{spatial\_ufl}. The official OSIRIS reference
+defines these inputs as proper velocities, or momentum divided by particle
+mass, with relativistic boosting as the default~\cite{osirisudist}.
+No classical-addition override appears in the posted deck. The Lua decks
+instead set nonrelativistic conserved momentum density to $\rho\mathbf v$
+using the same expressions. This is the ordinary velocity variable of the
+ten-moment equations~\cite{wang2015}.
+
+Writing $\mathbf U=\mathbf p/(m_ec)$, a cold population with proper drift
+$\mathbf U$ has
+\begin{equation}
+ \frac{\mathbf v}{c}=\frac{\mathbf U}{\sqrt{1+|\mathbf U|^2}}.
+ \label{eq:proper-ordinary}
+\end{equation}
+Thus the same numerical vector used for $\mathbf U$ in PIC and $\mathbf v/c$
+in the fluid initializer does not match the physical cold drift. At the
+unperturbed lower sheet center, the reference expressions give approximately
+$(0,0,0.5)$: the cold PIC speed is $0.4472136c$, whereas the prescribed fluid
+speed is $0.5c$. The fractional difference is $10.56\%$. It persists when
+the thermal spread tends to zero at fixed $B_{\mathrm{Reconn.}}=0.5$ and sheet
+width $d_e$; low thermal beta alone does not remove it. Equation
+\eqref{eq:proper-ordinary} is a cold-limit explanation. A finite-temperature
+mean must be measured after loading rather than identified with that limit.
+
+\subsection{Archived initial current and staggered magnetic curl}
+The original data authors explicitly define the archived diagnostic
+\texttt{vfl\_i} as $(1/n)\int f v_i\,\dd^3v$~\cite{dataset}.
+It is therefore an ordinary mean velocity, even though the input parameter
+\texttt{ufl} is a proper-momentum parameter. With the source normalization
+$q_e=-1$, the physical moment current is
+\begin{equation}
+ J_z^{\mathrm{mom}}=-\left(n_1\overline v_{1z}+n_2\overline v_{2z}\right).
+ \label{eq:archived-moment-current}
+\end{equation}
+The selected initial density diagnostics give $n_1+n_2=1$ to within
+$1.5\times10^{-8}$. No particle tracking or new time integration is needed
+to evaluate this current.
+
+The HDF5 files also record their grid offsets: density and velocity moments
+have $(0.5,0.5)$, $B_x$ has $(0.5,1)$ and $B_y$ has $(1,0.5)$.
+The backward staggered differences therefore place
+\begin{equation}
+ J_{z,i,j}^{B}=
+ \frac{B_{y,i,j}-B_{y,i-1,j}}{\Delta x}
+ -\frac{B_{x,i,j}-B_{x,i,j-1}}{\Delta y},\qquad
+ \Delta x=\Delta y=0.1d_e,
+ \label{eq:archived-magnetic-curl}
+\end{equation}
+on the moment-cell centers. Periodic differencing makes the first term's
+$x$ average exactly zero. The raw data use $y\in[-32,32]d_e$; the paper's
+coordinate is $Y=y+32d_e$, so its lower sheet is at $Y=16d_e$.
+
+\begin{table}[htbp]
+\centering
+\caption{Initial $x$-averaged currents in the cells adjoining the lower sheet.
+The deficit is $1-\langle J_z^{\mathrm{mom}}\rangle_x/
+\langle J_z^B\rangle_x$. Currents use the source's normalized units.}
+\label{tab:initial-current}
+\begin{tabular}{rrrr}
+\toprule
+$Y/d_e$ & $\langle J_z^{\mathrm{mom}}\rangle_x$ &
+$\langle J_z^B\rangle_x$ & Deficit \\
+\midrule
+15.95 & $-0.44098723$ & $-0.49833998$ & $11.5088\%$ \\
+16.05 & $-0.44087669$ & $-0.49833998$ & $11.5309\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The supplied fluid initializer prescribes an $x$-averaged ordinary velocity
+$0.49875256c$ in these same cells. The archived PIC means are
+$0.44098722c$ and $0.44087669c$, approximately $11.6\%$ smaller. The small
+difference between this continuum prescription and Table~\ref{tab:initial-current}'s
+staggered curl does not explain the observed deficit. The adjacent cells at
+the other sheet show the same effect with reversed current sign.
+
+Here $J_z^{\mathrm{mom}}$ is a moment-based physical diagnostic. We have not
+reloaded OSIRIS's native charge-conserving deposited current, which can differ
+from a simple $qv$ deposition. These numbers therefore do not specify the
+exact discrete electric-field update of the original executable.
+In the normalized continuum equations,
+$\partial_t E_z=(\nabla\times\mathbf B)_z-J_z$.
+The comparison therefore measures initial magnetostatic balance and a possible
+electric-field transient, while the field remains free to evolve.
+
+\subsection{The laboratory-frame pressure moments also differ}
+The record defines its second-moment diagnostics without a density
+normalization: $M_{s,ii}=\int f_s v_i^2\,\dd^3v$~\cite{dataset}.
+Following the source's own pressure definition, at $m_e=1$ we compute
+\begin{equation}
+ P_{ii}=M_{1,ii}+M_{2,ii}-n\overline v_i^2.
+ \label{eq:archived-pressure}
+\end{equation}
+The posted fluid initializers prescribe an isotropic thermal pressure
+\[
+p_{\mathrm{fl}}=n_0(0.111803)^2=0.012499910809.
+\]
+This is the pointwise
+initializer prescription; the archived fluid \texttt{.bp} fields have not
+been reloaded. The measured ratios are
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+$Y/d_e$ & $\langle P_{xx}\rangle_x/p_{\mathrm{fl}}$ &
+$\langle P_{zz}\rangle_x/p_{\mathrm{fl}}$ \\
+\midrule
+15.95 & 0.795900 & 0.615727 \\
+16.05 & 0.798040 & 0.615447 \\
+\bottomrule
+\end{tabular}
+\end{center}
+For example, at $Y=15.95d_e$ the archived values are
+$\langle P_{xx}\rangle_x=0.00994868$ and
+$\langle P_{zz}\rangle_x=0.00769653$. The latter is about $38.4\%$ below
+the fluid pressure prescription. These are the ordinary-velocity covariance
+moments defined in the source, not components of a relativistic
+energy--momentum tensor. A common rest-frame thermal-momentum parameter
+does not imply equal laboratory-frame velocity covariance after a boost.
+Figure~\ref{fig:initial-state} shows the full $x$-averaged profiles.
+
+\subsection{What a controlled comparison requires}
+The data establish an initial-state mismatch in the posted comparison. They
+do not establish how much of any later reconnection difference it causes.
+That requires reruns with controlled initial moments and numerical refinement.
+One constructive test is to initialize the fluid models from the measured
+PIC $n$, $\overline{\mathbf v}$ and $P_{ij}$, preserving the intended population
+labels. Another is to calibrate the PIC loading to a prescribed physical
+fluid state and then verify the deposited moments. The cold conversion in
+Eq.~\eqref{eq:proper-ordinary} is necessary for a cold drift match, but by
+itself does not guarantee a finite-temperature pressure or current match.
+
+An exact executable build or commit identifier was not found in the inspected
+deposit. The
+current public OSIRIS code inspected for documentation does not expose the
+authors' custom \texttt{vfl}/third-moment diagnostic implementation.
+Our diagnostic interpretation follows their explicit dataset definitions
+and file metadata. All selected files are at $t=0$. The present calculation
+is a reproducible reanalysis of those files, with no new PIC or Gkeyll run
+and no causal attribution of the source's later nonlinear results.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{../figures/initial-state.pdf}
+\caption{Reanalysis of the archived initial state near the lower sheet.
+Left: the ordinary-velocity moment current differs from both the staggered
+magnetic curl and the posted fluid prescription. Right: the local centered
+pressure components, averaged in $x$ after centering, differ from the isotropic
+fluid prescription. The profiles use the authors' archived diagnostics and
+their published definitions~\cite{dataset}. The fluid curves are initializer
+prescriptions, not reloaded fluid output. No new simulation is shown.}
+\label{fig:initial-state}
+\end{figure}

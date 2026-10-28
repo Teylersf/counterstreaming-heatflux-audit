@@ -1,0 +1,49 @@
+\section{Pinned execution record}
+\label{app:execution}
+The reported calculations use the immutable code commit:
+\begin{quote}\small
+\href{https://github.com/Teylersf/counterstreaming-heatflux-audit/tree/e1ebd1aaee17bc5cd486d40387eb655aefd70c20}{\texttt{e1ebd1aaee17bc5cd486d40387eb655aefd70c20}}
+\end{quote}
+This pins the numerical code and inputs; the final release also contains the manuscript source.
+\begin{verbatim}
+git clone https://github.com/Teylersf/counterstreaming-heatflux-audit.git
+cd counterstreaming-heatflux-audit
+git checkout e1ebd1aaee17bc5cd486d40387eb655aefd70c20
+python -m pip install -r requirements.txt
+python experiments/fetch_data.py
+python experiments/data_checks.py
+python -X utf8 experiments/verify.py
+python -X utf8 experiments/make_figures.py
+\end{verbatim}
+This is an author-environment execution record, not third-party certification or independent human peer review.
+\begin{verbatim}
+Started UTC: 2026-10-28T23:09:06.987425+00:00
+Python: 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]
+NumPy: 2.3.5
+h5py: 3.16.0
+PASS: initial_current
+PASS: initial_pressure
+PASS: mixture_identities
+PASS: continuity_symmetry
+PASS: conditioning_counterexample
+PASS: singlefluid_nonidentifiability
+PASS: finite_relaxation_stability
+PASS: isotropization_entropy
+All assertions passed: true
+Exit status: 0
+\end{verbatim}
+\begin{center}
+\scriptsize
+\begin{tabular}{@{}p{.34\linewidth}p{.63\linewidth}@{}}
+\toprule
+File & SHA-256 \\
+\midrule
+\texttt{results/verification.json} & \texttt{6e724e564d4ca23bf718d4add4eded9311aa6ebbeb161c4abc606ec750f01491} \\
+\texttt{experiments/verify.py} & \texttt{23c64243de9e58d493fc87b18b4c47edf917fb67d11853898009e6e8824903e6} \\
+\texttt{experiments/closure\_checks.py} & \texttt{797fa1a2c85b36e09531fcff343ebed773674ecfe5a1caf8bd6518826ed3efbb} \\
+\texttt{experiments/data\_checks.py} & \texttt{fb2253e5f1970e80baea7a5349a8ac0cbf0e847b0cfe3f04eadb99b1e32e064b} \\
+\texttt{experiments/fetch\_data.py} & \texttt{9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0} \\
+\bottomrule
+\end{tabular}
+\end{center}
+The full log, input provenance, derived profiles and strict verification JSON are included in the repository.

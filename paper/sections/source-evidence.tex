@@ -1,0 +1,104 @@
+\section{Source passages and artifact scope}
+\label{app:source-evidence}
+
+All source equation and page locators refer to the PDF of
+arXiv:2607.07106v1~\cite{original}. The supplied ten-page PDF is byte-identical
+to a fresh versioned arXiv download: 7,847,791 bytes, SHA-256
+\begin{quote}\footnotesize\ttfamily
+fc5344e2ba8f4db98baf90d805bb6b7c\\
+e8835c32ea7bf54bba4d62f405b955a3.
+\end{quote}
+The official history checked on 28 October 2026 lists v1 submitted
+8 July 2026 at 07:43:25 UTC, with no later revision or journal reference.
+The PDF displays 9 July; the experimental HTML displays 24 August. The original
+\texttt{apssamp.tex}, line 95, uses \verb|\date{\today}|, so separately compiled
+display dates are not version identifiers. No source author has been contacted,
+and no author confirmation is claimed.
+
+The separately retrieved
+\href{https://arxiv.org/src/2607.07106v1}{versioned source archive} has
+7,439,982 bytes and SHA-256
+\begin{quote}\footnotesize\ttfamily
+4f9abd5f41ffca0f1879981429165ff1\\
+a989276792c812e860f57cb5038c3b2e.
+\end{quote}
+The repository's
+\href{https://github.com/Teylersf/counterstreaming-heatflux-audit/tree/main/source-excerpts}{selective excerpts}
+contain six attributed files and 17 fragments, with original TeX line and
+character positions. A standalone verifier checks the archive and source
+hashes and reconstructs every excerpt without executing the source or making
+network requests. The full PDF and source archive are not redistributed.
+
+\paragraph{The stated initialization.}
+Appendix A, p.~6, states that the electron fluid velocities are initialized from
+\[
+ \epsilon_{ijk}\partial_j B_k=J_i=q_e n_0\overline v_i.
+\]
+Appendix C, p.~8, states that the fluid simulations inherit the PIC domain,
+grid, boundary conditions and magnetic-field initial condition exactly. It
+specifies the common initial drift
+\[
+ \overline v_{1i}=\overline v_{2i}=\overline v_i
+\]
+and thermal speed $0.111803c$ for the electron fluids. These are the
+matching statements tested in the main text. Original TeX locators are
+lines 225, 244 and 280; the printed seed is Eq.~(A3), lines 238--240.
+
+The current public \texttt{udist} documentation describes \texttt{ufl} and
+\texttt{spatial\_ufl} as fluid momentum in proper-velocity units and gives
+relativistic momentum addition as the default~\cite{osirisudist}. This documents
+the input-language interpretation; it does not identify the authors' exact
+historical executable. For the archived diagnostics, the definition used here
+comes directly from the authors' Zenodo deposit description~\cite{dataset}:
+\[
+ \mathrm{vfl}_i=\frac1n\int f v_i\,\dd^3v,
+ \qquad
+ (v_i v_j)_{\rm diagnostic}=\int f v_i v_j\,\dd^3v.
+\]
+The deck and diagnostic checks, rather than an assumed private code revision,
+support the initial-moment comparison.
+
+\paragraph{The density-transport explanation.}
+The main text, p.~5, attributes the one-electron-fluid density deficit to the
+following mechanism:
+\begin{quote}\small
+``at the mid-plane $\overline v_y=0$ by symmetry, blocking 1-e-Fluid transport
+into the sheet''.
+\end{quote}
+The complete argument is in original TeX line 191. The symmetry-plane
+continuity calculation assesses this causal explanation; the plotted density
+deficit remains empirical evidence from the reported benchmark.
+
+\paragraph{The implemented closure and instability claim.}
+On p.~4 the source specifies the finite local model
+\[
+ \partial_m q_{ijm}=\kappa v_{th}(p_{ij}-\delta_{ij}p),
+ \qquad p=\tr(p_{ij})/3,\qquad \kappa=0.1d_e^{-1},
+\]
+with an isotropization timescale of about $90\omega_{pe}^{-1}$
+(original TeX line 179). Figure~3's caption, p.~4, explicitly omits its
+contribution from the displayed fluid heat flux and notes that only its
+divergence is constrained (line 166). The finite term is therefore a disclosed
+part of the model. The longitudinal calculation in this study tests that
+finite model, rather than silently replacing it by its zero-coefficient limit.
+On p.~5 the source also asserts that the two-electron-fluid model can capture
+linear growth because the instabilities are due to counter-streaming
+(line 207). The general importance of closure choice for instability fidelity
+is established prior context~\cite{ng2019}.
+
+\paragraph{Accuracy metric and retained qualifications.}
+The color in source Fig.~4, p.~5, is the best-time score
+\[
+ \max_t\left[
+ 1-\frac{\langle|q_{xxx}-q_{CSxxx}|\rangle_{xy}}
+ {\langle|q_{xxx}|\rangle_{xy}}
+ \right]
+\]
+(original TeX line 198). Its proposed thermal/drift scaling is explained in
+line 202. The present audit distinguishes this empirical best-time diagnostic
+from a uniform error guarantee; it does not claim to have rerun the parameter
+scan. The source acknowledges later stream folding (p.~5, line 207), separate
+fluid color scales and amplitude differences in the full-tensor comparison
+(Fig.~5, p.~7, line 250), and kinetic free-expansion limitations
+(Appendix C, p.~8, line 293). The exact mixture identities in source
+Eqs.~(3)--(4) and (B1)--(B2) are preserved as valid algebra.

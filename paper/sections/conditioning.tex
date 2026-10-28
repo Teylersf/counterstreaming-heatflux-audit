@@ -1,0 +1,99 @@
+\section{Conditioning a relative heat-flux accuracy claim}
+\label{sec:conditioning}
+The source's Eqs.~(3)--(4) and (B1)--(B2) are correct. For $n_1,n_2>0$, put
+$n=n_1+n_2$, $w_s=n_s/n$, $\Delta u=u_1-u_2$ and
+$T_s=p_s/n_s$. Recentring each population on the aggregate mean gives
+\begin{align}
+ p_{ij}&=p_{1ij}+p_{2ij}+mnw_1w_2\Delta u_i\Delta u_j,\nonumber\\
+ q_{ijk}&=q_{1ijk}+q_{2ijk}
+ +nw_1w_2\bigl(\Delta u_i\Delta T_{jk}
+             +\Delta u_j\Delta T_{ik}+\Delta u_k\Delta T_{ij}\bigr)\nonumber\\
+ &\hspace{15mm}
+ -mnw_1w_2(w_1-w_2)\Delta u_i\Delta u_j\Delta u_k.
+ \label{eq:mixture-correct}
+\end{align}
+The source explicitly defines the unnormalized three-term symmetrization,
+so its tensor formula has the required scalar factor three. Direct positive
+finite-mixture calculations, including nonunit mass, verify all entries.
+
+For the scalar $xxx$ component and $\Delta u\ne0$, define
+$\theta_s=T_{sxx}/[m(\Delta u)^2]$. Its counter-streaming contribution is
+\begin{equation}
+ q_{\rm CS}=mn(\Delta u)^3C,\qquad
+ C=w_1w_2\{3(\theta_1-\theta_2)-(w_1-w_2)\}.
+ \label{eq:dimensionless-cs}
+\end{equation}
+Thus the source's cubic-drift explanation of the empirical parameter collapse
+requires qualification. Equation~\eqref{eq:dimensionless-cs} also contains a
+temperature-contrast term linear in drift and can vanish by symmetry or
+cancellation.
+
+\begin{proposition}[A sufficient conditioned relative-error bound]
+\label{prop:conditioned-relative-bound}
+Suppose $|q_{sxxx}|\le mn_s a_s v_{{\rm th},s}^3$, with
+$v_{{\rm th},s}=(T_{sxx}/m)^{1/2}$ and stated nonnegative bounds $a_s$. Set
+$E=\sum_s w_sa_s(v_{{\rm th},s}/|\Delta u|)^3$.
+If $E<|C|$, then
+\begin{equation}
+ \frac{|q_{xxx}-q_{\rm CS}|}{|q_{xxx}|}
+ \le\frac{E}{|C|-E}.
+ \label{eq:conditioned-bound}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The exact residual is $r=q_{1xxx}+q_{2xxx}$, so
+$|r|\le mn|\Delta u|^3E$. The reverse triangle inequality gives
+$|q_{xxx}|\ge mn|\Delta u|^3(|C|-E)>0$.
+Division gives \eqref{eq:conditioned-bound}.
+\end{proof}
+
+The bound is sufficient rather than necessary. Its imbalance/cancellation
+factor cannot be dropped. Equal population densities and temperatures give
+$q_{\rm CS}=0$ at any drift. With equal densities but unequal temperatures,
+$q_{\rm CS}=3n\Delta u\,\Delta T_{xx}/4$, which is linear in drift.
+
+\paragraph{A near-Maxwellian counterexample to a speed-ratio-only guarantee.}
+Let $W$ take values $-1/\sqrt2$ and $\sqrt2$ with probabilities $2/3$ and $1/3$.
+Then $\E{W}=0$, $\E{W^2}=1$ and $\E{W^3}=1/\sqrt2$.
+For $\eta>0$, let $S=(W+\eta G)/\sqrt{1+\eta^2}$ with $G$ a standard Gaussian.
+Let $H=(S,G_y,G_z)$, with independent standard Gaussian transverse components,
+and define $X_\epsilon$ to have law
+$(1-\epsilon)\mathcal N(0,I)+\epsilon\mathcal L(H)$, $0<\epsilon<1$.
+It has zero mean, covariance $I$, and third moment
+$\E{X_{\epsilon,x}^3}=\epsilon/[\sqrt2(1+\eta^2)^{3/2}]$.
+Its total-variation distance from $\mathcal N(0,I)$ is at most $\epsilon$.
+Give the populations equal densities and velocity laws
+\begin{equation}
+ V_1=Ue_x+\sigma X_\epsilon,\qquad
+ V_2=-Ue_x+\sigma X_\epsilon.
+ \label{eq:smooth-skew-mixtures}
+\end{equation}
+Each population density is a positive smooth Gaussian mixture, within
+$\epsilon$ in total variation of its matching Maxwellian. Their intrinsic
+temperature tensors are both $m\sigma^2I$, so
+$q_{\rm CS}=0$, whereas
+$q_{xxx}=mn\sigma^3\epsilon/[\sqrt2(1+\eta^2)^{3/2}]\ne0$.
+Consequently the relative closure error is one even when both $\epsilon$ and
+the thermal-to-beam speed ratio $\sigma/U$ are arbitrarily small.
+The absolute residual does tend to zero relative to $mnU^3$.
+The recorded calculations use $\epsilon=0.01$ and integrate the smooth
+laws with positive Gauss--Hermite quadrature.
+
+This construction does not disprove the source's measured collapse in its
+particular family of reconnection simulations. It identifies assumptions
+needed to extend that empirical observation to a relative-error guarantee.
+The source scan uses initial speeds; inserting those into a local bound would
+also require estimates of their subsequent evolution.
+
+\paragraph{The valid limitation of a memoryless one-fluid closure.}
+Additional population information can be genuinely necessary. For example,
+let $n=m=1$, and let each population be an isotropic Gaussian of variance
+$3I/4$. Choose a weight $w$, set
+$\Delta=[4w(1-w)]^{-1/2}$, and assign means
+$(1-w)\Delta e_x$ and $-w\Delta e_x$.
+For both $w=1/2$ and $w=1/4$, the aggregate density is one, the mean is zero,
+and the pressure is $\diag(1,3/4,3/4)$. The respective $q_{xxx}$ values are
+zero and $1/(4\sqrt3)$. Hence no arbitrary-distribution algebraic function
+of only $n,u,p$ can recover both third moments. This supports the source's
+population-resolving motivation. It is not an impossibility statement for
+one-fluid descriptions with memory, extra variables, gradients or nonlocality.

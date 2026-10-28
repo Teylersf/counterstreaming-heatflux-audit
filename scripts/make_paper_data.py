@@ -52,8 +52,10 @@ def main():
     (ROOT / 'paper/results-table.tex').write_text('\n'.join(table), encoding='utf-8', newline='\n')
     environment = result['environment']
     lines = [r'\section{Pinned execution record}', r'\label{app:execution}',
-             'The reported calculations use the immutable code commit',
-             r'\href{' + pin['repository'] + '/tree/' + commit + r'}{\texttt{' + commit + '}}.',
+             'The reported calculations use the immutable code commit:',
+             r'\begin{quote}\small',
+             r'\href{' + pin['repository'] + '/tree/' + commit + r'}{\texttt{' + commit + '}}',
+             r'\end{quote}',
              'This pins the numerical code and inputs; the final release also contains the manuscript source.',
              r'\begin{verbatim}',
              'git clone https://github.com/Teylersf/counterstreaming-heatflux-audit.git',
@@ -68,12 +70,15 @@ def main():
              'NumPy: ' + environment['numpy'], 'h5py: ' + environment['h5py']]
     lines += ['PASS: ' + name for name in g]
     lines += ['All assertions passed: true', 'Exit status: 0', r'\end{verbatim}',
-              'Verification JSON SHA-256:', r'\begin{quote}\footnotesize\ttfamily',
-              pin['verification_sha256'], r'\end{quote}']
-    for entry in pin['source_files']:
+              r'\begin{center}', r'\scriptsize',
+              r'\begin{tabular}{@{}p{.34\linewidth}p{.63\linewidth}@{}}',
+              r'\toprule', r'File & SHA-256 \\', r'\midrule']
+    hash_rows = [{'path': 'results/verification.json', 'sha256': pin['verification_sha256']},
+                 *pin['source_files']]
+    for entry in hash_rows:
         path = entry['path'].replace('_', r'\_')
-        lines += [r'\noindent\texttt{' + path + '} SHA-256:',
-                  r'\begin{quote}\footnotesize\ttfamily', entry['sha256'], r'\end{quote}']
+        lines += [r'\texttt{' + path + r'} & \texttt{' + entry['sha256'] + r'} \\']
+    lines += [r'\bottomrule', r'\end{tabular}', r'\end{center}']
     lines += ['The full log, input provenance, derived profiles and strict verification JSON are included in the repository.', '']
     (ROOT / 'paper/sections/execution.tex').write_text('\n'.join(lines), encoding='utf-8', newline='\n')
     print(json.dumps({'code_commit': commit, 'groups': len(g), 'generated_table_rows': len(rows)}))

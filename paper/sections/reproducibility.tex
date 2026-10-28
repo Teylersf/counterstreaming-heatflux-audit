@@ -1,0 +1,42 @@
+\section{Reproducible calculations and evidence limits}
+\label{sec:reproducibility}
+The repository separates reanalysis of archived simulation output from
+analytical model tests. The initial-state analysis uses the authors' data
+dictionary, independently readable HDF5 attributes, published input decks,
+and explicitly aligned grid locations. The stability, continuity and moment
+calculations use specified equations and inputs and require no reconnection
+simulation executable.
+
+\input{results-table}
+
+The data retriever requests only selected ZIP members from the public Zenodo
+archive. It requires bounded HTTP partial responses, checks member lengths
+and CRC32 against the ZIP directory, and records SHA-256 hashes of the
+extracted inputs. The published checksum of the complete archive is identified
+as publisher-supplied; a partial retrieval does not verify that whole-archive
+checksum. Small derived profiles and provenance are included with their
+attribution. The original paper and full simulation archives are not
+redistributed by this project.
+
+Numerical checks preserve the exact mixture identities rather than treating
+them as errors. The linear calculation is checked independently through an
+eliminated dielectric relation and the Gauss constraint, in addition to the
+matrix eigenvalue residual. The kinetic comparison has an exact rational
+stability bound, so its conclusion does not depend on locating a numerical
+threshold near marginal stability. The continuity example satisfies the
+transport equation explicitly. These checks test the scientific statements
+used in the paper, not only whether a plotting script runs.
+
+The execution record in Appendix~\ref{app:execution} pins the code, input
+hashes, numerical results and environment. Its timestamps are author-environment
+execution evidence, not third-party certification or independent human peer
+review. The accompanying verification script reports actual failures instead
+of silently replacing absent inputs with synthetic data.
+
+No OSIRIS or Gkeyll reconnection run was performed for this study. The
+published input decks and archived diagnostics do not uniquely identify the
+authors' exact executable builds. In particular, the documented custom
+velocity diagnostics are interpreted using the authors' explicit data
+dictionary; we do not assert that a present public source checkout is the
+private build that produced them. This limits claims about implementation
+internals while leaving the documented archived-moment comparison testable.

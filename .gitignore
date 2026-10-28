@@ -10,6 +10,7 @@ paper/*.out
 paper/*.toc
 paper/*.synctex.gz
 submissions/*-private.*
+submissions/publishfun-round1-review.json
 .publishing-access/
 *.dpapi
 *.enc

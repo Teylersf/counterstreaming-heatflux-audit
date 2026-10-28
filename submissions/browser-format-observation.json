@@ -1,15 +1,29 @@
 {
   "record_type": "browser_format_observation",
-  "recorded_at_utc": "2026-10-28T23:26:49.870662+00:00",
+  "recorded_at_utc": "2026-10-28T23:47:30.428709+00:00",
   "observed_on": "2026-10-28",
   "context": "Publish.fun manuscript preview",
-  "math_expressions": 237,
+  "math_expressions": 306,
   "math_errors": 0,
-  "figures_loaded": 2,
+  "figures_loaded": 3,
   "figure_natural_widths": [
     1474,
+    1530,
     1474
   ],
   "figures_checked_after_lazy_scroll": true,
-  "evidence": "Browser verification reported by the publishing workflow; this record is not a server JSON response."
+  "evidence": "Browser verification reported by the publishing workflow; this record is not a server JSON response.",
+  "canonical_version": "1.1.0",
+  "previous_format_observations": [
+    {
+      "recorded_at_utc": "2026-10-28T23:26:49.870662+00:00",
+      "math_expressions": 237,
+      "math_errors": 0,
+      "figures_loaded": 2,
+      "figure_natural_widths": [
+        1474,
+        1474
+      ]
+    }
+  ]
 }

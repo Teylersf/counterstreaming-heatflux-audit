@@ -1,0 +1,2425 @@
+{
+  "record_url": "https://zenodo.org/records/21114117",
+  "record_api_url": "https://zenodo.org/api/records/21114117",
+  "version_doi": "10.5281/zenodo.21114117",
+  "concept_doi": "10.5281/zenodo.21114116",
+  "record_metadata_sha256": "b1e13b8c1d30fc155afba9b58b827f63cffe0e11bbd4d893d9dd6687b9eecc64",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "record_metadata_version": null,
+  "inventoried_at_utc": "2026-10-28T23:33:57.952254+00:00",
+  "archives": [
+    {
+      "filename": "BgBr0point1-Beta0point1_PIC.zip",
+      "bytes": 1238114672,
+      "url": "https://zenodo.org/api/records/21114117/files/BgBr0point1-Beta0point1_PIC.zip/content",
+      "publisher_declared_checksum": "md5:89f8256fe66809412f3814dd8663c833",
+      "full_archive_checksum_verified": false,
+      "central_directory": {
+        "entry_count": 223,
+        "offset": 1238082224,
+        "bytes": 32426,
+        "sha256": "6b3a2b7b4481c498c0d1bc5badbf55b480ced6f7546d7b14786e5d3f414b526d",
+        "tail_first_byte": 1238049115,
+        "tail_bytes": 65557,
+        "tail_sha256": "23623868944e32127368f12cc995b878e1461a093d5e5345248f9ac36b6d169c",
+        "end_record_sha256": "8a0a39e58b4623d0bd78e659a15e97ce9ea8c279ff2ab416be3dbea23979a9b3",
+        "entries": [
+          {
+            "name": "BgBr0point1-Beta0point1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 0,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 86,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 176,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 270,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/RAW/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 362,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 452,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 545,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 638,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 731,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 824,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 917,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 1010,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 1115,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 1220,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 1323,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/RAW/electrons1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 1426,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/RAW/electrons2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 1527,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b2/b2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 9522,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1628,
+            "crc32": "7fa37e9c"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b2/b2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1107260,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 11271,
+            "crc32": "36ed9ce8"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b3/b3-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 22758,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1118652,
+            "crc32": "c95fa389"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b3/b3-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1086166,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1141531,
+            "crc32": "06e81fbf"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e2/e2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 4315,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 2227818,
+            "crc32": "2492c535"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e2/e2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1134426,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 2232254,
+            "crc32": "cd4158f4"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e3/e3-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 4314,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 3366801,
+            "crc32": "479fceda"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e3/e3-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1114350,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 3371236,
+            "crc32": "7ca6ae67"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b1/b1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1011606,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 4485707,
+            "crc32": "fd7f8513"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/b1/b1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 19726,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 5497434,
+            "crc32": "dae38cef"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e1/e1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1139314,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 5517281,
+            "crc32": "a361c3f2"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/FLD/e1/e1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 4316,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 6656716,
+            "crc32": "1841c7cb"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661153,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661265,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661377,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661487,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661597,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661707,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661817,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6661925,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662035,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662143,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662253,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662361,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662469,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662577,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662685,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662795,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6662903,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663013,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663123,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663231,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663341,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663449,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663559,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663669,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663779,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663889,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6663997,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664107,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664215,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664325,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664433,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664541,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664649,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664757,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664867,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6664975,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6665085,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6665195,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3v3/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6665303,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 6665413,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/RAW/electrons1/RAW-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 592206266,
+            "uncompressed_bytes": 863468152,
+            "local_offset": 6665521,
+            "crc32": "7cc76925"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/RAW/electrons2/RAW-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 590596742,
+            "uncompressed_bytes": 863398492,
+            "local_offset": 598871928,
+            "crc32": "9446c10c"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 5157,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1189468811,
+            "crc32": "7f6d056e"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 616518,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1189474123,
+            "crc32": "c9f13e4e"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 613548,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1190090796,
+            "crc32": "2c5abab4"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 5166,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1190704499,
+            "crc32": "6fa55942"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v2/v2v2v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 681319,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1190709820,
+            "crc32": "a41774cf"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v2/._v2v2v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1191391292,
+            "crc32": "70d1aa60"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v2/v2v2v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580828,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1191391555,
+            "crc32": "8166d643"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v2/._v2v2v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1191972536,
+            "crc32": "81daf1ed"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v3/v1v2v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 582492,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1191972799,
+            "crc32": "430b3873"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v3/._v1v2v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1192555444,
+            "crc32": "55334596"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v3/v1v2v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 689117,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1192555707,
+            "crc32": "2657f8d2"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v3/._v1v2v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1193244977,
+            "crc32": "a2883554"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v2/v1v2v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 585228,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1193245240,
+            "crc32": "1c05b83a"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v2/._v1v2v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1193830621,
+            "crc32": "d2181324"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v2/v1v2v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 681986,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1193830884,
+            "crc32": "ce50875d"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v2/._v1v2v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1194513023,
+            "crc32": "46e40562"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v3/v2v2v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 682008,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1194513286,
+            "crc32": "7ef40dd2"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v3/._v2v2v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1195195447,
+            "crc32": "fae48c95"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v3/v2v2v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 584887,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1195195710,
+            "crc32": "2a51a226"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v3/._v2v2v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1195780750,
+            "crc32": "d3f9cca6"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 628611,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1195781013,
+            "crc32": "832bbd6e"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/._v1v1-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1196409773,
+            "crc32": "62c3b1ba"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 519341,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1196410032,
+            "crc32": "0b8a850c"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/._v1v1-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1196929522,
+            "crc32": "3a895dcb"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v3/v1v1v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 585507,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1196929781,
+            "crc32": "b9226645"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v3/._v1v1v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1197515441,
+            "crc32": "8a52ff55"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v3/v1v1v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 684150,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1197515704,
+            "crc32": "374173e3"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v3/._v1v1v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1198200007,
+            "crc32": "485e51d5"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 516386,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1198200270,
+            "crc32": "4af2863d"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/._v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1198716805,
+            "crc32": "7ffbb3b4"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 629460,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1198717064,
+            "crc32": "0edaa18b"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/._v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1199346673,
+            "crc32": "a4498cfa"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v2/v1v1v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580662,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1199346932,
+            "crc32": "203cc84b"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v2/._v1v1v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1199927747,
+            "crc32": "e5ea3614"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v2/v1v1v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 684334,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1199928010,
+            "crc32": "648c7b26"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v2/._v1v1v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1200612497,
+            "crc32": "d871c21e"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 675574,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1200612760,
+            "crc32": "23504111"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/._vfl3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1201288483,
+            "crc32": "6c5fb0bd"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 584591,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1201288742,
+            "crc32": "eeda3f6d"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/._vfl3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1201873482,
+            "crc32": "aa809bb0"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 676076,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1201873741,
+            "crc32": "733da975"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580419,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1202549966,
+            "crc32": "15e14b07"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 509121,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1203130534,
+            "crc32": "71288162"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/._v2v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1203639804,
+            "crc32": "c24ff38c"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 627859,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1203640063,
+            "crc32": "0bcd9751"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/._v2v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1204268071,
+            "crc32": "ffd40786"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580052,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1204268330,
+            "crc32": "cfef611f"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/._v2v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1204848531,
+            "crc32": "03c12c4c"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 686969,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1204848790,
+            "crc32": "53ce3b41"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/._v2v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1205535908,
+            "crc32": "68d9237d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3v3/v1v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 586681,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1205536167,
+            "crc32": "ae365470"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v3v3/._v1v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1206123001,
+            "crc32": "1f696321"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3v3/v1v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 684711,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1206123264,
+            "crc32": "8aaf6794"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v3v3/._v1v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1206808128,
+            "crc32": "12771366"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580009,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1206808391,
+            "crc32": "89dbeaf9"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/._v1v2-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1207388549,
+            "crc32": "d6c947b5"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 687171,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1207388808,
+            "crc32": "94db3fa0"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/._v1v2-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1208076128,
+            "crc32": "ae531e3d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/v1v1v1-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 687194,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1208076387,
+            "crc32": "26dcc5da"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/._v1v1v1-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1208763734,
+            "crc32": "19ff1dde"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/v1v1v1-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 586778,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1208763997,
+            "crc32": "60c9391e"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/._v1v1v1-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1209350928,
+            "crc32": "84e8abe2"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3v3/v2v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 685316,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1209351191,
+            "crc32": "e1b6d339"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v3v3/._v2v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1210036660,
+            "crc32": "3b6a5355"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3v3/v2v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 581382,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1210036923,
+            "crc32": "d5e9473f"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v2v3v3/._v2v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1210618458,
+            "crc32": "4705dae0"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 583508,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1210618721,
+            "crc32": "8540c930"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/._v1v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1211202378,
+            "crc32": "1a59e832"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 688784,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1211202637,
+            "crc32": "961463b6"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/._v1v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1211891570,
+            "crc32": "3aaf087b"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3v3/v3v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 682377,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1211891829,
+            "crc32": "55045adb"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v3v3v3/._v3v3v3-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1212574359,
+            "crc32": "69496e1e"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3v3/v3v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 586922,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1212574622,
+            "crc32": "c1bb7b19"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons1/v3v3v3/._v3v3v3-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1213161697,
+            "crc32": "c77f789f"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 586025,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1213161960,
+            "crc32": "64420140"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 675975,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1213748134,
+            "crc32": "ef6e523a"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v2/v2v2v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580902,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1214424258,
+            "crc32": "92599f4c"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v2/._v2v2v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1215005313,
+            "crc32": "1e620561"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v2/v2v2v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 677109,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1215005576,
+            "crc32": "d28094a4"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v2/._v2v2v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1215682838,
+            "crc32": "b05413e0"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v3/v1v2v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 685775,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1215683101,
+            "crc32": "0c923dee"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v3/._v1v2v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1216369029,
+            "crc32": "0ae4b158"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v3/v1v2v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 582686,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1216369292,
+            "crc32": "84552e63"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v3/._v1v2v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1216952131,
+            "crc32": "eccd7a1c"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v2/v1v2v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 678770,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1216952394,
+            "crc32": "9c93f65b"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v2/._v1v2v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1217631317,
+            "crc32": "b705e72d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v2/v1v2v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 585271,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1217631580,
+            "crc32": "42508ef5"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v2/._v1v2v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1218217004,
+            "crc32": "512c2c69"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v3/v2v2v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 585124,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1218217267,
+            "crc32": "81673402"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v3/._v2v2v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1218802544,
+            "crc32": "23f9f16b"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v3/v2v2v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 678563,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1218802807,
+            "crc32": "010c5d67"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v3/._v2v2v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1219481523,
+            "crc32": "270c2156"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 519400,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1219481786,
+            "crc32": "6a1bf7da"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/._v1v1-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1220001335,
+            "crc32": "a465cf4a"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 626304,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1220001594,
+            "crc32": "b8e1236e"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/._v1v1-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1220628047,
+            "crc32": "424c040e"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v3/v1v1v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 681112,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1220628306,
+            "crc32": "ec7eeefd"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v3/._v1v1v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1221309571,
+            "crc32": "48038084"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v3/v1v1v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 585646,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1221309834,
+            "crc32": "7fb51818"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v3/._v1v1v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1221895633,
+            "crc32": "4cf650b9"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 626841,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1221895896,
+            "crc32": "07212630"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/._v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1222522886,
+            "crc32": "29902051"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 516297,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1222523145,
+            "crc32": "724a5333"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/._v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1223039591,
+            "crc32": "2d65f06c"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v2/v1v1v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 680608,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1223039850,
+            "crc32": "9bf7bbf6"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v2/._v1v1v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1223720611,
+            "crc32": "451df0c3"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v2/v1v1v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580923,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1223720874,
+            "crc32": "c6a1c9d3"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v2/._v1v1v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1224301950,
+            "crc32": "6c00b0f0"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 584780,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1224302213,
+            "crc32": "4fc2a9d1"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/._vfl3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1224887142,
+            "crc32": "e6a4ab26"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 673100,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1224887401,
+            "crc32": "62605c89"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/._vfl3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1225560650,
+            "crc32": "97d552d4"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580386,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1225560909,
+            "crc32": "27388422"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/._vfl2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1226141444,
+            "crc32": "aebb76e3"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 672152,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1226141703,
+            "crc32": "6a845397"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/._vfl2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1226814004,
+            "crc32": "008d6062"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 626118,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1226814263,
+            "crc32": "09d052f7"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/._v2v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1227440530,
+            "crc32": "045ee5ef"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 509180,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1227440789,
+            "crc32": "29b2e1e0"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/._v2v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1227950118,
+            "crc32": "e2772eab"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 683707,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1227950377,
+            "crc32": "b586d6db"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/._v2v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1228634233,
+            "crc32": "80f7c21d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580111,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1228634492,
+            "crc32": "ad423290"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/._v2v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1229214752,
+            "crc32": "9e3ef2ae"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3v3/v1v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 681260,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1229215011,
+            "crc32": "54e093b6"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v3v3/._v1v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1229896424,
+            "crc32": "c6741edf"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3v3/v1v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 586715,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1229896687,
+            "crc32": "d46a1afa"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v3v3/._v1v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1230483555,
+            "crc32": "6842085e"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 683861,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1230483818,
+            "crc32": "7766815f"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/._v1v2-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1231167828,
+            "crc32": "f5e2d6f1"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 580090,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1231168087,
+            "crc32": "a3b89a16"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/._v1v2-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1231748326,
+            "crc32": "173ecd88"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/v1v1v1-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 586887,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1231748585,
+            "crc32": "52ad2edb"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/._v1v1v1-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1232335625,
+            "crc32": "3ad65d86"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/v1v1v1-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 684498,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1232335888,
+            "crc32": "bdf8418d"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/._v1v1v1-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1233020539,
+            "crc32": "cf28d636"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3v3/v2v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 581422,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1233020802,
+            "crc32": "70d6f757"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v3v3/._v2v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1233602377,
+            "crc32": "b723b29d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3v3/v2v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 681621,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1233602640,
+            "crc32": "85627de4"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v2v3v3/._v2v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1234284414,
+            "crc32": "bec812e7"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 685367,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1234284677,
+            "crc32": "ab97c9b1"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/._v1v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1234970193,
+            "crc32": "90a2f3a9"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 583707,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1234970452,
+            "crc32": "7746fcfa"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/._v1v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1235554308,
+            "crc32": "94572394"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3v3/v3v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 586992,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1235554567,
+            "crc32": "dd75a5b5"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v3v3v3/._v3v3v3-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1236141712,
+            "crc32": "76ad6d5d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3v3/v3v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 679324,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1236141975,
+            "crc32": "e274f6ad"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/v3v3v3/._v3v3v3-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1236821452,
+            "crc32": "94717624"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 673712,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1236821715,
+            "crc32": "217265b1"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/._vfl1-electrons2-000300.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1237495576,
+            "crc32": "b487966d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 585981,
+            "uncompressed_bytes": 1261744,
+            "local_offset": 1237495835,
+            "crc32": "a30b9fa5"
+          },
+          {
+            "name": "__MACOSX/BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/._vfl1-electrons2-000000.h5",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 99,
+            "uncompressed_bytes": 176,
+            "local_offset": 1238081965,
+            "crc32": "565b8d14"
+          }
+        ]
+      }
+    },
+    {
+      "filename": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "bytes": 48626312,
+      "url": "https://zenodo.org/api/records/21114117/files/BgBr0point1-Beta0point1_1-e-Fluid.zip/content",
+      "publisher_declared_checksum": "md5:381d3ddb5dbbfda1089a3857232af17f",
+      "full_archive_checksum_verified": false,
+      "central_directory": {
+        "entry_count": 5,
+        "offset": 48625676,
+        "bytes": 614,
+        "sha256": "950ea7c92320db5d46a82a4266b713fc5cbbd66d4ec3ba2c3b6d5cd52c65dd3f",
+        "tail_first_byte": 48560755,
+        "tail_bytes": 65557,
+        "tail_sha256": "067d4fea46446f5e187a653afb96318f090cad1c9a4c3c5439d948d4e726e025",
+        "end_record_sha256": "aae34f598c1d86d403b39ab21d51b823fcabcd36b7f698c2645cd886ae1c8871",
+        "entries": [
+          {
+            "name": "BgBr0point1-Beta0point1_1-e-Fluid/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 0,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_0.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 7271538,
+            "uncompressed_bytes": 24609520,
+            "local_offset": 96,
+            "crc32": "9861f7cd"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_1-e-Fluid/field_0.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1116975,
+            "uncompressed_bytes": 19694374,
+            "local_offset": 7271761,
+            "crc32": "26c7ad4f"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_300.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 23524521,
+            "uncompressed_bytes": 24609520,
+            "local_offset": 8388858,
+            "crc32": "7979de92"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_1-e-Fluid/field_300.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 16712044,
+            "uncompressed_bytes": 19694374,
+            "local_offset": 31913508,
+            "crc32": "3dd6f0d8"
+          }
+        ]
+      }
+    },
+    {
+      "filename": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "bytes": 80339875,
+      "url": "https://zenodo.org/api/records/21114117/files/BgBr0point1-Beta0point1_2-e-Fluid.zip/content",
+      "publisher_declared_checksum": "md5:024ca4759bb41b53159858f583a48432",
+      "full_archive_checksum_verified": false,
+      "central_directory": {
+        "entry_count": 7,
+        "offset": 80338983,
+        "bytes": 870,
+        "sha256": "345b7ee341434e5b247f05c05f38868290d20d629d62078727f8fd1f633fa0bb",
+        "tail_first_byte": 80274318,
+        "tail_bytes": 65557,
+        "tail_sha256": "0a352cb8ebcb4b6c76a8e64d0047c901a145fc4760cecc5835ab33e2000b1939",
+        "end_record_sha256": "aeb9937d5fcaaa720b25cd08a5bb7fbf7e60774e3b0181d214a83c366cbecbc3",
+        "entries": [
+          {
+            "name": "BgBr0point1-Beta0point1_2-e-Fluid/",
+            "flags": 0,
+            "method": 0,
+            "compressed_bytes": 0,
+            "uncompressed_bytes": 0,
+            "local_offset": 0,
+            "crc32": "00000000"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_0.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 7617422,
+            "uncompressed_bytes": 24616128,
+            "local_offset": 96,
+            "crc32": "1a83eb0a"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_2-e-Fluid/field_0.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 1118731,
+            "uncompressed_bytes": 19700982,
+            "local_offset": 7617645,
+            "crc32": "e0046423"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_300.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 23621206,
+            "uncompressed_bytes": 24616128,
+            "local_offset": 8736498,
+            "crc32": "7ee09654"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_0.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 7643347,
+            "uncompressed_bytes": 24616128,
+            "local_offset": 32357833,
+            "crc32": "46f9b47d"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_300.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 23625058,
+            "uncompressed_bytes": 24616128,
+            "local_offset": 40001307,
+            "crc32": "5104c676"
+          },
+          {
+            "name": "BgBr0point1-Beta0point1_2-e-Fluid/field_300.bp",
+            "flags": 8,
+            "method": 8,
+            "compressed_bytes": 16712365,
+            "uncompressed_bytes": 19700982,
+            "local_offset": 63626494,
+            "crc32": "2c98ba99"
+          }
+        ]
+      }
+    }
+  ],
+  "selected_members": [
+    {
+      "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "archive_member": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_0.bp",
+      "local_filename": "fluid1-electrons1_0.bp",
+      "compressed_bytes": 7271538,
+      "uncompressed_bytes": 24609520,
+      "crc32": "9861f7cd",
+      "sha256": "70dc91d89874d62e045eea62d67c9788a8f869733330eed2da6f2710f41ee452"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "archive_member": "BgBr0point1-Beta0point1_1-e-Fluid/field_0.bp",
+      "local_filename": "fluid1-field_0.bp",
+      "compressed_bytes": 1116975,
+      "uncompressed_bytes": 19694374,
+      "crc32": "26c7ad4f",
+      "sha256": "270eb787ab80535fe6164e40ecef6da764a1450319ccfbf5b534af2ff216bf38"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_member": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_0.bp",
+      "local_filename": "fluid2-electrons1_0.bp",
+      "compressed_bytes": 7617422,
+      "uncompressed_bytes": 24616128,
+      "crc32": "1a83eb0a",
+      "sha256": "3f63e7137d31efac2f5d281e6d7a13d6c7718dc8247bfada9a5fc82b00283254"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_member": "BgBr0point1-Beta0point1_2-e-Fluid/field_0.bp",
+      "local_filename": "fluid2-field_0.bp",
+      "compressed_bytes": 1118731,
+      "uncompressed_bytes": 19700982,
+      "crc32": "e0046423",
+      "sha256": "289efc1b62c6b3c7dbde058d6277399e731e7588556712a3c1f6049390328818"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_member": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_0.bp",
+      "local_filename": "fluid2-electrons2_0.bp",
+      "compressed_bytes": 7643347,
+      "uncompressed_bytes": 24616128,
+      "crc32": "46f9b47d",
+      "sha256": "47e5e266be22a293739a197bed4f37c01889fdc6e50e1af6f930fc3f71f5324c"
+    }
+  ],
+  "integrity_scope": "Complete ZIP central directories and selected member CRC32/SHA-256 only; no full-archive checksum verification",
+  "core_scripts_sha256": {
+    "verify.py": "23c64243de9e58d493fc87b18b4c47edf917fb67d11853898009e6e8824903e6",
+    "closure_checks.py": "797fa1a2c85b36e09531fcff343ebed773674ecfe5a1caf8bd6518826ed3efbb",
+    "data_checks.py": "fb2253e5f1970e80baea7a5349a8ac0cbf0e847b0cfe3f04eadb99b1e32e064b",
+    "fetch_data.py": "9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0"
+  },
+  "native_pic_current_inventory": {
+    "entire_central_directory_examined": true,
+    "all_entries": 223,
+    "scientific_non_directory_entries": 94,
+    "candidate_native_current_paths": [],
+    "native_deposited_current_archived": false,
+    "scope": "No native deposited-current file is identifiable among the complete posted PIC member names. UDIST velocity moments are not substituted for native deposited current.",
+    "all_scientific_paths": [
+      "BgBr0point1-Beta0point1/FLD/b2/b2-000000.h5",
+      "BgBr0point1-Beta0point1/FLD/b2/b2-000300.h5",
+      "BgBr0point1-Beta0point1/FLD/b3/b3-000000.h5",
+      "BgBr0point1-Beta0point1/FLD/b3/b3-000300.h5",
+      "BgBr0point1-Beta0point1/FLD/e2/e2-000000.h5",
+      "BgBr0point1-Beta0point1/FLD/e2/e2-000300.h5",
+      "BgBr0point1-Beta0point1/FLD/e3/e3-000000.h5",
+      "BgBr0point1-Beta0point1/FLD/e3/e3-000300.h5",
+      "BgBr0point1-Beta0point1/FLD/b1/b1-000300.h5",
+      "BgBr0point1-Beta0point1/FLD/b1/b1-000000.h5",
+      "BgBr0point1-Beta0point1/FLD/e1/e1-000300.h5",
+      "BgBr0point1-Beta0point1/FLD/e1/e1-000000.h5",
+      "BgBr0point1-Beta0point1/RAW/electrons1/RAW-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/RAW/electrons2/RAW-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v2/v2v2v2-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v2/v2v2v2-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v3/v1v2v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v3/v1v2v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v2/v1v2v2-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2v2/v1v2v2-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v3/v2v2v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2v3/v2v2v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v3/v1v1v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v3/v1v1v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v2/v1v1v2-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v2/v1v1v2-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3v3/v1v3v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3v3/v1v3v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/v1v1v1-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/v1v1v1-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3v3/v2v3v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3v3/v2v3v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3v3/v3v3v3-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3v3/v3v3v3-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v2/v2v2v2-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v2/v2v2v2-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v3/v1v2v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v3/v1v2v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v2/v1v2v2-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2v2/v1v2v2-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v3/v2v2v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2v3/v2v2v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v3/v1v1v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v3/v1v1v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v2/v1v1v2-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v2/v1v1v2-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3v3/v1v3v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3v3/v1v3v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/v1v1v1-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/v1v1v1-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3v3/v2v3v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3v3/v2v3v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3v3/v3v3v3-electrons2-000000.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3v3/v3v3v3-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000300.h5",
+      "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000000.h5"
+    ]
+  },
+  "decoded_numeric_exports": [
+    {
+      "file": "fluid1-electrons1_0.bp",
+      "bp_sha256": "70dc91d89874d62e045eea62d67c9788a8f869733330eed2da6f2710f41ee452",
+      "numeric_export_sha256": "8d2bd5af573d555c2a7a79726985be096a9393a366d68c32525ce7d26346d544",
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "embedded_input_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "embedded_input_byte_identical_to_posted_deck": true
+    },
+    {
+      "file": "fluid2-electrons1_0.bp",
+      "bp_sha256": "3f63e7137d31efac2f5d281e6d7a13d6c7718dc8247bfada9a5fc82b00283254",
+      "numeric_export_sha256": "63414989c93e5b5f3376188498fd2b65515729d83bab8816353b3ad43aeb966b",
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "embedded_input_byte_identical_to_posted_deck": true
+    },
+    {
+      "file": "fluid2-electrons2_0.bp",
+      "bp_sha256": "47e5e266be22a293739a197bed4f37c01889fdc6e50e1af6f930fc3f71f5324c",
+      "numeric_export_sha256": "9ea5d9984fea84df407f8d321543bac0cf1238de411fa9d36a68b53526b87901",
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "embedded_input_byte_identical_to_posted_deck": true
+    },
+    {
+      "file": "fluid1-field_0.bp",
+      "bp_sha256": "270eb787ab80535fe6164e40ecef6da764a1450319ccfbf5b534af2ff216bf38",
+      "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "embedded_input_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "embedded_input_byte_identical_to_posted_deck": true
+    },
+    {
+      "file": "fluid2-field_0.bp",
+      "bp_sha256": "289efc1b62c6b3c7dbde058d6277399e731e7588556712a3c1f6049390328818",
+      "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "embedded_input_byte_identical_to_posted_deck": true
+    }
+  ],
+  "revision_profile_csv_sha256": "9c42755c1f7b6073b6f49f627eeaf8f736f4de46aa3cdc35f9629dacdd565ded",
+  "diagnostic_definitions": {
+    "source": "Zenodo record description supplied by the original data authors",
+    "vfl_i": "(1/n) integral f v_i d^3v",
+    "v_i_v_j": "integral f v_i v_j d^3v"
+  },
+  "tested_reader_distribution_provenance": [
+    {
+      "package": "numpy",
+      "version": "2.3.5",
+      "filename": "numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 16606086,
+      "sha256": "0d8163f43acde9a73c2a33605353a4f1bc4798745a8b1d73183b28e5b435ae28",
+      "url": "https://files.pythonhosted.org/packages/b6/23/2a1b231b8ff672b4c450dac27164a8b2ca7d9b7144f9c02d2396518352eb/numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    },
+    {
+      "package": "adios2",
+      "version": "2.13.0.1001",
+      "filename": "adios2-2.13.0.1001-cp312-abi3-manylinux_2_28_x86_64.whl",
+      "bytes": 16955969,
+      "sha256": "a97f883ff6e471d81fd0a90d6604c057f54450a1e8ddaa5b88376bf504156b5d",
+      "url": "https://files.pythonhosted.org/packages/cb/92/159d7b041491836fd95eae478ecfbe036126d6b428f2ae06c0ee83d6cf7d/adios2-2.13.0.1001-cp312-abi3-manylinux_2_28_x86_64.whl"
+    }
+  ]
+}

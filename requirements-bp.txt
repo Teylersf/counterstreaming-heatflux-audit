@@ -1,0 +1,5 @@
+# Optional BP decoding on a supported Linux/macOS ADIOS2 environment.
+# Keep separate from the original Windows/core verification requirements.
+numpy==2.3.5
+adios2==2.13.0.1001
+

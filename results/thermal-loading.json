@@ -1,0 +1,1117 @@
+{
+  "scope": "Conditional public-loader calculation and no-fit deposition sensitivity, not a new PIC run or exact original-executable reconstruction.",
+  "experiment": {
+    "path": "experiments/thermal_loading.py",
+    "sha256": "8ca81418bba26d8307337d7d0f1612bcf169186f91a00b1c6e84b5ea5748511d",
+    "numpy": "2.3.5"
+  },
+  "deck_audit": {
+    "path": "data/input-decks/input_PIC.2d",
+    "sha256": "c19a01a2987630ed14a22d3d21ffaede8082ea193f505e07f8e05595a9d10340",
+    "total_lines": 155,
+    "udist_blocks": 2,
+    "active_control_occurrences": {
+      "use_classical_uadd": [],
+      "uth_type": [],
+      "use_spatial_uth": [],
+      "n_accelerate": [],
+      "n_q_incr": [],
+      "use_particle_uacc": [],
+      "use_spatial_ufl": [
+        {
+          "line": 74,
+          "text": "use_spatial_ufl = .true.,"
+        },
+        {
+          "line": 118,
+          "text": "use_spatial_ufl = .true.,"
+        }
+      ],
+      "uth": [
+        {
+          "line": 73,
+          "text": "uth(1:3) = 0.111803, 0.111803, 0.111803,"
+        },
+        {
+          "line": 117,
+          "text": "uth(1:3) = 0.111803, 0.111803, 0.111803,"
+        }
+      ],
+      "num_par_x": [
+        {
+          "line": 67,
+          "text": "num_par_x(1:2) = 25, 25,"
+        },
+        {
+          "line": 111,
+          "text": "num_par_x(1:2) = 25, 25,"
+        }
+      ],
+      "interpolation": [
+        {
+          "line": 59,
+          "text": "interpolation = \"quadratic\","
+        }
+      ]
+    },
+    "use_classical_uadd_override_found": false,
+    "thermal_distribution_override_found": false,
+    "include_directive_found": false,
+    "scope": "Complete posted deck; does not establish private executable defaults."
+  },
+  "public_source": {
+    "repository": "https://github.com/osiris-code/osiris",
+    "commit": "a858fe1da3d6dbf3652b16556af87f7dad7881eb",
+    "files": [
+      {
+        "path": "source/spec/os-spec-udist.f03",
+        "sha256": "1aa7964b2dc5070f92c85199c5d76d783a984d461e257472a3f7db6a4827cf06",
+        "line_spans": {
+          "defaults": [
+            121,
+            137
+          ],
+          "Gaussian_draws": [
+            573,
+            580
+          ],
+          "spatial_boost": [
+            752,
+            789
+          ]
+        },
+        "url": "https://raw.githubusercontent.com/osiris-code/osiris/a858fe1da3d6dbf3652b16556af87f7dad7881eb/source/spec/os-spec-udist.f03"
+      },
+      {
+        "path": "source/random/os-random-class.f03",
+        "sha256": "a4c639e8f685ecf180ee674f92400f196898780c44e9ec8c3fd6992c72e17d54",
+        "line_spans": {
+          "Gaussian_generator": [
+            348,
+            392
+          ]
+        },
+        "url": "https://raw.githubusercontent.com/osiris-code/osiris/a858fe1da3d6dbf3652b16556af87f7dad7881eb/source/random/os-random-class.f03"
+      },
+      {
+        "path": "source/spec/psource/os-psource-std.f03",
+        "sha256": "3e2d29b97120c79b18439231f62deccb013b384d937fe91965af55b3ee0e88c2",
+        "line_spans": {
+          "position_origin": [
+            814,
+            822
+          ],
+          "particle_lattice": [
+            839,
+            858
+          ],
+          "charges_before_momentum_loading": [
+            987,
+            1003
+          ],
+          "momentum_loading_call": [
+            1113,
+            1116
+          ]
+        },
+        "url": "https://raw.githubusercontent.com/osiris-code/osiris/a858fe1da3d6dbf3652b16556af87f7dad7881eb/source/spec/psource/os-psource-std.f03"
+      },
+      {
+        "path": "source/spec/os-spec-v3dep.f90",
+        "sha256": "e7ce270c4164b478b259f6e9846acc2c5f22af2f870077dc57df93a520808e59",
+        "line_spans": {
+          "quadratic_shape": [
+            55,
+            71
+          ],
+          "quadratic_dispatch": [
+            162,
+            169
+          ],
+          "tensor_product_deposition": [
+            349,
+            374
+          ]
+        },
+        "url": "https://raw.githubusercontent.com/osiris-code/osiris/a858fe1da3d6dbf3652b16556af87f7dad7881eb/source/spec/os-spec-v3dep.f90"
+      }
+    ],
+    "source_cache_hashes_checked": true,
+    "documentation": "https://osiris-code.github.io/osiris/reference/udist",
+    "original_simulation_executable_identified": false,
+    "original_custom_velocity_diagnostic_source_available": false,
+    "finding": "In this public implementation independent thermal Gaussian momenta are drawn and individually boosted. set_momentum does not alter particle charges; the standard Cartesian source sets charges from spatial density before that call. No loader Jacobian reweighting is applied."
+  },
+  "thermal_proper_momentum_standard_deviation": 0.111803,
+  "theory": {
+    "rest_momentum": "u ~ N(0,sigma^2 I), gamma0=sqrt(1+|u|^2), G=sqrt(1+|U|^2)",
+    "public_loader": "p=u+U*(gamma0+(u dot U)/(G+1)); gamma_lab=G*gamma0+u dot U; v=p/gamma_lab; unchanged particle weights",
+    "mean_identity": "E[v_parallel]=beta*[1-(1-beta^2)*E[w^2/(1-beta^2*w^2)]], beta=|U|/G, w=u_parallel/gamma0",
+    "strict_cold_deficit": "For beta>0 and nonzero thermal spread the bracket is strictly below 1, so E[v_parallel]<beta.",
+    "distinct_invariant_scalar_measure": "Jacobian dp/du=gamma_lab/gamma0. A scalar rest distribution at equal lab time uses normalized pullback weight gamma_lab/(G*gamma0)=1+beta*w, and has E[v]=U/G exactly. This is not the unweighted sample-boost loader.",
+    "classical_alternative": "p=u+U, v=p/sqrt(1+|p|^2); an alternative only, since no deck override was found.",
+    "TSC_sensitivity": "B2(r)=3/4-r^2 for |r|<1/2, (3/2-|r|)^2/2 for 1/2<=|r|<3/2, 0 otherwise. h=.1;25 regular subcell sites per axis; recorded moment node offsets(.5,.5).",
+    "covariance_definition": "At each spatial diagnostic node, deposit raw v_i^2 and v_i, then form raw_second-mean^2; x-average only after centering, matching the archived-data analysis.",
+    "sample_mean_square_bias": "For deterministic density and independent particle velocities, E[estimated centered variance]=deposited E[v_i^2]-(deposited E[v_i])^2-sum_a w_a^2 Var(v_ia)."
+  },
+  "error_controls": {
+    "quadrature": "Positive Gaussian-Hermite x Gaussian-Laguerre quadrature in parallel momentum and squared perpendicular radius; order refinement12,20,32,48.",
+    "quadrature_convergence": [
+      {
+        "Hermite_and_Laguerre_order": 12,
+        "Chebyshev_degree": 24,
+        "interpolation_validation_max_abs_difference": 3.219646771412954e-15,
+        "zero_shape_mean_vz": 0.44197416288155644,
+        "TSC_mean_vz": 0.4409886790237783,
+        "TSC_covariance_diagonal": [
+          0.00996490237116303,
+          0.009497915161071685,
+          0.00770631553376905
+        ]
+      },
+      {
+        "Hermite_and_Laguerre_order": 20,
+        "Chebyshev_degree": 32,
+        "interpolation_validation_max_abs_difference": 6.661338147750939e-16,
+        "zero_shape_mean_vz": 0.44197416288155655,
+        "TSC_mean_vz": 0.44098867902377864,
+        "TSC_covariance_diagonal": [
+          0.00996490237116274,
+          0.0094979151610714,
+          0.007706315533769197
+        ]
+      },
+      {
+        "Hermite_and_Laguerre_order": 32,
+        "Chebyshev_degree": 40,
+        "interpolation_validation_max_abs_difference": 3.552713678800501e-15,
+        "zero_shape_mean_vz": 0.4419741628815567,
+        "TSC_mean_vz": 0.4409886790237788,
+        "TSC_covariance_diagonal": [
+          0.009964902371162678,
+          0.009497915161071327,
+          0.007706315533769073
+        ]
+      },
+      {
+        "Hermite_and_Laguerre_order": 48,
+        "Chebyshev_degree": 48,
+        "interpolation_validation_max_abs_difference": 7.771561172376096e-16,
+        "zero_shape_mean_vz": 0.4419741628815565,
+        "TSC_mean_vz": 0.44098867902377853,
+        "TSC_covariance_diagonal": [
+          0.009964902371163981,
+          0.009497915161072634,
+          0.007706315533769988
+        ]
+      }
+    ],
+    "quadrature_error_is_formally_certified": false,
+    "qualification": "Order differences and independent coordinate quadrature are numerical convergence controls, not a rigorous a priori integration-error bound. Model/build uncertainty is separate and larger.",
+    "interpolant_validation_257_magnitudes_max_errors": {
+      "public_loader_pushforward": 7.771561172376096e-16,
+      "invariant_scalar_distribution": 1.2667644710973036e-13,
+      "classical_momentum_addition": 4.063416270128073e-14
+    },
+    "independent_coordinate_check": {
+      "three_dimensional_Hermite_order": 24,
+      "two_dimensional_order": 48,
+      "maximum_mean_or_raw_second_difference": 1.7208456881689926e-15
+    },
+    "spatial_sum": "All480*25 x sites and3*25 y sites in quadratic support are explicitly summed, using the complete posted perturbation expressions; no spatial quadrature fitting.",
+    "sampling_bound": "Displayed Bernstein95 bounds assume independent ideal Gaussian draws, deterministic weights and the specified TSC diagnostic; they are not confidence claims about an unidentified executable or its exact PRNG sequence."
+  },
+  "unperturbed_center_comparison": {
+    "cold_mean_vz": 0.4472135954999579,
+    "finite_temperature_models": {
+      "public_loader_pushforward": {
+        "U": [
+          0.0,
+          0.0,
+          0.5
+        ],
+        "mean_vz": 0.44297014136751484,
+        "covariance_diagonal": [
+          0.009488651899546268,
+          0.009488651899546268,
+          0.007677171713152436
+        ]
+      },
+      "invariant_scalar_distribution": {
+        "U": [
+          0.0,
+          0.0,
+          0.5
+        ],
+        "mean_vz": 0.4472135954999579,
+        "covariance_diagonal": [
+          0.00944559106861079,
+          0.00944559106861079,
+          0.007590921519636223
+        ]
+      },
+      "classical_momentum_addition": {
+        "U": [
+          0.0,
+          0.0,
+          0.5
+        ],
+        "mean_vz": 0.43773534986414075,
+        "covariance_diagonal": [
+          0.009599165527823304,
+          0.009599165527823304,
+          0.006394389319706095
+        ]
+      }
+    }
+  },
+  "row_predictions": [
+    {
+      "row": 159,
+      "raw_y": -16.049999999999997,
+      "paper_y": 15.950000000000003,
+      "model": "public_loader_pushforward",
+      "zero_shape": {
+        "mean": [
+          -0.021997909318238616,
+          0.0,
+          0.4419741628815565
+        ],
+        "centered_covariance_diagonal": [
+          0.009488832841240049,
+          0.009493302297755997,
+          0.007689098388247428
+        ],
+        "ordinary_cold_vz": 0.44621016995777546,
+        "mean_input_proper_momentum": [
+          -0.02482387634742145,
+          0.0,
+          0.49875255727751583
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          -0.0218769140074231,
+          0.0,
+          0.44098867902377853
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.009964902371163981,
+          0.009497915161072634,
+          0.007706315533769988
+        ],
+        "finite_particle_mean_square_bias": [
+          4.592662566919126e-06,
+          4.596008468125482e-06,
+          3.7247124337946615e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009960309708597062,
+          0.009493319152604507,
+          0.007702590821336194
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013189558587956986,
+          0.00013194362220335333,
+          0.00011878028601488212
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.00036445607378287476,
+          0.000364586530989026,
+          0.0003288380801231246
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": 0.4409872227576353,
+        "Pxx": 0.009948679931370285,
+        "Pzz": 0.007696529306960078
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": -0.0009869401239211983,
+        "TSC_mean_vz": -1.4562661432293567e-06,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": -0.012260167003191921,
+        "TSC_expected_sample_Pxx": -1.1629777226776841e-05,
+        "TSC_expected_sample_Pzz": -6.061514376116267e-06
+      }
+    },
+    {
+      "row": 160,
+      "raw_y": -15.95,
+      "paper_y": 16.05,
+      "model": "public_loader_pushforward",
+      "zero_shape": {
+        "mean": [
+          0.021997909318240142,
+          0.0,
+          0.4419741628815564
+        ],
+        "centered_covariance_diagonal": [
+          0.009488832841240049,
+          0.009493302297755999,
+          0.00768909838824743
+        ],
+        "ordinary_cold_vz": 0.44621016995777535,
+        "mean_input_proper_momentum": [
+          0.024823876347423154,
+          0.0,
+          0.49875255727751544
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          0.021876914007424617,
+          0.0,
+          0.44098867902377836
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.009964902371163983,
+          0.009497915161072635,
+          0.007706315533769991
+        ],
+        "finite_particle_mean_square_bias": [
+          4.592662566919125e-06,
+          4.596008468125482e-06,
+          3.724712433794662e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009960309708597063,
+          0.009493319152604509,
+          0.007702590821336197
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.0001318955858795788,
+          0.00013194362220333183,
+          0.00011878028601489853
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.00036445607378289904,
+          0.0003645865309889676,
+          0.00032883808012316914
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": 0.44087668789620893,
+        "Pxx": 0.009975433256479592,
+        "Pzz": 0.007693028300607572
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": -0.0010974749853474575,
+        "TSC_mean_vz": -0.00011199112756943297,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": -0.9428427168072823,
+        "TSC_expected_sample_Pxx": 1.5123547882528107e-05,
+        "TSC_expected_sample_Pzz": -9.562520728624568e-06
+      }
+    },
+    {
+      "row": 479,
+      "raw_y": 15.950000000000003,
+      "paper_y": 47.95,
+      "model": "public_loader_pushforward",
+      "zero_shape": {
+        "mean": [
+          -0.02199791753786593,
+          0.0,
+          -0.44197348282312743
+        ],
+        "centered_covariance_diagonal": [
+          0.00948883986520917,
+          0.009493309328287501,
+          0.007689109670195444
+        ],
+        "ordinary_cold_vz": -0.446209486548625,
+        "mean_input_proper_momentum": [
+          -0.02482387634742145,
+          0.0,
+          -0.49875160349405256
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          -0.021876922134583792,
+          0.0,
+          -0.4409879979563984
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.009964909731748605,
+          0.009497922182104487,
+          0.007706326822005949
+        ],
+        "finite_particle_mean_square_bias": [
+          4.592665962452666e-06,
+          4.59601186854947e-06,
+          3.7247178936274957e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009960317065786152,
+          0.009493326170235938,
+          0.007702602104112321
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013189563463772777,
+          0.00013194367101396174,
+          0.00011878037307203443
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.00036445620620043334,
+          0.000364586663549044,
+          0.0003288383165451025
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": -0.44108788897704515,
+        "Pxx": 0.009963680490988221,
+        "Pzz": 0.007712832436650328
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": 0.0008855938460822776,
+        "TSC_mean_vz": -9.989102064672517e-05,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": -0.840972444042975,
+        "TSC_expected_sample_Pxx": 3.3634252020690175e-06,
+        "TSC_expected_sample_Pzz": 1.0230332538006641e-05
+      }
+    },
+    {
+      "row": 480,
+      "raw_y": 16.050000000000004,
+      "paper_y": 48.050000000000004,
+      "model": "public_loader_pushforward",
+      "zero_shape": {
+        "mean": [
+          0.02199791753786904,
+          0.0,
+          -0.44197348282312715
+        ],
+        "centered_covariance_diagonal": [
+          0.00948883986520917,
+          0.009493309328287501,
+          0.0076891096701954455
+        ],
+        "ordinary_cold_vz": -0.4462094865486247,
+        "mean_input_proper_momentum": [
+          0.024823876347424927,
+          0.0,
+          -0.4987516034940522
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          0.02187692213458688,
+          0.0,
+          -0.44098799795639826
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.009964909731748605,
+          0.009497922182104487,
+          0.007706326822005963
+        ],
+        "finite_particle_mean_square_bias": [
+          4.592665962452666e-06,
+          4.59601186854947e-06,
+          3.7247178936274974e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009960317065786152,
+          0.009493326170235938,
+          0.007702602104112335
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013189563463774796,
+          0.00013194367101394317,
+          0.00011878037307205168
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.00036445620620048814,
+          0.00036458666354899355,
+          0.00032883831654514933
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": -0.4408435543513613,
+        "Pxx": 0.009965137045970419,
+        "Pzz": 0.007715378150590989
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": 0.0011299284717658509,
+        "TSC_mean_vz": 0.00014444360503695908,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": 1.2160561656877453,
+        "TSC_expected_sample_Pxx": 4.819980184266742e-06,
+        "TSC_expected_sample_Pzz": 1.2776046478653325e-05
+      }
+    },
+    {
+      "row": 159,
+      "raw_y": -16.049999999999997,
+      "paper_y": 15.950000000000003,
+      "model": "invariant_scalar_distribution",
+      "zero_shape": {
+        "mean": [
+          -0.022208743647157476,
+          0.0,
+          0.4462101699577754
+        ],
+        "centered_covariance_diagonal": [
+          0.009445731656598328,
+          0.009450307777759088,
+          0.007603046160140297
+        ],
+        "ordinary_cold_vz": 0.44621016995777546,
+        "mean_input_proper_momentum": [
+          -0.02482387634742145,
+          0.0,
+          0.49875255727751583
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          -0.02208689610015215,
+          0.0,
+          0.44521728842156505
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.00993094743396879,
+          0.009454986718608201,
+          0.007620541830686764
+        ],
+        "finite_particle_mean_square_bias": [
+          4.5717910490350045e-06,
+          4.575216981693466e-06,
+          3.6831162979331932e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009926375642919755,
+          0.009450411501626508,
+          0.007616858714388831
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013159554251854742,
+          0.00013164483972321532,
+          0.00011811517792890749
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.00036364121535316813,
+          0.00036377509677403485,
+          0.0003270318412985061
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": 0.4409872227576353,
+        "Pxx": 0.009948679931370285,
+        "Pzz": 0.007696529306960078
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": -0.0052229472001401045,
+        "TSC_mean_vz": -0.00423006566392975,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": -35.81305754350884,
+        "TSC_expected_sample_Pxx": 2.2304288450529855e-05,
+        "TSC_expected_sample_Pzz": 7.967059257124685e-05
+      }
+    },
+    {
+      "row": 160,
+      "raw_y": -15.95,
+      "paper_y": 16.05,
+      "model": "invariant_scalar_distribution",
+      "zero_shape": {
+        "mean": [
+          0.022208743647159048,
+          0.0,
+          0.4462101699577753
+        ],
+        "centered_covariance_diagonal": [
+          0.009445731656598328,
+          0.00945030777775909,
+          0.007603046160140301
+        ],
+        "ordinary_cold_vz": 0.44621016995777535,
+        "mean_input_proper_momentum": [
+          0.024823876347423154,
+          0.0,
+          0.49875255727751544
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          0.022086896100153682,
+          0.0,
+          0.44521728842156494
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.00993094743396879,
+          0.009454986718608201,
+          0.0076205418306867665
+        ],
+        "finite_particle_mean_square_bias": [
+          4.5717910490350045e-06,
+          4.575216981693466e-06,
+          3.6831162979331945e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009926375642919755,
+          0.009450411501626508,
+          0.0076168587143888335
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013159554251853376,
+          0.00013164483972320776,
+          0.00011811517792890593
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.00036364121535313105,
+          0.00036377509677401425,
+          0.0003270318412985018
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": 0.44087668789620893,
+        "Pxx": 0.009975433256479592,
+        "Pzz": 0.007693028300607572
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": -0.005333482061566364,
+        "TSC_mean_vz": -0.004340600525356009,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": -36.74888021562001,
+        "TSC_expected_sample_Pxx": 4.905761355983654e-05,
+        "TSC_expected_sample_Pzz": 7.616958621873855e-05
+      }
+    },
+    {
+      "row": 479,
+      "raw_y": 15.950000000000003,
+      "paper_y": 47.95,
+      "model": "invariant_scalar_distribution",
+      "zero_shape": {
+        "mean": [
+          -0.022208752103199853,
+          0.0,
+          -0.44620948654862536
+        ],
+        "centered_covariance_diagonal": [
+          0.009445738780539214,
+          0.009450314908575728,
+          0.007603057580555599
+        ],
+        "ordinary_cold_vz": -0.446209486548625,
+        "mean_input_proper_momentum": [
+          -0.02482387634742145,
+          0.0,
+          -0.49875160349405256
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          -0.022086904461409443,
+          0.0,
+          -0.44521660397932383
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.009930954907855912,
+          0.009454993839916994,
+          0.00762055325829124
+        ],
+        "finite_particle_mean_square_bias": [
+          4.571794492873566e-06,
+          4.575220430656401e-06,
+          3.6831218249414673e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009926383113363038,
+          0.009450418619486338,
+          0.007616870136466299
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013159559208309732,
+          0.00013164488934292614,
+          0.00011811526655342643
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.0003636413499606381,
+          0.00036377523153132584,
+          0.0003270320819765038
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": -0.44108788897704515,
+        "Pxx": 0.009963680490988221,
+        "Pzz": 0.007712832436650328
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": 0.005121597571580205,
+        "TSC_mean_vz": 0.004128715002278682,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": 34.95496494867717,
+        "TSC_expected_sample_Pxx": 3.729737762518323e-05,
+        "TSC_expected_sample_Pzz": 9.596230018402933e-05
+      }
+    },
+    {
+      "row": 480,
+      "raw_y": 16.050000000000004,
+      "paper_y": 48.050000000000004,
+      "model": "invariant_scalar_distribution",
+      "zero_shape": {
+        "mean": [
+          0.022208752103203,
+          0.0,
+          -0.4462094865486252
+        ],
+        "centered_covariance_diagonal": [
+          0.009445738780539214,
+          0.00945031490857573,
+          0.007603057580555602
+        ],
+        "ordinary_cold_vz": -0.4462094865486247,
+        "mean_input_proper_momentum": [
+          0.024823876347424927,
+          0.0,
+          -0.4987516034940522
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          0.02208690446141256,
+          0.0,
+          -0.4452166039793235
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.009930954907855909,
+          0.009454993839916995,
+          0.007620553258291252
+        ],
+        "finite_particle_mean_square_bias": [
+          4.571794492873566e-06,
+          4.575220430656401e-06,
+          3.6831218249414694e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.009926383113363035,
+          0.00945041861948634,
+          0.00761687013646631
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013159559208308173,
+          0.00013164488934292216,
+          0.00011811526655342242
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.0003636413499605957,
+          0.00036377523153131505,
+          0.0003270320819764929
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": -0.4408435543513613,
+        "Pxx": 0.009965137045970419,
+        "Pzz": 0.007715378150590989
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": 0.00536593219726389,
+        "TSC_mean_vz": 0.0043730496279622,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": 37.0235766769769,
+        "TSC_expected_sample_Pxx": 3.8753932607384425e-05,
+        "TSC_expected_sample_Pzz": 9.850801412467861e-05
+      }
+    },
+    {
+      "row": 159,
+      "raw_y": -16.049999999999997,
+      "paper_y": 15.950000000000003,
+      "model": "classical_momentum_addition",
+      "zero_shape": {
+        "mean": [
+          -0.021737705479840604,
+          0.0,
+          0.43674624280972313
+        ],
+        "centered_covariance_diagonal": [
+          0.009595763793644154,
+          0.009603672098395492,
+          0.006411294711661743
+        ],
+        "ordinary_cold_vz": 0.44621016995777546,
+        "mean_input_proper_momentum": [
+          -0.02482387634742145,
+          0.0,
+          0.49875255727751583
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          -0.02161742133658041,
+          0.0,
+          0.43576761928456637
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.010057088121407614,
+          0.009608141207991737,
+          0.006433342734549175
+        ],
+        "finite_particle_mean_square_bias": [
+          4.643466294332768e-06,
+          4.649388613705152e-06,
+          3.1075839423519787e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.01005244465511328,
+          0.009603491819378033,
+          0.0064302351506068224
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013262308960639596,
+          0.00013270763700744658,
+          0.00010849492568617604
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.0003664318322869805,
+          0.00036666144677569907,
+          0.0003009065049708663
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": 0.4409872227576353,
+        "Pxx": 0.009948679931370285,
+        "Pzz": 0.007696529306960078
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": 0.004240979947912171,
+        "TSC_mean_vz": 0.0052196034730689345,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": 48.10919441676703,
+        "TSC_expected_sample_Pxx": -0.00010376472374299534,
+        "TSC_expected_sample_Pzz": 0.0012662941563532553
+      }
+    },
+    {
+      "row": 160,
+      "raw_y": -15.95,
+      "paper_y": 16.05,
+      "model": "classical_momentum_addition",
+      "zero_shape": {
+        "mean": [
+          0.02173770547984215,
+          0.0,
+          0.436746242809723
+        ],
+        "centered_covariance_diagonal": [
+          0.009595763793644154,
+          0.009603672098395492,
+          0.006411294711661753
+        ],
+        "ordinary_cold_vz": 0.44621016995777535,
+        "mean_input_proper_momentum": [
+          0.024823876347423154,
+          0.0,
+          0.49875255727751544
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          0.021617421336581937,
+          0.0,
+          0.43576761928456614
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.010057088121407614,
+          0.009608141207991737,
+          0.006433342734549179
+        ],
+        "finite_particle_mean_square_bias": [
+          4.643466294332768e-06,
+          4.649388613705152e-06,
+          3.1075839423519796e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.01005244465511328,
+          0.009603491819378033,
+          0.006430235150606827
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013262308960639734,
+          0.00013270763700745552,
+          0.00010849492568617825
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.00036643183228698425,
+          0.00036666144677572336,
+          0.0003009065049708723
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": 0.44087668789620893,
+        "Pxx": 0.009975433256479592,
+        "Pzz": 0.007693028300607572
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": 0.004130445086485912,
+        "TSC_mean_vz": 0.005109068611642786,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": 47.09039228637085,
+        "TSC_expected_sample_Pxx": -7.701139863368865e-05,
+        "TSC_expected_sample_Pzz": 0.0012627931500007452
+      }
+    },
+    {
+      "row": 479,
+      "raw_y": 15.950000000000003,
+      "paper_y": 47.95,
+      "model": "classical_momentum_addition",
+      "zero_shape": {
+        "mean": [
+          -0.021737713233436155,
+          0.0,
+          -0.4367455633855287
+        ],
+        "centered_covariance_diagonal": [
+          0.009595770593219971,
+          0.009603678911359066,
+          0.0064113083301358354
+        ],
+        "ordinary_cold_vz": -0.446209486548625,
+        "mean_input_proper_momentum": [
+          -0.02482387634742145,
+          0.0,
+          -0.49875160349405256
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          -0.021617429001725773,
+          0.0,
+          -0.4357669388943724
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.010057095226850044,
+          0.009608148011290833,
+          0.006433356368342905
+        ],
+        "finite_particle_mean_square_bias": [
+          4.643469579422546e-06,
+          4.649391908774761e-06,
+          3.1075905357348224e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.010052451757270622,
+          0.009603498619382058,
+          0.006430248777807171
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013262313651987435,
+          0.00013270768403346504,
+          0.00010849504078430751
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.0003664319596949578,
+          0.0003666615744893373,
+          0.0003009068175327454
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": -0.44108788897704515,
+        "Pxx": 0.009963680490988221,
+        "Pzz": 0.007712832436650328
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": -0.004342325591516427,
+        "TSC_mean_vz": -0.0053209500826727485,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": -49.043256209756265,
+        "TSC_expected_sample_Pxx": -8.877126628240029e-05,
+        "TSC_expected_sample_Pzz": 0.0012825836588431574
+      }
+    },
+    {
+      "row": 480,
+      "raw_y": 16.050000000000004,
+      "paper_y": 48.050000000000004,
+      "model": "classical_momentum_addition",
+      "zero_shape": {
+        "mean": [
+          0.021737713233439204,
+          0.0,
+          -0.4367455633855284
+        ],
+        "centered_covariance_diagonal": [
+          0.009595770593219971,
+          0.009603678911359069,
+          0.006411308330135844
+        ],
+        "ordinary_cold_vz": -0.4462094865486247,
+        "mean_input_proper_momentum": [
+          0.024823876347424927,
+          0.0,
+          -0.4987516034940522
+        ]
+      },
+      "conditional_standard_quadratic_deposition": {
+        "mean": [
+          0.021617429001728843,
+          0.0,
+          -0.43576693889437196
+        ],
+        "centered_covariance_diagonal_infinite_sample": [
+          0.010057095226850044,
+          0.009608148011290833,
+          0.0064333563683429225
+        ],
+        "finite_particle_mean_square_bias": [
+          4.643469579422546e-06,
+          4.649391908774762e-06,
+          3.107590535734824e-06
+        ],
+        "expected_sample_covariance_diagonal": [
+          0.010052451757270622,
+          0.009603498619382058,
+          0.006430248777807188
+        ],
+        "ideal_independent_sampler_row_mean_standard_error": [
+          0.00013262313651987893,
+          0.00013270768403347665,
+          0.00010849504078430932
+        ],
+        "ideal_independent_sampler_row_mean_Bernstein_95_halfwidth": [
+          0.0003664319596949702,
+          0.00036666157448936873,
+          0.00030090681753275035
+        ],
+        "max_row_average_particle_weight": 2.4999999999999998e-06,
+        "parameters_fitted": 0
+      },
+      "archived_moments": {
+        "mean_vz": -0.4408435543513613,
+        "Pxx": 0.009965137045970419,
+        "Pzz": 0.007715378150590989
+      },
+      "conditional_residuals_observed_minus_prediction": {
+        "zero_shape_mean_vz": -0.0040979909658329094,
+        "TSC_mean_vz": -0.005076615456989342,
+        "TSC_mean_vz_in_ideal_sampling_standard_errors": -46.79122124191623,
+        "TSC_expected_sample_Pxx": -8.731471130020256e-05,
+        "TSC_expected_sample_Pzz": 0.0012851293727838007
+      }
+    }
+  ],
+  "limitations": [
+    "The original simulation executable and custom vfl/velocity-second-moment diagnostic source were not identified.",
+    "The standard quadratic sensitivity follows the deck interpolation order and current public generic deposit_v3 shape, but that does not verify the authors custom diagnostic implementation.",
+    "Zero-shape and quadratic sensitivity predictions are reported separately; no deposition parameter was calibrated against archived values.",
+    "An invariant scalar distribution and an unweighted Lorentz-transformed sample ensemble are different probability measures; the latter matches the inspected public thermal branch.",
+    "No causal claim about later nonlinear reconnection results follows from these initial-loading checks."
+  ]
+}

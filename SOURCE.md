@@ -86,6 +86,11 @@ the free-expansion limitation must be retained when assessing the conclusions.
 
 The paper's data citation resolves to **Madox McGrae-Menge, Zenodo record
 21114117**, DOI [10.5281/zenodo.21114117](https://doi.org/10.5281/zenodo.21114117).
+The source's concept DOI is `10.5281/zenodo.21114116`; the inspected
+record-specific DOI is `10.5281/zenodo.21114117`. The [DOI agency lookup](https://doi.org/ra/10.5281/zenodo.21114117)
+identifies DataCite, and the [DataCite API](https://api.datacite.org/dois/10.5281/zenodo.21114117)
+returns it as `findable`. Crossref's HTTP 404 for this DataCite identifier is
+a registry-coverage result, not evidence of an invalid dataset DOI.
 The [public API record](https://zenodo.org/api/records/21114117) returned HTTP
 200 on 28 October 2026. It reports:
 

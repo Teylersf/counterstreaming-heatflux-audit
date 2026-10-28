@@ -1,0 +1,551 @@
+{
+  "generated_at_utc": "2026-10-28T23:39:49.311836+00:00",
+  "revision_script_sha256": "ad9f47607fecb68eb3a914783e3d88af8cef1e05c5ed557784286fea901db0db",
+  "scope": "Reanalysis of posted t=0 outputs; no new simulation or dynamical-effect claim",
+  "complete_native_current_inventory": {
+    "entire_central_directory_examined": true,
+    "all_entries": 223,
+    "scientific_non_directory_entries": 94,
+    "candidate_native_current_paths": [],
+    "native_deposited_current_archived": false,
+    "scope": "No native deposited-current file is identifiable among the complete posted PIC member names. UDIST velocity moments are not substituted for native deposited current."
+  },
+  "BP_snapshot_evidence": [
+    {
+      "file": "fluid1-electrons1_0.bp",
+      "bp_sha256": "70dc91d89874d62e045eea62d67c9788a8f869733330eed2da6f2710f41ee452",
+      "numeric_export_sha256": "8d2bd5af573d555c2a7a79726985be096a9393a366d68c32525ce7d26346d544",
+      "time": 0.0,
+      "frame": 0,
+      "available_steps": 1,
+      "source_shape": [
+        480,
+        640,
+        10
+      ],
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "attributes": {
+        "/__adios__/create_time_epoch": 1773246672,
+        "/__adios__/update_time_epoch": 1773246672,
+        "/__adios__/version": "1.13.1",
+        "basisType": "serendipity",
+        "builddate": "Oct 23 2023 21:19:55",
+        "changeset": "9663ea594e80+",
+        "charge": -1,
+        "grid": "one_fluid_newgkyl_EoR_10moment_BgBr0point1_Beta0point1_k0point1_grid.bp",
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "lowerGhost": 0,
+        "mass": 1,
+        "numCells": [
+          480,
+          640
+        ],
+        "polyOrder": 0,
+        "type": "uniform",
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "upperGhost": 0
+      },
+      "embedded_input_bytes": 8500,
+      "embedded_input_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "fluid2-electrons1_0.bp",
+      "bp_sha256": "3f63e7137d31efac2f5d281e6d7a13d6c7718dc8247bfada9a5fc82b00283254",
+      "numeric_export_sha256": "63414989c93e5b5f3376188498fd2b65515729d83bab8816353b3ad43aeb966b",
+      "time": 0.0,
+      "frame": 0,
+      "available_steps": 1,
+      "source_shape": [
+        480,
+        640,
+        10
+      ],
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "attributes": {
+        "/__adios__/create_time_epoch": 1778800036,
+        "/__adios__/update_time_epoch": 1778800036,
+        "/__adios__/version": "1.13.1",
+        "basisType": "serendipity",
+        "builddate": "Oct 23 2023 21:19:55",
+        "changeset": "9663ea594e80+",
+        "charge": -1,
+        "grid": "two_fluid_newgkyl_EoR_10moment_BgBr0point1_Beta0point1_k0point1_grid.bp",
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "lowerGhost": 0,
+        "mass": 1,
+        "numCells": [
+          480,
+          640
+        ],
+        "polyOrder": 0,
+        "type": "uniform",
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "upperGhost": 0
+      },
+      "embedded_input_bytes": 10979,
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "fluid2-electrons2_0.bp",
+      "bp_sha256": "47e5e266be22a293739a197bed4f37c01889fdc6e50e1af6f930fc3f71f5324c",
+      "numeric_export_sha256": "9ea5d9984fea84df407f8d321543bac0cf1238de411fa9d36a68b53526b87901",
+      "time": 0.0,
+      "frame": 0,
+      "available_steps": 1,
+      "source_shape": [
+        480,
+        640,
+        10
+      ],
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "attributes": {
+        "/__adios__/create_time_epoch": 1778800036,
+        "/__adios__/update_time_epoch": 1778800036,
+        "/__adios__/version": "1.13.1",
+        "basisType": "serendipity",
+        "builddate": "Oct 23 2023 21:19:55",
+        "changeset": "9663ea594e80+",
+        "charge": -1,
+        "grid": "two_fluid_newgkyl_EoR_10moment_BgBr0point1_Beta0point1_k0point1_grid.bp",
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "lowerGhost": 0,
+        "mass": 1,
+        "numCells": [
+          480,
+          640
+        ],
+        "polyOrder": 0,
+        "type": "uniform",
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "upperGhost": 0
+      },
+      "embedded_input_bytes": 10979,
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "fluid1-field_0.bp",
+      "bp_sha256": "270eb787ab80535fe6164e40ecef6da764a1450319ccfbf5b534af2ff216bf38",
+      "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+      "time": 0.0,
+      "frame": 0,
+      "available_steps": 1,
+      "source_shape": [
+        480,
+        640,
+        8
+      ],
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "attributes": {
+        "/__adios__/create_time_epoch": 1773246672,
+        "/__adios__/update_time_epoch": 1773246672,
+        "/__adios__/version": "1.13.1",
+        "basisType": "serendipity",
+        "builddate": "Oct 23 2023 21:19:55",
+        "changeset": "9663ea594e80+",
+        "epsilon0": 1,
+        "grid": "one_fluid_newgkyl_EoR_10moment_BgBr0point1_Beta0point1_k0point1_grid.bp",
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "lowerGhost": 0,
+        "mu0": 1,
+        "numCells": [
+          480,
+          640
+        ],
+        "polyOrder": 0,
+        "type": "uniform",
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "upperGhost": 0
+      },
+      "embedded_input_bytes": 8500,
+      "embedded_input_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "fluid2-field_0.bp",
+      "bp_sha256": "289efc1b62c6b3c7dbde058d6277399e731e7588556712a3c1f6049390328818",
+      "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+      "time": 0.0,
+      "frame": 0,
+      "available_steps": 1,
+      "source_shape": [
+        480,
+        640,
+        8
+      ],
+      "reader": "ADIOS2 2.13.0.1001",
+      "reader_python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "reader_platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "reader_numpy": "2.3.5",
+      "attributes": {
+        "/__adios__/create_time_epoch": 1778800036,
+        "/__adios__/update_time_epoch": 1778800036,
+        "/__adios__/version": "1.13.1",
+        "basisType": "serendipity",
+        "builddate": "Oct 23 2023 21:19:55",
+        "changeset": "9663ea594e80+",
+        "epsilon0": 1,
+        "grid": "two_fluid_newgkyl_EoR_10moment_BgBr0point1_Beta0point1_k0point1_grid.bp",
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "lowerGhost": 0,
+        "mu0": 1,
+        "numCells": [
+          480,
+          640
+        ],
+        "polyOrder": 0,
+        "type": "uniform",
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "upperGhost": 0
+      },
+      "embedded_input_bytes": 10979,
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "explicit_time_averaging_attribute_names": []
+    }
+  ],
+  "PIC_snapshot_timing": [
+    {
+      "file": "b2-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "b3-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "b1-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "charge-electrons1-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "charge-electrons2-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "v1v1-electrons1-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "v3v3-electrons1-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "vfl3-electrons1-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "vfl1-electrons1-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "v1v1-electrons2-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "v3v3-electrons2-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "vfl3-electrons2-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "file": "vfl1-electrons2-000000.h5",
+      "TIME": 0.0,
+      "ITER": 0,
+      "explicit_time_averaging_attribute_names": []
+    }
+  ],
+  "time_averaging_scope": "Fluid time/frame and PIC TIME/ITER are zero and no explicit averaging attribute is present. This checks posted snapshot metadata; it is not private-code certification that an undocumented averaging operation is impossible.",
+  "build_identifier_scope": "Recorded changeset 9663ea594e80+ includes a plus suffix and is a dirty/partial build identifier, not certification of a clean exact source tree or executable.",
+  "initializer_corroboration": {
+    "fluid1_component_max_absolute_errors": {
+      "rho": 0.0,
+      "rho_ux": 4.371503159461554e-16,
+      "rho_uy": 0.0,
+      "rho_uz": 2.220446049250313e-16,
+      "Mxx": 8.326672684688674e-17,
+      "Mxy": 0.0,
+      "Mxz": 1.1102230246251565e-16,
+      "Myy": 0.0,
+      "Myz": 0.0,
+      "Mzz": 1.942890293094024e-16
+    },
+    "fluid2_population1_component_max_absolute_errors": {
+      "rho": 1.1102230246251565e-16,
+      "rho_ux": 4.3021142204224816e-16,
+      "rho_uy": 0.0,
+      "rho_uz": 1.3877787807814457e-16,
+      "Mxx": 8.326672684688674e-17,
+      "Mxy": 0.0,
+      "Mxz": 6.245004513516506e-17,
+      "Myy": 1.734723475976807e-18,
+      "Myz": 0.0,
+      "Mzz": 1.1102230246251565e-16
+    },
+    "fluid2_population2_component_max_absolute_errors": {
+      "rho": 1.1102230246251565e-16,
+      "rho_ux": 2.1510571102112408e-16,
+      "rho_uy": 0.0,
+      "rho_uz": 1.6653345369377348e-16,
+      "Mxx": 4.85722573273506e-17,
+      "Mxy": 0.0,
+      "Mxz": 9.020562075079397e-17,
+      "Myy": 1.734723475976807e-18,
+      "Myz": 0.0,
+      "Mzz": 1.5265566588595902e-16
+    },
+    "fluid1_field_first_six_components_max_absolute_error": 1.1102230246251565e-15,
+    "fluid2_field_first_six_components_max_absolute_error": 1.1102230246251565e-15,
+    "fluid2_sum_vs_fluid1_full_state_max_absolute_error": 1.1102230246251565e-16,
+    "fluid2_field_vs_fluid1_max_absolute_error": 0.0,
+    "component_order_evidence": "Byte-identical embedded inputfiles return rho,rho*ux,rho*uy,rho*uz,Mxx,Mxy,Mxz,Myy,Myz,Mzz. Every component is compared over all 480*640 cells with its analytic initializer; BP metadata gives [480,640,10], mass=1, charge=-1, zero ghosts and polyOrder=0."
+  },
+  "profile_comparisons": {
+    "entire_640_row_profile": {
+      "rows": 640,
+      "fluid1": {
+        "jz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.09867533903308606,
+          "max_absolute_PIC_minus_archived_fluid": 0.05790804257286142
+        },
+        "pxx": {
+          "relative_L2_PIC_minus_archived_fluid": 0.0831686408923296,
+          "max_absolute_PIC_minus_archived_fluid": 0.0028086368903233253
+        },
+        "pzz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.09543957306033514,
+          "max_absolute_PIC_minus_archived_fluid": 0.004806882508392314
+        }
+      },
+      "fluid2": {
+        "jz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.09867533903308605,
+          "max_absolute_PIC_minus_archived_fluid": 0.05790804257286142
+        },
+        "pxx": {
+          "relative_L2_PIC_minus_archived_fluid": 0.0831686408923296,
+          "max_absolute_PIC_minus_archived_fluid": 0.0028086368903233253
+        },
+        "pzz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.09543957306033517,
+          "max_absolute_PIC_minus_archived_fluid": 0.004806882508392319
+        }
+      }
+    },
+    "both_sheets_within_3de": {
+      "rows": 120,
+      "fluid1": {
+        "jz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.09866871760098779,
+          "max_absolute_PIC_minus_archived_fluid": 0.05790804257286142
+        },
+        "pxx": {
+          "relative_L2_PIC_minus_archived_fluid": 0.1491113318669546,
+          "max_absolute_PIC_minus_archived_fluid": 0.0028086368903233253
+        },
+        "pzz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.18387577241287303,
+          "max_absolute_PIC_minus_archived_fluid": 0.004806882508392314
+        }
+      },
+      "fluid2": {
+        "jz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.09866871760098778,
+          "max_absolute_PIC_minus_archived_fluid": 0.05790804257286142
+        },
+        "pxx": {
+          "relative_L2_PIC_minus_archived_fluid": 0.14911133186695463,
+          "max_absolute_PIC_minus_archived_fluid": 0.0028086368903233253
+        },
+        "pzz": {
+          "relative_L2_PIC_minus_archived_fluid": 0.1838757724128731,
+          "max_absolute_PIC_minus_archived_fluid": 0.004806882508392319
+        }
+      }
+    }
+  },
+  "sheet_center_rows": [
+    {
+      "row": 159,
+      "raw_y": -16.049999999999997,
+      "paper_y": 15.950000000000003,
+      "pic_jz": -0.44098722932885703,
+      "pic_vz": 0.4409872227576353,
+      "pic_pxx": 0.009948679931370285,
+      "pic_pzz": 0.007696529306960078,
+      "pic_staggered_required_jz": -0.49833998084069187,
+      "fluid1_n": 1.0,
+      "fluid1_jz": -0.4987525572782639,
+      "fluid1_vz": 0.4987525572782639,
+      "fluid1_pxx": 0.012499910808999886,
+      "fluid1_pyy": 0.012499910808999886,
+      "fluid1_pzz": 0.012499910808999886,
+      "fluid2_n": 1.0,
+      "fluid2_jz": -0.4987525572782639,
+      "fluid2_vz": 0.4987525572782639,
+      "fluid2_pxx": 0.012499910808999886,
+      "fluid2_pyy": 0.012499910808999886,
+      "fluid2_pzz": 0.012499910808999898,
+      "current_deficit_relative_to_archived_fluid1": 0.11581961256426887,
+      "Pxx_ratio_to_archived_fluid1": 0.7959000734795064,
+      "Pzz_ratio_to_archived_fluid1": 0.6157267379394905
+    },
+    {
+      "row": 160,
+      "raw_y": -15.95,
+      "paper_y": 16.05,
+      "pic_jz": -0.4408766944657836,
+      "pic_vz": 0.44087668789620893,
+      "pic_pxx": 0.009975433256479592,
+      "pic_pzz": 0.007693028300607572,
+      "pic_staggered_required_jz": -0.4983399808406741,
+      "fluid1_n": 1.0,
+      "fluid1_jz": -0.49875255727826373,
+      "fluid1_vz": 0.49875255727826373,
+      "fluid1_pxx": 0.012499910808999886,
+      "fluid1_pyy": 0.012499910808999886,
+      "fluid1_pzz": 0.012499910808999886,
+      "fluid2_n": 1.0,
+      "fluid2_jz": -0.49875255727826373,
+      "fluid2_vz": 0.49875255727826373,
+      "fluid2_pxx": 0.012499910808999886,
+      "fluid2_pyy": 0.012499910808999886,
+      "fluid2_pzz": 0.012499910808999891,
+      "current_deficit_relative_to_archived_fluid1": 0.11604123521353715,
+      "Pxx_ratio_to_archived_fluid1": 0.7980403547597571,
+      "Pzz_ratio_to_archived_fluid1": 0.615446655432823
+    },
+    {
+      "row": 479,
+      "raw_y": 15.950000000000003,
+      "paper_y": 47.95,
+      "pic_jz": 0.44108789554976696,
+      "pic_vz": -0.44108788897704515,
+      "pic_pxx": 0.009963680490988221,
+      "pic_pzz": 0.007712832436650328,
+      "pic_staggered_required_jz": 0.4983399808407185,
+      "fluid1_n": 1.0,
+      "fluid1_jz": 0.49875160349330433,
+      "fluid1_vz": -0.49875160349330433,
+      "fluid1_pxx": 0.012499910808999886,
+      "fluid1_pyy": 0.012499910808999886,
+      "fluid1_pzz": 0.012499910808999887,
+      "fluid2_n": 1.0,
+      "fluid2_jz": 0.4987516034933043,
+      "fluid2_vz": -0.4987516034933043,
+      "fluid2_pxx": 0.012499910808999886,
+      "fluid2_pyy": 0.012499910808999886,
+      "fluid2_pzz": 0.012499910808999896,
+      "current_deficit_relative_to_archived_fluid1": 0.1156160853211402,
+      "Pxx_ratio_to_archived_fluid1": 0.7971001268116579,
+      "Pzz_ratio_to_archived_fluid1": 0.6170309976209685
+    },
+    {
+      "row": 480,
+      "raw_y": 16.050000000000004,
+      "paper_y": 48.050000000000004,
+      "pic_jz": 0.44084356092044225,
+      "pic_vz": -0.4408435543513613,
+      "pic_pxx": 0.009965137045970419,
+      "pic_pzz": 0.007715378150590989,
+      "pic_staggered_required_jz": 0.49833998084064746,
+      "fluid1_n": 1.0,
+      "fluid1_jz": 0.49875160349330366,
+      "fluid1_vz": -0.49875160349330366,
+      "fluid1_pxx": 0.012499910808999886,
+      "fluid1_pyy": 0.012499910808999886,
+      "fluid1_pzz": 0.012499910808999887,
+      "fluid2_n": 1.0,
+      "fluid2_jz": 0.49875160349330366,
+      "fluid2_vz": -0.49875160349330366,
+      "fluid2_pxx": 0.012499910808999886,
+      "fluid2_pyy": 0.012499910808999886,
+      "fluid2_pzz": 0.01249991080899989,
+      "current_deficit_relative_to_archived_fluid1": 0.11610597773975662,
+      "Pxx_ratio_to_archived_fluid1": 0.7972166520416738,
+      "Pzz_ratio_to_archived_fluid1": 0.6172346561893822
+    }
+  ],
+  "profile_csv": "data/derived/revision-fluid-profiles.csv",
+  "profile_csv_sha256": "9c42755c1f7b6073b6f49f627eeaf8f736f4de46aa3cdc35f9629dacdd565ded",
+  "full_archive_checksum_verified": false,
+  "native_deposited_current_compared": false,
+  "all_checks_passed": true
+}

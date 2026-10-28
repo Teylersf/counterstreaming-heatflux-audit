@@ -1,0 +1,160 @@
+{
+  "scope": "Reanalysis of the same archived t=0 PIC files, not an independent simulation or independent validation of custom diagnostics.",
+  "grid_shape": [
+    640,
+    480
+  ],
+  "TIME": 0.0,
+  "ITER": 0,
+  "norm_definition": "L2 norms of the selected rows of x-averaged one-dimensional profiles, not norms of the full two-dimensional fields.",
+  "scatter_scope": "Spatial variations and eight contiguous block means are descriptive. No independence assumption, standard-error confidence interval, or new sampling error bar is claimed.",
+  "pressure_scope": "The source definition centers each local cell before x averaging. Reversing the order adds resolved bulk-flow variance and changes the diagnostic.",
+  "regions": {
+    "full_domain": {
+      "rows": 640,
+      "PIC_minus_Yee_relative_L2": 0.0982645501519822,
+      "collocated_minus_Yee_relative_L2": 0.0037546247597986617,
+      "prescription_minus_Yee_relative_L2": 0.0006297108910567844,
+      "max_absolute_PIC_minus_Yee": 0.05749641992020521
+    },
+    "lower_sheet_Y14_to18": {
+      "rows": 40,
+      "PIC_minus_Yee_relative_L2": 0.0982868710384779,
+      "collocated_minus_Yee_relative_L2": 0.00373601026290819,
+      "prescription_minus_Yee_relative_L2": 0.0006267738967099086,
+      "max_absolute_PIC_minus_Yee": 0.05746328637489051
+    },
+    "upper_sheet_Y46_to50": {
+      "rows": 40,
+      "PIC_minus_Yee_relative_L2": 0.0984081430559744,
+      "collocated_minus_Yee_relative_L2": 0.00373601026290819,
+      "prescription_minus_Yee_relative_L2": 0.0006265143170164112,
+      "max_absolute_PIC_minus_Yee": 0.05749641992020521
+    },
+    "current_carrying_abs_Yee_ge0.05": {
+      "rows": 72,
+      "PIC_minus_Yee_relative_L2": 0.09845399366727735,
+      "collocated_minus_Yee_relative_L2": 0.0037173528398033364,
+      "prescription_minus_Yee_relative_L2": 0.0006235794566290465,
+      "max_absolute_PIC_minus_Yee": 0.05749641992020521
+    }
+  },
+  "adjacent_sheet_rows": [
+    {
+      "row": 159,
+      "Y": 15.950000000000003,
+      "moment_current": -0.44098722932885703,
+      "Yee_current": -0.49833998084069187,
+      "collocated_current": -0.4958891496062299,
+      "current_deficit_Yee": 0.11508759825989001,
+      "current_deficit_collocated": 0.11071409874761073,
+      "current_deficit_prescription": 0.11581961256426809,
+      "per_x_current_standard_deviation": 0.0019905759522010633,
+      "eight_spatial_block_mean_currents": [
+        -0.44157266026893377,
+        -0.44119627878825857,
+        -0.4409325086366898,
+        -0.44071081929262707,
+        -0.4407008648367377,
+        -0.44063922919589527,
+        -0.4404351209744154,
+        -0.4417103526372986
+      ],
+      "block_mean_range": [
+        -0.4417103526372986,
+        -0.4404351209744154
+      ],
+      "Pxx_center_before_average": 0.009948679931370285,
+      "Pxx_average_before_center": 0.00995306176733944,
+      "Pzz_center_before_average": 0.007696529306960078,
+      "Pzz_average_before_center": 0.007700491699522499
+    },
+    {
+      "row": 160,
+      "Y": 16.05,
+      "moment_current": -0.4408766944657836,
+      "Yee_current": -0.4983399808406741,
+      "collocated_current": -0.4958891496062259,
+      "current_deficit_Yee": 0.11530940439085957,
+      "current_deficit_collocated": 0.11093700111028126,
+      "current_deficit_prescription": 0.11604123521353615,
+      "per_x_current_standard_deviation": 0.0019543616946144137,
+      "eight_spatial_block_mean_currents": [
+        -0.4410158750702115,
+        -0.4408868352167897,
+        -0.44088964006308407,
+        -0.44080457500211007,
+        -0.44022476844473707,
+        -0.4407652766707028,
+        -0.4410917369498838,
+        -0.44133484830874925
+      ],
+      "block_mean_range": [
+        -0.44133484830874925,
+        -0.44022476844473707
+      ],
+      "Pxx_center_before_average": 0.009975433256479592,
+      "Pxx_average_before_center": 0.00998007606299182,
+      "Pzz_center_before_average": 0.007693028300607572,
+      "Pzz_average_before_center": 0.007696847830183984
+    },
+    {
+      "row": 479,
+      "Y": 47.95,
+      "moment_current": 0.44108789554976696,
+      "Yee_current": 0.4983399808407185,
+      "collocated_current": 0.49588914960623676,
+      "current_deficit_Yee": 0.11488559516008545,
+      "current_deficit_collocated": 0.11051109728854724,
+      "current_deficit_prescription": 0.11561608532114076,
+      "per_x_current_standard_deviation": 0.0020239176580459997,
+      "eight_spatial_block_mean_currents": [
+        0.4408737509719983,
+        0.4407346210014102,
+        0.4410380666044317,
+        0.441880241189966,
+        0.4417459778555477,
+        0.4411643923153772,
+        0.440581043030202,
+        0.44068507142920227
+      ],
+      "block_mean_range": [
+        0.440581043030202,
+        0.441880241189966
+      ],
+      "Pxx_center_before_average": 0.009963680490988221,
+      "Pxx_average_before_center": 0.009968180445953897,
+      "Pzz_center_before_average": 0.007712832436650328,
+      "Pzz_average_before_center": 0.007716928679275814
+    },
+    {
+      "row": 480,
+      "Y": 48.050000000000004,
+      "moment_current": 0.44084356092044225,
+      "Yee_current": 0.49833998084064746,
+      "collocated_current": 0.495889149606219,
+      "current_deficit_Yee": 0.11537589222364775,
+      "current_deficit_collocated": 0.11100381754569133,
+      "current_deficit_prescription": 0.11610597773975762,
+      "per_x_current_standard_deviation": 0.0019766195862681683,
+      "eight_spatial_block_mean_currents": [
+        0.4402675317844672,
+        0.44033263401564915,
+        0.44062479504527113,
+        0.44137014545531206,
+        0.44148582709446454,
+        0.4411785478187953,
+        0.440849035365785,
+        0.44063997078379347
+      ],
+      "block_mean_range": [
+        0.4402675317844672,
+        0.44148582709446454
+      ],
+      "Pxx_center_before_average": 0.009965137045970419,
+      "Pxx_average_before_center": 0.009969589486485424,
+      "Pzz_center_before_average": 0.007715378150590989,
+      "Pzz_average_before_center": 0.007719285175521562
+    }
+  ]
+}

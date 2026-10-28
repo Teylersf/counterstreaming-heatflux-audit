@@ -68,6 +68,7 @@ class Converter:
         self.equation_checks: list[tuple[str, str]] = []
         self.stats = collections.Counter()
         self.headings: list[str] = []
+        self.figure_images: list[str] = []
         self.base = "https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/"
         self.parse_aux()
 
@@ -286,6 +287,7 @@ class Converter:
             if kind == "figure":
                 image = re.search(r"\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}", block).group(1)
                 name = Path(image).stem + ".png"
+                self.figure_images.append(name)
                 self.stats["figures"] += 1
                 result = f"![Figure {number}]({self.base}{name})\n\n**Figure {number}.** {caption_md}"
             else:
@@ -352,6 +354,8 @@ class Converter:
         unresolved = re.findall(r"\\(?:ref|eqref|cite|label|norm|E|R|dd|tr|diag|bm|input)\b", markdown)
         if unresolved or re.search(r"(?:MATH|BLOCK)ZZ\d+TOKEN", markdown):
             raise ValueError(f"Unresolved TeX or placeholders: {unresolved}")
+        if '??' in markdown:
+            raise ValueError("Unresolved reference marker remains in the Markdown")
         if re.search(r"(?<![A-Za-z])[A-Za-z]:[\\/]", markdown):
             raise ValueError("An absolute local filesystem path remains")
         if len(markdown) >= 150000 or len(title) >= 200:
@@ -439,21 +443,23 @@ class Converter:
         if actual_code != expected_code:
             raise ValueError("Final Markdown changed an execution-code block")
         self.stats["parsed_math_segments"] = sum(formulas.values())
+        self.stats["parsed_code_blocks"] = len(actual_code)
 
     def write_notes(self):
         version = subprocess.run([self.pandoc, "--version"], text=True, encoding="utf-8", capture_output=True, check=True).stdout.splitlines()[0]
         s = self.stats
+        figure_names = ", ".join(f"`{name}`" for name in self.figure_images) or "none"
         notes = f"""# Manuscript conversion checks — version {self.version}
 
-- Converted `paper/main.tex`, every included section and `paper/results-table.tex` using {version}; the compiled PDF has {self.pages} pages.
-- Reproduce after compiling the TeX: `python -X utf8 scripts/tex_to_markdown.py` (use `--pandoc PATH` if needed). The saved script performs no network or publication actions.
+- Converted `paper/main.tex` and its {s['source_tex_files'] - 1} included TeX files using {version}; the current compiled auxiliary file records {self.pages} PDF pages. The exact inputs are listed below.
+- Reproduce after compiling the TeX: `python -X utf8 scripts/tex_to_markdown.py --version {self.version} --date {self.date}` (use `--pandoc PATH` if needed). The saved script performs no network or publication actions.
 - Mathematics was protected before prose conversion. Custom expectation, norm, real-number, differential and operator macros were expanded to standard KaTeX-compatible LaTeX; formulas were never passed through Pandoc.
 - Preserved {s['numbered_equations']} numbered equations and cross-checked all {s['equation_label_checks']} labeled equation positions against current `main.aux`. Output equation tags are complete, consecutive and in source order.
 - Preserved {s['proofs']} complete proofs, {s['proposition']} propositions, {s['lemma']} lemmas and {s['corollary']} corollaries. Proof start and end marks were checked.
-- Protected {s['inline_math']} inline and {s['display_math']} display-math segments, including proof end marks. Every protected segment and block was restored exactly once. An independent parse of the final Markdown recovered all {s['parsed_math_segments']} exact formula contents, both unchanged code blocks and no raw markup.
-- Preserved {s['tables']} tables with {s['table_data_rows']} data rows, {s['figures']} figures with full captions, source passages, both execution-code blocks, all exact source and verification hashes, and all {s['references']} compiled bibliography entries in actual numerical order. The bibliography's undated OSIRIS entry remains undated.
-- Checked preservation of all {s['body_source_urls']} direct body source URLs and all {s['bibliography_urls']} bibliography URLs. Figure links use the public GitHub raw PNG paths for `initial-state.png` and `stability.png`.
-- Retained all scientific qualifications: archived-moment reanalysis is distinct from a new simulation; current mismatch is about 11.5%, pressure mismatch about 20% in the xx component and 38.4% in the zz component; the finite-relaxation false positive is a longitudinal continuum test.
+- Protected {s['inline_math']} inline and {s['display_math']} display-math segments, including proof end marks. Every protected segment and block was restored exactly once. An independent parse of the final Markdown recovered all {s['parsed_math_segments']} exact formula contents, {s['parsed_code_blocks']} unchanged code blocks and no raw markup.
+- Preserved {s['tables']} tables with {s['table_data_rows']} data rows, {s['figures']} figures with full captions, {s['code_blocks']} source code blocks, and all {s['references']} compiled bibliography entries in actual numerical order.
+- Checked preservation of all {s['body_source_urls']} direct body source URLs and all {s['bibliography_urls']} bibliography URLs. Figure links use the public GitHub raw PNG paths for these actual source figures: {figure_names}.
+- Scientific statements and qualifications come from the current TeX inputs; these conversion checks do not establish scientific correctness or supply missing experiments.
 - Taylor Kalin is the sole header author, with the website, email and ORCID from the TeX author block. No phone number was added. The separate author/methods disclosure and owner-confirmed self-funded statement are preserved.
 - No unresolved internal references, citations, custom math macros, placeholders, absolute local paths or trailing whitespace remain. Length limits are checked by the script.
 - Manuscript length: {s['manuscript_characters']} characters; title {s['title_characters']} characters; abstract {s['abstract_characters']} characters.
@@ -474,7 +480,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--pandoc")
-    parser.add_argument("--version", default="1.0.0")
+    parser.add_argument("--version", default="1.1.0")
     parser.add_argument("--date", default="2026-10-28")
     args = parser.parse_args()
     pandoc = args.pandoc or shutil.which("pandoc")

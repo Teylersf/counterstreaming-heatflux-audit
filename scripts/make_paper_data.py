@@ -24,9 +24,23 @@ def main():
         relative = 'data/input-decks/' + entry['file']
         committed = subprocess.check_output(['git', 'show', commit + ':' + relative], cwd=ROOT)
         assert hashlib.sha256(committed).hexdigest() == entry['sha256'], relative
+    source_files = list(result['environment']['source_files'])
+    for name in ('profile_sensitivity.py', 'revision_data.py', 'thermal_loading.py'):
+        relative = 'experiments/' + name
+        digest = sha(ROOT / relative)
+        committed = subprocess.check_output(['git', 'show', commit + ':' + relative], cwd=ROOT)
+        assert hashlib.sha256(committed).hexdigest() == digest, relative
+        source_files.append({'path': relative, 'sha256': digest})
+    revision_results = ['results/profile-sensitivity.json', 'results/revision-data.json',
+                        'results/thermal-loading.json', 'data/provenance-revision.json']
+    revision_data = json.loads((ROOT / 'results/revision-data.json').read_text())
+    assert revision_data['all_checks_passed']
+    assert revision_data['revision_script_sha256'] == sha(ROOT / 'experiments/revision_data.py')
     pin = {'commit': commit, 'repository': 'https://github.com/Teylersf/counterstreaming-heatflux-audit',
            'verification_sha256': sha(ROOT / 'results/verification.json'),
-           'source_files': result['environment']['source_files']}
+           'source_files': source_files,
+           'revision_outputs': [{'path': name, 'sha256': sha(ROOT / name)} for name in revision_results],
+           'original_eight_group_code_bytes_unchanged': True}
     (ROOT / 'results/code-pin.json').write_text(json.dumps(pin, indent=2) + '\n', encoding='utf-8', newline='\n')
     g = result['groups']
     stability = g['finite_relaxation_stability']['finite_relaxation_mode']
@@ -74,12 +88,23 @@ def main():
               r'\begin{tabular}{@{}p{.34\linewidth}p{.63\linewidth}@{}}',
               r'\toprule', r'File & SHA-256 \\', r'\midrule']
     hash_rows = [{'path': 'results/verification.json', 'sha256': pin['verification_sha256']},
-                 *pin['source_files']]
+                 *pin['source_files'], *pin['revision_outputs']]
     for entry in hash_rows:
         path = entry['path'].replace('_', r'\_')
         lines += [r'\texttt{' + path + r'} & \texttt{' + entry['sha256'] + r'} \\']
     lines += [r'\bottomrule', r'\end{tabular}', r'\end{center}']
-    lines += ['The full log, input provenance, derived profiles and strict verification JSON are included in the repository.', '']
+    lines += ['The full log, input provenance, derived profiles and strict verification JSON are included in the repository.',
+              r'\paragraph{Revision analyses.}',
+              'The original eight-group execution record is retained, with its four code files byte-identical. The pinned commit also contains the separate full-profile sensitivity, archived-fluid corroboration and conditional thermal-loading calculations.',
+              r'\begin{verbatim}',
+              'python experiments/profile_sensitivity.py',
+              'python experiments/revision_data.py --inventory --fetch',
+              '# Decode BP in a separate Linux ADIOS2 environment:',
+              'python experiments/revision_data.py --decode-bp',
+              'python experiments/revision_data.py --compare',
+              'python experiments/thermal_loading.py',
+              r'\end{verbatim}',
+              'The BP reader used ADIOS2 2.13.0.1001 and NumPy 2.3.5 under Linux Python 3.12.3. Portable reader setup and exact member/export hashes are provided in the data documentation. No native deposited-current comparison, full-archive checksum verification, matched-state reconnection rerun or sheet eigenanalysis is claimed.', '']
     (ROOT / 'paper/sections/execution.tex').write_text('\n'.join(lines), encoding='utf-8', newline='\n')
     print(json.dumps({'code_commit': commit, 'groups': len(g), 'generated_table_rows': len(rows)}))
 

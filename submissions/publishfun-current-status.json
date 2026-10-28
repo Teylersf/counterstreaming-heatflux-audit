@@ -1,9 +1,9 @@
 {
-  "checked_at_utc": "2026-10-28T23:47:15.514712+00:00",
+  "checked_at_utc": "2026-10-28T23:51:26.146277+00:00",
   "http_status": 200,
   "response": {
     "id": "p_WA-Y00P8vp0DOnGc",
-    "status": "under_review",
+    "status": "revision_requested",
     "permanent_id": null,
     "current_round": 2,
     "editorial_state": "active"

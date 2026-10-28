@@ -1,0 +1,66 @@
+{
+  "checked_at_utc": "2026-10-28T23:51:07.588401+00:00",
+  "paper_id": "p_WA-Y00P8vp0DOnGc",
+  "round": 2,
+  "canonical_version": "1.1.0",
+  "figures": [
+    {
+      "figure": 1,
+      "stored_url": "https://files.publish.fun/uploads/up_OpSH28VIOyPCC4-z/figures/figure-1.png",
+      "canonical_image": "figures/initial-state.png",
+      "bytes": 129535,
+      "sha256": "ca3e6c9b28626acef73d23622298c9a71a76da2c29194d11983f77df400121f8",
+      "remote_dimensions": [
+        1474,
+        693
+      ],
+      "canonical_dimensions": [
+        1474,
+        693
+      ],
+      "RGBA_pixels_equal": true,
+      "remote_pixel_sha256": "5ddde6a68689c290c663d3a074f1dd12a02813250ebdda34836493fab7f471fd",
+      "canonical_pixel_sha256": "5ddde6a68689c290c663d3a074f1dd12a02813250ebdda34836493fab7f471fd",
+      "encoded_bytes_equal": false
+    },
+    {
+      "figure": 2,
+      "stored_url": "https://files.publish.fun/uploads/up_gv_4FNCjOT5A-Ivi/figures/figure-2.png",
+      "canonical_image": "figures/profile-sensitivity.png",
+      "bytes": 114070,
+      "sha256": "d15da7b04934301e762a0e78e070c0f4d079fc61873433deaf5b9f6a997311cf",
+      "remote_dimensions": [
+        1530,
+        510
+      ],
+      "canonical_dimensions": [
+        1530,
+        510
+      ],
+      "RGBA_pixels_equal": true,
+      "remote_pixel_sha256": "d7a30bf0ec29b53bd5af115abdc5c30d23d957f84fa273d6267fb922601b018a",
+      "canonical_pixel_sha256": "d7a30bf0ec29b53bd5af115abdc5c30d23d957f84fa273d6267fb922601b018a",
+      "encoded_bytes_equal": false
+    },
+    {
+      "figure": 3,
+      "stored_url": "https://files.publish.fun/uploads/up_OpSH28VIOyPCC4-z/figures/figure-2.png",
+      "canonical_image": "figures/stability.png",
+      "bytes": 85258,
+      "sha256": "30642340dbce4189dc6b58d09b64701c7e61ebd232eb18f747d593ddb1b06038",
+      "remote_dimensions": [
+        1474,
+        693
+      ],
+      "canonical_dimensions": [
+        1474,
+        693
+      ],
+      "RGBA_pixels_equal": true,
+      "remote_pixel_sha256": "a1abd0bd7144c8eadcda4c744c8890c696844d845f4ac715c215314a7791fe97",
+      "canonical_pixel_sha256": "a1abd0bd7144c8eadcda4c744c8890c696844d845f4ac715c215314a7791fe97",
+      "encoded_bytes_equal": false
+    }
+  ],
+  "explanation": "The server re-encodes PNG files, so binary bytes differ; decoded RGBA pixels are compared. The stability image retains figure-2.png from its original upload, while the new full-profile image has another upload ID with the same basename. These are distinct figures."
+}

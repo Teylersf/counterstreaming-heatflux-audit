@@ -1,0 +1,271 @@
+{
+  "canonical_author": "Taylor Kalin",
+  "version": "1.0.0",
+  "pages": 15,
+  "visual_QA": "Every page inspected; final execution appendix rechecked after compaction.",
+  "code_pin": {
+    "commit": "e1ebd1aaee17bc5cd486d40387eb655aefd70c20",
+    "repository": "https://github.com/Teylersf/counterstreaming-heatflux-audit",
+    "verification_sha256": "6e724e564d4ca23bf718d4add4eded9311aa6ebbeb161c4abc606ec750f01491",
+    "source_files": [
+      {
+        "path": "experiments/verify.py",
+        "sha256": "23c64243de9e58d493fc87b18b4c47edf917fb67d11853898009e6e8824903e6"
+      },
+      {
+        "path": "experiments/closure_checks.py",
+        "sha256": "797fa1a2c85b36e09531fcff343ebed773674ecfe5a1caf8bd6518826ed3efbb"
+      },
+      {
+        "path": "experiments/data_checks.py",
+        "sha256": "fb2253e5f1970e80baea7a5349a8ac0cbf0e847b0cfe3f04eadb99b1e32e064b"
+      },
+      {
+        "path": "experiments/fetch_data.py",
+        "sha256": "9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "paper/main.pdf",
+      "bytes": 186583,
+      "sha256": "9a15769cf16c4581a67ba1b75f7a047724b272d1e578b7b2fad0da5e35f16fbb"
+    },
+    {
+      "path": "paper/main.tex",
+      "bytes": 4977,
+      "sha256": "db2edd75a47338d81c1a14f4297b824026b2fc85e82e34cd58443d1e1acc631a"
+    },
+    {
+      "path": "paper/references.bib",
+      "bytes": 5079,
+      "sha256": "0b7521a7d37c1e287ac4184ea3ad8be9dbc6619e0cb80ab51664a34aada46776"
+    },
+    {
+      "path": "paper/results-table.tex",
+      "bytes": 880,
+      "sha256": "600f9b6e869a80051c6daafe3a7b3053a0c19b4d8059454442f6b4e59346c4c6"
+    },
+    {
+      "path": "submissions/manuscript.md",
+      "bytes": 47451,
+      "sha256": "1b64705d06d2c589eef140ffeda07cdb63451516cbe24e4d0fc7b94020ce1a19"
+    },
+    {
+      "path": "submissions/metadata.json",
+      "bytes": 2108,
+      "sha256": "9153debb1f6ad4c808e3fd93b162c71702bf6daa1bfa60464815f1af6c26099c"
+    },
+    {
+      "path": "submissions/format-notes.md",
+      "bytes": 3969,
+      "sha256": "b03e68a3555d9a1d20b959dcfed173eacf0a6be40762563b096764ce02067e92"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 45,
+      "sha256": "d32fc57ca50220d8799d94c70aff16c4151210e5cb92ee7029ef20c8c8c585ee"
+    },
+    {
+      "path": "data/provenance.json",
+      "bytes": 6965,
+      "sha256": "beb711507099f5e22f31255beb6415483835399fdafafbcb76fd7dd5808b8101"
+    },
+    {
+      "path": "data/derived/initial-profiles.csv",
+      "bytes": 159154,
+      "sha256": "a7ec9ed64168ba0e066c96aeeafc210527bed7aaf64f2459795d2835fb49d7fc"
+    },
+    {
+      "path": "results/verification.json",
+      "bytes": 13538,
+      "sha256": "6e724e564d4ca23bf718d4add4eded9311aa6ebbeb161c4abc606ec750f01491"
+    },
+    {
+      "path": "results/execution.log",
+      "bytes": 11946,
+      "sha256": "6464bd8b0e07731dac3468884487de7ac3ba328524c67a28458b6cd910369b0a"
+    },
+    {
+      "path": "results/code-pin.json",
+      "bytes": 812,
+      "sha256": "fc735e2314489d2d692da474de002ab1e338df7b9fa91079d7b882c4e247f3ca"
+    },
+    {
+      "path": "experiments/closure_checks.py",
+      "bytes": 20869,
+      "sha256": "797fa1a2c85b36e09531fcff343ebed773674ecfe5a1caf8bd6518826ed3efbb"
+    },
+    {
+      "path": "experiments/data_checks.py",
+      "bytes": 7477,
+      "sha256": "fb2253e5f1970e80baea7a5349a8ac0cbf0e847b0cfe3f04eadb99b1e32e064b"
+    },
+    {
+      "path": "experiments/fetch_data.py",
+      "bytes": 6457,
+      "sha256": "9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0"
+    },
+    {
+      "path": "experiments/make_figures.py",
+      "bytes": 5926,
+      "sha256": "2cb9ee6ac2766720033a873b40a38c8b2f6a134bf099ade4eb16315e443accfe"
+    },
+    {
+      "path": "experiments/verify.py",
+      "bytes": 3425,
+      "sha256": "23c64243de9e58d493fc87b18b4c47edf917fb67d11853898009e6e8824903e6"
+    },
+    {
+      "path": "scripts/make_paper_data.py",
+      "bytes": 5593,
+      "sha256": "5873cb0fa852abf02d22fcb2368214c279028ad1df238ccf40565d44cb05e602"
+    },
+    {
+      "path": "scripts/record_artifacts.py",
+      "bytes": 2048,
+      "sha256": "e5715b07b39160705dbb018bc53c8745d097cc2d0f904769d3ad52096831d92c"
+    },
+    {
+      "path": "scripts/tex_to_markdown.py",
+      "bytes": 27764,
+      "sha256": "1e24d0f65b3197dd662c3592cf2367537c919e3c2f313a1ab145175f04e597f5"
+    },
+    {
+      "path": "paper/sections/conditioning.tex",
+      "bytes": 4896,
+      "sha256": "0fc116c8ccfbd1223e6e8abff3ef3787ac7f83505e80214dca4418b479c1d345"
+    },
+    {
+      "path": "paper/sections/continuity.tex",
+      "bytes": 1987,
+      "sha256": "3e8b28cb31aa24b84ff7f52a865ee9f36d241ecffb9c7570c401c2464fbd0aca"
+    },
+    {
+      "path": "paper/sections/discussion.tex",
+      "bytes": 3534,
+      "sha256": "703277ef8a30c977ca4c9c593dcb549e3bbc5c21773fa14ccbf471666585a42e"
+    },
+    {
+      "path": "paper/sections/entropy.tex",
+      "bytes": 2336,
+      "sha256": "652e42e28e7e49a32100c5e1041a02fb320862cd313b0c7bb48f3ac58f351d06"
+    },
+    {
+      "path": "paper/sections/execution.tex",
+      "bytes": 2194,
+      "sha256": "d35eef845723747fbc9e156a7d2fecbfab1dc16963cec3ebfee08efab68c1e5d"
+    },
+    {
+      "path": "paper/sections/initialization.tex",
+      "bytes": 8305,
+      "sha256": "936de8bf9e0eab5c62c98f2efed90d55ad698b263ad40f8b2e59eae5fd608316"
+    },
+    {
+      "path": "paper/sections/introduction.tex",
+      "bytes": 4955,
+      "sha256": "93958099fbd0cc36b5cb16bcaf037605126f9595589d63e07cf6a12505549443"
+    },
+    {
+      "path": "paper/sections/reproducibility.tex",
+      "bytes": 2517,
+      "sha256": "9877f5478886e29c4d5d44746b2a675bb9a9d688182f615c46f5eb326d603262"
+    },
+    {
+      "path": "paper/sections/source-evidence.tex",
+      "bytes": 5027,
+      "sha256": "f13468d81065bd7a438b5e2a9081a6af06931b2d731ace62b8454915527fb48f"
+    },
+    {
+      "path": "paper/sections/stability.tex",
+      "bytes": 7083,
+      "sha256": "b6314ec5d76ff81f15edb5773190e9123ee0c17792ae85ab0e703673140c78a5"
+    },
+    {
+      "path": "figures/initial-state.pdf",
+      "bytes": 28215,
+      "sha256": "23c73500302e9e955a510156bf07900f0a54c3aa10ca0e8daa687b30dc9869ff"
+    },
+    {
+      "path": "figures/initial-state.png",
+      "bytes": 115477,
+      "sha256": "647761f35db2ae9296de71a710a4909cd3f1d2248ef251017896cbf9c901b60c"
+    },
+    {
+      "path": "figures/stability.pdf",
+      "bytes": 26814,
+      "sha256": "2261bcc882f20eec0e7cdb3bc14b2881eb05db2caeebf8e0c79557ed548e7c40"
+    },
+    {
+      "path": "figures/stability.png",
+      "bytes": 76916,
+      "sha256": "e9715497cdcf3e7836d727ad214ecbb0bcaa09bf93ac3024a142431efe96f02f"
+    },
+    {
+      "path": "source-excerpts/accuracy-and-cubic-scaling.txt",
+      "bytes": 1089,
+      "sha256": "e8f397155a3e0f60b82accba2f351e64158cbe5fe7ada84a659aaa0c36578f7d"
+    },
+    {
+      "path": "source-excerpts/disclosed-scope.txt",
+      "bytes": 1621,
+      "sha256": "457829cb29c9eb288ff59ebabec7b9467424bd71dfcb87c08b362f1aeaf94cef"
+    },
+    {
+      "path": "source-excerpts/local-isotropization-and-instability.txt",
+      "bytes": 1607,
+      "sha256": "71f450ab146ff13040b63c963b4a485ef5f8a135861d0b67bbec728d8b2ba13b"
+    },
+    {
+      "path": "source-excerpts/manifest.json",
+      "bytes": 6467,
+      "sha256": "17c8f3d784b3b51c2f050f2892f77ae023882eb10fc6a7f8a877518dc57839df"
+    },
+    {
+      "path": "source-excerpts/matched-state-and-periodic-seed.txt",
+      "bytes": 2022,
+      "sha256": "fdfaf95285c38b27c80c4d24711ff7e8156f6b2657d27b061fc65136edd60896"
+    },
+    {
+      "path": "source-excerpts/midplane-transport.txt",
+      "bytes": 685,
+      "sha256": "f1e7edddc70b116518ba1b0d3b1515b0735dae1a49ad2b0dbe56bf4fb3bf1385"
+    },
+    {
+      "path": "source-excerpts/mixture-identities.txt",
+      "bytes": 1151,
+      "sha256": "6ae1cb26b8293921edaa445fe47c183f4004feb56f1caf222729a9647aeb9f2a"
+    },
+    {
+      "path": "source-excerpts/README.md",
+      "bytes": 2948,
+      "sha256": "ba2412688aa5289bba3f6ce63ef819aee278be14087833c95f5c74c2b59ef933"
+    },
+    {
+      "path": "source-excerpts/verify.py",
+      "bytes": 3925,
+      "sha256": "57573ee613864302d3a18b1c31dbf0e046899c46218852429b46a27becab81fb"
+    },
+    {
+      "path": "data/input-decks/input_1-e-Fluid.lua",
+      "bytes": 8500,
+      "sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d"
+    },
+    {
+      "path": "data/input-decks/input_2-e-Fluid.lua",
+      "bytes": 10979,
+      "sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69"
+    },
+    {
+      "path": "data/input-decks/input_PIC.2d",
+      "bytes": 4753,
+      "sha256": "c19a01a2987630ed14a22d3d21ffaede8082ea193f505e07f8e05595a9d10340"
+    },
+    {
+      "path": "data/input-decks/README.md",
+      "bytes": 931,
+      "sha256": "ed77272bbe359d0248e35aa7fdef55e8a036a70a1b6913ab2eeabfedf136006a"
+    }
+  ]
+}

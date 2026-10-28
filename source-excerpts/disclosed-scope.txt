@@ -1,0 +1,14 @@
+Attributed selective TeX excerpts
+Source: McGrae-Menge et al., arXiv:2607.07106v1 (2026)
+Original: https://arxiv.org/src/2607.07106v1, apssamp.tex
+License: CC BY 4.0; original authors retain their rights
+Source SHA-256: 5cf2c6e38a9914d0e7607b303220a2af2e4a70a1ae0d8b64c1882126321eba89
+
+--- Original lines 207-207, characters [0,269) ---
+At later times, a sub-population can circulate back into itself within a magnetic island, developing counter-streaming within a single sub-population that breaks $q_{ijk}\approx q_{CSijk}$ in the 2-e-Fluid model; additional $y$-staggered fluids could help resolve this.
+
+--- Original lines 250-250, characters [668,875) ---
+The 2-e-Fluid column is on its own per-row colorbar set to the maximum of $|q_{CSijk}|$ from the 2-e-Fluid simulation, to facilitate comparison of spatial structure and sign despite differences in magnitude.
+
+--- Original lines 293-293, characters [0,699) ---
+One structural limitation of the 2-e-Fluid model is that the free expansion of each sub-population due to its initial pressure gradient into the region occupied by the other is mediated by truncated fluid equations rather than by kinetic effects, and these are not equivalent -- thermal expansion of a plasma is inherently a kinetic process~\cite{Grismayer2008} that fluid dynamics does not properly capture with an adiabatic closure. We note that this difference is subdominant when $\beta_{\text{Reconn.}}\ll 1$, consistent with the regime where our closure is most accurate in Fig. \ref{fig:fig4}, but it does limit the viability of the two sub-population model at large $\beta_{\text{Reconn.}}$.

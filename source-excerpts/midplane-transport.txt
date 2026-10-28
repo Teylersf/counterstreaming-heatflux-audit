@@ -1,0 +1,8 @@
+Attributed selective TeX excerpts
+Source: McGrae-Menge et al., arXiv:2607.07106v1 (2026)
+Original: https://arxiv.org/src/2607.07106v1, apssamp.tex
+License: CC BY 4.0; original authors retain their rights
+Source SHA-256: 5cf2c6e38a9914d0e7607b303220a2af2e4a70a1ae0d8b64c1882126321eba89
+
+--- Original lines 191-191, characters [547,892) ---
+The origin is geometric: at the mid-plane $\overline{v}_y=0$ by symmetry, blocking 1-e-Fluid transport into the sheet, while the sub-population velocities $\overline{v}_{1y}$ and $\overline{v}_{2y}$ -- present in 2-e-Fluid and PIC but absent by construction in 1-e-Fluid -- carry plasma across from opposite sides supplying density to the layer.

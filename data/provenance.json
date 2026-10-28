@@ -1,0 +1,175 @@
+{
+  "record_id": 21114117,
+  "doi": "10.5281/zenodo.21114117",
+  "record_url": "https://zenodo.org/records/21114117",
+  "api_url": "https://zenodo.org/api/records/21114117",
+  "license": "CC-BY-4.0",
+  "archive": {
+    "filename": "BgBr0point1-Beta0point1_PIC.zip",
+    "url": "https://zenodo.org/api/records/21114117/files/BgBr0point1-Beta0point1_PIC.zip/content",
+    "bytes": 1238114672,
+    "declared_checksum": "md5:89f8256fe66809412f3814dd8663c833",
+    "full_archive_checksum_verification": "NOT performed; only selected byte ranges were downloaded"
+  },
+  "selected_members": [
+    {
+      "archive_member": "BgBr0point1-Beta0point1/FLD/b2/b2-000000.h5",
+      "filename": "b2-000000.h5",
+      "local_offset": 1628,
+      "compressed_bytes": 9522,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "7fa37e9c",
+      "sha256": "65638a7bd0724c261aea70b0ef690bf2f37c76a45c7647cfdcc90b5964dde885"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/FLD/b3/b3-000000.h5",
+      "filename": "b3-000000.h5",
+      "local_offset": 1118652,
+      "compressed_bytes": 22758,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "c95fa389",
+      "sha256": "f54c57241b02400967640f10d391b4028cc3e96729f3271a967f0e4bf622e102"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/FLD/b1/b1-000000.h5",
+      "filename": "b1-000000.h5",
+      "local_offset": 5497434,
+      "compressed_bytes": 19726,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "dae38cef",
+      "sha256": "62495f1b2f22600ce06c5666a50ac163b51f84a1943e98b7e4da2d0328ad0ccb"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000000.h5",
+      "filename": "charge-electrons1-000000.h5",
+      "local_offset": 1189468811,
+      "compressed_bytes": 5157,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "7f6d056e",
+      "sha256": "dadec55ee90d718008922f7dd8580f235b6f8a7138cec33c5a8227d7b6f9d2f3"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000000.h5",
+      "filename": "charge-electrons2-000000.h5",
+      "local_offset": 1190704499,
+      "compressed_bytes": 5166,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "6fa55942",
+      "sha256": "4f9b7368df13948d7bbe00edd5b00d4e1a06efa2f1b6af88b5619bbf47469ef5"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000000.h5",
+      "filename": "v1v1-electrons1-000000.h5",
+      "local_offset": 1196410032,
+      "compressed_bytes": 519341,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "0b8a850c",
+      "sha256": "93b5e0e2ef4a9865d4a18dd8e88acd28490087a86943c0ff53f09f02a8e8b5da"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000000.h5",
+      "filename": "v3v3-electrons1-000000.h5",
+      "local_offset": 1198200270,
+      "compressed_bytes": 516386,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "4af2863d",
+      "sha256": "ddee69230c761461d48e23c05227a2be4dbedbcf2f041daa586a615d672034a8"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000000.h5",
+      "filename": "vfl3-electrons1-000000.h5",
+      "local_offset": 1201288742,
+      "compressed_bytes": 584591,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "eeda3f6d",
+      "sha256": "0b5621976c73fbc2459eab5dc2672bb0958628de5abc26349a9c34fbd4bf4091"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000000.h5",
+      "filename": "vfl1-electrons1-000000.h5",
+      "local_offset": 1213161960,
+      "compressed_bytes": 586025,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "64420140",
+      "sha256": "079c86ad46fbabc901b714968d97944f14de5da8d1caf0d69e661f0a2dda3364"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000000.h5",
+      "filename": "v1v1-electrons2-000000.h5",
+      "local_offset": 1219481786,
+      "compressed_bytes": 519400,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "6a1bf7da",
+      "sha256": "20a1b8825e9892b79204c0c52954afd59fac204eacc1e033806b516866b41d2f"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000000.h5",
+      "filename": "v3v3-electrons2-000000.h5",
+      "local_offset": 1222523145,
+      "compressed_bytes": 516297,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "724a5333",
+      "sha256": "aed88a82d8de441a35f947eef056be290e7c2ccb49c794b3f5cf7437bb5c48ef"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000000.h5",
+      "filename": "vfl3-electrons2-000000.h5",
+      "local_offset": 1224302213,
+      "compressed_bytes": 584780,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "4fc2a9d1",
+      "sha256": "35dbecff8f846f897cc1ae601be059c65f22685b6ff2df41e63bc7c181c2af4b"
+    },
+    {
+      "archive_member": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000000.h5",
+      "filename": "vfl1-electrons2-000000.h5",
+      "local_offset": 1237495835,
+      "compressed_bytes": 585981,
+      "uncompressed_bytes": 1261744,
+      "compression_method": 8,
+      "crc32": "a30b9fa5",
+      "sha256": "432a14b40542c8ebf647a1478a354182b6f0781400c9200ceb727a4106e02a2e"
+    }
+  ],
+  "input_decks": [
+    {
+      "file": "input_1-e-Fluid.lua",
+      "bytes": 8500,
+      "md5": "0d2d8ccad04d0430869010e3833b792d",
+      "sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "url": "https://zenodo.org/api/records/21114117/files/input_1-e-Fluid.lua/content"
+    },
+    {
+      "file": "input_2-e-Fluid.lua",
+      "bytes": 10979,
+      "md5": "2e39964404ba359b9861f5d8b41f9b98",
+      "sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "url": "https://zenodo.org/api/records/21114117/files/input_2-e-Fluid.lua/content"
+    },
+    {
+      "file": "input_PIC.2d",
+      "bytes": 4753,
+      "md5": "fe97a792f564b1c656059948a086e600",
+      "sha256": "c19a01a2987630ed14a22d3d21ffaede8082ea193f505e07f8e05595a9d10340",
+      "url": "https://zenodo.org/api/records/21114117/files/input_PIC.2d/content"
+    }
+  ],
+  "diagnostic_definitions": {
+    "source": "Zenodo record description supplied by the original data authors",
+    "vfl_i": "(1/n) integral f v_i d^3v",
+    "v_i_v_j": "integral f v_i v_j d^3v"
+  },
+  "raw_file_policy": "Do not commit raw HDF5 files or the full archive. Run experiments/fetch_data.py to retrieve only selected verified members."
+}

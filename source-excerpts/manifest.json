@@ -1,0 +1,197 @@
+{
+  "source_citation": "McGrae-Menge et al., arXiv:2607.07106v1 (2026)",
+  "license": "CC-BY-4.0; original authors retain their rights",
+  "archive": {
+    "requested_url": "https://arxiv.org/src/2607.07106v1",
+    "http_status": 200,
+    "checked_at_utc": "2026-10-28T22:39:48.611502+00:00",
+    "bytes": 7439982,
+    "sha256": "4f9abd5f41ffca0f1879981429165ff1a989276792c812e860f57cb5038c3b2e",
+    "content_type": "application/gzip",
+    "text_members": [
+      {
+        "path": "apssamp.bib",
+        "bytes": 66487,
+        "sha256": "21d0487f530d186085bf488f0f4d05e62279bfa62ea566f3e7688a0d9a7c04a0",
+        "lines": 893
+      },
+      {
+        "path": "apssamp.tex",
+        "bytes": 48800,
+        "sha256": "5cf2c6e38a9914d0e7607b303220a2af2e4a70a1ae0d8b64c1882126321eba89",
+        "lines": 307
+      }
+    ]
+  },
+  "source": {
+    "member": "apssamp.tex",
+    "bytes": 48800,
+    "sha256": "5cf2c6e38a9914d0e7607b303220a2af2e4a70a1ae0d8b64c1882126321eba89",
+    "lines": 307,
+    "text_encoding": "utf-8"
+  },
+  "excerpt_convention": "Lines are 1-based. Character offsets are 0-based Python Unicode-code-point indices, with the ending offset exclusive on the last line. Multiline fragments join original line contents with LF. Separate fragments do not form one continuous quotation.",
+  "files": [
+    {
+      "path": "mixture-identities.txt",
+      "bytes": 1151,
+      "sha256": "6ae1cb26b8293921edaa445fe47c183f4004feb56f1caf222729a9647aeb9f2a",
+      "fragments": [
+        {
+          "first_line": 154,
+          "last_line": 154,
+          "start_character": 517,
+          "end_character": 699,
+          "text_sha256": "1322c8ab513941f2c06098a817ae80165fe8634a299a8261a48c69c606dbc2b1"
+        },
+        {
+          "first_line": 171,
+          "last_line": 175,
+          "start_character": 0,
+          "end_character": 11,
+          "text_sha256": "ccd4aec059ccc17557bea95e7bd97ac49303d2948ccf79c18491dbf204c33cb0"
+        },
+        {
+          "first_line": 269,
+          "last_line": 269,
+          "start_character": 0,
+          "end_character": 114,
+          "text_sha256": "3c157e37f63b266b01296b8f6e591e676fa2298b3bf02df6783b9670154d2547"
+        }
+      ]
+    },
+    {
+      "path": "matched-state-and-periodic-seed.txt",
+      "bytes": 2022,
+      "sha256": "fdfaf95285c38b27c80c4d24711ff7e8156f6b2657d27b061fc65136edd60896",
+      "fragments": [
+        {
+          "first_line": 225,
+          "last_line": 225,
+          "start_character": 142,
+          "end_character": 482,
+          "text_sha256": "1110b793b11a20a72d73524cefa93df4868752abe085d2dd15146ec3f8f7597b"
+        },
+        {
+          "first_line": 238,
+          "last_line": 240,
+          "start_character": 0,
+          "end_character": 14,
+          "text_sha256": "83c543589375b43917d6d05f0bbcdcc0f19497527d4e88957ceaec4adf8c3873"
+        },
+        {
+          "first_line": 244,
+          "last_line": 244,
+          "start_character": 0,
+          "end_character": 148,
+          "text_sha256": "27eb21c3a70b80a13f7a28e1982ea9b548215ee32fad56aa22e89ace90ae7905"
+        },
+        {
+          "first_line": 280,
+          "last_line": 280,
+          "start_character": 0,
+          "end_character": 429,
+          "text_sha256": "7fa8141789b017408fde1dcc15817ec28344022c5515aa3f63261d2bb56560c0"
+        },
+        {
+          "first_line": 280,
+          "last_line": 280,
+          "start_character": 673,
+          "end_character": 1073,
+          "text_sha256": "b8b8e2c7eeac497594bfbc459749bd8b99644c97f06847b316e77f46d2d7a56c"
+        }
+      ]
+    },
+    {
+      "path": "local-isotropization-and-instability.txt",
+      "bytes": 1607,
+      "sha256": "71f450ab146ff13040b63c963b4a485ef5f8a135861d0b67bbec728d8b2ba13b",
+      "fragments": [
+        {
+          "first_line": 179,
+          "last_line": 179,
+          "start_character": 684,
+          "end_character": 1380,
+          "text_sha256": "1203094008d42e2a312a829fe2153e659424b1f5d0ebea5c08b50c7e70773628"
+        },
+        {
+          "first_line": 166,
+          "last_line": 166,
+          "start_character": 527,
+          "end_character": 861,
+          "text_sha256": "a93ed550f82a719cf5834952985c8a0e166da86fe31d2ac085ec65a7d323c137"
+        },
+        {
+          "first_line": 207,
+          "last_line": 207,
+          "start_character": 432,
+          "end_character": 558,
+          "text_sha256": "4ca7377ec5e22a69518b9ffd9bfa7113c14119318d5db90838b06fca63b3edae"
+        }
+      ]
+    },
+    {
+      "path": "midplane-transport.txt",
+      "bytes": 685,
+      "sha256": "f1e7edddc70b116518ba1b0d3b1515b0735dae1a49ad2b0dbe56bf4fb3bf1385",
+      "fragments": [
+        {
+          "first_line": 191,
+          "last_line": 191,
+          "start_character": 547,
+          "end_character": 892,
+          "text_sha256": "3f2a20a71cc40a38edee66847299da04cd0c8c9d7cac1202252390640924be84"
+        }
+      ]
+    },
+    {
+      "path": "accuracy-and-cubic-scaling.txt",
+      "bytes": 1089,
+      "sha256": "e8f397155a3e0f60b82accba2f351e64158cbe5fe7ada84a659aaa0c36578f7d",
+      "fragments": [
+        {
+          "first_line": 198,
+          "last_line": 198,
+          "start_character": 362,
+          "end_character": 672,
+          "text_sha256": "7f04ae155e10bfe62d7da4c5fbca24863ca29e81914152c543401bd7fe6e15f2"
+        },
+        {
+          "first_line": 202,
+          "last_line": 202,
+          "start_character": 388,
+          "end_character": 772,
+          "text_sha256": "88b903738236d339cea8f1e4d161305ea217c2c4c81dcd7347639769d7890f49"
+        }
+      ]
+    },
+    {
+      "path": "disclosed-scope.txt",
+      "bytes": 1621,
+      "sha256": "457829cb29c9eb288ff59ebabec7b9467424bd71dfcb87c08b362f1aeaf94cef",
+      "fragments": [
+        {
+          "first_line": 207,
+          "last_line": 207,
+          "start_character": 0,
+          "end_character": 269,
+          "text_sha256": "25109db123d884eec4b0a9aae74265a1751c6cf61391c6b5470df1d62b69d0a6"
+        },
+        {
+          "first_line": 250,
+          "last_line": 250,
+          "start_character": 668,
+          "end_character": 875,
+          "text_sha256": "241714313e64166f6b0c1a70e8d04e152a74716f65935173931bc8ceffbf9457"
+        },
+        {
+          "first_line": 293,
+          "last_line": 293,
+          "start_character": 0,
+          "end_character": 699,
+          "text_sha256": "dd83acc6ed19eecd7694e8bb2ea4e7b8d81cfe070437cedcf2e7d9d2609b0e24"
+        }
+      ]
+    }
+  ]
+}

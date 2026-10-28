@@ -1,0 +1,18 @@
+Attributed selective TeX excerpts
+Source: McGrae-Menge et al., arXiv:2607.07106v1 (2026)
+Original: https://arxiv.org/src/2607.07106v1, apssamp.tex
+License: CC BY 4.0; original authors retain their rights
+Source SHA-256: 5cf2c6e38a9914d0e7607b303220a2af2e4a70a1ae0d8b64c1882126321eba89
+
+--- Original lines 154-154, characters [517,699) ---
+Defining $\Delta \overline{v}_x \equiv \overline{v}_{1x}-\overline{v}_{2x}$, $\Delta T_{xx} \equiv T_{1xx} - T_{2xx}$ (with $T_{ij}\equiv p_{ij}/n$), and $\Delta n \equiv n_1 - n_2$:
+
+--- Original lines 171-175, characters [0,11) ---
+\begin{align}
+    p_{xx} &= p_{1xx}+p_{2xx} + \underbrace{m_e\frac{n_1 n_2}{n_1+n_2}\Delta \overline{v}_x^{2}}_{\displaystyle p_{CSxx}} \label{equation3} \\
+    q_{xxx} &= q_{1xxx}+q_{2xxx} \nonumber \\
+    &\quad + \underbrace{\frac{3 n_1 n_2}{n_1+n_2}\Delta \overline{v}_x\Delta T_{xx} - m_e\frac{n_1 n_2}{(n_1+n_2)^2}\Delta n\Delta \overline{v}_x^{3}}_{\displaystyle q_{CSxxx}} \label{equation4}
+\end{align}
+
+--- Original lines 269-269, characters [0,114) ---
+Where parenthesized indices in Eq. \ref{equationB2} denote $A_{(i}B_{jk)}\equiv A_i B_{jk}+A_j B_{ik}+A_k B_{ij}$.

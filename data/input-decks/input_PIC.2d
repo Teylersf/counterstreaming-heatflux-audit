@@ -1,0 +1,155 @@
+simulation
+{
+    random_seed = 4,
+}
+node_conf
+{
+    node_number(1:2) = 15, 16,  
+    if_periodic(1:2) = .true., .true., 
+}
+grid
+{
+    nx_p(1:2) = 480, 640, 
+    coordinates = "cartesian",
+}
+time_step
+{
+    dt = 0.066667,
+    ndump = 15,
+}
+restart
+{
+    if_restart = .false.,
+    if_remold = .true.,
+    ndump_time = 3000, ! 50 mins
+    ndump_fac = -1,
+}
+space
+{
+    xmin(1:2) = -24.0, -32.0, 
+    xmax(1:2) = 24.0, 32.0, 
+    if_move(1:2) = .false., .false., 
+}
+time
+{
+    tmin = 0.0,
+    ! tmax = 1,
+    tmax = 600.0,
+}
+el_mag_fld
+{
+    smooth_type = "none",
+    type_init_b(1:3) = "math func", "math func", "math func", 
+    init_b_mfunc(1) = "5.000e-01 * ( tanh((x2 + 6.400e+01/4)/1.0) - tanh((x2 - 6.400e+01/4)/1.0) - 1 )",
+    init_b_mfunc(2) = "5.000e-03 * sin( 2 * 3.14159265 * x1 / 4.800e+01 ) + ((5.000e-03)/4)*exp(-((x1+12)/6)^2)",
+    init_b_mfunc(3) = "sqrt( 5.000e-01^2 + 5.000e-02^2 - ( 5.000e-01 * ( tanh((x2 + 6.400e+01/4)/1.0) - tanh((x2 - 6.400e+01/4)/1.0) - 1 ) )^2 )",
+}
+emf_bound
+{
+}
+diag_emf
+{
+    ndump_fac = 10,
+    !ndump_fac_ene_int = 1,
+    reports = "e1", "e2", "e3", "b1", "b2", "b3", 
+}
+particles
+{
+    num_species = 2,
+    interpolation = "quadratic",
+}
+!-------------------------------------------------------------------------
+species
+{
+    name = "electrons1",
+    num_par_max = 10000,
+    rqm = -1,
+    num_par_x(1:2) = 25, 25, 
+    free_stream = .false.,
+    add_tag = .true.,
+}
+udist
+{
+    uth(1:3) = 0.111803, 0.111803, 0.111803, 
+    use_spatial_ufl = .true.,
+    spatial_ufl(1) = "5.000e-01 * ( tanh((x2 + 6.400e+01/4)/1.0) - tanh((x2 - 6.400e+01/4)/1.0) - 1 ) * 5.000e-01 * ( ( 1 / 1.000e+00 ) * cosh( (x2 + 6.400e+01/4)/1.0 )^(-2) - ( 1 / 1.000e+00 ) * cosh( (x2 - 6.400e+01/4)/1.0 )^(-2) ) / ( sqrt( 5.000e-01^2 + 5.000e-02^2 - ( 5.000e-01 * ( tanh((x2 + 6.400e+01/4)/1.0) - tanh((x2 - 6.400e+01/4)/1.0) - 1 ) )^2 ) * (1 + 0) )",
+    spatial_ufl(2) = "0",
+    spatial_ufl(3) = "5.000e-01 * ( ( 1 / 1.000e+00 ) * cosh( (x2 + 6.400e+01/4)/1.0 )^(-2) - ( 1 / 1.000e+00 ) * cosh( (x2 - 6.400e+01/4)/1.0 )^(-2) ) / (1 + 0) -  5.000e-03 * ( 2 * 3.14159265 / 4.800e+01 ) * cos( 2 * 3.14159265 * x1 / 4.800e+01 )  / (1 + 0) + 2*((x1+12)/(6^2))*((5.000e-03)/4)*exp(-((x1+12)/6)^2) / (1 + 0)",
+}
+profile
+{
+    profile_type(1) = "math func",
+    !math_func_expr = "1",
+    !math_func_expr = "(0.03 + (0.94/2)*(tanh((x2+16)/1)-tanh((x2-16)/1)))",
+    math_func_expr = "if(x2 < 16,if(x2 > (-16),1,0),0)",
+    density = 1,
+}
+spe_bound
+{
+}
+diag_species
+{
+    ndump_fac = 10,
+    reports = "charge",
+    rep_udist = "vfl1","vfl2","vfl3","v1v1","v1v2","v1v3","v2v2","v2v3","v3v3","v1v1v1","v1v1v2","v1v1v3","v1v2v2","v1v2v3","v1v3v3","v2v2v2","v2v2v3","v2v3v3","v3v3v3",
+    ndump_fac_pha = 1,
+    ps_gammamin = 1.0,
+    ps_gammamax = 8.0,
+    ps_ngamma = 1000,
+    if_ps_gamma_auto = .true.,
+
+    !phasespaces = "g",
+    ndump_fac_raw = 1,
+    raw_math_expr = "x2 < (-8) && x2 > (-24)",
+}
+!-------------------------------------------------------------------------
+species
+{
+    name = "electrons2",
+    num_par_max = 10000,
+    rqm = -1,
+    num_par_x(1:2) = 25, 25,
+    free_stream = .false.,
+    add_tag = .true.,
+}
+udist
+{
+    uth(1:3) = 0.111803, 0.111803, 0.111803,
+    use_spatial_ufl = .true.,
+    spatial_ufl(1) = "5.000e-01 * ( tanh((x2 + 6.400e+01/4)/1.0) - tanh((x2 - 6.400e+01/4)/1.0) - 1 ) * 5.000e-01 * ( ( 1 / 1.000e+00 ) * cosh( (x2 + 6.400e+01/4)/1.0 )^(-2) - ( 1 / 1.000e+00 ) * cosh( (x2 - 6.400e+01/4)/1.0 )^(-2) ) / ( sqrt( 5.000e-01^2 + 5.000e-02^2 - ( 5.000e-01 * ( tanh((x2 + 6.400e+01/4)/1.0) - tanh((x2 - 6.400e+01/4)/1.0) - 1 ) )^2 ) * (1 + 0) )",
+    spatial_ufl(2) = "0",
+    spatial_ufl(3) = "5.000e-01 * ( ( 1 / 1.000e+00 ) * cosh( (x2 + 6.400e+01/4)/1.0 )^(-2) - ( 1 / 1.000e+00 ) * cosh( (x2 - 6.400e+01/4)/1.0 )^(-2) ) / (1 + 0) -  5.000e-03 * ( 2 * 3.14159265 / 4.800e+01 ) * cos( 2 * 3.14159265 * x1 / 4.800e+01 )  / (1 + 0) + 2*((x1+12)/(6^2))*((5.000e-03)/4)*exp(-((x1+12)/6)^2) / (1 + 0)",
+}
+profile
+{
+    profile_type(1) = "math func",
+    !math_func_expr = "1",
+    !math_func_expr = "(0.97 - (0.94/2)*(tanh((x2+16)/1)-tanh((x2-16)/1)))",
+    math_func_expr = "if(x2 < 16,if(x2 > (-16),0,1),1)",
+    density = 1,
+}
+spe_bound
+{
+}
+diag_species
+{
+    ndump_fac = 10,
+    reports = "charge",
+    rep_udist = "vfl1","vfl2","vfl3","v1v1","v1v2","v1v3","v2v2","v2v3","v3v3","v1v1v1","v1v1v2","v1v1v3","v1v2v2","v1v2v3","v1v3v3","v2v2v2","v2v2v3","v2v3v3","v3v3v3",
+    ndump_fac_pha = 1,
+    ps_gammamin = 1.0,
+    ps_gammamax = 8.0,
+    ps_ngamma = 1000,
+    if_ps_gamma_auto = .true.,
+
+    !phasespaces = "g",
+    ndump_fac_raw = 1,
+    raw_math_expr = "x2 < (-8) && x2 > (-24)",
+}
+!------------------------------------------------------------------------------
+smooth
+{
+}
+diag_current
+{
+}

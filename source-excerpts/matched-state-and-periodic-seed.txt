@@ -1,0 +1,22 @@
+Attributed selective TeX excerpts
+Source: McGrae-Menge et al., arXiv:2607.07106v1 (2026)
+Original: https://arxiv.org/src/2607.07106v1, apssamp.tex
+License: CC BY 4.0; original authors retain their rights
+Source SHA-256: 5cf2c6e38a9914d0e7607b303220a2af2e4a70a1ae0d8b64c1882126321eba89
+
+--- Original lines 225-225, characters [142,482) ---
+The 2D-3V domain spans $x\in[-L_x/2,L_x/2]$ and $y\in[0,L_y]$, with $L_x=48d_e$ and $L_y=64d_e$, doubly periodic boundary conditions, resolved at $\Delta x=\Delta y=0.1d_e$. Electron quantities are given in normalized units $|q_e|=c=m_e=n_0=1$, and ions form a static, uniform, neutralizing background ($\frac{m_i}{m_e}\rightarrow \infty$).
+
+--- Original lines 238-240, characters [0,14) ---
+\begin{equation}\label{A3}
+    B_y(x)=\delta B\{\sin(\frac{2\pi x}{L_x})+\frac{1}{4}\exp{[-(\frac{x-\frac{L_x}{4}}{\frac{L_x}{8}})^2]}\}
+\end{equation}
+
+--- Original lines 244-244, characters [0,148) ---
+The electron fluid velocities are initialized from $\epsilon_{ijk}\partial_j B_k=J_i=q_en_0\overline{v}_i$, i.e. electrons carry the entire current.
+
+--- Original lines 280-280, characters [0,429) ---
+The 1-e-Fluid and 2-e-Fluid simulations of electron-only collisionless MR are performed with the 10-moment electromagnetic, collisionless fluid code \textit{Gkeyll} \cite{Wang2020}, inheriting the PIC domain, grid, boundary conditions, and magnetic-field initial condition (Eqs. \ref{A1}-\ref{A3}) exactly: $x\in[-L_x/2,L_x/2]$ and $y\in[0,L_y]$, with $L_x=48d_e$ and $L_y=64d_e$, doubly-periodic, and $\Delta x=\Delta y=0.1d_e$.
+
+--- Original lines 280-280, characters [673,1073) ---
+In 2-e-Fluid, both sub-populations share the same initial fluid velocity $\overline{v}_{1i}=\overline{v}_{2i}=\overline{v}_{i}$ (so that counter-streaming develops self-consistently from the reconnection dynamics rather than being imposed by hand), and also in 1-e-Fluid the single fluid carries $\overline{v}_i$; this common drift is set from $\epsilon_{ijk}\partial_j B_k=J_i=q_en_0\overline{v}_i$.

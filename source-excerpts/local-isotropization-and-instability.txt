@@ -1,0 +1,14 @@
+Attributed selective TeX excerpts
+Source: McGrae-Menge et al., arXiv:2607.07106v1 (2026)
+Original: https://arxiv.org/src/2607.07106v1, apssamp.tex
+License: CC BY 4.0; original authors retain their rights
+Source SHA-256: 5cf2c6e38a9914d0e7607b303220a2af2e4a70a1ae0d8b64c1882126321eba89
+
+--- Original lines 179-179, characters [684,1380) ---
+Our counter-streaming closure imposes adiabaticity on each sub-population, which we approach numerically through Gkeyll's pressure isotropization scheme $\partial_m q_{ijm}=\kappa v_{th}(p_{ij}-\delta_{ij}p)$ with $p\equiv Tr(p_{ij})/3$, commonly used in electron-ion fluid modeling of collisionless MR ~\cite{Wang2015,Ng2015,Hesse1995,Yin2000}. To approach adiabaticity, we take $\kappa=0.1d_e^{-1}$ -- much smaller than values traditionally used, and as small as possible while retaining numerical stability. This corresponds to an isotropization timescale $\tau_{Iso}\sim\frac{1}{\kappa v_{th}}\approx90\omega_{pe}^{-1}$, much longer than the counter-streaming heat-flux timescale shown later.
+
+--- Original lines 166-166, characters [527,861) ---
+We note that the contribution to $q_{xxx}$ from the isotropization closure is omitted from the fluid panels (k-l), as it is small relative to 2-e-Fluid $q_{CSxxx}$ ($\tau_{Iso} \gg \tau_{q_{xxx}\rightarrow p_{xx}}$), and reconstructing it from the closure would require additional assumptions since only its divergence is constrained.
+
+--- Original lines 207-207, characters [432,558) ---
+Because these instabilities are due to counter-streaming, 2-e-Fluid can capture their linear growth, whereas 1-e-Fluid cannot.

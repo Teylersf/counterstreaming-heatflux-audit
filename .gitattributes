@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.h5 binary
+data/input-decks/* -text
+source-excerpts/*.txt -text

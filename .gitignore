@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+data/raw/
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+submissions/*-private.*
+.publishing-access/
+*.dpapi
+*.enc

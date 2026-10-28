@@ -1,0 +1,31 @@
+{
+  "author": "Taylor Kalin",
+  "numpy": "2.3.5",
+  "matplotlib": "3.11.2",
+  "script_sha256": "2cb9ee6ac2766720033a873b40a38c8b2f6a134bf099ade4eb16315e443accfe",
+  "input_profiles_sha256": "a7ec9ed64168ba0e066c96aeeafc210527bed7aaf64f2459795d2835fb49d7fc",
+  "initial_state_scope": "Derived from archived t=0 moments and supplied input functions; no new simulation.",
+  "stability_scope": "Homogeneous nonrelativistic longitudinal electrostatic benchmark; not a reconnection run or a claim of global electromagnetic stability.",
+  "figures": [
+    {
+      "path": "figures/initial-state.pdf",
+      "bytes": 28215,
+      "sha256": "23c73500302e9e955a510156bf07900f0a54c3aa10ca0e8daa687b30dc9869ff"
+    },
+    {
+      "path": "figures/initial-state.png",
+      "bytes": 115477,
+      "sha256": "647761f35db2ae9296de71a710a4909cd3f1d2248ef251017896cbf9c901b60c"
+    },
+    {
+      "path": "figures/stability.pdf",
+      "bytes": 26814,
+      "sha256": "2261bcc882f20eec0e7cdb3bc14b2881eb05db2caeebf8e0c79557ed548e7c40"
+    },
+    {
+      "path": "figures/stability.png",
+      "bytes": 76916,
+      "sha256": "e9715497cdcf3e7836d727ad214ecbb0bcaa09bf93ac3024a142431efe96f02f"
+    }
+  ]
+}

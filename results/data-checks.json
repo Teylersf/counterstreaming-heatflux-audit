@@ -1,0 +1,110 @@
+{
+  "initial_current": {
+    "passed": true,
+    "rows": [
+      {
+        "row": 159,
+        "raw_y": -16.049999999999997,
+        "paper_y": 15.950000000000003,
+        "PIC_moment_current": -0.44098722932885703,
+        "required_staggered_current": -0.49833998084069187,
+        "relative_current_deficit": 0.11508759825989001,
+        "PIC_velocity": 0.4409872227576353,
+        "fluid_prescribed_velocity": 0.49875255727826345,
+        "relative_velocity_deficit": 0.11581962573958249,
+        "cold_converted_velocity": 0.4462101699583111
+      },
+      {
+        "row": 160,
+        "raw_y": -15.95,
+        "paper_y": 16.05,
+        "PIC_moment_current": -0.4408766944657836,
+        "required_staggered_current": -0.4983399808406741,
+        "relative_current_deficit": 0.11530940439085957,
+        "PIC_velocity": 0.44087668789620893,
+        "fluid_prescribed_velocity": 0.4987525572782632,
+        "relative_velocity_deficit": 0.11604124838554808,
+        "cold_converted_velocity": 0.44621016995831086
+      },
+      {
+        "row": 479,
+        "raw_y": 15.950000000000003,
+        "paper_y": 47.95,
+        "PIC_moment_current": 0.44108789554976696,
+        "required_staggered_current": 0.4983399808407185,
+        "relative_current_deficit": 0.11488559516008545,
+        "PIC_velocity": -0.44108788897704515,
+        "fluid_prescribed_velocity": -0.49875160349330466,
+        "relative_velocity_deficit": 0.11561609849948806,
+        "cold_converted_velocity": -0.44620948654808884
+      },
+      {
+        "row": 480,
+        "raw_y": 16.050000000000004,
+        "paper_y": 48.050000000000004,
+        "PIC_moment_current": 0.44084356092044225,
+        "required_staggered_current": 0.49833998084064746,
+        "relative_current_deficit": 0.11537589222364775,
+        "PIC_velocity": -0.4408435543513613,
+        "fluid_prescribed_velocity": -0.4987516034933043,
+        "relative_velocity_deficit": 0.11610599091080498,
+        "cold_converted_velocity": -0.4462094865480885
+      }
+    ],
+    "definition": "Jz_moment=-(n1<vz>1+n2<vz>2); curl uses recorded Yee offsets",
+    "native_charge_conserving_OSIRIS_current_used": false,
+    "new_PIC_or_Gkeyll_run": false
+  },
+  "initial_pressure": {
+    "passed": true,
+    "rows": [
+      {
+        "row": 159,
+        "paper_y": 15.950000000000003,
+        "PIC_Pxx": 0.009948679931370285,
+        "PIC_Pzz": 0.007696529306960078,
+        "fluid_prescribed_pressure": 0.012499910809,
+        "Pxx_ratio": 0.7959000734794991,
+        "Pzz_ratio": 0.6157267379394848
+      },
+      {
+        "row": 160,
+        "paper_y": 16.05,
+        "PIC_Pxx": 0.009975433256479592,
+        "PIC_Pzz": 0.007693028300607572,
+        "fluid_prescribed_pressure": 0.012499910809,
+        "Pxx_ratio": 0.7980403547597499,
+        "Pzz_ratio": 0.6154466554328173
+      },
+      {
+        "row": 479,
+        "paper_y": 47.95,
+        "PIC_Pxx": 0.009963680490988221,
+        "PIC_Pzz": 0.007712832436650328,
+        "fluid_prescribed_pressure": 0.012499910809,
+        "Pxx_ratio": 0.7971001268116505,
+        "Pzz_ratio": 0.6170309976209629
+      },
+      {
+        "row": 480,
+        "paper_y": 48.050000000000004,
+        "PIC_Pxx": 0.009965137045970419,
+        "PIC_Pzz": 0.007715378150590989,
+        "fluid_prescribed_pressure": 0.012499910809,
+        "Pxx_ratio": 0.7972166520416665,
+        "Pzz_ratio": 0.6172346561893767
+      }
+    ],
+    "definition": "Pii=sum_s integral f_s vi^2 d^3v - n*<vi>^2, me=1",
+    "fluid_comparison": "prescribed input-deck thermal pressure, not a reloaded fluid snapshot"
+  },
+  "provenance": {
+    "record": "https://zenodo.org/records/21114117",
+    "snapshots": "t=0 only",
+    "members": 13,
+    "member_CRC32_and_SHA256_verified": true,
+    "full_archive_MD5_verified": false,
+    "numpy": "2.3.5",
+    "h5py": "3.16.0"
+  }
+}

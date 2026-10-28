@@ -1,5 +1,5 @@
 {
-  "commit": "e1ebd1aaee17bc5cd486d40387eb655aefd70c20",
+  "commit": "0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8",
   "repository": "https://github.com/Teylersf/counterstreaming-heatflux-audit",
   "verification_sha256": "6e724e564d4ca23bf718d4add4eded9311aa6ebbeb161c4abc606ec750f01491",
   "source_files": [
@@ -18,6 +18,37 @@
     {
       "path": "experiments/fetch_data.py",
       "sha256": "9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0"
+    },
+    {
+      "path": "experiments/profile_sensitivity.py",
+      "sha256": "16f79b0c6c4aad933b2efedf8516dbca609a53993442bcccd78cd16be5c15e7e"
+    },
+    {
+      "path": "experiments/revision_data.py",
+      "sha256": "ad9f47607fecb68eb3a914783e3d88af8cef1e05c5ed557784286fea901db0db"
+    },
+    {
+      "path": "experiments/thermal_loading.py",
+      "sha256": "8ca81418bba26d8307337d7d0f1612bcf169186f91a00b1c6e84b5ea5748511d"
     }
-  ]
+  ],
+  "revision_outputs": [
+    {
+      "path": "results/profile-sensitivity.json",
+      "sha256": "f74e9bc750cb661cda931045f7b471cb29271d525c15e08504b54f618c4de586"
+    },
+    {
+      "path": "results/revision-data.json",
+      "sha256": "0abafde815b680b75af3fa01efcfee8cf20aa1e140325199ce8fb9cc22dd2066"
+    },
+    {
+      "path": "results/thermal-loading.json",
+      "sha256": "f7c6c4918020ea9d7278f2c3bd299850f2869bf30cd29694f7b7075478a91161"
+    },
+    {
+      "path": "data/provenance-revision.json",
+      "sha256": "25b9abe520ffee744c3881759e60a3f2e88f4ca63834eec6c619e9804af5f3f9"
+    }
+  ],
+  "original_eight_group_code_bytes_unchanged": true
 }

@@ -4,23 +4,23 @@
 
 [taylorkalin.com](https://taylorkalin.com) · [teylersf@gmail.com](mailto:teylersf@gmail.com) · [ORCID: 0009-0003-9000-9315](https://orcid.org/0009-0003-9000-9315)
 
-28 October 2026 · Version 1.0.0
+28 October 2026 · Version 1.1.0
 
 # Abstract
 
-We examine the initial-state matching and closure interpretation in arXiv:2607.07106v1 using its published input decks, archived initial moments, and explicit continuum tests. The central two-population pressure and third-moment identities are correct. However, the PIC input specifies a proper-momentum drift where the fluid input specifies ordinary velocity. In the two archived cells straddling the lower current-sheet center, the density-weighted initial PIC moment current differs by about 11.5% from the magnetostatic current implied by the staggered magnetic curl. Its Cartesian thermal pressures are about 20% below the fluid initialization in $p_{xx}$ and 38.4% below in $p_{zz}$. A matched-state rerun is needed to determine the effect on the nonlinear comparison. Separately, the stated finite-isotropization closure has an overstable longitudinal mode with growth about $0.00952\omega_{pe}$ in a homogeneous two-Maxwellian equilibrium certified as stable to collisionless longitudinal electrostatic perturbations by the Penrose criterion. We give the linear system, constraint checks, a correction to the symmetry-plane density argument, and a relative heat-flux error bound that accounts for imbalance and cancellation. The calculations distinguish valid mixture algebra, empirical benchmark evidence, and claims requiring additional validation. No new PIC or Gkeyll reconnection simulation is claimed.
+This diagnostic comment examines initial-state controls in arXiv:2607.07106v1 using the published decks, archived PIC moments and reloaded initial fluid output. The central two-population moment identities are correct. However, the PIC input specifies proper momentum where the fluid input specifies ordinary velocity. The saved fluid states corroborate their initializers to roundoff. Relative to either fluid model, the initial PIC moment-current profile differs by $9.87\%$ in the full-domain, $x$-averaged relative $\ell^2$ norm; the two lower-sheet central cells differ by about $11.6\%$. Their Cartesian velocity-covariance pressures are about $20\%$ lower in $p_{xx}$ and $38.4\%$ lower in $p_{zz}$. A conditional public-loader calculation explains the finite-temperature drift reduction, while separating verified archived moments from an unverified custom diagnostic implementation. No native deposited-current file is identifiable in the complete posted PIC inventory. Separately, an auxiliary homogeneous longitudinal benchmark has a finite-isotropization fluid mode with growth $0.00952\omega_{pe}$ where its collisionless kinetic reference is Penrose-stable. This is not a sheet eigenanalysis or a refutation of the source’s application-specific instability claim. We also qualify the symmetry-plane density explanation and give a cancellation-conditioned relative heat-flux bound. No new reconnection run is claimed. A matched-state rerun is required to establish dynamical significance; the source’s later nonlinear conclusions are not disproved here.
 
 # 1 Introduction and scope
 
 Counter-streaming electron populations provide a useful representation of the strongly non-Maxwellian distributions generated during collisionless magnetic reconnection. McGrae-Menge and collaborators [1] report that tagging electrons by their initial side of a current sheet isolates sub-populations whose intrinsic third moments are small compared with their combined heat flux. Their exact moment decomposition explains how relative motion and population asymmetry can generate a substantial aggregate third moment even when each population has little intrinsic heat flux. Evolving additional population moments is therefore physically motivated.
 
-The present study examines two separate questions that this useful mechanism does not settle: whether the numerical comparison starts from matched physical states, and whether the implemented finite-relaxation closure has the kinetic stability properties attributed to it. These are testable questions about the identified source version and model, rather than an assertion that the underlying mixture interpretation is wrong.
+The principal contribution of this diagnostic comment is an initial-state audit of the public inputs and archived moments. Equal nominal drift and temperature parameters need not specify equal laboratory-frame moments in a relativistic particle initializer and a nonrelativistic fluid initializer. This identifies controls needed to interpret the comparison; it does not determine their effect on its later nonlinear outcome.
 
 Our first result uses the authors’ publicly archived initial moments and input decks [2]. Identical nominal drift expressions enter a proper-momentum initializer in PIC and an ordinary-velocity initializer in the fluid model. The recorded initial moments show a current and pressure mismatch consistent with that distinction. This is a reproducible control issue for interpreting the nonlinear comparison; its eventual dynamical effect cannot be determined from initial-state analysis alone.
 
-Our second result is a controlled longitudinal stability test of the stated continuum isotropization closure. A positive two-Maxwellian equilibrium is stable to longitudinal electrostatic perturbations under the established Penrose criterion [3], but its finite-relaxation fluid counterpart has an overstable mode. We give an explicit linear system and check both its eigenvalue residual and Gauss constraint. The test is homogeneous and nonrelativistic. It does not replace the source’s inhomogeneous reconnection calculation or show that the identified mode caused any of its plotted features.
+An auxiliary result is a controlled longitudinal stability test of the stated continuum isotropization closure. A positive two-Maxwellian equilibrium is stable to longitudinal electrostatic perturbations under the established Penrose criterion [3], but its finite-relaxation fluid counterpart has an overstable mode. We give an explicit linear system and check both its eigenvalue residual and Gauss constraint. The test is homogeneous and nonrelativistic. It does not replace the source’s inhomogeneous reconnection calculation, refute its application-specific instability-capability statement, or show that the identified mode caused any of its plotted features. The source populations initially share a velocity; the counter-streaming equilibrium used in this calibration test is different.
 
-Two further results make the interpretation more precise. Continuity depends on the divergence of the mass flux, so a zero normal velocity at a symmetry plane does not prohibit density accumulation there. A conditioned third-moment error bound also shows why a thermal-to-drift speed ratio alone does not give a universal relative-error guarantee when population contributions cancel. Neither result disputes the empirical parameter trend in the published scan.
+Two secondary observations make the interpretation more precise. Continuity depends on the divergence of the mass flux, so a zero normal velocity at a symmetry plane does not prohibit density accumulation there. A conditioned third-moment error bound also shows why a thermal-to-drift speed ratio alone does not give a universal relative-error guarantee when population contributions cancel. Neither result disputes the empirical parameter trend in the published scan.
 
 ## 1.1 Relation to established work
 
@@ -50,7 +50,42 @@ $$
 
 Thus the same numerical vector used for $\mathbf U$ in PIC and $\mathbf v/c$ in the fluid initializer does not match the physical cold drift. At the unperturbed lower sheet center, the reference expressions give approximately $(0,0,0.5)$: the cold PIC speed is $0.4472136c$, whereas the prescribed fluid speed is $0.5c$. The fractional difference is $10.56\%$. It persists when the thermal spread tends to zero at fixed $B_{\mathrm{Reconn.}}=0.5$ and sheet width $d_e$; low thermal beta alone does not remove it. Equation (1) is a cold-limit explanation. A finite-temperature mean must be measured after loading rather than identified with that limit.
 
-## 2.2 Archived initial current and staggered magnetic curl
+## 2.2 A conditional finite-temperature loading calculation
+
+The complete 155-line posted PIC deck contains two thermal-distribution blocks with $\sigma=0.111803$, and no classical-addition override or include directive. The inspected public OSIRIS loader draws independent Gaussian thermal proper-momentum components and boosts each particle without changing its weight [11]. With $c=1$, for thermal momentum $\mathbf w\sim\mathcal N(0,\sigma^2I)$ and proper drift $\mathbf U$, this rule is
+
+$$
+\gamma_0=\sqrt{1+|\mathbf w|^2},\quad G=\sqrt{1+|\mathbf U|^2},\quad
+ \mathbf p=\mathbf w+\mathbf U
+ \left(\gamma_0+\frac{\mathbf w\cdot\mathbf U}{G+1}\right),\quad
+ \mathbf v=\frac{\mathbf p}{G\gamma_0+\mathbf w\cdot\mathbf U}.
+$$
+
+This is a prediction conditional on the public loading rule, not an identification of the original executable. With $\beta=|\mathbf U|/G$ and $z=w_\parallel/\gamma_0$, pairing opposite Gaussian momenta gives
+
+$$
+\mathbb E[v_\parallel]
+ =\beta\left[1-(1-\beta^2)
+ \mathbb E\left(\frac{z^2}{1-\beta^2z^2}\right)\right]<\beta
+$$
+
+for positive drift and nonzero thermal spread. Thus the mean can fall below the cold conversion without an additional force. An invariant scalar distribution sampled at equal laboratory time would require a different Jacobian-weighted measure; it must not be silently substituted for this unweighted sample-boost rule.
+
+At $\mathbf U=(0,0,0.5)$ the finite-temperature mean is $0.44297014c$, below the cold $0.44721360c$. Evaluating the full spatial drift expressions and perturbations at the two lower diagnostic rows gives an $x$-averaged zero-shape prediction $0.44197416c$. A separate, unfitted sensitivity uses the declared quadratic interpolation, the recorded moment-cell offset and the posted $25\times25$ regular particle lattice. Summing the standard quadratic weights over their support gives the following conditional values:
+
+| Quantity | $Y=15.95d_e$ | $Y=16.05d_e$ |
+| --- | --- | --- |
+| Archived $\overline v_z/c$ | 0.44098722 | 0.44087669 |
+| Pointwise loading prediction | 0.44197416 | 0.44197416 |
+| Quadratic-shape prediction | 0.44098868 | 0.44098868 |
+| Archived $P_{xx}$ | 0.00994868 | 0.00997543 |
+| Quadratic-shape $P_{xx}$ | 0.00996490 | 0.00996490 |
+| Archived $P_{zz}$ | 0.00769653 | 0.00769303 |
+| Quadratic-shape $P_{zz}$ | 0.00770632 | 0.00770632 |
+
+These pressure predictions use expected raw moments centered at each node before averaging, in the infinite-particle limit. No temperature, drift, shape width or perturbation is fitted to the archived values. Quadrature orders 12, 20, 32 and 48 agree in the quadratic mean to about $5\times10^{-16}c$; an independent Cartesian quadrature checks the reduced moment calculation to $1.73\times10^{-15}$ in the tested quantities. This explains the scale of the additional reduction below the cold value. The standard public deposition kernel is not verified as the original custom velocity diagnostic’s kernel, so the pointwise prediction and shape sensitivity remain distinct. Neither is a new PIC run or a confidence statement about the unidentified original build.
+
+## 2.3 Archived initial current and staggered magnetic curl
 
 The original data authors explicitly define the archived diagnostic `vfl_i` as $(1/n)\int f v_i\,\mathrm{d}^3v$ [2]. It is therefore an ordinary mean velocity, even though the input parameter `ufl` is a proper-momentum parameter. With the source normalization $q_e=-1$, the physical moment current is
 
@@ -81,9 +116,13 @@ on the moment-cell centers. Periodic differencing makes the first term’s $x$ a
 
 The supplied fluid initializer prescribes an $x$-averaged ordinary velocity $0.49875256c$ in these same cells. The archived PIC means are $0.44098722c$ and $0.44087669c$, approximately $11.6\%$ smaller. The small difference between this continuum prescription and Table 1’s staggered curl does not explain the observed deficit. The adjacent cells at the other sheet show the same effect with reversed current sign.
 
-Here $J_z^{\mathrm{mom}}$ is a moment-based physical diagnostic. We have not reloaded OSIRIS’s native charge-conserving deposited current, which can differ from a simple $qv$ deposition. These numbers therefore do not specify the exact discrete electric-field update of the original executable. In the normalized continuum equations, $\partial_t E_z=(\nabla\times\mathbf B)_z-J_z$. The comparison therefore measures initial magnetostatic balance and a possible electric-field transient, while the field remains free to evolve.
+The result is not restricted to these four illustrative cells. Across all 640 rows, the relative $\ell^2$ discrepancy between the $x$-averaged moment-current and Yee-curl profiles is $9.8265\%$. Restricting to $14\leq Y/d_e\leq18$ or $46\leq Y/d_e\leq50$ gives $9.8287\%$ and $9.8408\%$, respectively. These are norms of the one-dimensional averaged profiles, not norms of the full two-dimensional fields. Figure 2 displays both sheets and the full domain. The input-prescribed current differs from the Yee profile by only $0.0630\%$ in the full-profile relative norm.
 
-## 2.3 The laboratory-frame pressure moments also differ
+As a deterministic discretization sensitivity, averaging the staggered fields onto cell centers before a centered derivative changes the curl profile by $0.3755\%$ in that norm. This is a deliberately smoothed representation, not an alternative reading of the recorded Yee offsets. The central-cell moment-current deficits remain about $11.05$–$11.10\%$ against that smoothed profile. Eight contiguous 60-column blocks at $Y=15.95d_e$ have moment-current means between $-0.4417104$ and $-0.4404351$, compared with the Yee mean $-0.4983400$. The per-column standard deviation is $0.0019906$. These spatial summaries are descriptive; correlated particle deposition and the imposed perturbation preclude treating them as independent-sample confidence intervals.
+
+Here $J_z^{\mathrm{mom}}$ is a moment-based physical diagnostic. We have not reloaded OSIRIS’s native charge-conserving deposited current, which can differ from a simple $qv$ deposition. These numbers therefore do not specify the exact discrete electric-field update of the original executable. In the normalized continuum equations, $\partial_t E_z=(\nabla\times\mathbf B)_z-J_z$. The comparison is a continuum magnetostatic diagnostic. It does not establish an initial transient in the native numerical electric-field update.
+
+## 2.4 The laboratory-frame pressure moments also differ
 
 The record defines its second-moment diagnostics without a density normalization: $M_{s,ii}=\int f_s v_i^2\,\mathrm{d}^3v$ [2]. Following the source’s own pressure definition, at $m_e=1$ we compute
 
@@ -97,28 +136,42 @@ $$
 p_{\mathrm{fl}}=n_0(0.111803)^2=0.012499910809.
 $$
 
-This is the pointwise initializer prescription; the archived fluid `.bp` fields have not been reloaded. The measured ratios are
+The archived initial fluid `.bp` fields independently confirm this pressure in both fluid models, as detailed below. The measured ratios to the archived fluid pressure are
 
 | $Y/d_e$ | $\langle P_{xx}\rangle_x/p_{\mathrm{fl}}$ | $\langle P_{zz}\rangle_x/p_{\mathrm{fl}}$ |
 | --- | --- | --- |
 | 15.95 | 0.795900 | 0.615727 |
 | 16.05 | 0.798040 | 0.615447 |
 
-For example, at $Y=15.95d_e$ the archived values are $\langle P_{xx}\rangle_x=0.00994868$ and $\langle P_{zz}\rangle_x=0.00769653$. The latter is about $38.4\%$ below the fluid pressure prescription. These are the ordinary-velocity covariance moments defined in the source, not components of a relativistic energy–momentum tensor. A common rest-frame thermal-momentum parameter does not imply equal laboratory-frame velocity covariance after a boost. Figure 1 shows the full $x$-averaged profiles.
+For example, at $Y=15.95d_e$ the archived values are $\langle P_{xx}\rangle_x=0.00994868$ and $\langle P_{zz}\rangle_x=0.00769653$. The latter is about $38.4\%$ below the archived fluid pressure. These are the ordinary-velocity covariance moments defined in the source, not components of a relativistic energy–momentum tensor. A common rest-frame thermal-momentum parameter does not imply equal laboratory-frame velocity covariance after a boost. Centering the pressure after averaging in $x$ instead adds the density-weighted variance of the resolved mean flow. At the four central rows this changes either diagonal component by approximately $4\times10^{-6}$, far smaller than the reported pressure mismatch; the source definition and our principal result center each cell first. Figure 1 shows the local $x$-averaged profiles.
 
-## 2.4 What a controlled comparison requires
+## 2.5 Corroboration against the saved fluid state
+
+We reloaded five initial BP snapshots: the one-fluid electron state, both two-fluid electron states, and each model’s electromagnetic field. They record time and frame zero, a single available step, the same $480\times640$ grid and bounds, zero ghost cells and polynomial order zero. Each file’s embedded base64 input deck decodes byte-for-byte to the posted Lua file. This checks the input used in the saved output, rather than assuming that the separate prescription was executed unchanged.
+
+The ten stored components are $\rho$, the three $\rho u_i$, and the six symmetric raw second moments. Their order is checked against every returned initializer component over all 307,200 cells, including off-diagonal moments and the field components. The largest one-fluid component error is $4.38\times10^{-16}$; the summed two-fluid state differs from the one-fluid state by at most $1.12\times10^{-16}$. Aggregate pressure is reconstructed after summing the conservative population moments. Thus the earlier comparison with the prescribed initial state is corroborated by the actual archived state.
+
+Against either reloaded fluid model, the full 640-row, $x$-averaged PIC profiles have relative $\ell^2$ differences of $9.8675\%$ for $J_z$, $8.3169\%$ for $P_{xx}$ and $9.5440\%$ for $P_{zz}$. At the two lower central rows the actual fluid current is $-0.4987525573$, giving moment-current deficits $11.5820\%$ and $11.6041\%$. The local pressure ratios reported above are unchanged. These comparisons concern physical velocity moments, not native PIC current deposition or later-time dynamics.
+
+All selected PIC files have `TIME=0` and `ITER=0`; the fluid files have time and frame zero. No explicit time-averaging attribute appears. This verifies the posted snapshot metadata, not the impossibility of an undocumented operation in the unidentified PIC build. A complete inventory of all 223 PIC ZIP entries, including 94 scientific files, identifies no native deposited-current diagnostic. We therefore cannot make the requested native-current comparison from this deposit and do not substitute the `UDIST` moment current for it.
+
+## 2.6 What a controlled comparison requires
 
 The data establish an initial-state mismatch in the posted comparison. They do not establish how much of any later reconnection difference it causes. That requires reruns with controlled initial moments and numerical refinement. One constructive test is to initialize the fluid models from the measured PIC $n$, $\overline{\mathbf v}$ and $P_{ij}$, preserving the intended population labels. Another is to calibrate the PIC loading to a prescribed physical fluid state and then verify the deposited moments. The cold conversion in Eq. (1) is necessary for a cold drift match, but by itself does not guarantee a finite-temperature pressure or current match.
 
-An exact executable build or commit identifier was not found in the inspected deposit. The current public OSIRIS code inspected for documentation does not expose the authors’ custom `vfl`/third-moment diagnostic implementation. Our diagnostic interpretation follows their explicit dataset definitions and file metadata. All selected files are at $t=0$. The present calculation is a reproducible reanalysis of those files, with no new PIC or Gkeyll run and no causal attribution of the source’s later nonlinear results.
+The fluid BP metadata records Gkeyll changeset `9663ea594e80+`; its plus suffix does not identify a clean exact source tree or executable. The original PIC executable remains unidentified. The current public OSIRIS code inspected for documentation does not expose the authors’ custom `vfl`/third-moment diagnostic implementation. Our diagnostic interpretation follows their explicit dataset definitions and file metadata. All selected files are at $t=0$. The present calculation is a reproducible reanalysis of those files, with no new PIC or Gkeyll run and no causal attribution of the source’s later nonlinear results.
 
 ![Figure 1](https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/initial-state.png)
 
-**Figure 1.** Reanalysis of the archived initial state near the lower sheet. Left: the ordinary-velocity moment current differs from both the staggered magnetic curl and the posted fluid prescription. Right: the local centered pressure components, averaged in $x$ after centering, differ from the isotropic fluid prescription. The profiles use the authors’ archived diagnostics and their published definitions [2]. The fluid curves are initializer prescriptions, not reloaded fluid output. No new simulation is shown.
+**Figure 1.** Reanalysis of the archived initial state near the lower sheet. Left: the ordinary-velocity moment current differs from both the staggered magnetic curl and the posted fluid prescription. Right: the local centered pressure components, averaged in $x$ after centering, differ from the isotropic fluid pressure. The profiles use the authors’ archived diagnostics and their published definitions [2]. The drawn fluid curves use the initializer; the reloaded initial fluid output independently corroborates them to roundoff. No new simulation is shown.
 
-# 3 A controlled linear-stability test
+![Figure 2](https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/profile-sensitivity.png)
 
-The source states that resolving counter-streaming populations allows its two-fluid model to capture the linear growth of the associated instabilities [1]. Population resolution alone does not guarantee the correct kinetic response. Closure-dependent differences in fluid and kinetic instability spectra are established issues [7, 5]. We give an explicit test of the stated local-isotropization closure, without inferring that the test mode occurs in the source’s nonlinear reconnection calculation.
+**Figure 2.** Full-domain, $x$-averaged archived PIC profiles at $t=0$, with both current sheets visible. Left: physical moment current and the correctly staggered magnetic curl. Right: velocity-covariance pressures divided by the fluid pressure confirmed in the archived output. The figure extends the local view; it is neither an independent simulation nor a native deposited-current diagnostic.
+
+# 3 An auxiliary homogeneous linear-stability test
+
+The source argues that its two-population description can capture linear growth of counter-streaming instabilities in reconnection [1]. Our calculation does not test those evolving distributions. It supplies a separate calibration example for the implemented local-isotropization closure: population drifts alone do not guarantee a correct collisionless kinetic spectrum. Closure-dependent differences in such spectra are established issues [7, 5]; the example below makes this validation issue explicit at the stated reference relaxation-rate scale.
 
 Consider a homogeneous nonrelativistic electron plasma with immobile neutralizing ions. Two equal-density populations have ordinary velocities $\pm Ue_x$ and isotropic thermal variance $\sigma^2$. Their longitudinal velocity marginal, normalized to unit density, is
 
@@ -128,7 +181,7 @@ f_0(v)=\frac{
  }{2\sqrt{2\pi}\sigma}.\tag{5}
 $$
 
-A constant magnetic field parallel to $e_x$ leaves the longitudinal, gyrotropic perturbation subspace used below invariant.
+A constant magnetic field parallel to $e_x$ leaves the longitudinal, gyrotropic perturbation subspace used below invariant. In the kinetic equation its gyrophase-rotation operator vanishes on gyrotropic perturbations; a longitudinal electric perturbation preserves that subspace. In the fluid equations, parallel velocity perturbations and a diagonal pressure perturbation with equal transverse entries have vanishing magnetic rotation terms. This justification concerns a uniform parallel field, not the source’s rotating field, transverse gradients or relativistic response.
 
 #### The collisionless kinetic reference.
 
@@ -210,15 +263,15 @@ $$
  \qquad \lambda=-i\omega.\tag{12}
 $$
 
-The eigen-equation, Gauss constraint $ikE+N_++N_-=0$, and independent dielectric residual are all below $2\times10^{-10}$ in the recorded checks; actual residuals are much smaller. The zero-relaxation matrix has no positive growth beyond roundoff. The literal fluid deck rounds its thermal speed to $0.111803c$; substituting the resulting $\nu/\omega_{pe}=0.0111803$ also leaves positive growth, with a change smaller than $10^{-6}\omega_{pe}$. A box-compatible check using mode 14 of $L_x=48d_e$, with $\sigma=c/\sqrt{80}$, gives growth $0.00951299405\omega_{pe}$ and a wavelength resolved by about 34 cells at the reported grid spacing.
+The eigen-equation, Gauss constraint $ikE+N_++N_-=0$, and independent dielectric residual are all below $2\times10^{-10}$ in the recorded checks; actual residuals are much smaller. The zero-relaxation matrix has no positive growth beyond roundoff. The literal fluid deck rounds its thermal speed to $0.111803c$; substituting the resulting $\nu/\omega_{pe}=0.0111803$ also leaves positive growth, with a change smaller than $10^{-6}\omega_{pe}$. A periodic-box check using $k_x=2\pi\,14/L_x$ for $L_x=48d_e$, with $\sigma=c/\sqrt{80}$, gives growth $0.00951299405\omega_{pe}$ and a wavelength resolved by about 34 cells at the reported grid spacing. It is an $x$-periodic mode of the homogeneous system, not a transverse $k_y$ eigenmode of the inhomogeneous current sheet.
 
-These are continuum model diagnostics. They establish a false positive relative to the specified collisionless kinetic reference, including at the source’s positive relaxation-rate scale. They do not identify a mode measured in the original current sheet, replace a kinetic stability analysis of that sheet, or show that a particular nonlinear plot is contaminated.
+These are continuum model diagnostics. They establish a false positive relative to the specified collisionless kinetic reference, including at the source’s positive relaxation-rate scale. They do not identify a mode measured in the original current sheet, replace a kinetic stability analysis of that sheet, or show that a particular nonlinear plot is contaminated. The source’s initial populations have a common velocity and its equilibrium varies across $y$. No survival of this mode in that equilibrium is established. The benchmark is retained as an auxiliary closure test, rather than a counterexample to the source’s narrower application-specific capability claim.
 
-![Figure 2](https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/stability.png)
+![Figure 3](https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/stability.png)
 
-**Figure 2.** Homogeneous longitudinal test with $U/\sigma=1.2$ and $k\sigma/\omega_{pe}=0.2$. Left: nonzero eigenvalues of the ideal and finite-rate fluid systems; the static Gauss-constraint mode is excluded. Right: the largest fluid growth rate as relaxation varies, with $\nu_0/\omega_{pe}=1/(40\sqrt5)$ marked. The collisionless kinetic reference has no growing longitudinal electrostatic mode by the Penrose proof above. This comparison concerns the stated continuum closure, not an observed mode in the original reconnection calculation.
+**Figure 3.** Homogeneous longitudinal test with $U/\sigma=1.2$ and $k\sigma/\omega_{pe}=0.2$. Left: nonzero eigenvalues of the ideal and finite-rate fluid systems; the static Gauss-constraint mode is excluded. Right: the largest fluid growth rate as relaxation varies, with $\nu_0/\omega_{pe}=1/(40\sqrt5)$ marked. The collisionless kinetic reference has no growing longitudinal electrostatic mode by the Penrose proof above. This comparison concerns the stated continuum closure, not an observed mode in the original reconnection calculation.
 
-# 4 Density can grow at a symmetry-plane stagnation point
+# 4 A secondary continuity clarification
 
 On PDF p. 5, the source attributes its one-fluid density deficit to the vanishing of $u_y$ at the symmetric mid-plane, describing this as blocking transport into the sheet [1]. The value of a flux at one plane does not determine its divergence:
 
@@ -226,7 +279,7 @@ $$
 \partial_t n=-\partial_x(nu_x)-\partial_y(nu_y).\tag{13}
 $$
 
-In particular, $\partial_y(nu_y)$ can be nonzero where $u_y=0$.
+In particular, $\partial_y(nu_y)$ can be nonzero where $u_y=0$. This is standard continuum kinematics, not a new plasma mechanism. Its role here is to qualify an explanation based on symmetry alone; the observed one-fluid density deficit and its dynamical cause remain separate questions.
 
 **Proposition 4.1 (A periodic density-accumulation example).**
 
@@ -338,6 +391,8 @@ This example does not establish how much relaxation changes the evolving source 
 
 The repository separates reanalysis of archived simulation output from analytical model tests. The initial-state analysis uses the authors’ data dictionary, independently readable HDF5 attributes, published input decks, and explicitly aligned grid locations. The stability, continuity and moment calculations use specified equations and inputs and require no reconnection simulation executable.
 
+The inspected Zenodo record is identified by the record-specific DOI [10.5281/zenodo.21114117](https://doi.org/10.5281/zenodo.21114117); the source’s concept DOI is [10.5281/zenodo.21114116](https://doi.org/10.5281/zenodo.21114116). Both resolve to this dataset family. The registration agency is DataCite, whose API identifies the record DOI as findable; a Crossref-only lookup returns no record. The direct repository link is <https://zenodo.org/records/21114117>. These identifiers do not denote two different simulations or a replacement data source.
+
 **Table 2.** Selected verification outcomes. The code, data definitions and scope limits distinguish initial-state reanalysis from independent continuum tests.
 
 | Check | Outcome |
@@ -365,7 +420,7 @@ An initialization audit should precede attributing every later difference to the
 
 The measured initial mismatch does not determine the sign or size of its effect at the reported $t=300\omega_{pe}^{-1}$ snapshot. Reconnection may relax some initial differences, amplify others, or preserve the qualitative advantage of retaining two populations. A matched-initial-state comparison and resolution or relaxation-rate studies are needed to separate those possibilities. We therefore do not infer that correcting the drift would eliminate the reported single-fluid density deficit, reproduce all PIC heat flux with one fluid, or reverse the source’s qualitative conclusion.
 
-The homogeneous stability test supplies a separate validation requirement. Retaining population drift creates the possibility of streaming modes; it does not ensure the correct kinetic susceptibility or growth rate. The implemented relaxation should be included in the dispersion calculation. Finite relaxation can change a spectrum even when the unperturbed pressure is isotropic and the relaxation source vanishes at equilibrium. In the stated example the resulting growing mode is a false positive relative to the collisionless kinetic reference. This is a test of a model’s continuum response, not evidence that the original simulation visibly contains that mode.
+The auxiliary homogeneous stability test supplies a separate calibration. Retaining population drift creates the possibility of streaming modes; it does not ensure the correct kinetic susceptibility or growth rate. The implemented relaxation should be included in the dispersion calculation. Finite relaxation can change a spectrum even when the unperturbed pressure is isotropic and the relaxation source vanishes at equilibrium. In the stated example the resulting growing mode is a false positive relative to the collisionless kinetic reference. This is a test of a model’s continuum response, not evidence that the original simulation visibly contains that mode. We have not performed the source-sheet eigenanalysis or a matched-state reconnection rerun requested for a causal assessment. The present contribution is a diagnostic comment whose nonlinear significance remains undetermined.
 
 The pressure-source diagnostic should also distinguish a third-moment amplitude from its divergence. The scale proxy $p\,d_e/|q|$ used in the source is a useful estimate when $d_e$ is an appropriate gradient length. It is not identical to $p/|\nabla\!\cdot q|$. A spatially constant nonzero heat-flux tensor has a finite amplitude proxy and zero divergence. The source explicitly notes that its isotropization closure constrains a divergence and omits the reconstructed fluid tensor from some plots; we do not characterize that disclosure as a hidden omission. Direct source-term comparisons and rate convergence would make the approximation more informative.
 
@@ -375,7 +430,7 @@ The valid component-to-aggregate moment decomposition remains the foundation of 
 
 # 9 Conclusion
 
-Matching a nominal drift expression does not match a proper-momentum PIC initialization to an ordinary-velocity fluid initialization. The archived initial moments make that distinction quantitatively testable. Resolving two populations also does not ensure faithful kinetic instability growth: finite isotropization must be validated as part of the closure. The exact moment decomposition remains valid and useful. Correcting the density-transport explanation and conditioning relative-error statements provides a constructive basis for further comparison, without asserting that the reported nonlinear reconnection results have been disproved.
+Matching a nominal drift expression does not match a proper-momentum PIC initialization to an ordinary-velocity fluid initialization. The archived PIC moments and reloaded fluid output make that distinction quantitatively testable. The full-profile and finite-temperature checks strengthen that initial-state finding while leaving its nonlinear importance undetermined. The separate homogeneous benchmark shows why finite isotropization should be calibrated as part of a closure; it establishes no unstable eigenmode of the source’s inhomogeneous sheet. The exact moment decomposition remains valid and useful. Correcting the density-transport explanation and conditioning relative-error statements provides a constructive basis for further comparison, without asserting that the reported nonlinear reconnection results have been disproved.
 
 # Author and methods disclosure
 
@@ -393,7 +448,7 @@ This is one study. GitHub and AiraXiv deposits are preprint versions of the same
 
 **[1]** Madox C. McGrae-Menge, Jacob R. Pierce, Maria Almanza, Alexander Velberg, Nathaniel Barbour, William D. Dorland, Nuno F. Loureiro, Frederico Fiuza, and E. Paulo Alves. Counter-streaming heat-flux closure for electron-only collisionless magnetic reconnection, 2026. Audited version 1, submitted 8 July 2026. <https://arxiv.org/abs/2607.07106v1>.
 
-**[2]** Madox McGrae-Menge. Counter-streaming heat-flux closure for electron-only collisionless magnetic reconnection. Zenodo, record 21114117, July 2026. Published 2 July 2026; input decks and archived diagnostics. <https://doi.org/10.5281/zenodo.21114117>.
+**[2]** Madox McGrae-Menge. Counter-streaming heat-flux closure for electron-only collisionless magnetic reconnection. Zenodo, record 21114117, July 2026. Published 2 July 2026. DataCite record DOI: 10.5281/zenodo.21114117; concept DOI: 10.5281/zenodo.21114116. Input decks and archived diagnostics. <https://zenodo.org/records/21114117>.
 
 **[3]** Oliver Penrose. Electrostatic instabilities of a uniform non-Maxwellian plasma. *The Physics of Fluids*, 3(2):258–265, 1960. <https://doi.org/10.1063/1.1706024>.
 
@@ -410,6 +465,8 @@ This is one study. GitHub and AiraXiv deposits are preprint versions of the same
 **[9]** Emil R. Ingelsten, Madox C. McGrae-Menge, E. Paulo Alves, and Istvan Pusztai. Data-driven multi-species heat flux closures for two-stream-unstable plasmas with nonlinear sparse regression. *Physics of Plasmas*, 33(4):042106, 2026. <https://doi.org/10.1063/5.0311956>.
 
 **[10]** OSIRIS Collaboration. Momentum distribution: `udist`. OSIRIS Reference Guide. <https://osiris-code.github.io/osiris/reference/udist>. Accessed 28 October 2026; current public documentation, not identification of the original simulation build.
+
+**[11]** OSIRIS Collaboration. OSIRIS momentum-distribution and particle-loading source code. Public source, commit a858fe1da3d6dbf3652b16556af87f7dad7881eb. Accessed 28 October 2026. Conditional loader interpretation; not identification of the original executable. <https://github.com/osiris-code/osiris/tree/a858fe1da3d6dbf3652b16556af87f7dad7881eb/source/spec>.
 
 # A Source passages and artifact scope
 
@@ -487,14 +544,14 @@ $$
 
 The reported calculations use the immutable code commit:
 
-> [`e1ebd1aaee17bc5cd486d40387eb655aefd70c20`](https://github.com/Teylersf/counterstreaming-heatflux-audit/tree/e1ebd1aaee17bc5cd486d40387eb655aefd70c20)
+> [`0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8`](https://github.com/Teylersf/counterstreaming-heatflux-audit/tree/0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8)
 
 This pins the numerical code and inputs; the final release also contains the manuscript source.
 
 ```text
 git clone https://github.com/Teylersf/counterstreaming-heatflux-audit.git
 cd counterstreaming-heatflux-audit
-git checkout e1ebd1aaee17bc5cd486d40387eb655aefd70c20
+git checkout 0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8
 python -m pip install -r requirements.txt
 python experiments/fetch_data.py
 python experiments/data_checks.py
@@ -528,5 +585,27 @@ Exit status: 0
 | `experiments/closure_checks.py` | `797fa1a2c85b36e09531fcff343ebed773674ecfe5a1caf8bd6518826ed3efbb` |
 | `experiments/data_checks.py` | `fb2253e5f1970e80baea7a5349a8ac0cbf0e847b0cfe3f04eadb99b1e32e064b` |
 | `experiments/fetch_data.py` | `9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0` |
+| `experiments/profile_sensitivity.py` | `16f79b0c6c4aad933b2efedf8516dbca609a53993442bcccd78cd16be5c15e7e` |
+| `experiments/revision_data.py` | `ad9f47607fecb68eb3a914783e3d88af8cef1e05c5ed557784286fea901db0db` |
+| `experiments/thermal_loading.py` | `8ca81418bba26d8307337d7d0f1612bcf169186f91a00b1c6e84b5ea5748511d` |
+| `results/profile-sensitivity.json` | `f74e9bc750cb661cda931045f7b471cb29271d525c15e08504b54f618c4de586` |
+| `results/revision-data.json` | `0abafde815b680b75af3fa01efcfee8cf20aa1e140325199ce8fb9cc22dd2066` |
+| `results/thermal-loading.json` | `f7c6c4918020ea9d7278f2c3bd299850f2869bf30cd29694f7b7075478a91161` |
+| `data/provenance-revision.json` | `25b9abe520ffee744c3881759e60a3f2e88f4ca63834eec6c619e9804af5f3f9` |
 
 The full log, input provenance, derived profiles and strict verification JSON are included in the repository.
+
+#### Revision analyses.
+
+The original eight-group execution record is retained, with its four code files byte-identical. The pinned commit also contains the separate full-profile sensitivity, archived-fluid corroboration and conditional thermal-loading calculations.
+
+```text
+python experiments/profile_sensitivity.py
+python experiments/revision_data.py --inventory --fetch
+# Decode BP in a separate Linux ADIOS2 environment:
+python experiments/revision_data.py --decode-bp
+python experiments/revision_data.py --compare
+python experiments/thermal_loading.py
+```
+
+The BP reader used ADIOS2 2.13.0.1001 and NumPy 2.3.5 under Linux Python 3.12.3. Portable reader setup and exact member/export hashes are provided in the data documentation. No native deposited-current comparison, full-archive checksum verification, matched-state reconnection rerun or sheet eigenanalysis is claimed.

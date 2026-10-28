@@ -1,12 +1,13 @@
-\section{A controlled linear-stability test}
+\section{An auxiliary homogeneous linear-stability test}
 \label{sec:stability}
-The source states that resolving counter-streaming populations allows its
-two-fluid model to capture the linear growth of the associated
-instabilities~\cite{original}. Population resolution alone does not guarantee
-the correct kinetic response. Closure-dependent differences in fluid and kinetic
-instability spectra are established issues~\cite{ng2019,wang2015}. We give an
-explicit test of the stated local-isotropization closure, without inferring
-that the test mode occurs in the source's nonlinear reconnection calculation.
+The source argues that its two-population description can capture linear
+growth of counter-streaming instabilities in reconnection~\cite{original}.
+Our calculation does not test those evolving distributions. It supplies a
+separate calibration example for the implemented local-isotropization closure:
+population drifts alone do not guarantee a correct collisionless kinetic
+spectrum. Closure-dependent differences in such spectra are established
+issues~\cite{ng2019,wang2015}; the example below makes this validation issue
+explicit at the stated reference relaxation-rate scale.
 
 Consider a homogeneous nonrelativistic electron plasma with immobile
 neutralizing ions. Two equal-density populations have ordinary velocities
@@ -20,6 +21,12 @@ velocity marginal, normalized to unit density, is
 \end{equation}
 A constant magnetic field parallel to $e_x$ leaves the longitudinal,
 gyrotropic perturbation subspace used below invariant.
+In the kinetic equation its gyrophase-rotation operator vanishes on
+gyrotropic perturbations; a longitudinal electric perturbation preserves that
+subspace. In the fluid equations, parallel velocity perturbations and a
+diagonal pressure perturbation with equal transverse entries have vanishing
+magnetic rotation terms. This justification concerns a uniform parallel field,
+not the source's rotating field, transverse gradients or relativistic response.
 
 \paragraph{The collisionless kinetic reference.}
 For $U>\sigma$, the only local minimum of $f_0$ is at zero. Indeed,
@@ -130,15 +137,21 @@ The zero-relaxation matrix has no positive growth beyond roundoff.
 The literal fluid deck rounds its thermal speed to $0.111803c$; substituting
 the resulting $\nu/\omega_{pe}=0.0111803$ also leaves positive growth, with a
 change smaller than $10^{-6}\omega_{pe}$.
-A box-compatible check using mode 14 of $L_x=48d_e$, with
+A periodic-box check using $k_x=2\pi\,14/L_x$ for $L_x=48d_e$, with
 $\sigma=c/\sqrt{80}$, gives growth $0.00951299405\omega_{pe}$ and a wavelength
 resolved by about 34 cells at the reported grid spacing.
+It is an $x$-periodic mode of the homogeneous system, not a transverse
+$k_y$ eigenmode of the inhomogeneous current sheet.
 
 These are continuum model diagnostics. They establish a false positive relative
 to the specified collisionless kinetic reference, including at the source's
 positive relaxation-rate scale. They do not identify a mode measured in the
 original current sheet, replace a kinetic stability analysis of that sheet, or
 show that a particular nonlinear plot is contaminated.
+The source's initial populations have a common velocity and its equilibrium
+varies across $y$. No survival of this mode in that equilibrium is established.
+The benchmark is retained as an auxiliary closure test, rather than a
+counterexample to the source's narrower application-specific capability claim.
 
 \begin{figure}[tbp]
 \centering

@@ -1,27 +1,35 @@
-## Version 1.0.0
+## Version 1.1.0
 
 **Author: Taylor Kalin**
 
-This 15-page study audits initial-state matching and closure interpretation in
-arXiv:2607.07106v1 using the original authors' published input decks and initial
-moments, together with independently checkable continuum calculations.
+This 19-page diagnostic comment audits initial-state controls in
+arXiv:2607.07106v1. It preserves the valid mixture identities and makes no
+claim that the source's later nonlinear conclusions have been disproved.
 
-- About 11.5% initial moment-current deficit relative to staggered magnetic curl
-  near the lower sheet center; initial Pxx/Pzz also differ from the fluid prescription.
-- A finite-isotropization fluid mode grows in a reference certified stable to
-  collisionless longitudinal electrostatic perturbations.
-- An exact continuity counterexample and a conditioned relative-error bound.
-- Eight passing verification groups, 13 pinned HDF5 members, three input decks,
-  source excerpts, and immutable numerical code commit
-  `e1ebd1aaee17bc5cd486d40387eb655aefd70c20`.
+- Reloads five archived fluid BP snapshots and confirms their embedded input
+  decks exactly match the posted Lua files. All ten initialized moment
+  components agree to roundoff over the full grid.
+- Measures a 9.87% relative L2 difference between the full x-averaged PIC and
+  fluid current profiles; central PIC pressures remain about 20% lower in
+  Pxx and 38.4% lower in Pzz.
+- Adds full-domain sensitivity results and a conditional, unfitted
+  finite-temperature loading calculation with converged quadrature.
+- Presents stability as an auxiliary homogeneous closure benchmark, with no
+  claimed eigenmode in the source's inhomogeneous sheet.
+- Retains eight original passing verification groups and their identical
+  code bytes, with separate additional archived-data and loading checks.
 
-The original mixture identities remain valid. No new PIC/Gkeyll reconnection
-simulation, independent human peer review, or causal explanation of the later
-nonlinear comparison is claimed. The paper distinguishes prescribed fluid
-initialization from reloaded fluid output and moment current from native PIC
-deposited current. Funding is self-provided by Taylor Kalin; AI methods are disclosed.
+Numerical code pin: `0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8`.
+All 19 pages were rendered and visually inspected. Markdown preserves 306
+math expressions, 21 numbered equations, three proofs, three figures, five
+tables and 11 compiled references.
 
-The PDF, code, derived profiles, provenance, and attributed input decks are
-included in this release and repository. Raw cached snapshots and complete
-simulation archives are excluded; the bounded downloader retrieves about
-4.48 MB of selected compressed data. Venue outcomes are tracked separately.
+No native deposited-current diagnostic is identifiable in the complete PIC
+archive inventory. No full-archive checksum verification, matched-state
+reconnection rerun, sheet eigenanalysis or independent human peer review is
+claimed. Taylor Kalin self-funded this study; AI assistance is disclosed
+separately from his authorship.
+
+The PDF, source, code, derived profiles and provenance are included. Raw
+snapshots and full simulation archives remain excluded. Actual venue outcomes
+are tracked separately in the publication-status record.

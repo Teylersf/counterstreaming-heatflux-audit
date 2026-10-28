@@ -6,17 +6,21 @@
 [teylersf@gmail.com](mailto:teylersf@gmail.com) ·
 [ORCID 0009-0003-9000-9315](https://orcid.org/0009-0003-9000-9315)
 
-A reproducible audit of **arXiv:2607.07106v1**, using the original authors'
-published input decks and archived initial moments, together with explicit
-continuum closure tests.
+A reproducible diagnostic comment on **arXiv:2607.07106v1**, using the original
+authors' input decks, archived initial PIC moments and reloaded initial fluid
+output, together with explicit continuum closure tests. Version **1.1.0**
+contains the 19-page manuscript and additional archived-data checks.
 
 ## Findings and scope
 
 - The archived initial PIC moment current is about **11.5% below the staggered
   magnetic-curl current** near the lower sheet center. The posted fluid
   initializer uses an ordinary velocity where the PIC input specifies proper
-  momentum. The archived velocity-moment pressures also differ from the fluid
-  prescription: about **20% in Pxx** and **38.4% in Pzz** at those cells.
+  momentum. Five reloaded fluid BP snapshots confirm the actual initial fluid
+  state to roundoff. PIC and fluid current profiles differ by **9.87%** in the
+  full-domain x-averaged relative L2 norm; central pressures differ by about
+  **20% in Pxx** and **38.4% in Pzz**. A conditional public-loader calculation
+  accounts for the size of the extra finite-temperature drift reduction.
 - A homogeneous two-Maxwellian reference is stable to **longitudinal
   electrostatic** perturbations by the Penrose criterion, while the stated
   finite-isotropization fluid model has a growing mode. This is a separate
@@ -27,17 +31,19 @@ continuum closure tests.
 
 The original mixture identities are correct. These findings do not establish
 that correcting the initial state would reverse the original nonlinear result.
-Matched-state reruns would be needed for that causal conclusion. The fluid
-comparison here uses its posted initializer, not reloaded `.bp` output; the
-current is a physical moment diagnostic rather than the code's native
-charge-conserving deposited current.
+Matched-state reruns would be needed for that causal conclusion. The current
+is a physical moment diagnostic rather than the code's native deposited
+current; no such current file is identifiable in the complete PIC inventory.
+The homogeneous test does not establish a mode in the source's inhomogeneous
+sheet or refute its application-specific instability capability claim.
 
 ## Read and reproduce
 
 - [Paper PDF](paper/main.pdf) and [LaTeX source](paper/main.tex)
-- [AiraXiv preprint 2610.0109 (v1)](https://airaxiv.com/papers/view/2610.0109/)
+- [AiraXiv preprint 2610.0109](https://airaxiv.com/papers/view/2610.0109/)
 - [Source provenance](SOURCE.md) and [selective source evidence](source-excerpts/README.md)
 - [Data definitions and retrieval](data/README.md)
+- [Archived fluid checks and optional BP reader](data/revision-README.md)
 - [Verification results](results/verification.json) and [execution log](results/execution.log)
 - [Publication status](submissions/publication-status.json)
 
@@ -47,13 +53,18 @@ python experiments/fetch_data.py
 python experiments/data_checks.py
 python -X utf8 experiments/verify.py
 python -X utf8 experiments/make_figures.py
+python -X utf8 experiments/profile_sensitivity.py
+python -X utf8 experiments/thermal_loading.py
 ```
 
-The downloader retrieves approximately **4.48 MB of selected compressed
+The PIC downloader retrieves approximately **4.48 MB of selected compressed
 members**, plus small headers, rather than the full 1.24 GB PIC archive. It
 requires HTTP partial responses and verifies pinned member hashes. The complete
 archive's publisher-declared checksum is not represented as independently
 verified. No OSIRIS/Gkeyll installation or new reconnection run is required.
+The optional fluid-output corroboration retrieves another **24.77 MB** of
+compressed members. Its ADIOS2 reader uses a separate Linux environment;
+portable instructions and the resulting profiles are included.
 
 ## Authorship, funding and licenses
 

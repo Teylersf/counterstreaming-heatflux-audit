@@ -19,7 +19,7 @@ therefore do not infer that correcting the drift would eliminate the reported
 single-fluid density deficit, reproduce all PIC heat flux with one fluid, or
 reverse the source's qualitative conclusion.
 
-The homogeneous stability test supplies a separate validation requirement.
+The auxiliary homogeneous stability test supplies a separate calibration.
 Retaining population drift creates the possibility of streaming modes; it
 does not ensure the correct kinetic susceptibility or growth rate. The
 implemented relaxation should be included in the dispersion calculation.
@@ -28,6 +28,9 @@ is isotropic and the relaxation source vanishes at equilibrium. In the stated
 example the resulting growing mode is a false positive relative to the
 collisionless kinetic reference. This is a test of a model's continuum
 response, not evidence that the original simulation visibly contains that mode.
+We have not performed the source-sheet eigenanalysis or a matched-state
+reconnection rerun requested for a causal assessment. The present contribution
+is a diagnostic comment whose nonlinear significance remains undetermined.
 
 The pressure-source diagnostic should also distinguish a third-moment amplitude
 from its divergence. The scale proxy $p\,d_e/|q|$ used in the source is a useful

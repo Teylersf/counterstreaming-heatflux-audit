@@ -10,12 +10,12 @@ population asymmetry can generate a substantial aggregate third moment even
 when each population has little intrinsic heat flux. Evolving additional
 population moments is therefore physically motivated.
 
-The present study examines two separate questions that this useful mechanism
-does not settle: whether the numerical comparison starts from matched physical
-states, and whether the implemented finite-relaxation closure has the kinetic
-stability properties attributed to it. These are testable questions about
-the identified source version and model, rather than an assertion that the
-underlying mixture interpretation is wrong.
+The principal contribution of this diagnostic comment is an initial-state
+audit of the public inputs and archived moments. Equal nominal drift and
+temperature parameters need not specify equal laboratory-frame moments in a
+relativistic particle initializer and a nonrelativistic fluid initializer.
+This identifies controls needed to interpret the comparison; it does not
+determine their effect on its later nonlinear outcome.
 
 Our first result uses the authors' publicly archived initial moments and input
 decks~\cite{dataset}. Identical nominal drift expressions enter a proper-momentum
@@ -25,17 +25,19 @@ with that distinction. This is a reproducible control issue for interpreting
 the nonlinear comparison; its eventual dynamical effect cannot be determined
 from initial-state analysis alone.
 
-Our second result is a controlled longitudinal stability test of the stated
+An auxiliary result is a controlled longitudinal stability test of the stated
 continuum isotropization closure. A positive two-Maxwellian equilibrium is
 stable to longitudinal electrostatic perturbations under the established
 Penrose criterion~\cite{penrose1960}, but its
 finite-relaxation fluid counterpart has an overstable mode. We give an explicit
 linear system and check both its eigenvalue residual and Gauss constraint.
 The test is homogeneous and nonrelativistic. It does not replace the source's
-inhomogeneous reconnection calculation or show that the identified mode caused
-any of its plotted features.
+inhomogeneous reconnection calculation, refute its application-specific
+instability-capability statement, or show that the identified mode caused any
+of its plotted features. The source populations initially share a velocity;
+the counter-streaming equilibrium used in this calibration test is different.
 
-Two further results make the interpretation more precise. Continuity depends
+Two secondary observations make the interpretation more precise. Continuity depends
 on the divergence of the mass flux, so a zero normal velocity at a symmetry
 plane does not prohibit density accumulation there. A conditioned third-moment
 error bound also shows why a thermal-to-drift speed ratio alone does not give

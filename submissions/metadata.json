@@ -1,6 +1,6 @@
 {
   "title": "Initial-state matching and stability diagnostics for a counter-streaming electron-fluid closure",
-  "abstract": "We examine the initial-state matching and closure interpretation in arXiv:2607.07106v1 using its published input decks, archived initial moments, and explicit continuum tests. The central two-population pressure and third-moment identities are correct. However, the PIC input specifies a proper-momentum drift where the fluid input specifies ordinary velocity. In the two archived cells straddling the lower current-sheet center, the density-weighted initial PIC moment current differs by about 11.5% from the magnetostatic current implied by the staggered magnetic curl. Its Cartesian thermal pressures are about 20% below the fluid initialization in $p_{xx}$ and 38.4% below in $p_{zz}$. A matched-state rerun is needed to determine the effect on the nonlinear comparison. Separately, the stated finite-isotropization closure has an overstable longitudinal mode with growth about $0.00952\\omega_{pe}$ in a homogeneous two-Maxwellian equilibrium certified as stable to collisionless longitudinal electrostatic perturbations by the Penrose criterion. We give the linear system, constraint checks, a correction to the symmetry-plane density argument, and a relative heat-flux error bound that accounts for imbalance and cancellation. The calculations distinguish valid mixture algebra, empirical benchmark evidence, and claims requiring additional validation. No new PIC or Gkeyll reconnection simulation is claimed.",
+  "abstract": "This diagnostic comment examines initial-state controls in arXiv:2607.07106v1 using the published decks, archived PIC moments and reloaded initial fluid output. The central two-population moment identities are correct. However, the PIC input specifies proper momentum where the fluid input specifies ordinary velocity. The saved fluid states corroborate their initializers to roundoff. Relative to either fluid model, the initial PIC moment-current profile differs by $9.87\\%$ in the full-domain, $x$-averaged relative $\\ell^2$ norm; the two lower-sheet central cells differ by about $11.6\\%$. Their Cartesian velocity-covariance pressures are about $20\\%$ lower in $p_{xx}$ and $38.4\\%$ lower in $p_{zz}$. A conditional public-loader calculation explains the finite-temperature drift reduction, while separating verified archived moments from an unverified custom diagnostic implementation. No native deposited-current file is identifiable in the complete posted PIC inventory. Separately, an auxiliary homogeneous longitudinal benchmark has a finite-isotropization fluid mode with growth $0.00952\\omega_{pe}$ where its collisionless kinetic reference is Penrose-stable. This is not a sheet eigenanalysis or a refutation of the source’s application-specific instability claim. We also qualify the symmetry-plane density explanation and give a cancellation-conditioned relative heat-flux bound. No new reconnection run is claimed. A matched-state rerun is required to establish dynamical significance; the source’s later nonlinear conclusions are not disproved here.",
   "keywords": [
     "counter-streaming heat flux",
     "magnetic reconnection",
@@ -18,8 +18,8 @@
     }
   ],
   "date": "2026-10-28",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_version": "arXiv:2607.07106v1",
-  "manuscript_characters": 47290,
+  "manuscript_characters": 59514,
   "funding": "Self-funded by Taylor Kalin; no external funding received."
 }

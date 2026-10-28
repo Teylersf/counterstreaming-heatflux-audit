@@ -2,13 +2,13 @@
 \label{app:execution}
 The reported calculations use the immutable code commit:
 \begin{quote}\small
-\href{https://github.com/Teylersf/counterstreaming-heatflux-audit/tree/e1ebd1aaee17bc5cd486d40387eb655aefd70c20}{\texttt{e1ebd1aaee17bc5cd486d40387eb655aefd70c20}}
+\href{https://github.com/Teylersf/counterstreaming-heatflux-audit/tree/0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8}{\texttt{0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8}}
 \end{quote}
 This pins the numerical code and inputs; the final release also contains the manuscript source.
 \begin{verbatim}
 git clone https://github.com/Teylersf/counterstreaming-heatflux-audit.git
 cd counterstreaming-heatflux-audit
-git checkout e1ebd1aaee17bc5cd486d40387eb655aefd70c20
+git checkout 0d07de76f3d0b56e49e9ef2b9de931b8567ad0c8
 python -m pip install -r requirements.txt
 python experiments/fetch_data.py
 python experiments/data_checks.py
@@ -43,7 +43,25 @@ File & SHA-256 \\
 \texttt{experiments/closure\_checks.py} & \texttt{797fa1a2c85b36e09531fcff343ebed773674ecfe5a1caf8bd6518826ed3efbb} \\
 \texttt{experiments/data\_checks.py} & \texttt{fb2253e5f1970e80baea7a5349a8ac0cbf0e847b0cfe3f04eadb99b1e32e064b} \\
 \texttt{experiments/fetch\_data.py} & \texttt{9739bc225cda81134c984edb9c06a39a36a5c24403d6b67564e6de2d063a6fc0} \\
+\texttt{experiments/profile\_sensitivity.py} & \texttt{16f79b0c6c4aad933b2efedf8516dbca609a53993442bcccd78cd16be5c15e7e} \\
+\texttt{experiments/revision\_data.py} & \texttt{ad9f47607fecb68eb3a914783e3d88af8cef1e05c5ed557784286fea901db0db} \\
+\texttt{experiments/thermal\_loading.py} & \texttt{8ca81418bba26d8307337d7d0f1612bcf169186f91a00b1c6e84b5ea5748511d} \\
+\texttt{results/profile-sensitivity.json} & \texttt{f74e9bc750cb661cda931045f7b471cb29271d525c15e08504b54f618c4de586} \\
+\texttt{results/revision-data.json} & \texttt{0abafde815b680b75af3fa01efcfee8cf20aa1e140325199ce8fb9cc22dd2066} \\
+\texttt{results/thermal-loading.json} & \texttt{f7c6c4918020ea9d7278f2c3bd299850f2869bf30cd29694f7b7075478a91161} \\
+\texttt{data/provenance-revision.json} & \texttt{25b9abe520ffee744c3881759e60a3f2e88f4ca63834eec6c619e9804af5f3f9} \\
 \bottomrule
 \end{tabular}
 \end{center}
 The full log, input provenance, derived profiles and strict verification JSON are included in the repository.
+\paragraph{Revision analyses.}
+The original eight-group execution record is retained, with its four code files byte-identical. The pinned commit also contains the separate full-profile sensitivity, archived-fluid corroboration and conditional thermal-loading calculations.
+\begin{verbatim}
+python experiments/profile_sensitivity.py
+python experiments/revision_data.py --inventory --fetch
+# Decode BP in a separate Linux ADIOS2 environment:
+python experiments/revision_data.py --decode-bp
+python experiments/revision_data.py --compare
+python experiments/thermal_loading.py
+\end{verbatim}
+The BP reader used ADIOS2 2.13.0.1001 and NumPy 2.3.5 under Linux Python 3.12.3. Portable reader setup and exact member/export hashes are provided in the data documentation. No native deposited-current comparison, full-archive checksum verification, matched-state reconnection rerun or sheet eigenanalysis is claimed.

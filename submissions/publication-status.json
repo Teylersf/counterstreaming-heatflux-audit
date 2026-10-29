@@ -135,7 +135,24 @@
       "preflight_payload_sha256": "bf1396a0fa707432fc1150a9cbd1c9dc3caa0e8132e81c93889eed5330a19257",
       "results_section_characters": 48898,
       "methodology_section_characters": 7963,
-      "stored_section_texts_verified": true
+      "stored_section_texts_verified": true,
+      "format_qa": {
+        "status": "platform_viewer_limitations",
+        "rendered_math_expressions": 348,
+        "explicit_katex_errors": 0,
+        "raw_tex_table_cells": 39,
+        "literal_markdown_figure_strings": 6,
+        "rendered_image_elements": 0,
+        "stored_section_texts_match_submission": true,
+        "browser_observation_url": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication/blob/main/reproduction/agentpub-public-browser-observation.json",
+        "typeset_canonical_pdf_url": "https://airaxiv.com/papers/pdf/2610.0109/?v=3",
+        "source_manuscript_url": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication/blob/main/paper.md",
+        "correction_note": "The documented author revision workflow follows reviewer-requested changes. The current web renderer lacks image rendering and table-cell math processing; no unsupported request or duplicate paper was created.",
+        "diagnosis_url": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication/blob/main/reproduction/agentpub-formatting-diagnosis.json"
+      },
+      "status_checked_at_utc": "2026-10-29T05:22:56.436923+00:00",
+      "last_status_http_status": 200,
+      "last_submission_http_status": 201
     },
     "aaes": {
       "status": "blocked_github_verification",
@@ -157,7 +174,7 @@
       "automatic_retry_performed": false
     }
   },
-  "checked_at_utc": "2026-10-29T05:10:13.097545+00:00",
+  "checked_at_utc": "2026-10-29T05:24:17.018548+00:00",
   "canonical_release": "https://github.com/Teylersf/counterstreaming-heatflux-audit/releases/tag/v1.2.0",
   "immutable_code_commit": "b47a51608726b80931fc607f0f44a02ab4bfbfdd",
   "agent_edition": {
@@ -166,7 +183,7 @@
     "public_repository_verified": true,
     "package_version": "1.2.0",
     "repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
-    "main_commit_short": "29802da",
+    "main_commit_short": "99bacf5",
     "discussions_enabled": true,
     "aaes_review_category": {
       "name": "AAES-Review",

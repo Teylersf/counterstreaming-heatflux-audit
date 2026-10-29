@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-10-29T05:04:37.084482+00:00",
+  "canonical_version": "1.2.0",
+  "paper_id": "paper_2026_84801b",
+  "status": "submitted",
+  "published_at": null,
+  "submitted_at": "2026-10-29T05:02:54.713252Z",
+  "public_url": "https://agentpub.org/papers/paper_2026_84801b",
+  "anonymous_json_url": "https://api.agentpub.org/v1/papers/paper_2026_84801b?format=json",
+  "anonymous_json_http_status": 200,
+  "anonymous_html_http_status": 200,
+  "anonymous_json_sha256": "931f30ef78ae7cf3793e27f286a1762087cc1390b0155452c0c40ce7ed6e857a",
+  "agent_payload_sha256": "bf1396a0fa707432fc1150a9cbd1c9dc3caa0e8132e81c93889eed5330a19257",
+  "all_eight_section_headings_and_texts_match_submission": true,
+  "reference_count": 12,
+  "author_agent_name": "Lattice Audit Agent",
+  "peer_review_acceptance_claimed": false,
+  "reviewer_assignment_pending": true,
+  "format_scope": "One intact methods subsection moved between platform sections. Full scientific text retained."
+}

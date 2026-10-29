@@ -2,7 +2,7 @@
   "canonical_author": "Taylor Kalin",
   "canonical_version": "1.2.0",
   "canonical_repository": "https://github.com/Teylersf/counterstreaming-heatflux-audit",
-  "status": "journal_and_preprints_published_remaining_venue_actions",
+  "status": "journal_and_preprints_published_agentpub_submitted_aaes_blocked",
   "source_version": "arXiv:2607.07106v1",
   "review_sequence": "GitHub and AiraXiv preprint; Publish.fun review; agent-only venues after verified review closure or release",
   "platforms": {
@@ -83,17 +83,17 @@
       "review_summary": "publishfun-review-summary-round3.md"
     },
     "agentpub": {
-      "status": "correcting_section_size_validation",
-      "paper_id": null,
+      "status": "submitted",
+      "paper_id": "paper_2026_84801b",
       "human_operator": "Taylor Kalin",
       "agent_byline": "Lattice Audit Agent",
       "package_version": "1.2.0",
       "submission_gate_open": true,
-      "reason": "The final endpoint limits each content section to 50000 characters. The intact methods subsection is being reassigned from Results to Methodology.",
+      "reason": "Ordinary submission created a publicly accessible paper. Reviewer assignment is pending.",
       "preflight_passed": true,
       "preflight_http_status": 200,
       "would_submit": true,
-      "preflight_checked_at_utc": "2026-10-29T04:40:11.393210+00:00",
+      "preflight_checked_at_utc": "2026-10-29T05:02:44.483646+00:00",
       "prepared_repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
       "target_package_version": "1.2.0",
       "local_update_status": "complete",
@@ -113,10 +113,29 @@
       "preflight_warnings": [
         "content: Placeholder or unfinished text found: ['xxx']. The draft is not complete."
       ],
-      "warning_assessment": "The xxx strings are legitimate Cartesian tensor indices, not unfinished text; export/adapter checks preserve all formulas and contain no unresolved placeholders.",
+      "warning_assessment": "The xxx warning refers to legitimate Cartesian tensor indices. No research text was removed; the final stored sections match the submitted payload exactly.",
       "preflight_canonical_version": "1.2.0",
-      "last_http_status": 400,
-      "submission_size_failure_receipt": "agentpub-submission-size-failure-v1.2.0.json"
+      "last_http_status": 201,
+      "submission_size_failure_receipt": "agentpub-submission-size-failure-v1.2.0.json",
+      "url": "https://agentpub.org/papers/paper_2026_84801b",
+      "submitted_at_utc": "2026-10-29T05:02:54.713252Z",
+      "receipt": "agentpub-receipt.json",
+      "status_receipt": "agentpub-current-status.json",
+      "public_verification_receipt": "agentpub-public-verification.json",
+      "accepted_by_venue": false,
+      "published_at": null,
+      "peer_review_acceptance_claimed": false,
+      "reviewer_assignment_pending": true,
+      "agent_payload_sha256": "bf1396a0fa707432fc1150a9cbd1c9dc3caa0e8132e81c93889eed5330a19257",
+      "submission_warnings": [
+        "Accepted under relaxed submission rules \u2014 1 issue(s) would normally have been rejected. Please fix them in your next submission; this relaxation is temporary.",
+        "content: Placeholder or unfinished text found: ['xxx']. The draft is not complete."
+      ],
+      "format_adaptation": "The intact control-intervention methods subsection was reassigned from Results to Methodology to satisfy the per-section character cap.",
+      "preflight_payload_sha256": "bf1396a0fa707432fc1150a9cbd1c9dc3caa0e8132e81c93889eed5330a19257",
+      "results_section_characters": 48898,
+      "methodology_section_characters": 7963,
+      "stored_section_texts_verified": true
     },
     "aaes": {
       "status": "blocked_github_verification",
@@ -125,7 +144,7 @@
       "agent_byline": "Lattice Audit Agent",
       "package_version": "1.2.0",
       "submission_gate_open": true,
-      "reason": "AAES refused the ordinary registration request: Could not verify GitHub account. No registry paper ID was returned.",
+      "reason": "The ordinary request returned Could not verify GitHub account. Credential format and public identity/repository checks pass; published AAES code points to a separate server-side account-age lookup if deployment matches that source.",
       "registration_claimed": false,
       "prepared_repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
       "target_package_version": "1.2.0",
@@ -133,19 +152,21 @@
       "registry_submission_attempted": true,
       "last_http_status": 403,
       "last_checked_at_utc": "2026-10-29T04:50:08.332774+00:00",
-      "receipt": "aaes-receipt.json"
+      "receipt": "aaes-receipt.json",
+      "auth_diagnosis_receipt": "aaes-auth-diagnosis.json",
+      "automatic_retry_performed": false
     }
   },
-  "checked_at_utc": "2026-10-29T04:45:19.109354+00:00",
+  "checked_at_utc": "2026-10-29T05:10:13.097545+00:00",
   "canonical_release": "https://github.com/Teylersf/counterstreaming-heatflux-audit/releases/tag/v1.2.0",
   "immutable_code_commit": "b47a51608726b80931fc607f0f44a02ab4bfbfdd",
   "agent_edition": {
-    "status": "public_prepared_not_submitted",
+    "status": "public_agentpub_submitted_aaes_blocked",
     "intended_repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
     "public_repository_verified": true,
     "package_version": "1.2.0",
     "repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
-    "main_commit_short": "4d28bef",
+    "main_commit_short": "29802da",
     "discussions_enabled": true,
     "aaes_review_category": {
       "name": "AAES-Review",
@@ -157,7 +178,9 @@
     "local_update_status": "complete",
     "public_package_update_verified": true,
     "submission_gate_open": true,
-    "scientific_commit": "dc6f7e180836be6c2fdae9eefb7ca32f28a00a50"
+    "scientific_commit": "e0a80236651bc5fa4e44162fa34a46249ab3adba",
+    "agentpub_paper_id": "paper_2026_84801b",
+    "aaes_paper_id": null
   },
   "format_qa": {
     "status": "browser_math_and_figures_passed",
@@ -221,7 +244,10 @@
       "editorial_state": "active",
       "accepted_by_venue": true,
       "editorial_decision": "accept",
-      "publishfun_public_id": "PF-261029.000001"
+      "publishfun_public_id": "PF-261029.000001",
+      "agentpub_paper_id": "paper_2026_84801b",
+      "agentpub_status": "submitted",
+      "aaes_status": "blocked_github_verification"
     }
   ]
 }

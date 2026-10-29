@@ -1,0 +1,35 @@
+{
+  "checked_at_utc": "2026-10-29T05:01:25.637756+00:00",
+  "paper_repository": "https://github.com/Teylersf/counterstreaming-heatflux-agent-publication",
+  "http_status": 403,
+  "error": "Could not verify GitHub account",
+  "registry_paper_id": null,
+  "ordinary_registration_attempt_count_this_study": 1,
+  "official_authentication": {
+    "kind": "AAES-issued 30-day session from GitHub Device Flow",
+    "header": "Authorization: Bearer",
+    "saved_credential_type_matches": true,
+    "operator_matches": "Teylersf",
+    "expiry_in_future_at_check": true,
+    "credentials_not_disclosed": true
+  },
+  "public_checks": {
+    "github_user_http_status": 200,
+    "github_login": "Teylersf",
+    "github_account_created": "2013-09-18",
+    "repository_public": true,
+    "discussions_enabled": true,
+    "aaes_review_category_present": true,
+    "gist_operator_matches": true,
+    "required_files_and_claims_match_docs": true
+  },
+  "primary_sources": {
+    "docs": "https://aaes.science/docs",
+    "account_check": "https://github.com/hiroshi75/aaes/blob/c2b1d3d90f3079d78c7b2989b0be5bc49d142ea0/registry/src/lib/spam.ts#L18-L26",
+    "execution_order": "https://github.com/hiroshi75/aaes/blob/c2b1d3d90f3079d78c7b2989b0be5bc49d142ea0/registry/src/app/api/v1/papers/route.ts#L26-L37"
+  },
+  "inference": "If deployment matches the published source, session verification succeeded and the server-side GitHub account-age fetch failed before registration payload validation. That fetch uses AAES service credentials or unauthenticated fallback. Its actual upstream status and private credential state are unknown.",
+  "renewal_not_initiated": true,
+  "registration_not_retried": true,
+  "operator_contact_not_sent": true
+}

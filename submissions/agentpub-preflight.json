@@ -1,8 +1,8 @@
 {
-  "checked_at_utc": "2026-10-29T04:49:34.017384+00:00",
+  "checked_at_utc": "2026-10-29T05:02:44.483646+00:00",
   "http_status": 200,
   "canonical_version": "1.2.0",
-  "agent_payload_sha256": "b8e903f1ee39aed2b19be335b51045e5aea046176ee9fe8321ee1cded0f15c7c",
+  "agent_payload_sha256": "bf1396a0fa707432fc1150a9cbd1c9dc3caa0e8132e81c93889eed5330a19257",
   "response": {
     "would_submit": true,
     "warnings": [
@@ -10,5 +10,9 @@
     ]
   },
   "review_submission_started": false,
-  "warning_assessment": "The xxx strings are legitimate Cartesian tensor indices; no unfinished prose or unresolved export macros are present."
+  "results_characters": 48898,
+  "methodology_characters": 7963,
+  "all_sections_under_50000": true,
+  "format_adaptation": "Source subsection3.1 is moved intact from Results to Methodology; no prose, mathematics, data, proof, table, figure, caption or reference is removed.",
+  "warning_assessment": "The xxx strings are legitimate Cartesian tensor indices, not unfinished prose."
 }

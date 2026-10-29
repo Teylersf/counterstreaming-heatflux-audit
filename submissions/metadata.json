@@ -1,11 +1,12 @@
 {
-  "title": "Initial-state matching and stability diagnostics for a counter-streaming electron-fluid closure",
-  "abstract": "This diagnostic comment examines initial-state controls in arXiv:2607.07106v1 using the published decks, archived PIC moments and reloaded initial fluid output. The central two-population moment identities are correct. However, the PIC input specifies proper momentum where the fluid input specifies ordinary velocity. The saved fluid states corroborate their initializers to roundoff. Relative to either fluid model, the initial PIC moment-current profile differs by $9.87\\%$ in the full-domain, $x$-averaged relative $\\ell^2$ norm; the two lower-sheet central cells differ by about $11.6\\%$. Their Cartesian velocity-covariance pressures are about $20\\%$ lower in $p_{xx}$ and $38.4\\%$ lower in $p_{zz}$. A conditional public-loader calculation explains the finite-temperature drift reduction, while separating verified archived moments from an unverified custom diagnostic implementation. No native deposited-current file is identifiable in the complete posted PIC inventory. Separately, an auxiliary homogeneous longitudinal benchmark has a finite-isotropization fluid mode with growth $0.00952\\omega_{pe}$ where its collisionless kinetic reference is Penrose-stable. This is not a sheet eigenanalysis or a refutation of the source’s application-specific instability claim. We also qualify the symmetry-plane density explanation and give a cancellation-conditioned relative heat-flux bound. No new reconnection run is claimed. A matched-state rerun is required to establish dynamical significance; the source’s later nonlinear conclusions are not disproved here.",
+  "title": "Initial-state matching and pressure realizability in counter-streaming electron-fluid comparisons",
+  "abstract": "This diagnostic comment examines initial-state matching and pressure realizability in arXiv:2607.07106v1. Its exact mixture identities are correct. However, archived PIC and fluid initial moment-current profiles differ by $9.87\\%$ in the full-domain, $x$-averaged relative $\\ell^2$ norm; local Cartesian covariance pressures differ by about $20\\%$ in $P_{xx}$ and $38.4\\%$ in $P_{zz}$. The PIC input specifies proper momentum where the fluid input specifies ordinary velocity. Complete archive checks and independent ten-moment layout validation corroborate the data audit. Four clean-source fluid cases attempt comparisons of the posted and aggregate-PIC-matched initializations, while distinguishing the unavailable historical dirty build. At identical one-fluid endpoint times, matching lowers $P_{xx}$ error against PIC from $36.29\\%$ to $28.85\\%$, with smaller errors in density, current and $P_{zz}$ as well. These are numerical endpoint results, not validated physical dynamics: both one-fluid cases contain indefinite covariance tensors at saved intermediate times, and the clean unmatched two-fluid endpoint is also inadmissible. The matched two-fluid run terminates with an invariant-check assertion before producing its comparison endpoint. The clean implementation tests coordinate pressures without testing full tensor positivity. The original archived endpoints pass the same covariance checks; their intermediate trajectories and exact executable remain unidentified. A conditional loader calculation, an auxiliary homogeneous stability benchmark, a continuity clarification and a cancellation-conditioned heat-flux bound provide separate diagnostics. The results motivate matched moments and realizability checks without disproving the source’s exact algebra or establishing that its nonlinear physical conclusions are false.",
   "keywords": [
     "counter-streaming heat flux",
     "magnetic reconnection",
     "moment closures",
     "initial-state matching",
+    "pressure realizability",
     "plasma stability",
     "reproducibility"
   ],
@@ -18,8 +19,8 @@
     }
   ],
   "date": "2026-10-28",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_version": "arXiv:2607.07106v1",
-  "manuscript_characters": 59514,
+  "manuscript_characters": 81667,
   "funding": "Self-funded by Taylor Kalin; no external funding received."
 }

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "scope": "Archived source outputs only. This validates the comparison pipeline and does not claim a new simulation or causal matched-state result.",
+  "PIC_reference": {
+    "metadata": "data/derived/pic-moment-export.json",
+    "full_archive_receipt": "data/full-archive-verification.json",
+    "binary_directory": "pic-export-v2",
+    "filename_frame_token": "000300",
+    "tagged_export_filename": "reference-pic-frame-000300-tagged.npz"
+  },
+  "cases": [
+    {
+      "id": "archived_one_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "population_count": 1,
+      "archive_reference_provenance": "data/provenance-fluid-reference.json",
+      "moment_exports": [
+        {"npz": "reference-fluid/decoded/fluid1-electrons1_300.npz", "metadata": "reference-fluid/decoded/fluid1-electrons1_300.metadata.json"}
+      ]
+    },
+    {
+      "id": "archived_two_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "population_count": 2,
+      "archive_reference_provenance": "data/provenance-fluid-reference.json",
+      "moment_exports": [
+        {"npz": "reference-fluid/decoded/fluid2-electrons1_300.npz", "metadata": "reference-fluid/decoded/fluid2-electrons1_300.metadata.json"},
+        {"npz": "reference-fluid/decoded/fluid2-electrons2_300.npz", "metadata": "reference-fluid/decoded/fluid2-electrons2_300.metadata.json"}
+      ]
+    }
+  ],
+  "pairs": []
+}

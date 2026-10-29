@@ -1,8 +1,8 @@
 {
-  "status": "passed",
-  "scope": "Verified archived PIC moment export only; no solver or network operation.",
+  "status": "passed_documented_moments_with_conditional_third_limit",
+  "scope": "Verified archived first/second moment export and conditional raw-third arithmetic only; no solver/network operation.",
   "metadata_file": "data/derived/pic-moment-export.json",
-  "metadata_sha256": "338f62291bb619af00df07fa491b0c2879f3e5fb167c45a5f578c20f966c89bd",
+  "metadata_sha256": "5f4427888373620a62135b19aa41dea83be9552f6d59ad94a5b824ed6d501b58",
   "archive": {
     "filename": "BgBr0point1-Beta0point1_PIC.zip",
     "bytes": 1238114672,
@@ -19,7 +19,9 @@
       "aggregate_moment_members": 20,
       "raw_third_members": 0,
       "minimum_density": 1.0,
-      "minimum_pressure_eigenvalue": 0.0069103173319117325
+      "minimum_pressure_eigenvalue": 0.0069103173319117325,
+      "third_moment_normalization_verified": false,
+      "actual_PIC_tagged_state_diagnostics": null
     },
     {
       "filename_frame_token": "000300",
@@ -28,7 +30,22 @@
       "aggregate_moment_members": 20,
       "raw_third_members": 2,
       "minimum_density": 0.8318560868501663,
-      "minimum_pressure_eigenvalue": 0.004837252808153961
+      "minimum_pressure_eigenvalue": 0.004837252808153961,
+      "third_moment_normalization_verified": false,
+      "actual_PIC_tagged_state_diagnostics": [
+        {
+          "species": 1,
+          "zero_density_cells": 125431,
+          "minimum_density": -0.0,
+          "minimum_pressure_eigenvalue_unmodified": -3.837403475566135e-11
+        },
+        {
+          "species": 2,
+          "zero_density_cells": 126279,
+          "minimum_density": -0.0,
+          "minimum_pressure_eigenvalue_unmodified": -2.2536371245273213e-11
+        }
+      ]
     }
   ],
   "binary_layout": "[y,x,component], component fastest, then x, then y; float64 little-endian; no header",
@@ -142,23 +159,137 @@
       "shape": [
         640,
         480,
-        5
+        6
       ],
       "components": [
         "density",
         "Jz",
         "Pxx",
         "Pzz",
-        "qxxx"
+        "qCSxxx",
+        "qxxx_conditional_raw_third"
       ],
       "dtype": "<f8",
       "order": "C",
-      "bytes": 12288000,
-      "sha256": "d22cc93be7ba3e7afe53ac1920e8c825da259118b09c5719a22657144ecd5a60",
+      "bytes": 14745600,
+      "sha256": "c65ffd75caca06bafd6704a99db7aaa731212803c7b79365c81c46ecfdd990e8",
       "linear_index": "((iy*nx+ix)*ncomponent+component)",
       "byte_order": "little-endian"
     }
   ],
+  "npz_outputs": [
+    {
+      "filename": "reference-pic-frame-000300-tagged.npz",
+      "bytes": 50081708,
+      "sha256": "e82abaa34a4d519ffaa59480487213c9ecc78ce9b8d4d6de39cb56188094c8d7",
+      "array_keys": [
+        "conserved_tag1",
+        "pressure_tag1",
+        "conserved_tag2",
+        "pressure_tag2",
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "raw_third_diagnostic_tag1",
+        "raw_third_diagnostic_tag2",
+        "qxxx_conditional_raw_third",
+        "TIME",
+        "ITER",
+        "x",
+        "y",
+        "conserved_component_order"
+      ],
+      "array_shapes": {
+        "conserved_tag1": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag1": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "conserved_tag2": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag2": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "density": [
+          640,
+          480
+        ],
+        "Jz": [
+          640,
+          480
+        ],
+        "Pxx": [
+          640,
+          480
+        ],
+        "Pzz": [
+          640,
+          480
+        ],
+        "qCSxxx": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag1": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag2": [
+          640,
+          480
+        ],
+        "qxxx_conditional_raw_third": [
+          640,
+          480
+        ],
+        "TIME": [],
+        "ITER": [],
+        "x": [
+          480
+        ],
+        "y": [
+          640
+        ],
+        "conserved_component_order": [
+          10
+        ]
+      },
+      "array_dtypes": {
+        "conserved_tag1": "float64",
+        "pressure_tag1": "float64",
+        "conserved_tag2": "float64",
+        "pressure_tag2": "float64",
+        "density": "float64",
+        "Jz": "float64",
+        "Pxx": "float64",
+        "Pzz": "float64",
+        "qCSxxx": "float64",
+        "raw_third_diagnostic_tag1": "float64",
+        "raw_third_diagnostic_tag2": "float64",
+        "qxxx_conditional_raw_third": "float64",
+        "TIME": "float64",
+        "ITER": "int64",
+        "x": "float64",
+        "y": "float64",
+        "conserved_component_order": "<U6"
+      }
+    }
+  ],
+  "aggregate_initial_binary_unchanged_sha256": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85",
   "initial_profiles_vs_original_13_member_analysis": {
     "density": {
       "same_operations_bitwise_equal": true,
@@ -177,20 +308,23 @@
       "maximum_absolute_profile_difference": 0.0
     }
   },
-  "direct_conserved_formula_profile_roundoff_vs_original": {
-    "Jz": 0.0,
-    "Pxx": 0.0,
-    "Pzz": 8.673617379884035e-19
+  "actual_tagged_reference": {
+    "aggregate_recombination_max_absolute_error": 0.0,
+    "zero_density_cell_counts": [
+      125431,
+      126279
+    ],
+    "density_clamping_applied": false,
+    "independent_closed_mixture_qCS_max_absolute_difference": 5.204170427930421e-18,
+    "uses_only_documented_first_second_moments": true
   },
-  "minimum_pressure_eigenvalues_initial_reference_split1_split2": [
-    0.0069103173319117325,
-    0.004837252808153961,
-    0.00029977475217718164,
-    0.00030255207917112597
-  ],
-  "split_recombination_max_absolute_error": 5.551115123125783e-17,
-  "split_matches_PIC_tags": false,
-  "third_moment_matching_claimed": false,
+  "conditional_qxxx_arithmetic_check": {
+    "maximum_absolute_difference": 0.0,
+    "passed": true,
+    "assumed_unnormalized_raw_third": true,
+    "third_normalization_validated": false,
+    "scope": "Algebraic calculation only; H5 LABEL/UNITS and deposit do not establish third normalization."
+  },
   "first_attempt": {
     "status": "rejected_reference_TIME_mismatch",
     "requested_TIME": 300.0,
@@ -203,11 +337,12 @@
     "time_coercion": false,
     "exporter_code_changed": false
   },
+  "provenance_correction_export": {
+    "status": "passed",
+    "actual_reference_TIME": 300.0015,
+    "aggregate_binary_unchanged": true,
+    "old_export_and_preparation_evidence_retained_privately": true
+  },
   "solver_executed": false,
-  "private_raw_binary_paths_included": false,
-  "independent_populationwise_qxxx_check": {
-    "maximum_absolute_difference": 4.85722573273506e-17,
-    "passed": true,
-    "definition": "sum_s(M3s-3*ux*M2s+3*ux^2*n_s*v_sx-ux^3*n_s)"
-  }
+  "private_raw_binary_paths_included": false
 }

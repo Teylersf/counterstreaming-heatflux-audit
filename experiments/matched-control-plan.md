@@ -49,6 +49,11 @@ The archived one-fluid frame 30 is at `300.0001500000136`; the two-fluid frame
 is at `300.0499847996274`. Do not describe every comparison as being at exactly
 the same time. Preserve and discuss any new run's output-time offset.
 
+Timing addendum from verified archive inspection, before any solver run:
+the PIC reference filename `000300` records actual `TIME=300.0015` and
+`ITER=4500`. The strict exporter rejected an assumed exact time of 300;
+the corrected explicit request preserves the recorded value without coercion.
+
 ## Prespecified measurements
 
 Report current `Jz`, total density, `Pxx` and `Pzz` on the full grid, with
@@ -58,11 +63,19 @@ a profile norm is not a two-dimensional field norm. Compare the unmatched
 solver results with the original fluid archive before interpreting the control.
 
 For two fluids reconstruct the counter-streaming contribution `qCSxxx` from
-the conserved moments and compare it with the PIC central third moment.
+the conserved moments and compare it with the corresponding PIC-tagged
+contribution from documented first and second moments.
 Label it as that reconstructed contribution. The finite isotropization model
 specifies a divergence and does not identify a unique complete heat-flux
 tensor. One-fluid `qCS=0` is a definition, not a measurement of its full modeled
 heat flux. Never divide a paired relative difference by a zero norm.
+
+Normalization addendum, before control-run execution: the deposit explicitly
+defines its first/second diagnostics, but the third-product labels and units
+do not by themselves establish raw-third density normalization. Comparisons
+with a reconstructed total PIC `qxxx` must therefore be labeled conditional
+on the raw-third interpretation; algebraic reconstruction does not verify that
+interpretation. The tagged `qCSxxx` comparator above avoids this uncertainty.
 
 Publish all case outcomes, timings and conformance failures. If compatibility
 or initial-state checks fail, do not relabel a substitute toy model as a

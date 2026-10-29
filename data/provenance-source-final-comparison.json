@@ -1,0 +1,364 @@
+{
+  "generated_at_utc": "2026-10-29T00:39:47.457271+00:00",
+  "script_sha256": "756abb2bdc45c30328c640294f44f5f60b93a2f124ee48aa1bd56d879c1cde3b",
+  "config_sha256": "9db719c1369b71ac79fb32f54c000b7d5ed699c32c88119b5e30b4eda8603bdf",
+  "result_sha256": "af023b1b1e8c23502ec5181dd0fb124baf9efe3287ed7e0676f9fa01ab3ff747",
+  "profile_export_sha256": "8b68863221af369d8714c6cc13d144858e795e7c2eb30da8ddb3a0ae093bc2cf",
+  "PIC_reference": {
+    "metadata": "data/derived/pic-moment-export.json",
+    "metadata_sha256": "5f4427888373620a62135b19aa41dea83be9552f6d59ad94a5b824ed6d501b58",
+    "full_archive_receipt": "data/full-archive-verification.json",
+    "full_archive_receipt_sha256": "8d290ba3fb34711a6b3bcf7714eef4cffa73771ec8f06ff90c21a11e4a0a0e2b",
+    "archive": {
+      "filename": "BgBr0point1-Beta0point1_PIC.zip",
+      "bytes": 1238114672,
+      "publisher_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "full_archive_checksum_verified": true
+    },
+    "conserved_export": {
+      "filename": "reference-pic-frame-000300-conserved.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "7effe18cf263918db5b84c37d078853f7f5f61e73d12e3430c80c2723db83940",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    "observable_export": {
+      "filename": "reference-pic-frame-000300-observables.f64",
+      "shape": [
+        640,
+        480,
+        6
+      ],
+      "components": [
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "qxxx_conditional_raw_third"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 14745600,
+      "sha256": "c65ffd75caca06bafd6704a99db7aaa731212803c7b79365c81c46ecfdd990e8",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    "tagged_export": {
+      "filename": "reference-pic-frame-000300-tagged.npz",
+      "bytes": 50081708,
+      "sha256": "e82abaa34a4d519ffaa59480487213c9ecc78ce9b8d4d6de39cb56188094c8d7",
+      "array_keys": [
+        "conserved_tag1",
+        "pressure_tag1",
+        "conserved_tag2",
+        "pressure_tag2",
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "raw_third_diagnostic_tag1",
+        "raw_third_diagnostic_tag2",
+        "qxxx_conditional_raw_third",
+        "TIME",
+        "ITER",
+        "x",
+        "y",
+        "conserved_component_order"
+      ],
+      "array_shapes": {
+        "conserved_tag1": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag1": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "conserved_tag2": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag2": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "density": [
+          640,
+          480
+        ],
+        "Jz": [
+          640,
+          480
+        ],
+        "Pxx": [
+          640,
+          480
+        ],
+        "Pzz": [
+          640,
+          480
+        ],
+        "qCSxxx": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag1": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag2": [
+          640,
+          480
+        ],
+        "qxxx_conditional_raw_third": [
+          640,
+          480
+        ],
+        "TIME": [],
+        "ITER": [],
+        "x": [
+          480
+        ],
+        "y": [
+          640
+        ],
+        "conserved_component_order": [
+          10
+        ]
+      },
+      "array_dtypes": {
+        "conserved_tag1": "float64",
+        "pressure_tag1": "float64",
+        "conserved_tag2": "float64",
+        "pressure_tag2": "float64",
+        "density": "float64",
+        "Jz": "float64",
+        "Pxx": "float64",
+        "Pzz": "float64",
+        "qCSxxx": "float64",
+        "raw_third_diagnostic_tag1": "float64",
+        "raw_third_diagnostic_tag2": "float64",
+        "qxxx_conditional_raw_third": "float64",
+        "TIME": "float64",
+        "ITER": "int64",
+        "x": "float64",
+        "y": "float64",
+        "conserved_component_order": "<U6"
+      }
+    },
+    "snapshot": {
+      "filename_frame_token": "000300",
+      "TIME": 300.0015,
+      "ITER": 4500,
+      "aggregate_moment_members": 20,
+      "raw_third_members": 2,
+      "conditional_qxxx_available": true
+    },
+    "grid": {
+      "shape_y_x": [
+        640,
+        480
+      ],
+      "bounds_x": [
+        -24.0,
+        24.0
+      ],
+      "bounds_y": [
+        -32.0,
+        32.0
+      ],
+      "spacing_x_y": [
+        0.1,
+        0.1
+      ],
+      "moment_offset_x_y": [
+        0.5,
+        0.5
+      ]
+    },
+    "moment_semantics": "vfl is documented ordinary population mean; second diagnostics are documented unnormalized raw moments. Third-diagnostic normalization is unverified.",
+    "conditional_qxxx_definition": "Assuming unnormalized third diagnostics: sum_s v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass; arithmetic validation is not normalization validation.",
+    "conformance": {
+      "label": "PIC reference",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "nonfinite_count": 0,
+      "no_clipping_or_regularization": true,
+      "violations": [],
+      "minimum_density": 0.8318560868501663,
+      "minimum_pressure_diagonal": 0.005273416726742493,
+      "minimum_pressure_eigenvalue": 0.004837252808153961,
+      "passed": true
+    },
+    "tagged_qCS_interpretation": {
+      "definition": "sum_s[3*(u_sx-u_x)*P_sxx+n_s*(u_sx-u_x)^3]; exact vacuum contributes zero without a density floor or pressure clamping.",
+      "depends_on_third_diagnostic": false,
+      "population_decomposition": "Actual deposited PIC tag1/tag2 first and second moments, not a synthetic split of the aggregate.",
+      "tag_covariance_conformance": [
+        {
+          "label": "PIC tag1",
+          "minimum_density": -0.0,
+          "exact_vacuum_cell_count": 125431,
+          "minimum_pressure_diagonal": -2.1810619499698647e-11,
+          "negative_pressure_diagonal_count": 2184,
+          "minimum_pressure_eigenvalue": -3.837403475566135e-11,
+          "negative_pressure_eigenvalue_count": 3149,
+          "covariance_nonnegative_passed": false,
+          "no_clipping_or_regularization": true,
+          "scope": "Archived diagnostic covariance; failed nonnegativity is retained, not accepted as a conforming solver state. Algebraic moment-recentering comparisons do not certify positive-semidefinite tagged pressure."
+        },
+        {
+          "label": "PIC tag2",
+          "minimum_density": -0.0,
+          "exact_vacuum_cell_count": 126279,
+          "minimum_pressure_diagonal": -1.9100416100105086e-11,
+          "negative_pressure_diagonal_count": 2172,
+          "minimum_pressure_eigenvalue": -2.2536371245273213e-11,
+          "negative_pressure_eigenvalue_count": 3041,
+          "covariance_nonnegative_passed": false,
+          "no_clipping_or_regularization": true,
+          "scope": "Archived diagnostic covariance; failed nonnegativity is retained, not accepted as a conforming solver state. Algebraic moment-recentering comparisons do not certify positive-semidefinite tagged pressure."
+        }
+      ],
+      "all_tag_covariances_nonnegative": false,
+      "independent_recovery_max_absolute_difference": {
+        "tag1_pressure": 0.0,
+        "tag2_pressure": 0.0,
+        "qCSxxx_tagged_NPZ": 3.469446951953614e-18,
+        "qCSxxx_observable_binary": 3.469446951953614e-18,
+        "conditional_qxxx_NPZ": 0.0
+      },
+      "qualification": "The algebraic qCS reference uses documented first/second diagnostics. Small negative recovered tagged covariance values are retained without clipping and do not pass strict nonnegativity; this diagnostic comparison is not a physical-state conformance certificate or a full heat-flux comparison."
+    },
+    "central_qxxx_interpretation": {
+      "normalization_verified": false,
+      "assumption": "The v1v1v1 population diagnostics are unnormalized raw third moments.",
+      "qualification": "The deposit explicitly defines first/second diagnostics, but third HDF5 LABEL/UNITS do not distinguish normalization and the exact custom implementation is unavailable. Every comparison using exported central qxxx is conditional; density/current/pressure are unaffected."
+    },
+    "primitive_recovery_max_absolute_difference": {
+      "rho": 0.0,
+      "Jz": 0.0,
+      "Pxx": 0.0,
+      "Pzz": 0.0
+    }
+  },
+  "case_inputs": [
+    {
+      "id": "archived_one_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "actual_time": 300.0001500000136,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "reference-fluid/decoded/fluid1-electrons1_300.npz",
+          "npz_sha256": "83c5fbcc2e69b3b84b216ef2a9a0f22633697dc6685685d5b0ba23d5a08d82de",
+          "metadata": "reference-fluid/decoded/fluid1-electrons1_300.metadata.json",
+          "metadata_sha256": "efa5ea299a835de4300cc01783a53af7dc3f3ae89e9d0fa95ec0678150ebd8e4",
+          "source_BP_filename": "fluid1-electrons1_300.bp",
+          "source_BP_sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+          "actual_time": 300.0001500000136,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+            "archive_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+            "exact_member_name": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_300.bp",
+            "sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+            "archive_full_MD5": "381d3ddb5dbbfda1089a3857232af17f",
+            "archive_full_SHA256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "archived_two_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "actual_time": 300.0499847996274,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons1_300.npz",
+          "npz_sha256": "28ab39cb9e3faa20af5690e6f4792e6096e4d15743a34137b8c72a42f9552f58",
+          "metadata": "reference-fluid/decoded/fluid2-electrons1_300.metadata.json",
+          "metadata_sha256": "436da3d3a2b9b16834a4cf5abd3fb0c5e28b99e48784056b9da2ba500af2bfd2",
+          "source_BP_filename": "fluid2-electrons1_300.bp",
+          "source_BP_sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+          "actual_time": 300.0499847996274,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+            "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_300.bp",
+            "sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+            "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+            "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        },
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons2_300.npz",
+          "npz_sha256": "1d4300b6b8fef1d06f1880cf86fac9898da84c0579a13f0bad441c87e2b48f05",
+          "metadata": "reference-fluid/decoded/fluid2-electrons2_300.metadata.json",
+          "metadata_sha256": "727618ed3a24373bfb11636f69eb9a08d811e8e13e9dfca6b13aeeedd6ba15d3",
+          "source_BP_filename": "fluid2-electrons2_300.bp",
+          "source_BP_sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+          "actual_time": 300.0499847996274,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+            "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_300.bp",
+            "sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+            "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+            "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        }
+      ]
+    }
+  ],
+  "all_actual_cases_passed": true,
+  "failure_count": 0,
+  "raw_cache_paths_omitted": true,
+  "simulation_performed_by_this_script": false
+}

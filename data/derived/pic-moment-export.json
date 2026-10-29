@@ -1,9 +1,12 @@
 {
-  "generated_at_utc": "2026-10-29T00:19:17.476649+00:00",
+  "generated_at_utc": "2026-10-29T00:31:48.963161+00:00",
   "scope": "Archived moment export; no PIC/Gkeyll evolution or nonlinear-effect claim.",
   "electron_mass": 1.0,
   "electron_charge": -1.0,
-  "moment_semantics": "vfl is ordinary population mean; second/third diagnostics are unnormalized raw moments.",
+  "moment_semantics": "vfl is documented ordinary population mean; second diagnostics are documented unnormalized raw moments. Third-diagnostic normalization is unverified.",
+  "third_moment_normalization_verified": false,
+  "conditional_qxxx_assumption": "v1v1v1 diagnostics are interpreted as unnormalized integral(f*v_x^3); the deposit explicitly defines first/second moments only, and LABEL/UNITS do not establish third normalization.",
+  "qCSxxx_semantics": "Actual PIC-tagged mixture third-moment contribution derived only from documented density, first and second moments; no raw third diagnostic required.",
   "grid": {
     "shape_y_x": [
       640,
@@ -28,7 +31,8 @@
   },
   "binary_layout": "[y,x,component], component fastest, then x, then y; float64 little-endian; no header",
   "pressure_definition": "P_ij=M_ij-momentum_i*momentum_j/rho; no clipping, clamping, filtering or smoothing",
-  "qxxx_definition": "sum_s raw_v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass",
+  "conditional_qxxx_definition": "Assuming unnormalized third diagnostics: sum_s v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass; arithmetic validation is not normalization validation.",
+  "qCSxxx_definition": "sum_s[3*(u_sx-u_x)*P_sxx+n_s*(u_sx-u_x)^3]; exact vacuum contributes zero without a density floor or pressure clamping.",
   "archive": {
     "filename": "BgBr0point1-Beta0point1_PIC.zip",
     "bytes": 1238114672,
@@ -48,7 +52,10 @@
       "maximum_density": 1.0000000149011612,
       "minimum_pressure_eigenvalue": 0.0069103173319117325,
       "maximum_pressure_eigenvalue": 0.01367094486752908,
-      "qxxx_available": false,
+      "conditional_qxxx_available": false,
+      "third_moment_normalization_verified": false,
+      "qCSxxx_uses_documented_first_second_moments_only": false,
+      "actual_PIC_tagged_state_diagnostics": null,
       "members": [
         {
           "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000000.h5",
@@ -67,7 +74,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "\\rho",
+            "UNITS": "e \\omega_p^2/ c^2",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000000.h5",
@@ -86,7 +98,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl1}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000000.h5",
@@ -105,7 +122,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl2}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000000.h5",
@@ -124,7 +146,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl3}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000000.h5",
@@ -143,7 +170,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{1}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000000.h5",
@@ -162,7 +194,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000000.h5",
@@ -181,7 +218,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000000.h5",
@@ -200,7 +242,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000000.h5",
@@ -219,7 +266,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000000.h5",
@@ -238,7 +290,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{3}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000000.h5",
@@ -257,7 +314,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "\\rho",
+            "UNITS": "e \\omega_p^2/ c^2",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000000.h5",
@@ -276,7 +338,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl1}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000000.h5",
@@ -295,7 +362,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl2}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000000.h5",
@@ -314,7 +386,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl3}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000000.h5",
@@ -333,7 +410,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{1}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000000.h5",
@@ -352,7 +434,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000000.h5",
@@ -371,7 +458,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000000.h5",
@@ -390,7 +482,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000000.h5",
@@ -409,7 +506,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000000.h5",
@@ -428,7 +530,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{3}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         }
       ],
       "smooth_fluid_label_control": {
@@ -450,7 +557,23 @@
       "maximum_density": 1.2536811977624893,
       "minimum_pressure_eigenvalue": 0.004837252808153961,
       "maximum_pressure_eigenvalue": 0.08239588310291726,
-      "qxxx_available": true,
+      "conditional_qxxx_available": true,
+      "third_moment_normalization_verified": false,
+      "qCSxxx_uses_documented_first_second_moments_only": true,
+      "actual_PIC_tagged_state_diagnostics": [
+        {
+          "species": 1,
+          "zero_density_cells": 125431,
+          "minimum_density": -0.0,
+          "minimum_pressure_eigenvalue_unmodified": -3.837403475566135e-11
+        },
+        {
+          "species": 2,
+          "zero_density_cells": 126279,
+          "minimum_density": -0.0,
+          "minimum_pressure_eigenvalue_unmodified": -2.2536371245273213e-11
+        }
+      ],
       "members": [
         {
           "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000300.h5",
@@ -469,7 +592,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "\\rho",
+            "UNITS": "e \\omega_p^2/ c^2",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000300.h5",
@@ -488,7 +616,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl1}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000300.h5",
@@ -507,7 +640,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl2}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000300.h5",
@@ -526,7 +664,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl3}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000300.h5",
@@ -545,7 +688,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{1}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000300.h5",
@@ -564,7 +712,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000300.h5",
@@ -583,7 +736,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000300.h5",
@@ -602,7 +760,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000300.h5",
@@ -621,7 +784,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000300.h5",
@@ -640,7 +808,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{3}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000300.h5",
@@ -659,7 +832,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "\\rho",
+            "UNITS": "e \\omega_p^2/ c^2",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000300.h5",
@@ -678,7 +856,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl1}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000300.h5",
@@ -697,7 +880,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl2}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000300.h5",
@@ -716,7 +904,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{fl3}",
+            "UNITS": "c",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000300.h5",
@@ -735,7 +928,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{1}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000300.h5",
@@ -754,7 +952,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000300.h5",
@@ -773,7 +976,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000300.h5",
@@ -792,7 +1000,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{2}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000300.h5",
@@ -811,7 +1024,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{2}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000300.h5",
@@ -830,7 +1048,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{3}v_{3}",
+            "UNITS": "cc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/v1v1v1-electrons1-000300.h5",
@@ -849,7 +1072,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{1}v_{1}",
+            "UNITS": "ccc",
+            "OFFSET_T": 0.0
+          }
         },
         {
           "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/v1v1v1-electrons2-000300.h5",
@@ -868,7 +1096,12 @@
           "shape_y_x": [
             640,
             480
-          ]
+          ],
+          "descriptive_attributes": {
+            "LABEL": "v_{1}v_{1}v_{1}",
+            "UNITS": "ccc",
+            "OFFSET_T": 0.0
+          }
         }
       ]
     }
@@ -983,28 +1216,141 @@
       "shape": [
         640,
         480,
-        5
+        6
       ],
       "components": [
         "density",
         "Jz",
         "Pxx",
         "Pzz",
-        "qxxx"
+        "qCSxxx",
+        "qxxx_conditional_raw_third"
       ],
       "dtype": "<f8",
       "order": "C",
-      "bytes": 12288000,
-      "sha256": "d22cc93be7ba3e7afe53ac1920e8c825da259118b09c5719a22657144ecd5a60",
+      "bytes": 14745600,
+      "sha256": "c65ffd75caca06bafd6704a99db7aaa731212803c7b79365c81c46ecfdd990e8",
       "linear_index": "((iy*nx+ix)*ncomponent+component)",
       "byte_order": "little-endian"
+    }
+  ],
+  "npz_outputs": [
+    {
+      "filename": "reference-pic-frame-000300-tagged.npz",
+      "bytes": 50081708,
+      "sha256": "e82abaa34a4d519ffaa59480487213c9ecc78ce9b8d4d6de39cb56188094c8d7",
+      "array_keys": [
+        "conserved_tag1",
+        "pressure_tag1",
+        "conserved_tag2",
+        "pressure_tag2",
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "raw_third_diagnostic_tag1",
+        "raw_third_diagnostic_tag2",
+        "qxxx_conditional_raw_third",
+        "TIME",
+        "ITER",
+        "x",
+        "y",
+        "conserved_component_order"
+      ],
+      "array_shapes": {
+        "conserved_tag1": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag1": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "conserved_tag2": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag2": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "density": [
+          640,
+          480
+        ],
+        "Jz": [
+          640,
+          480
+        ],
+        "Pxx": [
+          640,
+          480
+        ],
+        "Pzz": [
+          640,
+          480
+        ],
+        "qCSxxx": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag1": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag2": [
+          640,
+          480
+        ],
+        "qxxx_conditional_raw_third": [
+          640,
+          480
+        ],
+        "TIME": [],
+        "ITER": [],
+        "x": [
+          480
+        ],
+        "y": [
+          640
+        ],
+        "conserved_component_order": [
+          10
+        ]
+      },
+      "array_dtypes": {
+        "conserved_tag1": "float64",
+        "pressure_tag1": "float64",
+        "conserved_tag2": "float64",
+        "pressure_tag2": "float64",
+        "density": "float64",
+        "Jz": "float64",
+        "Pxx": "float64",
+        "Pzz": "float64",
+        "qCSxxx": "float64",
+        "raw_third_diagnostic_tag1": "float64",
+        "raw_third_diagnostic_tag2": "float64",
+        "qxxx_conditional_raw_third": "float64",
+        "TIME": "float64",
+        "ITER": "int64",
+        "x": "float64",
+        "y": "float64",
+        "conserved_component_order": "<U6"
+      }
     }
   ],
   "available_complete_filename_frame_tokens": [
     "000000",
     "000300"
   ],
-  "script_sha256": "d6f9ef0b8f24dc4c0ff11520fa4415ceadc8050b5fe1a50e388e40449abe6c1a",
+  "script_sha256": "bf1524cb39cf30683a554223da803a2b3b2cdef5dc162c4fd176d1833ea5c31f",
   "inventory_sha256": "25b9abe520ffee744c3881759e60a3f2e88f4ca63834eec6c619e9804af5f3f9",
   "verification_receipt_sha256": "8d290ba3fb34711a6b3bcf7714eef4cffa73771ec8f06ff90c21a11e4a0a0e2b",
   "numpy": "2.3.5",

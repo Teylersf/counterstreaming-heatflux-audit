@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "scope": "Configuration template only. All four solver cases are disabled until actual decoded outputs exist; no numerical solver result is represented here.",
+  "PIC_reference": {
+    "metadata": "data/derived/pic-moment-export.json",
+    "full_archive_receipt": "data/full-archive-verification.json",
+    "binary_directory": "pic-export-v2",
+    "filename_frame_token": "000300",
+    "tagged_export_filename": "reference-pic-frame-000300-tagged.npz"
+  },
+  "cases": [
+    {"id": "baseline_one_fluid", "enabled": false, "kind": "solver_control", "role": "baseline", "population_count": 1, "moment_exports": []},
+    {"id": "matched_one_fluid", "enabled": false, "kind": "solver_control", "role": "matched", "population_count": 1, "moment_exports": []},
+    {"id": "baseline_two_fluid", "enabled": false, "kind": "solver_control", "role": "baseline", "population_count": 2, "moment_exports": []},
+    {"id": "matched_two_fluid", "enabled": false, "kind": "solver_control", "role": "matched", "population_count": 2, "moment_exports": []}
+  ],
+  "pairs": [
+    {"id": "one_fluid_initialization_effect", "baseline": "baseline_one_fluid", "matched": "matched_one_fluid"},
+    {"id": "two_fluid_initialization_effect", "baseline": "baseline_two_fluid", "matched": "matched_two_fluid"}
+  ]
+}

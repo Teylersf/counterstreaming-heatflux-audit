@@ -1,0 +1,101 @@
+{
+  "status": "prepared_not_executed",
+  "preparation_revision": 2,
+  "cases": [
+    {
+      "case": "1-fluid-unmatched",
+      "species": 1,
+      "aggregate_matched": false,
+      "original_deck_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "wrapper_sha256": "a52ca6c0d2b93142fccd33e739eb7342d514239f5942e4a9263021b5b3960fe9",
+      "original_deck_is_byte_identical": true,
+      "time_controls": {
+        "tEnd": 600,
+        "nFrame": 60
+      },
+      "initialization_intervention": "none",
+      "field_intervention": "none",
+      "equation_or_closure_intervention": "none",
+      "PIC_tag_matching_claimed": false,
+      "solver_executed": false,
+      "matched_initializer_sha256": null,
+      "aggregate_binary_sha256": null
+    },
+    {
+      "case": "1-fluid-aggregate-matched",
+      "species": 1,
+      "aggregate_matched": true,
+      "original_deck_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "wrapper_sha256": "c14ffc94e1c52f1c7e70a5a95dd425dbd54df3590f5559c91e58b0bedc77097a",
+      "original_deck_is_byte_identical": true,
+      "time_controls": {
+        "tEnd": 600,
+        "nFrame": 60
+      },
+      "initialization_intervention": "Species.init only",
+      "field_intervention": "none",
+      "equation_or_closure_intervention": "none",
+      "PIC_tag_matching_claimed": false,
+      "solver_executed": false,
+      "matched_initializer_sha256": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4",
+      "aggregate_binary_sha256": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85"
+    },
+    {
+      "case": "2-fluid-unmatched",
+      "species": 2,
+      "aggregate_matched": false,
+      "original_deck_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "wrapper_sha256": "a52ca6c0d2b93142fccd33e739eb7342d514239f5942e4a9263021b5b3960fe9",
+      "original_deck_is_byte_identical": true,
+      "time_controls": {
+        "tEnd": 600,
+        "nFrame": 60
+      },
+      "initialization_intervention": "none",
+      "field_intervention": "none",
+      "equation_or_closure_intervention": "none",
+      "PIC_tag_matching_claimed": false,
+      "solver_executed": false,
+      "matched_initializer_sha256": null,
+      "aggregate_binary_sha256": null
+    },
+    {
+      "case": "2-fluid-aggregate-matched",
+      "species": 2,
+      "aggregate_matched": true,
+      "original_deck_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "wrapper_sha256": "ce01997246eabcffd2a8ebbade8fbf2f33632da2dead6d0cb1a1c883ade961f8",
+      "original_deck_is_byte_identical": true,
+      "time_controls": {
+        "tEnd": 600,
+        "nFrame": 60
+      },
+      "initialization_intervention": "Species.init only",
+      "field_intervention": "none",
+      "equation_or_closure_intervention": "none",
+      "PIC_tag_matching_claimed": false,
+      "solver_executed": false,
+      "matched_initializer_sha256": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4",
+      "aggregate_binary_sha256": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85"
+    }
+  ],
+  "prepared_manifest_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+  "export_metadata_sha256": "5f4427888373620a62135b19aa41dea83be9552f6d59ad94a5b824ed6d501b58",
+  "preparer_sha256": "9d7f0d998f40e8e3d1f141caf04becc96a45ecd939e2a28b72b55821daa8fd93",
+  "current_exporter_sha256": "bf1524cb39cf30683a554223da803a2b3b2cdef5dc162c4fd176d1833ea5c31f",
+  "copied_original_decks_verified_byte_identical": true,
+  "all_staged_file_hashes_verified": true,
+  "case_pairing_verified": true,
+  "actual_solver_run_performed": false,
+  "physics_conformance_claimed": false,
+  "LuaJIT_syntax_check": {
+    "status": "passed",
+    "mode": "bytecode compilation only",
+    "Gkeyll_loaded": false,
+    "source_sha256": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4",
+    "bytecode_sha256": "a6bfb65a5d62d3f2efa10bd58a9452f852e64862179368f99f01a3187e71eb80"
+  },
+  "supersedes_prepared_manifest_sha256": "928a97d507621ef4fb29474aab18ca32ba115736438cef00c11812c2a819b3bb",
+  "old_prepared_evidence_and_export_metadata_retained_privately": true,
+  "private_job_paths_included": false
+}

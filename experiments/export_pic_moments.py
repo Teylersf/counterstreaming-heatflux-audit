@@ -3,6 +3,9 @@
 No solver is run. The ten-component binary is little-endian float64, C order
 [y, x, component]: components fastest, then x, then y. Electron mass is one.
 The optional smooth two-fluid split matches aggregate moments, NOT PIC tags.
+The later-reference tagged states/qCS use documented first/second moments.
+Total qxxx reconstructed from third diagnostics is conditional: the deposit
+does not explicitly establish those diagnostics' density normalization.
 """
 from __future__ import annotations
 
@@ -163,12 +166,17 @@ def read_member(zip_file, info, quantity, pins):
         iteration = int(iteration_value)
         require(np.isfinite(time) and iteration == iteration_value and iteration >= 0,
                 f'Invalid snapshot metadata: {info.filename}')
+        descriptive = {}
+        for name in ('LABEL', 'UNITS', 'OFFSET_T'):
+            if name in source.attrs:
+                value = scalar_attribute(source.attrs, name)
+                descriptive[name] = value.decode('utf-8') if isinstance(value, bytes) else value
     record = {'exact_member_name': info.filename, 'quantity': quantity,
               'uncompressed_bytes': info.file_size, 'compressed_bytes': info.compress_size,
               'crc32': f'{info.CRC:08x}', 'sha256': digest,
               'matched_preexisting_SHA256_pin': info.filename in pins,
               'TIME': time, 'ITER': iteration, 'OFFSET_X': [.5, .5],
-              'shape_y_x': list(SHAPE)}
+              'shape_y_x': list(SHAPE), 'descriptive_attributes': descriptive}
     return array, record
 
 
@@ -179,6 +187,22 @@ def pressure_tensor(state):
         value = state[..., component] - momentum[..., i] * momentum[..., j] / n
         pressure[..., i, j] = pressure[..., j, i] = value
     return pressure
+
+
+def tagged_moments(state):
+    """Exact vacuum has zero state and zero contribution; no floors or repair."""
+    density, momentum = state[..., 0], state[..., 1:4]
+    positive = density > 0
+    require(np.min(density) >= 0, 'Negative PIC tag density')
+    require(np.all(state[~positive] == 0), 'A zero-density tag has nonzero conserved moments')
+    velocity = np.zeros_like(momentum)
+    np.divide(momentum, density[..., None], out=velocity, where=positive[..., None])
+    pressure = np.empty(SHAPE + (3, 3), dtype=np.float64)
+    for component, (i, j) in enumerate(((0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2)), 4):
+        value = state[..., component] - momentum[..., i] * velocity[..., j]
+        pressure[..., i, j] = pressure[..., j, i] = value
+    require(np.isfinite(velocity).all() and np.isfinite(pressure).all(), 'Nonfinite PIC tag diagnostic')
+    return velocity, pressure
 
 
 def load_frame(zip_file, lookup, entries, frame, pins, expected_time, initial=False):
@@ -210,6 +234,33 @@ def load_frame(zip_file, lookup, entries, frame, pins, expected_time, initial=Fa
     require(np.min(eigenvalues) > 0, 'Aggregate pressure is not positive definite; no clamping applied')
     observables = {'density': state[..., 0], 'Jz': -state[..., 3],
                    'Pxx': pressure[..., 0, 0], 'Pzz': pressure[..., 2, 2]}
+    tagged_export = None
+    tag_report = None
+    if not initial:
+        tagged_export, tag_report = {}, []
+        populations = []
+        for species, density in enumerate(densities, 1):
+            population = np.empty_like(state)
+            population[..., 0] = density
+            for i in range(3):
+                population[..., i+1] = density * values[species, f'vfl{i+1}']
+            for i, quantity in enumerate(SECOND, 4):
+                population[..., i] = values[species, quantity]
+            velocity, tag_pressure = tagged_moments(population)
+            populations.append((population, velocity, tag_pressure))
+            tagged_export[f'conserved_tag{species}'] = population
+            tagged_export[f'pressure_tag{species}'] = tag_pressure
+            tag_report.append({'species': species, 'zero_density_cells': int(np.sum(density == 0)),
+                'minimum_density': float(density.min()),
+                'minimum_pressure_eigenvalue_unmodified': float(np.linalg.eigvalsh(tag_pressure).min())})
+        ux = state[..., 1] / state[..., 0]
+        qcs = np.zeros(SHAPE, dtype=np.float64)
+        for population, velocity, tag_pressure in populations:
+            du = velocity[..., 0] - ux
+            qcs += 3*du*tag_pressure[..., 0, 0] + population[..., 0]*du**3
+        require(np.isfinite(qcs).all(), 'Nonfinite first/second-moment qCS')
+        observables['qCSxxx'] = qcs
+        tagged_export.update(observables)
     third_keys = [(s, 'v1v1v1') for s in (1, 2)]
     # The initial control reads exactly the twenty requested conserved-moment
     # members. Raw third moments are optional later-reference data only.
@@ -221,16 +272,29 @@ def load_frame(zip_file, lookup, entries, frame, pins, expected_time, initial=Fa
             require(record['TIME'] == time and record['ITER'] == iteration, 'Third-moment snapshot mismatch')
             third.append(raw)
             records.append(record)
+            tagged_export[f'raw_third_diagnostic_tag{key[0]}'] = raw
         ux = state[..., 1] / state[..., 0]
-        observables['qxxx'] = sum(third) - 3*ux*state[..., 4] + 2*state[..., 0]*ux**3
+        # The arithmetic is exact for unnormalized raw third moments, but that
+        # normalization is not explicitly defined by the deposit for M3.
+        conditional = sum(third) - 3*ux*state[..., 4] + 2*state[..., 0]*ux**3
+        observables['qxxx_conditional_raw_third'] = conditional
+        tagged_export['qxxx_conditional_raw_third'] = conditional
+    if tagged_export is not None:
+        tagged_export.update({'TIME': np.asarray(time), 'ITER': np.asarray(iteration),
+            'x': -24+(np.arange(SHAPE[1])+.5)*.1,
+            'y': -32+(np.arange(SHAPE[0])+.5)*.1,
+            'conserved_component_order': np.asarray(COMPONENTS)})
     report = {'filename_frame_token': frame, 'TIME': time, 'ITER': iteration,
               'aggregate_moment_members': 20, 'raw_third_members': 2 if third_available else 0,
               'minimum_density': float(state[..., 0].min()),
               'maximum_density': float(state[..., 0].max()),
               'minimum_pressure_eigenvalue': float(eigenvalues.min()),
               'maximum_pressure_eigenvalue': float(eigenvalues.max()),
-              'qxxx_available': third_available, 'members': records}
-    return state, observables, report
+              'conditional_qxxx_available': third_available,
+              'third_moment_normalization_verified': False,
+              'qCSxxx_uses_documented_first_second_moments_only': not initial,
+              'actual_PIC_tagged_state_diagnostics': tag_report, 'members': records}
+    return state, observables, report, tagged_export
 
 
 def write_binary(path, array, component_names, overwrite):
@@ -244,6 +308,22 @@ def write_binary(path, array, component_names, overwrite):
     return {'filename': path.name, 'shape': list(array.shape), 'components': list(component_names),
             'dtype': '<f8', 'order': 'C', 'bytes': len(payload), 'sha256': sha_bytes(payload),
             'linear_index': '((iy*nx+ix)*ncomponent+component)', 'byte_order': 'little-endian'}
+
+
+def write_npz(path, arrays, overwrite):
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    with temporary.open('wb') as stream:
+        np.savez_compressed(stream, **arrays)
+    digest = digest_file(temporary)[1]
+    if path.exists() and not overwrite:
+        require(digest_file(path)[1] == digest, f'Refusing to overwrite {path.name}')
+        temporary.unlink()
+    else:
+        temporary.replace(path)
+    return {'filename': path.name, 'bytes': path.stat().st_size, 'sha256': digest,
+            'array_keys': list(arrays),
+            'array_shapes': {key: list(value.shape) for key, value in arrays.items()},
+            'array_dtypes': {key: str(value.dtype) for key, value in arrays.items()}}
 
 
 def main():
@@ -271,11 +351,11 @@ def main():
     if args.reference_frame is not None:
         require(args.reference_frame != initial_frame, 'Reference must be a distinct later frame')
         require(np.isfinite(args.reference_time) and args.reference_time > 0, 'Reference TIME must be positive')
-    snapshots, outputs = [], []
+    snapshots, outputs, npz_outputs = [], [], []
     args.output_dir.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(args.archive) as source:
         lookup = verify_directory(source, archive)
-        initial, observables, report = load_frame(source, lookup, frames[initial_frame], initial_frame,
+        initial, observables, report, _ = load_frame(source, lookup, frames[initial_frame], initial_frame,
                                                  pins, 0.0, initial=True)
         snapshots.append(report)
         outputs.append(write_binary(args.output_dir/'aggregate-pic-t0.f64', initial, COMPONENTS, args.overwrite))
@@ -298,23 +378,29 @@ def main():
                 'matched_orders': 'Density, three momentum densities and six raw second moments only; no third-moment matching.',
                 'scope': 'Aggregate moment matching; common velocity; no pressure clamping or smoothing.'}
         if args.reference_frame is not None:
-            reference, observables, report = load_frame(source, lookup, frames[args.reference_frame],
+            reference, observables, report, tagged_export = load_frame(source, lookup, frames[args.reference_frame],
                 args.reference_frame, pins, args.reference_time)
             snapshots.append(report)
             prefix = f'reference-pic-frame-{args.reference_frame}'
             outputs.append(write_binary(args.output_dir/(prefix+'-conserved.f64'), reference, COMPONENTS, args.overwrite))
             outputs.append(write_binary(args.output_dir/(prefix+'-observables.f64'),
                 np.stack(list(observables.values()), axis=-1), tuple(observables), args.overwrite))
+            npz_outputs.append(write_npz(args.output_dir/(prefix+'-tagged.npz'), tagged_export, args.overwrite))
     metadata = {'generated_at_utc': datetime.now(timezone.utc).isoformat(),
         'scope': 'Archived moment export; no PIC/Gkeyll evolution or nonlinear-effect claim.',
         'electron_mass': 1.0, 'electron_charge': -1.0,
-        'moment_semantics': 'vfl is ordinary population mean; second/third diagnostics are unnormalized raw moments.',
+        'moment_semantics': 'vfl is documented ordinary population mean; second diagnostics are documented unnormalized raw moments. Third-diagnostic normalization is unverified.',
+        'third_moment_normalization_verified': False,
+        'conditional_qxxx_assumption': 'v1v1v1 diagnostics are interpreted as unnormalized integral(f*v_x^3); the deposit explicitly defines first/second moments only, and LABEL/UNITS do not establish third normalization.',
+        'qCSxxx_semantics': 'Actual PIC-tagged mixture third-moment contribution derived only from documented density, first and second moments; no raw third diagnostic required.',
         'grid': {'shape_y_x': list(SHAPE), 'bounds_x': list(BOUNDS[0]), 'bounds_y': list(BOUNDS[1]),
                  'spacing_x_y': [.1, .1], 'moment_offset_x_y': [.5, .5]},
         'binary_layout': '[y,x,component], component fastest, then x, then y; float64 little-endian; no header',
         'pressure_definition': 'P_ij=M_ij-momentum_i*momentum_j/rho; no clipping, clamping, filtering or smoothing',
-        'qxxx_definition': 'sum_s raw_v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass',
+        'conditional_qxxx_definition': 'Assuming unnormalized third diagnostics: sum_s v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass; arithmetic validation is not normalization validation.',
+        'qCSxxx_definition': 'sum_s[3*(u_sx-u_x)*P_sxx+n_s*(u_sx-u_x)^3]; exact vacuum contributes zero without a density floor or pressure clamping.',
         'archive': full_verification, 'snapshots': snapshots, 'binary_outputs': outputs,
+        'npz_outputs': npz_outputs,
         'available_complete_filename_frame_tokens': sorted(frames),
         'script_sha256': sha_bytes(Path(__file__).read_bytes()),
         'inventory_sha256': sha_bytes(args.inventory.read_bytes()),
@@ -323,7 +409,8 @@ def main():
     args.metadata.parent.mkdir(parents=True, exist_ok=True)
     args.metadata.write_text(json.dumps(metadata, indent=2, allow_nan=False)+'\n', encoding='utf-8', newline='\n')
     print(json.dumps({'status': 'exported', 'frames': [r['filename_frame_token'] for r in snapshots],
-                      'binary_files': [r['filename'] for r in outputs], 'metadata': str(args.metadata)}))
+                      'binary_files': [r['filename'] for r in outputs],
+                      'npz_files': [r['filename'] for r in npz_outputs], 'metadata': str(args.metadata)}))
 
 
 if __name__ == '__main__':

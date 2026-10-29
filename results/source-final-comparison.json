@@ -1,0 +1,776 @@
+{
+  "generated_at_utc": "2026-10-29T00:39:47.457271+00:00",
+  "script_sha256": "756abb2bdc45c30328c640294f44f5f60b93a2f124ee48aa1bd56d879c1cde3b",
+  "config_sha256": "9db719c1369b71ac79fb32f54c000b7d5ed699c32c88119b5e30b4eda8603bdf",
+  "numpy": "2.3.5",
+  "analytic_pipeline_checks": {
+    "known_norm_scaling": true,
+    "zero_denominator_null": true,
+    "analytic_unequal_temperature_qCS": true,
+    "exact_vacuum_zero_contribution": true,
+    "inconsistent_vacuum_rejected": true,
+    "paired_error_difference_and_zero_baseline_null": true,
+    "Windows_repr_and_slash_form_failure_paths_redacted": true,
+    "negative_pressure_rejected_with_failure_record": true,
+    "scope": "Small analytic pipeline checks, not solver results."
+  },
+  "scope": "Archived source outputs only. This validates the comparison pipeline and does not claim a new simulation or causal matched-state result.",
+  "simulation_performed_by_this_script": false,
+  "metric_definitions": {
+    "full_2D_grid": "Unmasked complete [y,x] domain; relative L2=norm(model-PIC)/norm(PIC), relative L1=sum(abs(model-PIC))/sum(abs(PIC)). Uniform cell-area factors cancel.",
+    "x_averaged_profile": "First arithmetic x mean at each y, then one-dimensional L1/L2 errors. These are separate projected diagnostics and may cancel x structure.",
+    "zero_denominator": "Null relative error, with an explicit reason; no epsilon denominator or favorable ROI.",
+    "time": "Actual available output times retained, with offsets; no time interpolation or exact-t=300 substitution."
+  },
+  "cases": [
+    {
+      "id": "archived_one_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "population_count": 1,
+      "actual_time": 300.0001500000136,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "reference-fluid/decoded/fluid1-electrons1_300.npz",
+          "npz_sha256": "83c5fbcc2e69b3b84b216ef2a9a0f22633697dc6685685d5b0ba23d5a08d82de",
+          "metadata": "reference-fluid/decoded/fluid1-electrons1_300.metadata.json",
+          "metadata_sha256": "efa5ea299a835de4300cc01783a53af7dc3f3ae89e9d0fa95ec0678150ebd8e4",
+          "source_BP_filename": "fluid1-electrons1_300.bp",
+          "source_BP_sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+          "actual_time": 300.0001500000136,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+            "archive_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+            "exact_member_name": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_300.bp",
+            "sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+            "archive_full_MD5": "381d3ddb5dbbfda1089a3857232af17f",
+            "archive_full_SHA256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        }
+      ],
+      "population_conformance": [
+        {
+          "label": "fluid1-electrons1_300.bp",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 0.7358092183290365,
+          "minimum_pressure_diagonal": 0.007205481725254263,
+          "minimum_pressure_eigenvalue": 0.0057737984010152645,
+          "passed": true
+        }
+      ],
+      "aggregate_conformance": {
+        "label": "archived_one_fluid aggregate",
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "nonfinite_count": 0,
+        "no_clipping_or_regularization": true,
+        "violations": [],
+        "minimum_density": 0.7358092183290365,
+        "minimum_pressure_diagonal": 0.007205481725254263,
+        "minimum_pressure_eigenvalue": 0.0057737984010152645,
+        "passed": true
+      },
+      "qCS_scope": {
+        "status": "omitted_for_one_population",
+        "scope": "The single-population counter-streaming contribution is identically zero; this does not assert zero full heat flux under a finite local-divergence closure."
+      },
+      "status": "compared",
+      "PIC_reference_actual_time": 300.0015,
+      "time_minus_PIC": -0.0013499999864166057,
+      "same_actual_time_as_PIC": false,
+      "time_interpolation_performed": false,
+      "metrics": {
+        "rho": {
+          "target": "PIC_rho",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.024104556633446326,
+            "relative_L2": 0.03972532712860152,
+            "reference_L1_norm": 307200.00000249123,
+            "reference_L2_norm": 554.5430665710591,
+            "absolute_difference_L1_norm": 7404.919797854762,
+            "absolute_difference_L2_norm": 22.029404726433174,
+            "RMS_difference": 0.0397458835902919,
+            "maximum_absolute_difference": 0.40776515598769547,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.005187401038559591,
+            "relative_L2": 0.009947502839094248,
+            "reference_L1_norm": 640.00000000519,
+            "reference_L2_norm": 25.29962051816722,
+            "absolute_difference_L1_norm": 3.319936664705061,
+            "absolute_difference_L2_norm": 0.2516680469324755,
+            "RMS_difference": 0.009948053032409681,
+            "maximum_absolute_difference": 0.059111926464553655,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "Jz": {
+          "target": "PIC_Jz",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.27811770998279595,
+            "relative_L2": 0.283398677743165,
+            "reference_L1_norm": 10896.453319805272,
+            "reference_L2_norm": 45.5850751581403,
+            "absolute_difference_L1_norm": 3030.4966442386767,
+            "absolute_difference_L2_norm": 12.91875002463976,
+            "RMS_difference": 0.023308261888497654,
+            "maximum_absolute_difference": 0.2619777001106959,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.15337277478655,
+            "relative_L2": 0.13253458211617766,
+            "reference_L1_norm": 21.37473021174872,
+            "reference_L2_norm": 1.823219544290382,
+            "absolute_difference_L1_norm": 3.278301682889803,
+            "absolute_difference_L2_norm": 0.24163964040857366,
+            "RMS_difference": 0.00955164545843941,
+            "maximum_absolute_difference": 0.03173810963635973,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "Pxx": {
+          "target": "PIC_Pxx",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.1697945399115449,
+            "relative_L2": 0.36357148215031226,
+            "reference_L1_norm": 3995.8161355221055,
+            "reference_L2_norm": 7.652390517882605,
+            "absolute_difference_L1_norm": 678.4677623021032,
+            "absolute_difference_L2_norm": 2.782190962579574,
+            "RMS_difference": 0.005019683441194566,
+            "maximum_absolute_difference": 0.07654478783598377,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.1295169543738101,
+            "relative_L2": 0.22720886743553853,
+            "reference_L1_norm": 8.324616949004387,
+            "reference_L2_norm": 0.33696324732300237,
+            "absolute_difference_L1_norm": 1.0781790335636474,
+            "absolute_difference_L2_norm": 0.07656103779166062,
+            "RMS_difference": 0.003026340743098443,
+            "maximum_absolute_difference": 0.013660586529197154,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "Pzz": {
+          "target": "PIC_Pzz",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.16166078870430506,
+            "relative_L2": 0.3457740173389512,
+            "reference_L1_norm": 4100.876173277948,
+            "reference_L2_norm": 7.901337514554108,
+            "absolute_difference_L1_norm": 662.9508765508053,
+            "absolute_difference_L2_norm": 2.7320772147583376,
+            "RMS_difference": 0.004929267235586153,
+            "maximum_absolute_difference": 0.08207222230651506,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.10897948130913789,
+            "relative_L2": 0.15714023260890733,
+            "reference_L1_norm": 8.543492027662392,
+            "reference_L2_norm": 0.34678790400247367,
+            "absolute_difference_L1_norm": 0.9310653297434022,
+            "absolute_difference_L2_norm": 0.054494331900904136,
+            "RMS_difference": 0.0021540776047003773,
+            "maximum_absolute_difference": 0.008614731741837973,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        }
+      }
+    },
+    {
+      "id": "archived_two_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "population_count": 2,
+      "actual_time": 300.0499847996274,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons1_300.npz",
+          "npz_sha256": "28ab39cb9e3faa20af5690e6f4792e6096e4d15743a34137b8c72a42f9552f58",
+          "metadata": "reference-fluid/decoded/fluid2-electrons1_300.metadata.json",
+          "metadata_sha256": "436da3d3a2b9b16834a4cf5abd3fb0c5e28b99e48784056b9da2ba500af2bfd2",
+          "source_BP_filename": "fluid2-electrons1_300.bp",
+          "source_BP_sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+          "actual_time": 300.0499847996274,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+            "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_300.bp",
+            "sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+            "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+            "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        },
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons2_300.npz",
+          "npz_sha256": "1d4300b6b8fef1d06f1880cf86fac9898da84c0579a13f0bad441c87e2b48f05",
+          "metadata": "reference-fluid/decoded/fluid2-electrons2_300.metadata.json",
+          "metadata_sha256": "727618ed3a24373bfb11636f69eb9a08d811e8e13e9dfca6b13aeeedd6ba15d3",
+          "source_BP_filename": "fluid2-electrons2_300.bp",
+          "source_BP_sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+          "actual_time": 300.0499847996274,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+            "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_300.bp",
+            "sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+            "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+            "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        }
+      ],
+      "population_conformance": [
+        {
+          "label": "fluid2-electrons1_300.bp",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 0.027339945905393424,
+          "minimum_pressure_diagonal": 0.0002661632954687487,
+          "minimum_pressure_eigenvalue": 0.0002508431408743179,
+          "passed": true
+        },
+        {
+          "label": "fluid2-electrons2_300.bp",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 0.02706802839130923,
+          "minimum_pressure_diagonal": 0.00026443849166113886,
+          "minimum_pressure_eigenvalue": 0.0002295567291023874,
+          "passed": true
+        }
+      ],
+      "aggregate_conformance": {
+        "label": "archived_two_fluid aggregate",
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "nonfinite_count": 0,
+        "no_clipping_or_regularization": true,
+        "violations": [],
+        "minimum_density": 0.9006512000064415,
+        "minimum_pressure_diagonal": 0.008326914348591829,
+        "minimum_pressure_eigenvalue": 0.008219197601283194,
+        "passed": true
+      },
+      "qCS_scope": {
+        "status": "computed_contribution",
+        "definition": "sum_s[3*P_sxx*(u_sx-u_x)+rho_s*(u_sx-u_x)^3]",
+        "scope": "Population-recentering contribution only. Intrinsic population heat flux is not reconstructed; a local-divergence closure does not uniquely determine the full tensor.",
+        "target": "PIC central qxxx conditional on the unnormalized-raw-third interpretation",
+        "third_diagnostic_normalization_verified": false,
+        "additional_target": "Actual tagged PIC qCS from documented first/second diagnostics; population-decomposition dependent and algebraic covariance caveats retained.",
+        "same_contribution_two_distinct_reference_targets": [
+          "qCSxxx_contribution",
+          "qCSxxx_contribution_vs_tagged_PIC"
+        ]
+      },
+      "status": "compared",
+      "PIC_reference_actual_time": 300.0015,
+      "time_minus_PIC": 0.048484799627374287,
+      "same_actual_time_as_PIC": false,
+      "time_interpolation_performed": false,
+      "metrics": {
+        "rho": {
+          "target": "PIC_rho",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.019393642926912657,
+            "relative_L2": 0.02647536254839511,
+            "reference_L1_norm": 307200.00000249123,
+            "reference_L2_norm": 554.5430665710591,
+            "absolute_difference_L1_norm": 5957.727107195882,
+            "absolute_difference_L2_norm": 14.681728736167592,
+            "RMS_difference": 0.026489062618735706,
+            "maximum_absolute_difference": 0.22997556289893373,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.0036590672841383437,
+            "relative_L2": 0.005879316198740592,
+            "reference_L1_norm": 640.00000000519,
+            "reference_L2_norm": 25.29962051816722,
+            "absolute_difference_L1_norm": 2.3418030618675307,
+            "absolute_difference_L2_norm": 0.14874446873445038,
+            "RMS_difference": 0.00587964138190708,
+            "maximum_absolute_difference": 0.028347386491713422,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "Jz": {
+          "target": "PIC_Jz",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.23617783084693253,
+            "relative_L2": 0.2173649037026472,
+            "reference_L1_norm": 10896.453319805272,
+            "reference_L2_norm": 45.5850751581403,
+            "absolute_difference_L1_norm": 2573.500708996466,
+            "absolute_difference_L2_norm": 9.9085954720271,
+            "RMS_difference": 0.017877282072081106,
+            "maximum_absolute_difference": 0.1785787875714243,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.1402861983210857,
+            "relative_L2": 0.11664257135312665,
+            "reference_L1_norm": 21.37473021174872,
+            "reference_L2_norm": 1.823219544290382,
+            "absolute_difference_L1_norm": 2.9985796415450827,
+            "absolute_difference_L2_norm": 0.21266501578730596,
+            "RMS_difference": 0.008406322856544418,
+            "maximum_absolute_difference": 0.03258228764624427,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "Pxx": {
+          "target": "PIC_Pxx",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.17385589748994942,
+            "relative_L2": 0.34260713314108093,
+            "reference_L1_norm": 3995.8161355221055,
+            "reference_L2_norm": 7.652390517882605,
+            "absolute_difference_L1_norm": 694.696200446017,
+            "absolute_difference_L2_norm": 2.621763577007751,
+            "RMS_difference": 0.004730237209178066,
+            "maximum_absolute_difference": 0.04048786219852398,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.15183234770642848,
+            "relative_L2": 0.23713022907666395,
+            "reference_L1_norm": 8.324616949004387,
+            "reference_L2_norm": 0.33696324732300237,
+            "absolute_difference_L1_norm": 1.263946135124062,
+            "absolute_difference_L2_norm": 0.07990417202812013,
+            "RMS_difference": 0.0031584897269846925,
+            "maximum_absolute_difference": 0.00919156237427959,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "Pzz": {
+          "target": "PIC_Pzz",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 0.15890771329254214,
+            "relative_L2": 0.31522256590760744,
+            "reference_L1_norm": 4100.876173277948,
+            "reference_L2_norm": 7.901337514554108,
+            "absolute_difference_L1_norm": 651.6608551914694,
+            "absolute_difference_L2_norm": 2.4906798854397834,
+            "RMS_difference": 0.004493733444762015,
+            "maximum_absolute_difference": 0.03949532382522111,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.11989478301719421,
+            "relative_L2": 0.1682678792274154,
+            "reference_L1_norm": 8.543492027662392,
+            "reference_L2_norm": 0.34678790400247367,
+            "absolute_difference_L1_norm": 1.024320122865711,
+            "absolute_difference_L2_norm": 0.05835326514821677,
+            "RMS_difference": 0.0023066153347010994,
+            "maximum_absolute_difference": 0.006785021864686078,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "qCSxxx_contribution": {
+          "target": "PIC_central_qxxx_CONDITIONAL_raw_third_interpretation",
+          "conditional_on_unverified_third_diagnostic_normalization": true,
+          "full_2D_grid": {
+            "relative_L1": 1.0272297821639118,
+            "relative_L2": 1.036487040596751,
+            "reference_L1_norm": 86.76989890327263,
+            "reference_L2_norm": 0.44759833928281745,
+            "absolute_difference_L1_norm": 89.1326243487934,
+            "absolute_difference_L2_norm": 0.46392987805926794,
+            "RMS_difference": 0.0008370313749457145,
+            "maximum_absolute_difference": 0.011317147928317667,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.7213368260537226,
+            "relative_L2": 0.7864886889877782,
+            "reference_L1_norm": 0.11358785543024313,
+            "reference_L2_norm": 0.010754864916564055,
+            "absolute_difference_L1_norm": 0.08193510311430069,
+            "absolute_difference_L2_norm": 0.008458579608469114,
+            "RMS_difference": 0.000334354716657721,
+            "maximum_absolute_difference": 0.0015974879563097437,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          }
+        },
+        "qCSxxx_contribution_vs_tagged_PIC": {
+          "target": "PIC_tagged_population_qCSxxx_from_documented_first_second_moments",
+          "conditional_on_unverified_third_diagnostic_normalization": false,
+          "full_2D_grid": {
+            "relative_L1": 1.3064150531999918,
+            "relative_L2": 1.1885970739287621,
+            "reference_L1_norm": 45.753711546597586,
+            "reference_L2_norm": 0.3831609870494583,
+            "absolute_difference_L1_norm": 59.77333750424536,
+            "absolute_difference_L2_norm": 0.45542402805064247,
+            "RMS_difference": 0.0008216849537201941,
+            "maximum_absolute_difference": 0.011197207964374874,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "x_averaged_profile": {
+            "relative_L1": 0.8855677127730381,
+            "relative_L2": 0.9152963354572894,
+            "reference_L1_norm": 0.08542364519080875,
+            "reference_L2_norm": 0.008803758328481175,
+            "absolute_difference_L1_norm": 0.07564842208836005,
+            "absolute_difference_L2_norm": 0.00805804773631041,
+            "RMS_difference": 0.00031852230426380985,
+            "maximum_absolute_difference": 0.0015582971361712515,
+            "relative_L1_null_reason": null,
+            "relative_L2_null_reason": null
+          },
+          "reference_qualification": "Algebraic actual-tag moment recentering only; negative covariance diagnostics are retained in PIC_reference.tagged_qCS_interpretation, so this is not a positive-semidefinite reference-state certificate."
+        }
+      }
+    }
+  ],
+  "paired_effects": [],
+  "failures": [],
+  "PIC_reference": {
+    "metadata": "data/derived/pic-moment-export.json",
+    "metadata_sha256": "5f4427888373620a62135b19aa41dea83be9552f6d59ad94a5b824ed6d501b58",
+    "full_archive_receipt": "data/full-archive-verification.json",
+    "full_archive_receipt_sha256": "8d290ba3fb34711a6b3bcf7714eef4cffa73771ec8f06ff90c21a11e4a0a0e2b",
+    "archive": {
+      "filename": "BgBr0point1-Beta0point1_PIC.zip",
+      "bytes": 1238114672,
+      "publisher_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "full_archive_checksum_verified": true
+    },
+    "conserved_export": {
+      "filename": "reference-pic-frame-000300-conserved.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "7effe18cf263918db5b84c37d078853f7f5f61e73d12e3430c80c2723db83940",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    "observable_export": {
+      "filename": "reference-pic-frame-000300-observables.f64",
+      "shape": [
+        640,
+        480,
+        6
+      ],
+      "components": [
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "qxxx_conditional_raw_third"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 14745600,
+      "sha256": "c65ffd75caca06bafd6704a99db7aaa731212803c7b79365c81c46ecfdd990e8",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    "tagged_export": {
+      "filename": "reference-pic-frame-000300-tagged.npz",
+      "bytes": 50081708,
+      "sha256": "e82abaa34a4d519ffaa59480487213c9ecc78ce9b8d4d6de39cb56188094c8d7",
+      "array_keys": [
+        "conserved_tag1",
+        "pressure_tag1",
+        "conserved_tag2",
+        "pressure_tag2",
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "raw_third_diagnostic_tag1",
+        "raw_third_diagnostic_tag2",
+        "qxxx_conditional_raw_third",
+        "TIME",
+        "ITER",
+        "x",
+        "y",
+        "conserved_component_order"
+      ],
+      "array_shapes": {
+        "conserved_tag1": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag1": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "conserved_tag2": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag2": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "density": [
+          640,
+          480
+        ],
+        "Jz": [
+          640,
+          480
+        ],
+        "Pxx": [
+          640,
+          480
+        ],
+        "Pzz": [
+          640,
+          480
+        ],
+        "qCSxxx": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag1": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag2": [
+          640,
+          480
+        ],
+        "qxxx_conditional_raw_third": [
+          640,
+          480
+        ],
+        "TIME": [],
+        "ITER": [],
+        "x": [
+          480
+        ],
+        "y": [
+          640
+        ],
+        "conserved_component_order": [
+          10
+        ]
+      },
+      "array_dtypes": {
+        "conserved_tag1": "float64",
+        "pressure_tag1": "float64",
+        "conserved_tag2": "float64",
+        "pressure_tag2": "float64",
+        "density": "float64",
+        "Jz": "float64",
+        "Pxx": "float64",
+        "Pzz": "float64",
+        "qCSxxx": "float64",
+        "raw_third_diagnostic_tag1": "float64",
+        "raw_third_diagnostic_tag2": "float64",
+        "qxxx_conditional_raw_third": "float64",
+        "TIME": "float64",
+        "ITER": "int64",
+        "x": "float64",
+        "y": "float64",
+        "conserved_component_order": "<U6"
+      }
+    },
+    "snapshot": {
+      "filename_frame_token": "000300",
+      "TIME": 300.0015,
+      "ITER": 4500,
+      "aggregate_moment_members": 20,
+      "raw_third_members": 2,
+      "conditional_qxxx_available": true
+    },
+    "grid": {
+      "shape_y_x": [
+        640,
+        480
+      ],
+      "bounds_x": [
+        -24.0,
+        24.0
+      ],
+      "bounds_y": [
+        -32.0,
+        32.0
+      ],
+      "spacing_x_y": [
+        0.1,
+        0.1
+      ],
+      "moment_offset_x_y": [
+        0.5,
+        0.5
+      ]
+    },
+    "moment_semantics": "vfl is documented ordinary population mean; second diagnostics are documented unnormalized raw moments. Third-diagnostic normalization is unverified.",
+    "conditional_qxxx_definition": "Assuming unnormalized third diagnostics: sum_s v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass; arithmetic validation is not normalization validation.",
+    "conformance": {
+      "label": "PIC reference",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "nonfinite_count": 0,
+      "no_clipping_or_regularization": true,
+      "violations": [],
+      "minimum_density": 0.8318560868501663,
+      "minimum_pressure_diagonal": 0.005273416726742493,
+      "minimum_pressure_eigenvalue": 0.004837252808153961,
+      "passed": true
+    },
+    "tagged_qCS_interpretation": {
+      "definition": "sum_s[3*(u_sx-u_x)*P_sxx+n_s*(u_sx-u_x)^3]; exact vacuum contributes zero without a density floor or pressure clamping.",
+      "depends_on_third_diagnostic": false,
+      "population_decomposition": "Actual deposited PIC tag1/tag2 first and second moments, not a synthetic split of the aggregate.",
+      "tag_covariance_conformance": [
+        {
+          "label": "PIC tag1",
+          "minimum_density": -0.0,
+          "exact_vacuum_cell_count": 125431,
+          "minimum_pressure_diagonal": -2.1810619499698647e-11,
+          "negative_pressure_diagonal_count": 2184,
+          "minimum_pressure_eigenvalue": -3.837403475566135e-11,
+          "negative_pressure_eigenvalue_count": 3149,
+          "covariance_nonnegative_passed": false,
+          "no_clipping_or_regularization": true,
+          "scope": "Archived diagnostic covariance; failed nonnegativity is retained, not accepted as a conforming solver state. Algebraic moment-recentering comparisons do not certify positive-semidefinite tagged pressure."
+        },
+        {
+          "label": "PIC tag2",
+          "minimum_density": -0.0,
+          "exact_vacuum_cell_count": 126279,
+          "minimum_pressure_diagonal": -1.9100416100105086e-11,
+          "negative_pressure_diagonal_count": 2172,
+          "minimum_pressure_eigenvalue": -2.2536371245273213e-11,
+          "negative_pressure_eigenvalue_count": 3041,
+          "covariance_nonnegative_passed": false,
+          "no_clipping_or_regularization": true,
+          "scope": "Archived diagnostic covariance; failed nonnegativity is retained, not accepted as a conforming solver state. Algebraic moment-recentering comparisons do not certify positive-semidefinite tagged pressure."
+        }
+      ],
+      "all_tag_covariances_nonnegative": false,
+      "independent_recovery_max_absolute_difference": {
+        "tag1_pressure": 0.0,
+        "tag2_pressure": 0.0,
+        "qCSxxx_tagged_NPZ": 3.469446951953614e-18,
+        "qCSxxx_observable_binary": 3.469446951953614e-18,
+        "conditional_qxxx_NPZ": 0.0
+      },
+      "qualification": "The algebraic qCS reference uses documented first/second diagnostics. Small negative recovered tagged covariance values are retained without clipping and do not pass strict nonnegativity; this diagnostic comparison is not a physical-state conformance certificate or a full heat-flux comparison."
+    },
+    "central_qxxx_interpretation": {
+      "normalization_verified": false,
+      "assumption": "The v1v1v1 population diagnostics are unnormalized raw third moments.",
+      "qualification": "The deposit explicitly defines first/second diagnostics, but third HDF5 LABEL/UNITS do not distinguish normalization and the exact custom implementation is unavailable. Every comparison using exported central qxxx is conditional; density/current/pressure are unaffected."
+    },
+    "primitive_recovery_max_absolute_difference": {
+      "rho": 0.0,
+      "Jz": 0.0,
+      "Pxx": 0.0,
+      "Pzz": 0.0
+    }
+  },
+  "requested_actual_case_count": 2,
+  "all_actual_cases_passed": true,
+  "profile_export_sha256": "8b68863221af369d8714c6cc13d144858e795e7c2eb30da8ddb3a0ae093bc2cf",
+  "counter_streaming_qualification": "qCSxxx is only a population-recentering contribution, not unique full fluid heat flux under a local-divergence closure. Its separate comparison to the actual tagged PIC qCS uses documented first/second moments, with negative tagged covariance diagnostics retained explicitly. Exported PIC central qxxx additionally assumes unverified unnormalized third diagnostics, so that target's comparisons are conditional. One-population zero contributions are omitted."
+}

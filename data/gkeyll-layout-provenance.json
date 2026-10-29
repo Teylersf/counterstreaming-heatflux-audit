@@ -2,7 +2,16 @@
   "checked_date": "2026-10-28",
   "claim": "Independent official Gkeyll documentation and Postgkyl source identify the ten conserved components and the covariance-pressure recovery used by the BP reanalysis.",
   "conserved_component_order_zero_based": [
-    "rho", "mx", "my", "mz", "Mxx", "Mxy", "Mxz", "Myy", "Myz", "Mzz"
+    "rho",
+    "mx",
+    "my",
+    "mz",
+    "Mxx",
+    "Mxy",
+    "Mxz",
+    "Myy",
+    "Myz",
+    "Mzz"
   ],
   "definitions": {
     "rho": "mass density m*n",
@@ -20,7 +29,13 @@
       "locator": "Section: The eigensystem of the equations written in conservative form; displayed q=phi(v) transformation",
       "evidence": "Explicit ten-component conserved vector: rho, rho*u1, rho*u2, rho*u3, rho*u1*u1+P11, rho*u1*u2+P12, rho*u1*u3+P13, rho*u2*u2+P22, rho*u2*u3+P23, rho*u3*u3+P33.",
       "publication_year": null,
-      "publication_year_status": "undated; footer copyright is not used as a publication year"
+      "publication_year_status": "undated; footer copyright is not used as a publication year",
+      "downloaded_source_bytes": 12734,
+      "downloaded_source_sha256": "a2ab226427ba64f48b9b70b421549a53ebbb275b3494cbe4e35ac1069756795f",
+      "conserved_vector_source_lines_one_based": [
+        360,
+        380
+      ]
     },
     {
       "title": "Postgkyl ten-moment diagnostics source",
@@ -28,12 +43,56 @@
       "url": "https://github.com/gkeyllorg/postgkyl/blob/main/src/postgkyl/diagnostics/mom/ten_moment.py",
       "raw_url": "https://raw.githubusercontent.com/gkeyllorg/postgkyl/main/src/postgkyl/diagnostics/mom/ten_moment.py",
       "locators_one_based": {
-        "module_layout_description": [1, 8],
-        "pressure_component_recovery": [43, 86],
-        "symmetric_pressure_tensor_packing": [88, 106]
+        "module_layout_description": [
+          1,
+          8
+        ],
+        "pressure_component_recovery": [
+          47,
+          95
+        ],
+        "symmetric_pressure_tensor_packing": [
+          98,
+          117
+        ]
       },
       "evidence": "The module describes stored ten-moment order and subtracts bulk-flow terms from indices 4 through 9, including Pxx=Mxx-rho*vx*vx and Pzz=Mzz-rho*vz*vz.",
-      "version_scope": "Unversioned public main source inspected on the checked date; does not identify the original simulation executable."
+      "version_scope": "Exact public source commit pinned independently of the embedded Lua; does not identify the original simulation executable.",
+      "commit": "33de7162640933ac7d643bfb5ac5e34a8eb7a57e",
+      "pinned_url": "https://github.com/gkeyllorg/postgkyl/blob/33de7162640933ac7d643bfb5ac5e34a8eb7a57e/src/postgkyl/diagnostics/mom/ten_moment.py",
+      "pinned_raw_url": "https://raw.githubusercontent.com/gkeyllorg/postgkyl/33de7162640933ac7d643bfb5ac5e34a8eb7a57e/src/postgkyl/diagnostics/mom/ten_moment.py",
+      "source_bytes": 27609,
+      "source_sha256": "f80c323adc3f41f6258476ac166580b0bfaedafcf95ad1b284db2f897d1c8409",
+      "function_lines_one_based": {
+        "_get_pxx": [
+          47,
+          52
+        ],
+        "_get_pxy": [
+          55,
+          61
+        ],
+        "_get_pxz": [
+          64,
+          70
+        ],
+        "_get_pyy": [
+          73,
+          78
+        ],
+        "_get_pyz": [
+          81,
+          87
+        ],
+        "_get_pzz": [
+          90,
+          95
+        ],
+        "_get_pij": [
+          98,
+          117
+        ]
+      }
     },
     {
       "title": "postgkyl.diagnostics.mom.ten_moment.pressure_tensor",
@@ -43,5 +102,6 @@
     }
   ],
   "relationship_to_archived_inputs": "This layout evidence is independent of the archived embedded Lua inputs. It agrees with their return order and the pointwise initializer checks, but does not certify a clean historical executable build or an undocumented custom diagnostic.",
-  "scientific_code_or_paper_modified": false
+  "pinned_at_utc": "2026-10-29T00:18:40.324057+00:00",
+  "original_scientific_core_or_paper_modified": false
 }

@@ -11,6 +11,16 @@ authors' input decks, archived initial PIC moments and reloaded initial fluid
 output, together with explicit continuum closure tests. Version **1.1.0**
 contains the 19-page manuscript and additional archived-data checks.
 
+**Revision in progress:** the `revision/matched-controls` branch additionally
+contains complete-archive verification, a clean-source Gkeyll build recipe,
+and the four-case aggregate-initialization protocol. The four native cases
+started sequentially on 29 October 2026 at 01:06 UTC (28 October Pacific).
+Their final comparisons are pending; the released PDF remains v1.1.0.
+The [runtime recipe](data/gkeyll-clean-runtime-README.md),
+[prespecified protocol](experiments/matched-control-plan.md), and
+[complete-archive receipt](data/full-archive-verification.json) document this
+work without representing a running process as a completed result.
+
 ## Findings and scope
 
 - The archived initial PIC moment current is about **11.5% below the staggered
@@ -57,11 +67,14 @@ python -X utf8 experiments/profile_sensitivity.py
 python -X utf8 experiments/thermal_loading.py
 ```
 
-The PIC downloader retrieves approximately **4.48 MB of selected compressed
+For the original small-data verification, the PIC downloader retrieves approximately **4.48 MB of selected compressed
 members**, plus small headers, rather than the full 1.24 GB PIC archive. It
-requires HTTP partial responses and verifies pinned member hashes. The complete
-archive's publisher-declared checksum is not represented as independently
-verified. No OSIRIS/Gkeyll installation or new reconnection run is required.
+requires HTTP partial responses and verifies pinned member hashes. The later
+revision also verified all three complete ZIP archives against their byte
+counts and publisher MD5s, recorded full SHA-256s, and bound the original
+selected inputs to those verified files. Historical selective-retrieval
+receipts are retained separately. No OSIRIS/Gkeyll installation is needed
+for the original archived-data checks.
 The optional fluid-output corroboration retrieves another **24.77 MB** of
 compressed members. Its ADIOS2 reader uses a separate Linux environment;
 portable instructions and the resulting profiles are included.
@@ -69,7 +82,7 @@ portable instructions and the resulting profiles are included.
 ## Authorship, funding and licenses
 
 Taylor Kalin is the canonical author and self-funded this study. AI assistance
-and the absence of a new simulation run are disclosed separately in the paper.
+and the released manuscript's computational scope are disclosed separately in the paper.
 Agent-only venue editions identify their agent author and credit Taylor Kalin
 as human operator and canonical author.
 

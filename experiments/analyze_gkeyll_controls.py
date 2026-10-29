@@ -470,7 +470,9 @@ def paired_effects(pair: dict, fields: dict, cases: dict) -> dict:
     return {"id": pair["id"], "status": "computed", "baseline": baseline_id, "matched": matched_id,
             "baseline_actual_time": baseline["actual_time"], "matched_actual_time": matched["actual_time"],
             "matched_minus_baseline_time": matched["actual_time"] - baseline["actual_time"],
-            "time_interpolation_performed": False, "negative_error_change_means_smaller_error": True, "quantities": values}
+            "time_interpolation_performed": False, "negative_error_change_means_smaller_error": True,
+            "comparison_scope": "Endpoint-admissible NUMERICAL pair only; saved-history admissibility is separate and no physical-trajectory validity is inferred.",
+            "quantities": values}
 
 
 def clean_versus_archive(specification: dict, fields: dict, auxiliary: dict, cases: dict) -> dict:
@@ -501,6 +503,21 @@ def clean_versus_archive(specification: dict, fields: dict, auxiliary: dict, cas
                     "x_averaged_profile": error_metrics(model[..., i].mean(axis=1), reference[..., i].mean(axis=1))} for i in range(8)},
                 "scope": "All eight stored components retained; vector norms include every cell/component. Component indices do not assign physical meaning to the final two values."},
             "scope": "Direct clean-base versus archived dirty-build output agreement at actual available times, not a claim to reproduce the private original executable. qCS is only the population-recentering contribution."}
+
+
+def disabled_case_record(case: dict) -> dict:
+    execution = case.get("execution_status", "not_claimed")
+    status = {"completed_native_rejected": "rejected_state_conformance",
+              "running_without_completed_receipt": "pending_native_completion",
+              "not_started": "not_attempted",
+              "failed_validation_or_execution": "unavailable_validation_or_execution_failure"}.get(execution, "not_run")
+    result = {"id": case["id"], "status": status, "execution_status": execution, "metrics_accepted": False,
+              "reason": case.get("pending_reason", "Disabled; no actual solver output is claimed.")}
+    if execution == "completed_native_rejected":
+        result.update(native_execution_status=case["native_execution_status"], native_execution_completed=True,
+                      source_run_receipt_sha256=case["source_run_receipt_sha256"], conformance_failure=case["conformance_failure"],
+                      comparison_scope="Completed native outcome rejected; no comparison metrics accepted.")
+    return result
 
 
 def self_test() -> dict:
@@ -551,6 +568,12 @@ def self_test() -> dict:
     require(direct["moment_quantities"]["Jz"]["full_2D_grid"]["relative_L2"] == 1 and
             direct["all_eight_stored_field_components"]["full_2D_grid"]["relative_L2"] is None,
             "Direct archive comparison or zero-field denominator check failed")
+    inactive = {"id":"analytic_label_check", "execution_status":"completed_native_rejected", "native_execution_status":"completed_native_stop",
+                "source_run_receipt_sha256":"synthetic", "conformance_failure":{"violations":["synthetic invalid state"]}}
+    require(disabled_case_record(inactive)["status"] == "rejected_state_conformance"
+            and disabled_case_record({"id":"pending","execution_status":"running_without_completed_receipt"})["status"] == "pending_native_completion"
+            and disabled_case_record({"id":"unattempted","execution_status":"not_started"})["status"] == "not_attempted",
+            "Completed rejection, pending execution and unattempted case labels were conflated")
     private_cache, private_project = Path("G:/Private Cache Redaction Check"), Path("E:/Private Project Redaction Check")
     errors = [FileNotFoundError(2, "missing", str(private_cache / "missing.npz")),
               "Missing " + str(private_cache).replace("\\", "/") + "/missing.npz",
@@ -564,6 +587,7 @@ def self_test() -> dict:
             "Windows_repr_and_slash_form_failure_paths_redacted": True,
             "analytic_integrated_particle_mass_energy_and_decomposition": True,
             "analytic_direct_archive_comparison_and_zero_field_null": True,
+            "rejection_pending_and_unattempted_labels_distinct": True,
             "negative_pressure_rejected_with_failure_record": True, "scope": "Small analytic pipeline checks, not solver results."}
 
 
@@ -606,8 +630,7 @@ def main() -> int:
         print(json.dumps({"status": "failed", "stage": "PIC_reference", "failure_count": 1})); return 1
     for case in config["cases"]:
         if not case.get("enabled", True):
-            report["cases"].append({"id": case["id"], "status": "not_run", "reason": case.get("pending_reason", "Disabled; no actual solver output is claimed."),
-                                     "execution_status": case.get("execution_status", "not_claimed")})
+            report["cases"].append(disabled_case_record(case))
             continue
         try:
             require(case["kind"] in {"archived_source", "solver_control"}, "Unknown case kind")
@@ -615,7 +638,8 @@ def main() -> int:
             case_report.update({"status": "compared", "PIC_reference_actual_time": pic["snapshot"]["TIME"],
                                 "time_minus_PIC": case_report["actual_time"] - pic["snapshot"]["TIME"],
                                 "same_actual_time_as_PIC": case_report["actual_time"] == pic["snapshot"]["TIME"],
-                                "time_interpolation_performed": False, "metrics": compare_fields(fields, reference)})
+                                "time_interpolation_performed": False, "metrics": compare_fields(fields, reference),
+                                "comparison_scope": "Endpoint-admissible NUMERICAL comparison only; saved-snapshot history admissibility is separate, and no continuous physical-trajectory certificate is inferred."})
             report["cases"].append(case_report)
             all_fields[case["id"]] = fields
             all_auxiliary[case["id"]] = auxiliary
@@ -651,6 +675,8 @@ def main() -> int:
     enabled_count = sum(c.get("enabled", True) for c in config["cases"])
     report["requested_actual_case_count"] = enabled_count
     report["all_actual_cases_passed"] = not report["failures"] if enabled_count else None
+    report["all_requested_enabled_endpoint_cases_passed"] = report["all_actual_cases_passed"]
+    report["rejected_native_completed_case_ids"] = [c["id"] for c in report["cases"] if c["status"] == "rejected_state_conformance"]
     report["profile_export_sha256"] = sha256(args.profiles_output)
     report["counter_streaming_qualification"] = "qCSxxx is only a population-recentering contribution, not unique full fluid heat flux under a local-divergence closure. Its separate comparison to the actual tagged PIC qCS uses documented first/second moments, with negative tagged covariance diagnostics retained explicitly. Exported PIC central qxxx additionally assumes unverified unnormalized third diagnostics, so that target's comparisons are conditional. One-population zero contributions are omitted."
     write_json(args.output, report)

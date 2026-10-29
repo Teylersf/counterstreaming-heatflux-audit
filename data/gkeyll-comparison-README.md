@@ -92,9 +92,12 @@ also have small negative diagnostic entries: diagonal minima approximately
 fail strict covariance nonnegativity and are retained explicitly without
 clipping or excluding cells. The tagged qCS comparison is an algebraic
 diagnostic, not certification of physical positive-semidefinite tagged states.
-All fluid populations and the aggregate PIC reference pass strict positive
-density and positive-definite pressure tests. Nonfinite/negative fluid states
-are rejected with retained failure reports.
+All archived-source final fluid populations and the aggregate PIC reference
+pass strict positive density and positive-definite pressure tests. New native
+reruns are assessed separately: normal process completion does not certify
+full covariance admissibility. Nonfinite/negative fluid states are rejected
+with retained failure reports. Endpoint numerical comparisons and saved-history
+diagnostics are explicitly separate; see `gkeyll-admissibility-README.md`.
 
 ## Read-only completed-control workflow
 

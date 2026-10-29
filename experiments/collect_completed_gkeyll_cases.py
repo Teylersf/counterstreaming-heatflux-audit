@@ -238,6 +238,10 @@ def main() -> int:
             if isinstance(error, ConformanceError):
                 status["conformance_failure"] = error.report
             case.update(enabled=False, execution_status="failed_validation_or_execution", moment_exports=[], initial_moment_exports=[], pending_reason="Validation/execution failure retained in the decoding manifest; no metrics claimed.")
+            if isinstance(error, ConformanceError):
+                case.update(execution_status="completed_native_rejected", native_execution_status="completed_native_stop",
+                            source_run_receipt_sha256=receipt_sha, conformance_failure=error.report,
+                            pending_reason="Native execution completed, but its state failed strict conformance; no comparison metrics accepted.")
         config["cases"].append(case); manifest["cases"].append(status)
     manifest["completed_case_count"] = sum(c["enabled"] for c in config["cases"] if c["kind"] == "solver_control")
     manifest["any_case_failed_validation_or_execution"] = any(c["status"] == "failed_validation_or_execution" for c in manifest["cases"])

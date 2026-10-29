@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-29T01:15:31.408942+00:00",
-  "script_sha256": "f15e637deb99a5492cdf0f85ff1eb248a71c382765cf2cb5fc463929c4743d47",
+  "generated_at_utc": "2026-10-29T03:25:46.253491+00:00",
+  "script_sha256": "8cedbcdb6ae922422c59318247c843167d054e32151f1683ae95d83d07571dae",
   "config_sha256": "206e4b63f082a355bf09aaaf901450240288ce80ac6afb8b231ed83bed0cbac0",
   "numpy": "2.3.5",
   "analytic_pipeline_checks": {
@@ -13,6 +13,7 @@
     "Windows_repr_and_slash_form_failure_paths_redacted": true,
     "analytic_integrated_particle_mass_energy_and_decomposition": true,
     "analytic_direct_archive_comparison_and_zero_field_null": true,
+    "rejection_pending_and_unattempted_labels_distinct": true,
     "negative_pressure_rejected_with_failure_record": true,
     "scope": "Small analytic pipeline checks, not solver results."
   },
@@ -345,7 +346,8 @@
             "relative_L2_null_reason": null
           }
         }
-      }
+      },
+      "comparison_scope": "Endpoint-admissible NUMERICAL comparison only; saved-snapshot history admissibility is separate, and no continuous physical-trajectory certificate is inferred."
     },
     {
       "id": "archived_two_fluid",
@@ -813,7 +815,8 @@
           },
           "reference_qualification": "Algebraic actual-tag moment recentering only; negative covariance diagnostics are retained in PIC_reference.tagged_qCS_interpretation, so this is not a positive-semidefinite reference-state certificate."
         }
-      }
+      },
+      "comparison_scope": "Endpoint-admissible NUMERICAL comparison only; saved-snapshot history admissibility is separate, and no continuous physical-trajectory certificate is inferred."
     }
   ],
   "paired_effects": [],
@@ -1091,6 +1094,8 @@
   },
   "requested_actual_case_count": 2,
   "all_actual_cases_passed": true,
+  "all_requested_enabled_endpoint_cases_passed": true,
+  "rejected_native_completed_case_ids": [],
   "profile_export_sha256": "8b68863221af369d8714c6cc13d144858e795e7c2eb30da8ddb3a0ae093bc2cf",
   "counter_streaming_qualification": "qCSxxx is only a population-recentering contribution, not unique full fluid heat flux under a local-divergence closure. Its separate comparison to the actual tagged PIC qCS uses documented first/second moments, with negative tagged covariance diagnostics retained explicitly. Exported PIC central qxxx additionally assumes unverified unnormalized third diagnostics, so that target's comparisons are conditional. One-population zero contributions are omitted."
 }

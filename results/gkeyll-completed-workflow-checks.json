@@ -1,8 +1,8 @@
 {
-  "checked_at_utc": "2026-10-29T01:49:06.346203+00:00",
+  "checked_at_utc": "2026-10-29T03:26:54.540069+00:00",
   "scope": "Archived-source decoder compatibility and synthetic completion/label-guard checks only. No evidence of new control completion or new simulation metrics.",
-  "collector_sha256": "23f4e13199a291172a8987d9eb572cc1d3d545bcc0bd18f80481c484f134d199",
-  "analyzer_sha256": "f15e637deb99a5492cdf0f85ff1eb248a71c382765cf2cb5fc463929c4743d47",
+  "collector_sha256": "b7568428ae800192f74fceefc72ea312f066386d18beddf0b9f4d4610a2eedee",
+  "analyzer_sha256": "8cedbcdb6ae922422c59318247c843167d054e32151f1683ae95d83d07571dae",
   "reader_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
   "synthetic_receipt_guard_checks": {
     "synthetic_valid_receipt_accepted": true,
@@ -20,6 +20,7 @@
     "Windows_repr_and_slash_form_failure_paths_redacted": true,
     "analytic_integrated_particle_mass_energy_and_decomposition": true,
     "analytic_direct_archive_comparison_and_zero_field_null": true,
+    "rejection_pending_and_unattempted_labels_distinct": true,
     "negative_pressure_rejected_with_failure_record": true,
     "scope": "Small analytic pipeline checks, not solver results."
   },
@@ -57,9 +58,17 @@
       "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
     }
   },
-  "actual_archived_report_sha256": "1902570865b2b080ca9e5f0afd54f34cc74013a2d2c4c87d6e2dd71fc1f66fab",
+  "actual_archived_report_sha256": "954d7084dfab0dbe2379ab37e2e3ab9f265381b29d5ff95d43a7c109f00feac3",
   "actual_archived_cases_passed": 2,
   "new_control_completion_claimed": false,
   "all_preparation_checks_passed": true,
-  "private_cache_paths_included": false
+  "private_cache_paths_included": false,
+  "saved_snapshot_scanner_sha256": "86269af0916439c2eb57a84ec35fc0e983cceb1ead6c913a2accd3ef7bc40898",
+  "analytic_saved_snapshot_scanner_checks": {
+    "positive_diagonal_indefinite_tensor_rejected": true,
+    "PSD_distinguished_from_PD": true,
+    "undefined_density_and_nonfinite_cells_retained": true,
+    "missing_runtime_pins_rejected": true,
+    "scope": "Analytic scanner tests, not solver outcomes."
+  }
 }

@@ -18,7 +18,8 @@ REVISION_CODE = ("profile_sensitivity.py", "revision_data.py", "thermal_loading.
 CONTROL_CODE = ("export_pic_moments.py", "read_gkeyll_bp.py", "prepare_matched_control.py",
                 "matched_initializer.lua", "run_gkeyll_controls.py", "analyze_gkeyll_controls.py",
                 "check_matched_initial_outputs.py", "collect_completed_gkeyll_cases.py",
-                "make_control_figures.py", "build_clean_gkeyll.py", "qualify_clean_gkeyll.py")
+                "make_control_figures.py", "build_clean_gkeyll.py", "qualify_clean_gkeyll.py",
+                "scan_gkeyll_saved_states.py", "build_gkeyll_admissibility.py")
 REVISION_OUTPUTS = ("results/profile-sensitivity.json", "results/revision-data.json",
                     "results/thermal-loading.json", "data/provenance-revision.json")
 SUPPORT_OUTPUTS = ("data/full-archive-verification.json", "data/provenance-fluid-reference.json",
@@ -34,6 +35,11 @@ CONTROL_IDS = {"baseline_one_fluid": ("1-fluid-unmatched", "baseline", 1),
     "matched_one_fluid": ("1-fluid-aggregate-matched", "matched", 1),
     "matched_two_fluid": ("2-fluid-aggregate-matched", "matched", 2)}
 NATIVE_SOURCE_COMMIT = "9663ea594e80f68eb305378e14512db390440e6b"
+RUNTIME_KEYS = {"controller_sha256", "research_code_revision", "source_commit", "executable_sha256",
+    "runtime_file_manifest_sha256", "dependency_lock_sha256", "preparation_receipt_sha256",
+    "matched_init_conformance_sha256"}
+PAIR_IDS = {"one_fluid_initialization_effect": ("baseline_one_fluid", "matched_one_fluid"),
+            "two_fluid_initialization_effect": ("baseline_two_fluid", "matched_two_fluid")}
 
 
 def require(condition, message):
@@ -171,6 +177,435 @@ def controls_state(result, receipts):
             "original_dirty_executable_certified": False}
 
 
+def digest_is_valid(value):
+    return isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value) is not None
+
+
+def validate_tensor_flags(diagnostic):
+    """Do not let summary booleans conceal their recorded counter/eigenvalue witness."""
+    if diagnostic.get("eigenanalysis_status") != "computed_without_threshold_or_regularization":
+        require(diagnostic.get("covariance_PSD_passed") is False
+                and diagnostic.get("strict_covariance_PD_passed") is False,
+                "Undefined/failed eigenanalysis cannot certify PSD or strict PD")
+        return
+    counters = ("nonfinite_conserved_value_count", "nonfinite_conserved_cell_count",
+        "nonpositive_finite_density_cell_count", "covariance_undefined_cell_count",
+        "nonfinite_covariance_value_count", "negative_eigenvalue_count",
+        "negative_eigenvalue_cell_count", "zero_eigenvalue_count", "nonpositive_eigenvalue_cell_count")
+    require(all(isinstance(diagnostic.get(key), int) and diagnostic[key] >= 0 for key in counters),
+            "Computed saved-state diagnostic lacks valid finite/density/eigenvalue counters")
+    minimum = diagnostic.get("minimum_pressure_eigenvalue")
+    require(isinstance(minimum, (float, int)) and math.isfinite(minimum)
+            and (minimum < 0) == (diagnostic["negative_eigenvalue_count"] > 0)
+            and (minimum < 0) == (diagnostic["negative_eigenvalue_cell_count"] > 0)
+            and (minimum <= 0) == (diagnostic["nonpositive_eigenvalue_cell_count"] > 0),
+            "Saved-state minimum eigenvalue and negative/nonpositive counts contradict each other")
+    defined = all(diagnostic[key] == 0 for key in counters[:5])
+    psd = defined and minimum >= 0 and diagnostic["negative_eigenvalue_count"] == 0
+    pd = defined and minimum > 0 and diagnostic["nonpositive_eigenvalue_cell_count"] == 0
+    require(diagnostic.get("covariance_PSD_passed") is psd and diagnostic.get("strict_covariance_PD_passed") is pd,
+            "Saved-state PSD/PD flags contradict the finite/density/eigenvalue witness")
+
+
+def saved_history(outcome, scan, context):
+    """Check the compact saved-frame proof independently of endpoint eligibility."""
+    diagnostic = outcome["saved_snapshot_diagnostic"]
+    if diagnostic["status"] != "completed_regular0_through30":
+        require(scan is None, "Unclaimed/partial scan cannot be treated as a completed history")
+        return {"status": diagnostic["status"], "saved_snapshots_only": True,
+                "continuous_trajectory_certified": False}
+    require(scan is not None and scan.get("status") == "completed_saved_snapshot_scan"
+            and scan.get("native_case") == outcome["native_case"]
+            and scan.get("source_run_receipt_sha256") == outcome["source_run_receipt_sha256"]
+            and scan.get("runtime_context") == context
+            and scan.get("all_requested_saved_frames_scanned") is True and not scan.get("failures"),
+            "Completed saved-snapshot proof has a different case/native receipt/runtime/scope")
+    frames = scan.get("frames", [])
+    require([row.get("frame") for row in frames] == list(range(31)), "Saved history lacks exactly regular frames0--30")
+    inventory = {item["filename"]: item for item in outcome["native_output_inventory"]}
+    names = ["population" + str(index) for index in range(1, outcome["population_count"] + 1)]
+    previous, summary, violations = -1., {}, []
+    for row in frames:
+        stamp = row.get("actual_time")
+        require(isinstance(stamp, (int, float)) and math.isfinite(stamp) and stamp > previous,
+                "Saved-snapshot times are not finite and strictly increasing")
+        previous = stamp
+        require(row["frame"] != 0 or stamp == 0, "Initial saved snapshot is not at time0")
+        require(row["frame"] != 30 or stamp == outcome["actual_regular30_time"], "Saved frame30 time differs from native outcome")
+        bindings = row.get("population_source_bindings", [])
+        expected = {f"case_elc{index}_{row['frame']}.bp" for index in range(1, outcome["population_count"] + 1)}
+        require(len(bindings) == len(expected) and {item["filename"] for item in bindings} == expected,
+                "Saved population file identities differ")
+        for item in bindings:
+            pin = inventory.get(item["filename"], {})
+            require(item["frame"] == row["frame"] and item["actual_time"] == stamp
+                    and digest_is_valid(item.get("sha256")) and pin.get("sha256") == item["sha256"]
+                    and pin.get("bytes") == item.get("bytes"), "Saved file is not bound to the native output inventory")
+        for name in names + ["aggregate"]:
+            validate_tensor_flags(row[name])
+        bad = {name: {key: row[name].get(key) for key in ("negative_eigenvalue_cell_count",
+                "minimum_pressure_eigenvalue", "nonfinite_conserved_cell_count", "covariance_undefined_cell_count")}
+               for name in names + ["aggregate"] if row[name].get("covariance_PSD_passed") is not True}
+        if bad:
+            violations.append({"frame": row["frame"], "actual_time": stamp, "states": bad})
+    for name in names + ["aggregate"]:
+        rows = [row[name] for row in frames]
+        failed = [row for row in frames if row[name].get("covariance_PSD_passed") is not True]
+        values = [row["minimum_pressure_eigenvalue"] for row in rows if "minimum_pressure_eigenvalue" in row]
+        summary[name] = {"saved_snapshots_scanned": len(rows), "saved_snapshots_not_PSD": len(failed),
+            "first_non_PSD_saved_frame": failed[0]["frame"] if failed else None,
+            "first_non_PSD_saved_time": failed[0]["actual_time"] if failed else None,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": min(values) if values else None,
+            "maximum_negative_eigenvalue_cell_count": max((row.get("negative_eigenvalue_cell_count", 0) for row in rows), default=0),
+            "all_saved_snapshots_PSD": not failed,
+            "all_saved_snapshots_strict_PD": all(row.get("strict_covariance_PD_passed") is True for row in rows)}
+    psd = all(summary[name]["all_saved_snapshots_PSD"] for name in names)
+    pd = all(summary[name]["all_saved_snapshots_strict_PD"] for name in names)
+    require(scan.get("summary") == diagnostic.get("summary") == summary
+            and scan.get("all_scanned_populations_PSD") is psd and diagnostic.get("all_scanned_populations_PSD") is psd
+            and scan.get("all_scanned_populations_strict_PD") is pd and diagnostic.get("all_scanned_populations_strict_PD") is pd
+            and diagnostic.get("actual_saved_times") == [{"frame": row["frame"], "actual_time": row["actual_time"]} for row in frames],
+            "Saved-history summary/PSD/PD flags differ from its recorded frame diagnostics")
+    return {"status": "completed_regular0_through30", "scan_sha256": diagnostic["sha256"],
+            "all_scanned_populations_PSD": psd, "all_scanned_populations_strict_PD": pd,
+            "summary": summary, "non_PSD_saved_frames": violations,
+            "saved_snapshots_only": True, "continuous_trajectory_certified": False}
+
+
+def admissibility_state(record, result, receipts_by_sha, scans, state):
+    """Bind numerical endpoint subsets without changing the historical full-set gate."""
+    defaults = {"admissibility_result_supplied": record is not None,
+        "all_four_native_outcomes_completed": False, "all_four_saved_snapshot_scans_complete": False,
+        "all_four_native_outcomes_observed": False, "all_four_collector_decisions_resolved": False,
+        "all_four_saved_snapshot_diagnostics_resolved": False,
+        "native_outcomes": {}, "saved_snapshot_histories": {}, "endpoint_admissible_numerical_pairs": {},
+        "eligible_endpoint_analysis_case_ids": [], "valid_endpoint_pair_ids": [],
+        "numerical_endpoint_subset_evidence_bound": False, "physical_trajectory_validation_claimed": False,
+        "saved_histories_certify_between_output_states": False}
+    if record is None:
+        return defaults
+    require(record.get("record_type") == "native_outcomes_and_admissibility"
+            and record.get("comparison_metrics_included") is False and record.get("private_paths_included") is False,
+            "Admissibility record has a different scope")
+    context = record.get("runtime_context")
+    require(isinstance(context, dict) and set(context) == RUNTIME_KEYS
+            and context.get("source_commit") == NATIVE_SOURCE_COMMIT
+            and all(isinstance(value, str) and re.fullmatch(r"[0-9a-f]{40}|[0-9a-f]{64}", value) for value in context.values())
+            and (state["native_runtime_context"] is None or state["native_runtime_context"] == context),
+            "Admissibility evidence differs from the full pinned native runtime")
+    collection = receipts_by_sha.get(record.get("collector_manifest_sha256"))
+    require(collection is not None and collection.get("expected_runtime_context") == context
+            and collection.get("collector_sha256") == record.get("collector_sha256"),
+            "Admissibility record lacks its exact supplied collector inventory/runtime")
+    decisions = {item["case"]: item for item in collection.get("cases", [])}
+    require(len(decisions) == len(collection.get("cases", [])), "Duplicate collector outcomes")
+    outcomes = record.get("native_outcomes", [])
+    expected = {value[0]: (key, value[1], value[2]) for key, value in CONTROL_IDS.items()}
+    require(len(outcomes) == 4 and {item["native_case"] for item in outcomes} == set(expected),
+            "Admissibility record must explicitly retain all four native outcomes")
+    reported = {item["id"]: item for item in result.get("cases", [])} if result else {}
+    complete, accepted, rejected, histories, native = set(), set(), set(), {}, {}
+    for outcome in outcomes:
+        name = outcome["native_case"]
+        identifier, role, count = expected[name]
+        require(outcome.get("analysis_case_id") == identifier and outcome.get("role") == role
+                and outcome.get("population_count") == count, "Admissibility case identity differs")
+        decision = outcome["collector_decision"]
+        terminal = outcome["native_status"] != "pending_completed_receipt"
+        require(outcome.get("native_outcome_observed") is terminal and outcome.get("native_outcome_terminal") is terminal,
+                "Native outcome observed/terminal flags contradict its status")
+        item = {"native_case": name, "native_status": outcome["native_status"],
+                "native_outcome_terminal": terminal, "endpoint_collector_status": decision["status"],
+                "primary_metrics_accepted": False}
+        if outcome["native_status"] == "pending_completed_receipt":
+            require(decision["status"] == "pending" and not outcome.get("source_run_receipt_sha256"), "Pending outcome claims a completed receipt")
+            require(reported.get(identifier, {}).get("status") != "compared", "Pending native outcome has primary metrics")
+        else:
+            source_sha = outcome.get("source_run_receipt_sha256")
+            require(digest_is_valid(source_sha) and outcome.get("runtime_context") == context,
+                    "Native outcome lacks an exact source receipt/runtime binding")
+            source_decision = decisions.get(name, {})
+            if decision["status"] != "pending_completed_case_collection":
+                require(source_decision.get("source_run_receipt_sha256") == source_sha,
+                        "Admissibility decision and collector refer to different native receipts")
+            item.update(source_run_receipt_sha256=source_sha, native_returncode=outcome.get("native_returncode"))
+            if outcome["native_status"] == "completed_native_stop":
+                stamp = outcome.get("actual_regular30_time")
+                require(outcome.get("native_returncode") == 0 and outcome.get("native_execution_completed_successfully") is True
+                        and not outcome.get("native_failure_markers") and outcome.get("native_regular_frame") == 30
+                        and isinstance(stamp, (int, float)) and math.isfinite(stamp) and stamp >= 300
+                        and outcome.get("time_controls") == {"tEnd": 600, "nFrame": 60},
+                        "Native completion time/frame/return code/original controls differ")
+                output_rows = outcome.get("native_output_inventory", [])
+                outputs = {row["filename"]: row for row in output_rows}
+                require(len(outputs) == len(output_rows) and bool(outputs)
+                        and all(digest_is_valid(row.get("sha256")) and isinstance(row.get("bytes"), int)
+                                and row["bytes"] > 0 for row in output_rows), "Malformed/duplicate native output inventory")
+                final_rows = outcome.get("regular30_raw_output_bindings", [])
+                final_names = {f"case_elc{index}_30.bp" for index in range(1, count + 1)} | {"case_field_30.bp"}
+                require(len(final_rows) == len(final_names) and {row["filename"] for row in final_rows} == final_names
+                        and all(outputs.get(row["filename"]) == row for row in final_rows),
+                        "Regular30 raw outputs are not exactly bound to the native inventory")
+                complete.add(identifier); item["actual_time"] = stamp
+                if decision["status"] == "accepted_initial_and_regular30_states":
+                    proof = source_decision.get("receipt", {})
+                    portable_sha = hashlib.sha256((json.dumps(proof, indent=2, allow_nan=False) + "\n").encode()).hexdigest()
+                    require(source_decision.get("status") == "completed_and_decoded"
+                            and source_decision.get("portable_receipt_sha256") == portable_sha
+                            and decision.get("portable_decoding_receipt_sha256") == portable_sha
+                            and proof.get("runtime_context") == context and proof.get("source_run_receipt_sha256") == source_sha
+                            and proof.get("case") == name and proof.get("actual_time") == stamp
+                            and proof.get("frame") == 30 and proof.get("all_decoding_checks_passed") is True
+                            and proof.get("source_comparison_is_regular_frame30") is True
+                            and proof.get("original_dirty_build_reproduced") is False
+                            and proof.get("input_hashes") == outcome.get("input_hashes"),
+                            "Accepted endpoint lacks its exact portable/native completion proof")
+                    exports = proof.get("initial_exports", []) + proof.get("exports", [])
+                    expected_exports = final_names | {f"case_elc{index}_0.bp" for index in range(1, count + 1)}
+                    require(len(exports) == len(expected_exports) and {row["filename"] for row in exports} == expected_exports,
+                            "Endpoint proof does not contain every population at initial/regular30 and the final field")
+                    for row in exports:
+                        raw = outputs.get(row["filename"], {})
+                        require(raw.get("bytes") == row.get("source_bytes") and raw.get("sha256") == row.get("source_sha256")
+                                and row.get("actual_time") == (0 if row.get("frame") == 0 else stamp)
+                                and row.get("frame") in (0, 30), "Decoded endpoint is not bound to the native raw output")
+                        if "state_conformance" in row:
+                            require(row["state_conformance"].get("passed") is True, "Accepted population failed endpoint conformance")
+                    conformance = [{"filename": row["filename"], "frame": row["frame"], "actual_time": row["actual_time"],
+                        "source_BP_sha256": row["source_sha256"], "numeric_export_sha256": row["numeric_export_sha256"],
+                        "state_conformance": row["state_conformance"]} for row in exports if "state_conformance" in row]
+                    require(decision.get("initial_and_regular30_population_conformance") == conformance,
+                            "Accepted endpoint summary differs from its exact decoded-population proof")
+                    item["portable_decoding_receipt_sha256"] = portable_sha
+                    accepted.add(identifier)
+                elif decision["status"] == "rejected_nonconforming_state":
+                    require(source_decision.get("status") == "failed_validation_or_execution"
+                            and source_decision.get("error_type") == "ConformanceError"
+                            and decision.get("metrics_accepted") is False and decision.get("no_clipping_or_guard_relaxation") is True
+                            and decision.get("conformance_failure") == source_decision.get("conformance_failure")
+                            and bool(decision.get("conformance_failure")), "Rejected endpoint lacks its strict conformance proof")
+                    rejected.add(identifier); item["rejection_reason"] = decision["conformance_failure"]
+                elif decision["status"] == "pending_completed_case_collection":
+                    require(source_decision.get("status") in {"pending_no_completed_receipt", "running_without_completed_receipt"},
+                            "Pending collection claims a resolved collector decision")
+                else:
+                    raise ValueError("Completed native outcome lacks an accepted/rejected final endpoint decision")
+            else:
+                require(outcome["native_status"] in {"failed", "failed_controller_guard"}
+                        and decision["status"] == "not_accepted_native_execution_failure" and decision.get("metrics_accepted") is False,
+                        "Unsuccessful native outcome cannot supply primary metrics")
+                item["rejection_reason"] = {"native_status": outcome["native_status"], "failure_markers": outcome.get("native_failure_markers", [])}
+        eligibility = True if identifier in accepted else False if identifier in rejected or decision["status"] == "not_accepted_native_execution_failure" else None
+        collector_resolved = decision["status"] in {"accepted_initial_and_regular30_states", "rejected_nonconforming_state", "not_accepted_native_execution_failure"}
+        history_resolved = outcome["saved_snapshot_diagnostic"]["status"] in {"completed_regular0_through30", "scanner_failed", "not_applicable_native_execution_failed"}
+        require(outcome.get("endpoint_metrics_eligible") is eligibility
+                and outcome.get("collector_decision_resolved") is collector_resolved
+                and outcome.get("saved_snapshot_diagnostic_resolved") is history_resolved,
+                "Endpoint eligibility or collector/history resolution flags contradict the actual decisions")
+        item.update(endpoint_metrics_eligible=eligibility, collector_decision_resolved=collector_resolved,
+                    saved_snapshot_diagnostic_resolved=history_resolved)
+        case = reported.get(identifier, {})
+        if identifier not in accepted:
+            require(case.get("status") != "compared" and "metrics" not in case and case.get("metrics_accepted") is not True,
+                    "Ineligible/rejected endpoint contains primary comparison metrics")
+        elif case.get("status") == "compared":
+            binding = case.get("completed_case_receipt", {})
+            require(case.get("runtime_context") == context and case.get("actual_time") == item["actual_time"]
+                    and binding.get("sha256") == item["portable_decoding_receipt_sha256"]
+                    and binding.get("source_run_receipt_sha256") == item["source_run_receipt_sha256"],
+                    "Endpoint comparison lacks exact runtime/portable/native receipt bindings")
+            item["primary_metrics_accepted"] = True
+        histories[identifier] = saved_history(outcome, scans.get(name), context)
+        native[identifier] = item
+    for pair in result.get("paired_effects", []) if result else []:
+        if pair.get("baseline") not in accepted or pair.get("matched") not in accepted:
+            require(pair.get("status") != "computed" and "quantities" not in pair,
+                    "Unresolved/rejected endpoints contain paired primary metrics")
+    for direct in result.get("clean_unmatched_vs_archived_source", []) if result else []:
+        if direct.get("clean") in CONTROL_IDS and direct["clean"] not in accepted:
+            require(direct.get("status") != "computed" and "moment_quantities" not in direct
+                    and "all_eight_stored_field_components" not in direct,
+                    "Unresolved/rejected native endpoint contains clean/archive primary metrics")
+    scan_count = sum(item["status"] == "completed_regular0_through30" for item in histories.values())
+    require(record.get("native_completed_outcome_count") == len(complete)
+            and record.get("endpoint_collector_accepted_count") == len(accepted)
+            and record.get("endpoint_collector_rejected_count") == len(rejected)
+            and record.get("completed_saved_snapshot_scan_count") == scan_count
+            and record.get("all_four_native_outcomes_completed") is (len(complete) == 4)
+            and record.get("all_four_saved_snapshot_scans_complete") is (scan_count == 4),
+            "Admissibility outcome/scan counts do not match the explicit evidence")
+    terminal_count = sum(item["native_outcome_terminal"] for item in native.values())
+    require(record.get("observed_terminal_native_outcome_count") == terminal_count
+            and record.get("all_four_native_outcomes_observed") is (terminal_count == 4)
+            and record.get("all_four_collector_decisions_resolved") is all(item["collector_decision_resolved"] for item in native.values())
+            and record.get("all_four_saved_snapshot_diagnostics_resolved") is all(item["saved_snapshot_diagnostic_resolved"] for item in native.values())
+            and sorted(record.get("endpoint_eligible_case_ids", [])) == sorted(accepted)
+            and sorted(record.get("endpoint_rejected_case_ids", [])) == sorted(rejected),
+            "Observed/resolved/eligible outcome summaries contradict their explicit states")
+    pairs = {}
+    for pair in result.get("paired_effects", []) if result else []:
+        if pair.get("status") != "computed":
+            continue
+        identifier = pair["id"]
+        require(identifier in PAIR_IDS and (pair.get("baseline"), pair.get("matched")) == PAIR_IDS[identifier], "Numerical pair identities differ")
+        baseline, matched = PAIR_IDS[identifier]
+        require(all(native[name]["primary_metrics_accepted"] for name in (baseline, matched))
+                and pair.get("baseline_actual_time") == native[baseline]["actual_time"]
+                and pair.get("matched_actual_time") == native[matched]["actual_time"]
+                and pair.get("time_interpolation_performed") is False,
+                "Computed pair includes an unbound or ineligible endpoint")
+        archive = "archived_one_fluid" if CONTROL_IDS[baseline][2] == 1 else "archived_two_fluid"
+        checks = [entry for entry in result.get("clean_unmatched_vs_archived_source", [])
+                  if entry.get("clean") == baseline and entry.get("archived") == archive and entry.get("status") == "computed"]
+        archived = reported.get(archive, {})
+        require(len(checks) == 1 and archived.get("status") == "compared" and archived.get("kind") == "archived_source"
+                and archived.get("frame") == 30 and checks[0].get("native_frame") == 30
+                and checks[0].get("clean_actual_time") == native[baseline]["actual_time"]
+                and checks[0].get("archived_actual_time") == archived.get("actual_time")
+                and checks[0].get("time_interpolation_performed") is False,
+                "Numerical endpoint pair lacks its clean-base versus archived-source comparison")
+        pairs[identifier] = {"baseline": baseline, "matched": matched, "runtime_context": context,
+            "baseline_actual_time": native[baseline]["actual_time"], "matched_actual_time": native[matched]["actual_time"],
+            "endpoint_receipt_bindings": {name: {key: native[name][key] for key in
+                ("source_run_receipt_sha256", "portable_decoding_receipt_sha256")} for name in (baseline, matched)},
+            "clean_versus_archive": {"clean": baseline, "archived": archive, "clean_actual_time": native[baseline]["actual_time"],
+                "archived_actual_time": archived["actual_time"], "time_interpolation_performed": False},
+            "saved_snapshot_history_statuses": {name: histories[name]["status"] for name in (baseline, matched)},
+            "saved_snapshot_PSD_violations_present": any(histories[name].get("all_scanned_populations_PSD") is False for name in (baseline, matched)),
+            "scope": "Endpoint-admissible NUMERICAL sensitivity only; no physical-trajectory, causal or convergence validation."}
+    return {**defaults, "native_outcomes": native, "saved_snapshot_histories": histories,
+        "all_four_native_outcomes_completed": len(complete) == 4,
+        "all_four_saved_snapshot_scans_complete": scan_count == 4,
+        "all_four_native_outcomes_observed": terminal_count == 4,
+        "all_four_collector_decisions_resolved": all(item["collector_decision_resolved"] for item in native.values()),
+        "all_four_saved_snapshot_diagnostics_resolved": all(item["saved_snapshot_diagnostic_resolved"] for item in native.values()),
+        "endpoint_collector_accepted_case_ids": sorted(accepted), "endpoint_collector_rejected_case_ids": sorted(rejected),
+        "endpoint_admissible_numerical_pairs": pairs,
+        "eligible_endpoint_analysis_case_ids": sorted(name for name in accepted if native[name]["primary_metrics_accepted"]),
+        "valid_endpoint_pair_ids": sorted(pairs),
+        "numerical_endpoint_subset_evidence_bound": (len(complete) == 4 and scan_count == 4 and bool(pairs)
+            and all(item["collector_decision_resolved"] for item in native.values())
+            and all(item["saved_snapshot_diagnostic_resolved"] for item in native.values())),
+        "admissibility_native_runtime_context": context}
+
+
+def evidence_entry(path, commit=None, expected=None):
+    """Hash a portable project file; optionally require exact committed bytes."""
+    if commit is not None:
+        return committed_entry(path, commit, expected)
+    actual, relative = relative_path(path)
+    digest = sha(actual)
+    require(expected is None or digest == expected, "Evidence file bytes differ: " + relative)
+    return {"path": relative, "sha256": digest}
+
+
+def load_admissibility_evidence(path, receipts_by_sha, commit=None):
+    """Read/hash only; used by publication and plotting without native actions."""
+    entry = evidence_entry(path, commit)
+    entries, scans = {entry["path"]: entry}, {}
+    record = read(ROOT / entry["path"])
+    for key, source in {"builder_sha256": "experiments/build_gkeyll_admissibility.py",
+            "scanner_sha256": "experiments/scan_gkeyll_saved_states.py",
+            "collector_sha256": "experiments/collect_completed_gkeyll_cases.py"}.items():
+        source_entry = evidence_entry(source, commit)
+        entries[source_entry["path"]] = source_entry
+        require(record.get(key) == source_entry["sha256"], "Admissibility evidence/code differs: " + key)
+    dependencies = record.get("input_bindings")
+    require(isinstance(dependencies, dict) and dependencies, "Admissibility record lacks portable input bindings")
+    require({"collector_manifest", "expected_context", "independent_diagnosis", "independent_details",
+             "predicate_provenance", "runtime_file_manifest"}.issubset(dependencies), "Missing mandatory admissibility input roles")
+    for binding in dependencies.values():
+        require(isinstance(binding, dict) and isinstance(binding.get("path"), str)
+                and digest_is_valid(binding.get("sha256")), "Malformed portable admissibility input binding")
+        dependency = evidence_entry(binding["path"], commit, binding["sha256"])
+        entries[dependency["path"]] = dependency
+        if binding.get("source_full_record_sha256") is not None:
+            require(digest_is_valid(binding["source_full_record_sha256"]), "Invalid original-record source anchor")
+            payload = read(ROOT / dependency["path"])
+            require(payload.get("source_full_record_sha256", dependency["sha256"]) == binding["source_full_record_sha256"],
+                    "Selected public evidence and its original-record source anchor differ")
+    for outcome in record.get("native_outcomes", []):
+        diagnostic = outcome.get("saved_snapshot_diagnostic", {})
+        if diagnostic.get("status") != "completed_regular0_through30":
+            continue
+        name = outcome["native_case"]
+        require(name in {item[0] for item in CONTROL_IDS.values()}
+                and diagnostic.get("filename") == name + ".json", "Unexpected portable saved-snapshot filename")
+        scan_entry = evidence_entry("results/gkeyll-saved-state-scans/" + diagnostic["filename"], commit, diagnostic["sha256"])
+        entries[scan_entry["path"]] = scan_entry
+        scans[name] = read(ROOT / scan_entry["path"])
+        require(scans[name].get("scanner_sha256") == record["scanner_sha256"], "Saved-snapshot scanner bytes differ")
+    require(record.get("collector_manifest_sha256") in receipts_by_sha,
+            "Supply the exact admissibility collector inventory with --controls-receipt")
+    witness = record.get("independent_endpoint_witness", {})
+    predicate = record.get("native_predicate_provenance", {})
+    for role, digest in {"collector_manifest": record.get("collector_manifest_sha256"),
+            "independent_diagnosis": witness.get("independent_diagnosis_sha256"),
+            "independent_details": witness.get("independent_details_sha256"),
+            "predicate_provenance": predicate.get("independent_evidence_sha256"),
+            "runtime_file_manifest": record.get("runtime_context", {}).get("runtime_file_manifest_sha256")}.items():
+        require(dependencies[role]["sha256"] == digest, "Admissibility input role/hash differs: " + role)
+    require(read(ROOT / dependencies["expected_context"]["path"]) == record.get("runtime_context"),
+            "Selected expected context differs from the actual runtime context")
+    evidence_shas = {item["sha256"] for item in entries.values()}
+    for digest in (witness.get("independent_diagnosis_sha256"), witness.get("independent_details_sha256"),
+                   predicate.get("independent_evidence_sha256")):
+        require(digest_is_valid(digest) and digest in evidence_shas, "Independent admissibility witness lacks input evidence")
+    return record, scans, entries
+
+
+def validate_runtime_contexts(state, commit=None):
+    entries = {}
+    contexts = [context for context in (state["native_runtime_context"], state.get("admissibility_native_runtime_context")) if context]
+    for context in contexts:
+        for key, path in {"controller_sha256": "experiments/run_gkeyll_controls.py",
+                "runtime_file_manifest_sha256": "data/gkeyll-clean9663-file-manifest.json",
+                "dependency_lock_sha256": "data/gkeyll-clean9663-dependencies.json",
+                "matched_init_conformance_sha256": "results/gkeyll-matched-init-conformance.json"}.items():
+            entry = evidence_entry(path, commit)
+            entries[entry["path"]] = entry
+            require(context.get(key) == entry["sha256"], "Completed native runtime differs from pinned evidence: " + key)
+        runtime = read(ROOT / "data/gkeyll-clean9663-file-manifest.json")
+        init_gate = read(ROOT / "results/gkeyll-matched-init-conformance.json")
+        require(runtime.get("source_commit") == context["source_commit"] == NATIVE_SOURCE_COMMIT
+                and runtime.get("installed_solver_files_sha256", {}).get("bin/gkyl") == context.get("executable_sha256")
+                and init_gate.get("all_checks_passed") is True
+                and {item.get("id") for item in init_gate.get("cases", [])} == {"1-fluid-aggregate-matched", "2-fluid-aggregate-matched"}
+                and all(item.get("solver_executable_sha256") == context.get("executable_sha256") for item in init_gate["cases"]),
+                "Native context executable/source differs from the exact runtime/init gate")
+    return entries
+
+
+def validate_numerical_subset_evidence(comparison_path, decoding_paths, admissibility_path, *, commit=None):
+    """Read-only shared gate for endpoint-subset plots/adapters.
+
+    All paths must be project-local. With commit=None, current file/code/runtime
+    hashes are checked; an explicit commit additionally pins every evidence byte
+    read here. This never runs native code or writes a derived artifact. CSV/norm
+    verification and publication source-pin coverage remain caller obligations.
+    """
+    result_entry = evidence_entry(comparison_path, commit)
+    result = read(ROOT / result_entry["path"])
+    analyzer = evidence_entry("experiments/analyze_gkeyll_controls.py", commit)
+    helper = evidence_entry("scripts/make_paper_data.py", commit)
+    require(result.get("script_sha256") == analyzer["sha256"],
+            "Numerical subset result differs from the current analyzer")
+    config = evidence_entry("data/gkeyll-completed-control-cases.json", commit)
+    require(result.get("config_sha256") == config["sha256"], "Numerical subset result/config differs")
+    entries, receipts = {item["path"]: item for item in (result_entry, config, analyzer, helper)}, {}
+    for path in decoding_paths:
+        entry = evidence_entry(path, commit)
+        entries[entry["path"]] = entry
+        receipts[entry["sha256"]] = read(ROOT / entry["path"])
+    record, scans, added = load_admissibility_evidence(admissibility_path, receipts, commit)
+    entries.update(added)
+    state = controls_state(result, list(receipts.values()))
+    state.update(admissibility_state(record, result, receipts, scans, state))
+    entries.update(validate_runtime_contexts(state, commit))
+    state["read_only_evidence_bindings"] = list(entries.values())
+    return state
+
+
 def write_numerical_table(result):
     g = result['groups']
     stability = g['finite_relaxation_stability']['finite_relaxation_mode']
@@ -242,20 +677,57 @@ def execution_text(pin, result, code_pin_sha, output_manifest_sha):
                   r"\texttt{" + state["native_runtime_context"]["research_code_revision"] +
                   "}; the final evidence pin above additionally contains the later analysis outputs."]
     if state["all_four_completed_and_compared"]:
-        lines += ["All four clean-base native controls have validated completion/decoding receipts and "
-                  "paired comparisons in the supplied final result. They retain the original 600/60 controls "
+        lines += ["All four clean-base native controls have bound native-stop/endpoint-decoding receipts and "
+                  "endpoint numerical comparisons in the supplied result. They retain the original 600/60 controls "
                   "and use regular frame30 at each recorded actual time; later regular/forced frames are excluded. "
                   "The exact dirty 2023 executable remains unidentified, so clean-base baseline fidelity is "
-                  "assessed against archived outputs rather than asserted from source ancestry."]
+                  "assessed against archived outputs rather than asserted from source ancestry. This full-set "
+                  "endpoint flag does not certify physically admissible trajectories."]
     elif state["comparison_result_supplied"] or state["validated_native_completion_count"]:
         lines += [f"The supplied result lists {state['valid_compared_case_count']} control-case "
-                  f"comparisons and {state['validated_native_completion_count']} validated native completion "
-                  "receipts. A completed four-case matched-state comparison is not asserted; pending or failed "
+                  f"endpoint comparisons and {state['validated_native_completion_count']} accepted endpoint-decoding "
+                  "receipts. The all-four completed-and-compared flag remains false; pending or rejected "
                   "cases remain explicit in the pinned inventories."]
     else:
         lines += ["No final four-case matched-state comparison is included in this execution record. "
                   "Run preparation, initialization conformance and cost probes alone are not completed "
                   "reconnection controls."]
+    lines += [r"\paragraph{Native outcomes, endpoint eligibility and saved histories.}"]
+    if state.get("admissibility_result_supplied"):
+        outcomes = state["native_outcomes"]
+        completed_count = sum(item["native_status"] == "completed_native_stop" for item in outcomes.values())
+        rejected = state["endpoint_collector_rejected_case_ids"]
+        lines += [f"The separate admissibility record retains all four native outcomes: {completed_count} "
+                  f"normal native completions and {len(rejected)} endpoints rejected by the strict state guard "
+                  "in the supplied evidence. Native completion and positive-definite endpoint eligibility are "
+                  "separate facts. Rejected endpoints have no accepted primary comparison metrics."]
+        if rejected:
+            lines += ["The rejected endpoint cases are " + ", ".join(r"\nolinkurl{" + name + "}" for name in rejected) + "."]
+        pairs = state["endpoint_admissible_numerical_pairs"]
+        if pairs:
+            lines += ["The bound endpoint-admissible NUMERICAL sensitivity pairs are " + ", ".join(
+                r"\nolinkurl{" + name + "}" for name in pairs) + ". Each retains its exact runtime, native/portable "
+                "receipt hashes, actual endpoint times and clean-base versus archived-source check. "
+                "These endpoint contrasts do not establish physical causality, convergence or valid dynamics."]
+        else:
+            lines += ["No endpoint-admissible paired numerical contrast is established by the supplied evidence."]
+        for identifier, history in state["saved_snapshot_histories"].items():
+            if history["status"] != "completed_regular0_through30":
+                lines += [r"\nolinkurl{" + identifier + "}: its completed regular0--30 saved-history diagnostic is unavailable."]
+                continue
+            failed = history["non_PSD_saved_frames"]
+            if failed:
+                frames = ", ".join(str(row["frame"]) for row in failed)
+                lines += [r"\nolinkurl{" + identifier + "}: the saved-state covariance test fails at regular frames "
+                    + frames + ". These history failures remain attached to any eligible endpoint contrast."]
+            else:
+                lines += [r"\nolinkurl{" + identifier + "}: every scanned population is positive semidefinite "
+                    "at saved regular frames0--30; strict positive definiteness is recorded separately."]
+        lines += ["Saved snapshots do not certify the intervening timesteps, locate the first invalid update, "
+                  "or identify the operator that produced a loss of admissibility. No state was clipped or repaired."]
+    else:
+        lines += ["No separate all-outcome/saved-snapshot admissibility record is supplied. Endpoint decoding "
+                  "alone cannot certify a physical trajectory or a saved-history claim."]
     lines += ["Third-diagnostic normalization qualifications remain attached to the heat-flux comparisons. "
         "No native deposited-current comparison or inhomogeneous-sheet eigenanalysis is claimed.",
         r"\paragraph{Compact file record.}",
@@ -279,6 +751,8 @@ def main():
         help="Optional committed results/gkeyll-control-comparison.json; absence never implies completion")
     parser.add_argument("--controls-receipt", type=Path, action="append", default=[],
         help="Repeat for committed portable receipts, normally results/gkeyll-control-decoding.json")
+    parser.add_argument("--admissibility-results", type=Path,
+        help="Optional committed results/gkeyll-admissibility.json; binds outcomes and saved histories separately from endpoint metrics")
     parser.add_argument("--check-only", action="store_true", help="Verify HEAD/evidence only; generate no files")
     args = parser.parse_args()
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
@@ -312,11 +786,13 @@ def main():
     archive_verified = (archive.get("all_three_archives_and_18_selected_inputs_verified") is True
         and len(archive.get("archives", [])) == 3
         and all(item.get("full_archive_checksum_verified") is True for item in archive["archives"]))
-    control_entries, receipt_payloads, control_result = {}, [], None
+    control_entries, receipt_payloads, receipts_by_sha, control_result = {}, [], {}, None
     for path in args.controls_receipt:
         entry = committed_entry(path, commit)
         control_entries[entry["path"]] = entry
-        receipt_payloads.append(read(ROOT / entry["path"]))
+        payload = read(ROOT / entry["path"])
+        receipt_payloads.append(payload)
+        receipts_by_sha[entry["sha256"]] = payload
     if args.controls_result:
         entry = committed_entry(args.controls_result, commit)
         control_entries[entry["path"]] = entry
@@ -341,15 +817,16 @@ def main():
                             and proof.get("config_sha256") == config["sha256"],
                             "Control provenance/result/code/config hashes differ")
     state = controls_state(control_result, receipt_payloads)
-    if state["native_runtime_context"]:
-        for key, path in {"controller_sha256": "experiments/run_gkeyll_controls.py",
-                "runtime_file_manifest_sha256": "data/gkeyll-clean9663-file-manifest.json",
-                "dependency_lock_sha256": "data/gkeyll-clean9663-dependencies.json",
-                "matched_init_conformance_sha256": "results/gkeyll-matched-init-conformance.json"}.items():
-            require(state["native_runtime_context"].get(key) == sha(ROOT / path),
-                    "Completed native runtime differs from pinned evidence: " + key)
+    admissibility, scans = None, {}
+    if args.admissibility_results:
+        admissibility, scans, entries = load_admissibility_evidence(args.admissibility_results, receipts_by_sha, commit)
+        control_entries.update(entries)
+    state.update(admissibility_state(admissibility, control_result, receipts_by_sha, scans, state))
+    validate_runtime_contexts(state, commit)
     require(not state["all_four_completed_and_compared"] or archive_verified,
             "Completed control claim lacks verified complete source archives")
+    require(not state["endpoint_admissible_numerical_pairs"] or archive_verified,
+            "Numerical endpoint pair lacks verified complete source archives")
     output_manifest = {"commit": commit, "all_listed_evidence_bytes_match_commit": True,
         "groups": {"revision_outputs": revision_outputs, "supporting_evidence": support,
                    "optional_control_outputs": list(control_entries.values())},
@@ -369,6 +846,8 @@ def main():
         "generated_inventories_are_derived_outputs_not_claimed_at_prior_pin": True}
     summary = {"code_commit": commit, "groups": len(result["groups"]), "pinned_source_files": len(sources),
                "controls_completed_and_compared": state["all_four_completed_and_compared"],
+               "numerical_endpoint_subset_evidence_bound": state["numerical_endpoint_subset_evidence_bound"],
+               "endpoint_admissible_numerical_pairs": list(state["endpoint_admissible_numerical_pairs"]),
                "check_only": args.check_only}
     if args.check_only:
         print(json.dumps(summary)); return

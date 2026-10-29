@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-10-29T01:03:24.634882+00:00",
+  "scope": "Local controller readiness observations and synthetic log-guard fixtures; no integration run.",
+  "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+  "readiness_helper_sha256": "0eaa02519d21bbb3eee85d8d06071bd7b5abb455e78e8cf5d498088b02ccd71f",
+  "final_preflight": {
+    "preflight_passed": true,
+    "case_order": [
+      "1-fluid-unmatched",
+      "2-fluid-unmatched",
+      "1-fluid-aggregate-matched",
+      "2-fluid-aggregate-matched"
+    ],
+    "no_solver_executed": true,
+    "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83"
+  },
+  "native_BP_metadata_read_verified": true,
+  "own_open_file_descriptor_detection_verified": true,
+  "top_manifest_binding_and_tampered_case_rejection_verified": true,
+  "synthetic_exact_native_failure_marker_test_passed": true,
+  "native_rank_log_only_failure_marker_retained": true,
+  "native_log_and_console_both_checked": true,
+  "ordinary_timestep_warning_not_misclassified": true,
+  "matched_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe",
+  "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+  "no_solver_executed_by_this_check": true
+}

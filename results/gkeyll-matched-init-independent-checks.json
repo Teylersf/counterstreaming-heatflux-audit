@@ -1,0 +1,103 @@
+{
+  "all_checks_passed": true,
+  "scope": "Independent readback of completed native init-only probes, not a nonlinear run or historical dirty-build reproduction.",
+  "solver_executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+  "prepared_manifest_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+  "aggregate_binary_sha256": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85",
+  "matched_initializer_sha256": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4",
+  "export_metadata_sha256": "5f4427888373620a62135b19aa41dea83be9552f6d59ad94a5b824ed6d501b58",
+  "cases": [
+    {
+      "case": "1-fluid-aggregate-matched",
+      "native_initialization_only": true,
+      "time_integration_performed": false,
+      "run_receipt_sha256": "ecba0d5af935a2f78dfbb962ca1048017fca8d89a4a29befedf62b1d8bfbc971",
+      "population_checks": [
+        {
+          "tag": 1,
+          "npz_filename": "case_elc1_0.npz",
+          "npz_sha256": "d4770a6746a0de233a9c52cbe91649c1b7d8c4625a639db885d0b7e16bdc1e2b",
+          "metadata_sha256": "933d64e9f159af7359ee52093b2c3376bc307f56b0c7c94caf42ee26b3620274",
+          "maximum_conserved_component_errors": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum_full_pressure_tensor_error": 0.0,
+          "maximum_common_velocity_error": 0.0,
+          "minimum_pressure_eigenvalue": 0.0069103173319117325
+        }
+      ],
+      "maximum_aggregate_conserved_error": 0.0,
+      "maximum_aggregate_pressure_tensor_error": 0.0,
+      "all_eight_field_components_exactly_unchanged": true,
+      "field_npz_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+      "copied_inputs_match_authoritative_v2_jobs": true
+    },
+    {
+      "case": "2-fluid-aggregate-matched",
+      "native_initialization_only": true,
+      "time_integration_performed": false,
+      "run_receipt_sha256": "b5c54a5e5af17d0eb3d82739eb948b003daa13aabca7531301d524d0ad5e87f2",
+      "population_checks": [
+        {
+          "tag": 1,
+          "npz_filename": "case_elc1_0.npz",
+          "npz_sha256": "c1cb02804de749e169d4c887a0884e1f3d6ffbd7903dbe81b69c359b8ed1b620",
+          "metadata_sha256": "2eefb345231ae389db7f13bc036ab67053d939bf907bd0b47d76e06ee07e2ef6",
+          "maximum_conserved_component_errors": [
+            1.1102230246251565e-16,
+            2.7755575615628914e-17,
+            1.734723475976807e-18,
+            5.551115123125783e-17,
+            1.3877787807814457e-17,
+            2.168404344971009e-19,
+            6.938893903907228e-18,
+            1.734723475976807e-18,
+            4.336808689942018e-19,
+            2.7755575615628914e-17
+          ],
+          "maximum_full_pressure_tensor_error": 4.2500725161431774e-17,
+          "maximum_common_velocity_error": 5.551115123125783e-17,
+          "minimum_pressure_eigenvalue": 0.00029977475217718164
+        },
+        {
+          "tag": 2,
+          "npz_filename": "case_elc2_0.npz",
+          "npz_sha256": "83a2122f1c561405d174be4626ca2ea3dd55a66ef1bba64a63ee24448494ece1",
+          "metadata_sha256": "b52f08f50d926de6eb0f66ba083943d178b96dcdfdc98e493279e625908be08e",
+          "maximum_conserved_component_errors": [
+            1.1102230246251565e-16,
+            2.7755575615628914e-17,
+            1.734723475976807e-18,
+            5.551115123125783e-17,
+            1.3877787807814457e-17,
+            2.168404344971009e-19,
+            6.938893903907228e-18,
+            1.734723475976807e-18,
+            4.336808689942018e-19,
+            2.7755575615628914e-17
+          ],
+          "maximum_full_pressure_tensor_error": 4.163336342344337e-17,
+          "maximum_common_velocity_error": 5.551115123125783e-17,
+          "minimum_pressure_eigenvalue": 0.00030255207917112494
+        }
+      ],
+      "maximum_aggregate_conserved_error": 1.1102230246251565e-16,
+      "maximum_aggregate_pressure_tensor_error": 4.163336342344337e-17,
+      "all_eight_field_components_exactly_unchanged": true,
+      "field_npz_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+      "copied_inputs_match_authoritative_v2_jobs": true
+    }
+  ],
+  "PIC_tag_matching_claimed": false,
+  "original_dirty_executable_reproduced": false,
+  "private_paths_included": false
+}

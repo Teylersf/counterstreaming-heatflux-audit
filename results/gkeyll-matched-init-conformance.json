@@ -1,0 +1,539 @@
+{
+  "checked_at_utc": "2026-10-29T00:56:15.266275+00:00",
+  "script_sha256": "57fbdcd80410630d57f054a1f3b1446e1bfb9079af534cd146ea00f6368e934d",
+  "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+  "analysis_helper_sha256": "756abb2bdc45c30328c640294f44f5f60b93a2f124ee48aa1bd56d879c1cde3b",
+  "all_checks_passed": true,
+  "cases": [
+    {
+      "id": "1-fluid-aggregate-matched",
+      "run_receipt_sha256": "ecba0d5af935a2f78dfbb962ca1048017fca8d89a4a29befedf62b1d8bfbc971",
+      "solver_executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+      "copied_input_hashes": {
+        "case.lua": "c14ffc94e1c52f1c7e70a5a95dd425dbd54df3590f5559c91e58b0bedc77097a",
+        "posted-input.lua": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+        "matched_initializer.lua": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4",
+        "aggregate-pic-t0.f64": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85"
+      },
+      "actual_time": 0.0,
+      "frame": 0,
+      "populations": [
+        {
+          "input": {
+            "source_filename": "case_elc1_0.bp",
+            "source_sha256": "63daa518556d934e1ea806251ff43ec6feecf789ef5beb844a119c3784a08410",
+            "numeric_export_filename": "case_elc1_0.npz",
+            "numeric_export_sha256": "d4770a6746a0de233a9c52cbe91649c1b7d8c4625a639db885d0b7e16bdc1e2b",
+            "metadata_sha256": "206a8c6c3d7ab5c252771a0456098f56565aba0575dfa835868e62d1e5597540",
+            "time": 0.0,
+            "frame": 0,
+            "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "recorded_changeset": null
+          },
+          "conformance": {
+            "label": "1-fluid-aggregate-matched population 1",
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "nonfinite_count": 0,
+            "no_clipping_or_regularization": true,
+            "violations": [],
+            "minimum_density": 1.0,
+            "minimum_pressure_diagonal": 0.006979083429632937,
+            "minimum_pressure_eigenvalue": 0.0069103173319117325,
+            "passed": true
+          },
+          "expected_state_comparison": {
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_absolute_difference_by_component": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "maximum_difference_divided_by_epsilon_times_max_1_abs_reference": 0.0,
+            "roundoff_bound_epsilon_multiple": 64,
+            "roundoff_conformance_passed": true,
+            "interpretation": "Bitwise equality and a declared 64*epsilon*max(1,abs(reference)) roundoff bound are distinct; no values are changed."
+          }
+        }
+      ],
+      "aggregate_conformance": {
+        "label": "1-fluid-aggregate-matched aggregate",
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "nonfinite_count": 0,
+        "no_clipping_or_regularization": true,
+        "violations": [],
+        "minimum_density": 1.0,
+        "minimum_pressure_diagonal": 0.006979083429632937,
+        "minimum_pressure_eigenvalue": 0.0069103173319117325,
+        "passed": true
+      },
+      "aggregate_PIC_target_comparison": {
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "bitwise_equal": true,
+        "maximum_absolute_difference": 0.0,
+        "maximum_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximum_difference_divided_by_epsilon_times_max_1_abs_reference": 0.0,
+        "roundoff_bound_epsilon_multiple": 64,
+        "roundoff_conformance_passed": true,
+        "interpretation": "Bitwise equality and a declared 64*epsilon*max(1,abs(reference)) roundoff bound are distinct; no values are changed."
+      },
+      "field_input": {
+        "source_filename": "case_field_0.bp",
+        "source_sha256": "fb9030eb825960d14361dee3319ffda60f08ccf5d40e93b518af059e9cef1a59",
+        "numeric_export_filename": "case_field_0.npz",
+        "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+        "metadata_sha256": "278d8fc4fe428c0f63263226509c711bfbf8601a28754a4c735b9304d134a3fe",
+        "time": 0.0,
+        "frame": 0,
+        "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+        "reader": {
+          "adios2": "2.13.0.1001",
+          "numpy": "2.3.5",
+          "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+          "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+        },
+        "recorded_changeset": null
+      },
+      "archived_baseline_field_input": {
+        "source_filename": "fluid1-field_0.bp",
+        "source_sha256": "270eb787ab80535fe6164e40ecef6da764a1450319ccfbf5b534af2ff216bf38",
+        "numeric_export_filename": "fluid1-field_0.npz",
+        "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+        "metadata_sha256": "8ea44cf9557300f47b401dbafdc9d06da3b4c578a5e743df4220aecf0c575def",
+        "time": 0.0,
+        "frame": 0,
+        "reader_script_sha256": null,
+        "reader": "ADIOS2 2.13.0.1001",
+        "recorded_changeset": "9663ea594e80+"
+      },
+      "all_eight_field_components_comparison": {
+        "shape": [
+          640,
+          480,
+          8
+        ],
+        "bitwise_equal": true,
+        "maximum_absolute_difference": 0.0,
+        "maximum_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximum_difference_divided_by_epsilon_times_max_1_abs_reference": 0.0,
+        "roundoff_bound_epsilon_multiple": 64,
+        "roundoff_conformance_passed": true,
+        "interpretation": "Bitwise equality and a declared 64*epsilon*max(1,abs(reference)) roundoff bound are distinct; no values are changed."
+      },
+      "all_checks_passed": true
+    },
+    {
+      "id": "2-fluid-aggregate-matched",
+      "run_receipt_sha256": "b5c54a5e5af17d0eb3d82739eb948b003daa13aabca7531301d524d0ad5e87f2",
+      "solver_executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+      "copied_input_hashes": {
+        "case.lua": "ce01997246eabcffd2a8ebbade8fbf2f33632da2dead6d0cb1a1c883ade961f8",
+        "posted-input.lua": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+        "matched_initializer.lua": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4",
+        "aggregate-pic-t0.f64": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85"
+      },
+      "actual_time": 0.0,
+      "frame": 0,
+      "populations": [
+        {
+          "input": {
+            "source_filename": "case_elc1_0.bp",
+            "source_sha256": "e69808e62acdad77ea4232ada6f98644a881cc75e6b5c62846736c783b68ed88",
+            "numeric_export_filename": "case_elc1_0.npz",
+            "numeric_export_sha256": "c1cb02804de749e169d4c887a0884e1f3d6ffbd7903dbe81b69c359b8ed1b620",
+            "metadata_sha256": "287a0e0f3589acf2808d967feee1cecff87a33315994af33205d8136dd6f2ae9",
+            "time": 0.0,
+            "frame": 0,
+            "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "recorded_changeset": null
+          },
+          "conformance": {
+            "label": "2-fluid-aggregate-matched population 1",
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "nonfinite_count": 0,
+            "no_clipping_or_regularization": true,
+            "violations": [],
+            "minimum_density": 0.030000000000013148,
+            "minimum_pressure_diagonal": 0.0003061575960216018,
+            "minimum_pressure_eigenvalue": 0.00029977475217718164,
+            "passed": true
+          },
+          "expected_state_comparison": {
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_absolute_difference_by_component": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "maximum_difference_divided_by_epsilon_times_max_1_abs_reference": 0.0,
+            "roundoff_bound_epsilon_multiple": 64,
+            "roundoff_conformance_passed": true,
+            "interpretation": "Bitwise equality and a declared 64*epsilon*max(1,abs(reference)) roundoff bound are distinct; no values are changed."
+          }
+        },
+        {
+          "input": {
+            "source_filename": "case_elc2_0.bp",
+            "source_sha256": "329488ef6ad39db06f94c61cc386167a3b8a281defec43f269c964864082b950",
+            "numeric_export_filename": "case_elc2_0.npz",
+            "numeric_export_sha256": "83a2122f1c561405d174be4626ca2ea3dd55a66ef1bba64a63ee24448494ece1",
+            "metadata_sha256": "3e6a78ef0843fee6f0ab979d56e4545f556194fde626006446ef3b98d3dcef2d",
+            "time": 0.0,
+            "frame": 0,
+            "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "recorded_changeset": null
+          },
+          "conformance": {
+            "label": "2-fluid-aggregate-matched population 2",
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "nonfinite_count": 0,
+            "no_clipping_or_regularization": true,
+            "violations": [],
+            "minimum_density": 0.030000000000023896,
+            "minimum_pressure_diagonal": 0.00030586517383246996,
+            "minimum_pressure_eigenvalue": 0.00030255207917112494,
+            "passed": true
+          },
+          "expected_state_comparison": {
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "bitwise_equal": true,
+            "maximum_absolute_difference": 0.0,
+            "maximum_absolute_difference_by_component": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "maximum_difference_divided_by_epsilon_times_max_1_abs_reference": 0.0,
+            "roundoff_bound_epsilon_multiple": 64,
+            "roundoff_conformance_passed": true,
+            "interpretation": "Bitwise equality and a declared 64*epsilon*max(1,abs(reference)) roundoff bound are distinct; no values are changed."
+          }
+        }
+      ],
+      "aggregate_conformance": {
+        "label": "2-fluid-aggregate-matched aggregate",
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "nonfinite_count": 0,
+        "no_clipping_or_regularization": true,
+        "violations": [],
+        "minimum_density": 0.9999999999999999,
+        "minimum_pressure_diagonal": 0.006979083429632937,
+        "minimum_pressure_eigenvalue": 0.0069103173319117325,
+        "passed": true
+      },
+      "aggregate_PIC_target_comparison": {
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "bitwise_equal": false,
+        "maximum_absolute_difference": 1.1102230246251565e-16,
+        "maximum_absolute_difference_by_component": [
+          1.1102230246251565e-16,
+          2.7755575615628914e-17,
+          1.734723475976807e-18,
+          5.551115123125783e-17,
+          6.938893903907228e-18,
+          4.336808689942018e-19,
+          6.938893903907228e-18,
+          1.734723475976807e-18,
+          2.168404344971009e-19,
+          1.3877787807814457e-17
+        ],
+        "maximum_difference_divided_by_epsilon_times_max_1_abs_reference": 0.5,
+        "roundoff_bound_epsilon_multiple": 64,
+        "roundoff_conformance_passed": true,
+        "interpretation": "Bitwise equality and a declared 64*epsilon*max(1,abs(reference)) roundoff bound are distinct; no values are changed."
+      },
+      "field_input": {
+        "source_filename": "case_field_0.bp",
+        "source_sha256": "12a2fad85f2d0a59a20b18353a19cf4f073d79bd81aff71d9f7142d8dc449c9b",
+        "numeric_export_filename": "case_field_0.npz",
+        "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+        "metadata_sha256": "e917f8b3946f0fc15e71d80a59ccf876d2da1477711e3aa7d836161216264c61",
+        "time": 0.0,
+        "frame": 0,
+        "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+        "reader": {
+          "adios2": "2.13.0.1001",
+          "numpy": "2.3.5",
+          "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+          "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+        },
+        "recorded_changeset": null
+      },
+      "archived_baseline_field_input": {
+        "source_filename": "fluid2-field_0.bp",
+        "source_sha256": "289efc1b62c6b3c7dbde058d6277399e731e7588556712a3c1f6049390328818",
+        "numeric_export_filename": "fluid2-field_0.npz",
+        "numeric_export_sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+        "metadata_sha256": "48be9059290a1cac307aefe8fc2296c417be19b76e911eec0355416106747e08",
+        "time": 0.0,
+        "frame": 0,
+        "reader_script_sha256": null,
+        "reader": "ADIOS2 2.13.0.1001",
+        "recorded_changeset": "9663ea594e80+"
+      },
+      "all_eight_field_components_comparison": {
+        "shape": [
+          640,
+          480,
+          8
+        ],
+        "bitwise_equal": true,
+        "maximum_absolute_difference": 0.0,
+        "maximum_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "maximum_difference_divided_by_epsilon_times_max_1_abs_reference": 0.0,
+        "roundoff_bound_epsilon_multiple": 64,
+        "roundoff_conformance_passed": true,
+        "interpretation": "Bitwise equality and a declared 64*epsilon*max(1,abs(reference)) roundoff bound are distinct; no values are changed."
+      },
+      "all_checks_passed": true
+    }
+  ],
+  "failures": [],
+  "scope": "Independent decode and full-grid checks of actual native init-only output. No time integration or solver launch by this checker. No claim to reproduce the source's dirty executable or PIC tags.",
+  "raw_cache_paths_included": false,
+  "component_order": [
+    "rho",
+    "rho_ux",
+    "rho_uy",
+    "rho_uz",
+    "Mxx",
+    "Mxy",
+    "Mxz",
+    "Myy",
+    "Myz",
+    "Mzz"
+  ],
+  "field_scope": "All eight stored field components compared; no physical meaning assigned to the final two solely from storage position.",
+  "solver_executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+  "PIC_target": {
+    "export_metadata_sha256": "5f4427888373620a62135b19aa41dea83be9552f6d59ad94a5b824ed6d501b58",
+    "binary": {
+      "filename": "aggregate-pic-t0.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    "conformance": {
+      "label": "aggregate PIC time0 target",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "nonfinite_count": 0,
+      "no_clipping_or_regularization": true,
+      "violations": [],
+      "minimum_density": 1.0,
+      "minimum_pressure_diagonal": 0.006979083429632937,
+      "minimum_pressure_eigenvalue": 0.0069103173319117325,
+      "passed": true
+    },
+    "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0"
+  },
+  "baseline_provenance_sha256": "25b9abe520ffee744c3881759e60a3f2e88f4ca63834eec6c619e9804af5f3f9",
+  "preparation_receipt_sha256": "39bc131459720c158c9e3931c0f22a21ea341d1a0662617181d7bc0462459e87",
+  "positive_original_label_weights": {
+    "source": "Actual archived native fluid t0 density; posted n0=mass=1, so rho is the original initializer's positive label weight.",
+    "PIC_tag_assignment_claimed": false,
+    "minimum": [
+      0.030000000000013148,
+      0.030000000000023896
+    ],
+    "maximum": [
+      0.9699999999999761,
+      0.9699999999999869
+    ],
+    "maximum_sum_minus_one": 1.1102230246251565e-16,
+    "receipts": [
+      {
+        "input": {
+          "source_filename": "fluid2-electrons1_0.bp",
+          "source_sha256": "3f63e7137d31efac2f5d281e6d7a13d6c7718dc8247bfada9a5fc82b00283254",
+          "numeric_export_filename": "fluid2-electrons1_0.npz",
+          "numeric_export_sha256": "63414989c93e5b5f3376188498fd2b65515729d83bab8816353b3ad43aeb966b",
+          "metadata_sha256": "38248c5dfb7f97098b01ca2053899ff215cac342dc209fa490959e229c993beb",
+          "time": 0.0,
+          "frame": 0,
+          "reader_script_sha256": null,
+          "reader": "ADIOS2 2.13.0.1001",
+          "recorded_changeset": "9663ea594e80+"
+        },
+        "original_conformance": {
+          "label": "archived original fluid label 1",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 0.030000000000013148,
+          "minimum_pressure_diagonal": 0.00037499732427016434,
+          "minimum_pressure_eigenvalue": 0.00037499732427016434,
+          "passed": true
+        }
+      },
+      {
+        "input": {
+          "source_filename": "fluid2-electrons2_0.bp",
+          "source_sha256": "47e5e266be22a293739a197bed4f37c01889fdc6e50e1af6f930fc3f71f5324c",
+          "numeric_export_filename": "fluid2-electrons2_0.npz",
+          "numeric_export_sha256": "9ea5d9984fea84df407f8d321543bac0cf1238de411fa9d36a68b53526b87901",
+          "metadata_sha256": "8afc1b0e1c99a193a152dbac2299801b39a0f1675b115a7b206fc6deb02c22b2",
+          "time": 0.0,
+          "frame": 0,
+          "reader_script_sha256": null,
+          "reader": "ADIOS2 2.13.0.1001",
+          "recorded_changeset": "9663ea594e80+"
+        },
+        "original_conformance": {
+          "label": "archived original fluid label 2",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 0.030000000000023896,
+          "minimum_pressure_diagonal": 0.0003749973242702987,
+          "minimum_pressure_eigenvalue": 0.0003749973242702987,
+          "passed": true
+        }
+      }
+    ]
+  }
+}

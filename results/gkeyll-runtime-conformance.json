@@ -1,0 +1,768 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-10-29T00:54:58.879765+00:00",
+  "research_code_revision": "626fe007e2672f7dfeb032cd9e550f82c6b32a70",
+  "scope": "Authentic clean-base Gkeyll build, initialization conformance and short cost/basic-physics probes. No t300 result is present.",
+  "source": {
+    "commit": "9663ea594e80f68eb305378e14512db390440e6b",
+    "archive_url": "https://codeload.github.com/liangwang0734/gkyl/tar.gz/9663ea594e80f68eb305378e14512db390440e6b",
+    "archive_bytes": 30034051,
+    "archive_sha256": "28a23b3729f6d79c6351fca444db7866f039e8e2d01b220e81d009c5486af588",
+    "original_recorded_build": "9663ea594e80+ (Oct 2023)",
+    "original_dirty_build_reproduced": false,
+    "embedded_new_binary_changeset": "blank because source was a hash-pinned codeload archive without .git",
+    "source_kernel_edits": false,
+    "source_files_checked": 1998,
+    "source_manifest": "data/gkeyll-clean9663-file-manifest.json"
+  },
+  "build": {
+    "returncode": 0,
+    "compile_elapsed_seconds": 885.459399895,
+    "compiler": "GCC/G++ 12.3.0, conda-forge build 5",
+    "compiler_flags": "-O3 -Wall -std=c++17 (source build defaults)",
+    "documented_optional_disable": "--disable-cuda",
+    "fluid_model_equations_or_kernels_disabled": false,
+    "host": "Ubuntu 24.04.1 x86_64 under WSL2; Ryzen 7 5800X, 8 physical/16 logical CPUs",
+    "dependency_package_count": 51,
+    "dependency_archive_bytes": 159828558,
+    "all_dependency_archives_size_md5_sha256_verified": true,
+    "dependency_lock": "data/gkeyll-clean9663-dependencies.json",
+    "solver_executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+    "native_Moments_factory_probe_passed": true,
+    "system_or_bundled_runtimes_modified": false,
+    "postgkyl_installed": false,
+    "mpi_ranks": 16,
+    "decomposition": [
+      4,
+      4
+    ],
+    "process_runtime_controls": {
+      "OMP_NUM_THREADS": 1,
+      "OPENBLAS_NUM_THREADS": 1,
+      "OpenMPI_btl": "self,vader,tcp",
+      "rank_binding": "none",
+      "oversubscribe": true
+    },
+    "optional_transport_note": "OpenMPI optional InfiniBand plugin was unavailable and ignored on WSL; local/shared-memory/TCP transports were explicitly selected for all model probes."
+  },
+  "unchanged_original_initialization": {
+    "scope": "New legacy-solver initial output versus archived t0 data; numerical agreement does not certify the original dirty executable.",
+    "comparisons": {
+      "one_species": {
+        "actual": {
+          "file": "init1_elc1_0.npz",
+          "sha256": "8d2bd5af573d555c2a7a79726985be096a9393a366d68c32525ce7d26346d544",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            10
+          ]
+        },
+        "reference": {
+          "file": "fluid1-electrons1_0.npz",
+          "sha256": "8d2bd5af573d555c2a7a79726985be096a9393a366d68c32525ce7d26346d544",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            10
+          ]
+        },
+        "arrays_bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "max_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_L2_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_reference_components_use_absolute_metric": [
+          2,
+          5,
+          8
+        ],
+        "initial_array_match_within_5e_minus_12": true,
+        "invariants": {
+          "minimum_density": 1.0,
+          "minimum_pressure_eigenvalue": 0.012499910808999981,
+          "mass": 3072.0000000000005,
+          "momentum_integral": [
+            8.5314378872985e-15,
+            0.0,
+            0.0014650136965889094
+          ],
+          "particle_energy": 81.11670446625537,
+          "all_finite": true,
+          "positive_pressure": true
+        }
+      },
+      "one_field": {
+        "actual": {
+          "file": "init1_field_0.npz",
+          "sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            8
+          ]
+        },
+        "reference": {
+          "file": "fluid1-field_0.npz",
+          "sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            8
+          ]
+        },
+        "arrays_bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "max_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_L2_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_reference_components_use_absolute_metric": [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        "initial_array_match_within_5e_minus_12": true,
+        "physical_EM_energy_first_six_components": 387.85592841884835,
+        "remaining_components_retained_uninterpreted": [
+          6,
+          7
+        ]
+      },
+      "two_species1": {
+        "actual": {
+          "file": "init2_elc1_0.npz",
+          "sha256": "63414989c93e5b5f3376188498fd2b65515729d83bab8816353b3ad43aeb966b",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            10
+          ]
+        },
+        "reference": {
+          "file": "fluid2-electrons1_0.npz",
+          "sha256": "63414989c93e5b5f3376188498fd2b65515729d83bab8816353b3ad43aeb966b",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            10
+          ]
+        },
+        "arrays_bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "max_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_L2_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_reference_components_use_absolute_metric": [
+          2,
+          5,
+          8
+        ],
+        "initial_array_match_within_5e_minus_12": true,
+        "invariants": {
+          "minimum_density": 0.030000000000013148,
+          "minimum_pressure_eigenvalue": 0.00037499732427016434,
+          "mass": 1535.9999999999998,
+          "momentum_integral": [
+            4.255508985210829e-15,
+            0.0,
+            0.000732506848298401
+          ],
+          "particle_energy": 40.55835223312767,
+          "all_finite": true,
+          "positive_pressure": true
+        }
+      },
+      "two_species2": {
+        "actual": {
+          "file": "init2_elc2_0.npz",
+          "sha256": "9ea5d9984fea84df407f8d321543bac0cf1238de411fa9d36a68b53526b87901",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            10
+          ]
+        },
+        "reference": {
+          "file": "fluid2-electrons2_0.npz",
+          "sha256": "9ea5d9984fea84df407f8d321543bac0cf1238de411fa9d36a68b53526b87901",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            10
+          ]
+        },
+        "arrays_bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "max_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_L2_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_reference_components_use_absolute_metric": [
+          2,
+          5,
+          8
+        ],
+        "initial_array_match_within_5e_minus_12": true,
+        "invariants": {
+          "minimum_density": 0.030000000000023896,
+          "minimum_pressure_eigenvalue": 0.0003749973242702987,
+          "mass": 1536.000000000001,
+          "momentum_integral": [
+            6.394289568042006e-15,
+            0.0,
+            0.0007325068482923078
+          ],
+          "particle_energy": 40.55835223312769,
+          "all_finite": true,
+          "positive_pressure": true
+        }
+      },
+      "two_field": {
+        "actual": {
+          "file": "init2_field_0.npz",
+          "sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            8
+          ]
+        },
+        "reference": {
+          "file": "fluid2-field_0.npz",
+          "sha256": "6b18eb33247e38d93c03193d27bc0f5423870a0ad112d70399d804d31d8c0c46",
+          "time": 0.0,
+          "frame": 0,
+          "shape": [
+            480,
+            640,
+            8
+          ]
+        },
+        "arrays_bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "max_absolute_difference_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_L2_by_component": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_reference_components_use_absolute_metric": [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        "initial_array_match_within_5e_minus_12": true,
+        "physical_EM_energy_first_six_components": 387.85592841884835,
+        "remaining_components_retained_uninterpreted": [
+          6,
+          7
+        ]
+      }
+    },
+    "all_initial_arrays_bitwise_identical": true,
+    "all_initial_arrays_match": true,
+    "all_species_positive": true
+  },
+  "short_benchmarks": [
+    {
+      "model": "1-fluid",
+      "input_changed_only_for_cost_probe": {
+        "tEnd": [
+          600,
+          2
+        ],
+        "nFrame": [
+          60,
+          1
+        ]
+      },
+      "baseline_fidelity_test": false,
+      "time_integration_result": "completed",
+      "reported_steps": 31,
+      "visible_initial_dt_rejections": 1,
+      "main_loop_seconds": 12.55472,
+      "seconds_per_reported_step": 0.404991,
+      "end_to_end_seconds": 15.370980327000098,
+      "rough_4500_step_minutes": 30.374325,
+      "initial_state": {
+        "species": [
+          {
+            "minimum_density": 1.0,
+            "minimum_pressure_eigenvalue": 0.012499910808999981,
+            "mass": 3072.0000000000005,
+            "momentum_integral": [
+              8.5314378872985e-15,
+              0.0,
+              0.0014650136965889094
+            ],
+            "particle_energy": 81.11670446625537,
+            "all_finite": true,
+            "positive_pressure": true
+          }
+        ],
+        "aggregate": {
+          "minimum_density": 1.0,
+          "minimum_pressure_eigenvalue": 0.012499910808999981,
+          "mass": 3072.0000000000005,
+          "momentum_integral": [
+            8.5314378872985e-15,
+            0.0,
+            0.0014650136965889094
+          ],
+          "particle_energy": 81.11670446625537,
+          "all_finite": true,
+          "positive_pressure": true
+        },
+        "time": 0.0,
+        "frame": 0,
+        "physical_EM_energy_first_six_components": 387.85592841884835,
+        "particle_plus_physical_EM_energy": 468.97263288510374,
+        "all_eight_field_components_finite": true,
+        "other_field_components_retained_uninterpreted": [
+          6,
+          7
+        ]
+      },
+      "final_state": {
+        "species": [
+          {
+            "minimum_density": 0.997102391354615,
+            "minimum_pressure_eigenvalue": 0.006585293938179989,
+            "mass": 3072.0000000000005,
+            "momentum_integral": [
+              8.79522145565752e-09,
+              1.3159632323935294e-09,
+              -0.000746038622224329
+            ],
+            "particle_energy": 81.30967075788017,
+            "all_finite": true,
+            "positive_pressure": true
+          }
+        ],
+        "aggregate": {
+          "minimum_density": 0.997102391354615,
+          "minimum_pressure_eigenvalue": 0.006585293938179989,
+          "mass": 3072.0000000000005,
+          "momentum_integral": [
+            8.79522145565752e-09,
+            1.3159632323935294e-09,
+            -0.000746038622224329
+          ],
+          "particle_energy": 81.30967075788017,
+          "all_finite": true,
+          "positive_pressure": true
+        },
+        "time": 2.000001000000001,
+        "frame": 1,
+        "physical_EM_energy_first_six_components": 387.65648797106553,
+        "particle_plus_physical_EM_energy": 468.9661587289457,
+        "all_eight_field_components_finite": true,
+        "other_field_components_retained_uninterpreted": [
+          6,
+          7
+        ]
+      },
+      "relative_mass_change": 0.0,
+      "relative_particle_plus_physical_EM_energy_change": -1.380497646146266e-05,
+      "all_final_species_positive": true,
+      "input_sha256": "ab2a04bff7af4c294eb14033209c0baf76c671c53d2ebad9a5e6610b2ede664a",
+      "console_sha256": "a4038bc048912f9c2c7b149f1fa89c289b9260545014a1501f30e38672b15dc3",
+      "output_bp": [
+        {
+          "name": "smoke1_dt.bp",
+          "bytes": 24359,
+          "sha256": "fed72ff9a1b1cd2337c9b41b9b98fa978658a103c0a948edb7cd7bed2b56b166"
+        },
+        {
+          "name": "smoke1_elc1_0.bp",
+          "bytes": 24609134,
+          "sha256": "d69b3c078ed8d871b2f6cfd65e877eaf8e19ae4f654877f1f98f16a173aaced1"
+        },
+        {
+          "name": "smoke1_elc1_1.bp",
+          "bytes": 24609134,
+          "sha256": "d8467296e68aff1cae5cc34ea2a3c1071a7860eba2529da17d941806f70c4ee8"
+        },
+        {
+          "name": "smoke1_elc1_intMom.bp",
+          "bytes": 27751,
+          "sha256": "d685aa8cdbb5fb1a8619fdd427867c3b888cb5aebf0c185f990d1e456b1202a6"
+        },
+        {
+          "name": "smoke1_elc1_intMom_restart.bp",
+          "bytes": 1220,
+          "sha256": "0cdac78cb86c26c5eca2be0acb1343e7ce70c3e88c8e261da0c312b83226987f"
+        },
+        {
+          "name": "smoke1_elc1_restart.bp",
+          "bytes": 24609534,
+          "sha256": "f76914301764e51ae83d523bc043a7716f9b0bafcb03f89758fa76aa2bb4cc6a"
+        },
+        {
+          "name": "smoke1_fieldEnergy.bp",
+          "bytes": 27255,
+          "sha256": "1f8be8c956f6b9027b59cad34ac6f339224d13c1bf51806975244ce05dc38837"
+        },
+        {
+          "name": "smoke1_fieldEnergy_restart.bp",
+          "bytes": 1220,
+          "sha256": "4374b800a26b2b158843579715f84bf9271845beb0b738fead5b54908fac2f2f"
+        },
+        {
+          "name": "smoke1_field_0.bp",
+          "bytes": 19693986,
+          "sha256": "357c2c06e5887635eac5c60182dc15338f615dc6effd4d4c9173d00a3457d371"
+        },
+        {
+          "name": "smoke1_field_1.bp",
+          "bytes": 19693986,
+          "sha256": "d5d68cb2ab6337277a6784435734a54c70a57e6676eab11450474363381893d2"
+        },
+        {
+          "name": "smoke1_field_restart.bp",
+          "bytes": 19694386,
+          "sha256": "1214e53b4bcc94f9b5ddc7843c46e5fb5ebcd6214e3615a1ab99fb365ed56417"
+        }
+      ]
+    },
+    {
+      "model": "2-fluid",
+      "input_changed_only_for_cost_probe": {
+        "tEnd": [
+          600,
+          2
+        ],
+        "nFrame": [
+          60,
+          1
+        ]
+      },
+      "baseline_fidelity_test": false,
+      "time_integration_result": "completed",
+      "reported_steps": 31,
+      "visible_initial_dt_rejections": 1,
+      "main_loop_seconds": 21.33,
+      "seconds_per_reported_step": 0.688064,
+      "end_to_end_seconds": 25.59641587100009,
+      "rough_4500_step_minutes": 51.6048,
+      "initial_state": {
+        "species": [
+          {
+            "minimum_density": 0.030000000000013148,
+            "minimum_pressure_eigenvalue": 0.00037499732427016434,
+            "mass": 1535.9999999999998,
+            "momentum_integral": [
+              4.255508985210829e-15,
+              0.0,
+              0.000732506848298401
+            ],
+            "particle_energy": 40.55835223312767,
+            "all_finite": true,
+            "positive_pressure": true
+          },
+          {
+            "minimum_density": 0.030000000000023896,
+            "minimum_pressure_eigenvalue": 0.0003749973242702987,
+            "mass": 1536.000000000001,
+            "momentum_integral": [
+              6.394289568042006e-15,
+              0.0,
+              0.0007325068482923078
+            ],
+            "particle_energy": 40.55835223312769,
+            "all_finite": true,
+            "positive_pressure": true
+          }
+        ],
+        "aggregate": {
+          "minimum_density": 0.9999999999999999,
+          "minimum_pressure_eigenvalue": 0.012499910808999898,
+          "mass": 3072.0000000000005,
+          "momentum_integral": [
+            1.2785107754479916e-14,
+            0.0,
+            0.0014650136965887672
+          ],
+          "particle_energy": 81.11670446625536,
+          "all_finite": true,
+          "positive_pressure": true
+        },
+        "time": 0.0,
+        "frame": 0,
+        "physical_EM_energy_first_six_components": 387.85592841884835,
+        "particle_plus_physical_EM_energy": 468.97263288510374,
+        "all_eight_field_components_finite": true,
+        "other_field_components_retained_uninterpreted": [
+          6,
+          7
+        ]
+      },
+      "final_state": {
+        "species": [
+          {
+            "minimum_density": 0.02999993951298731,
+            "minimum_pressure_eigenvalue": 0.00036751194534756157,
+            "mass": 1535.9999999999998,
+            "momentum_integral": [
+              1.0028355229763978e-05,
+              2.514503246470027e-05,
+              -0.0003730202192330739
+            ],
+            "particle_energy": 40.65411195133002,
+            "all_finite": true,
+            "positive_pressure": true
+          },
+          {
+            "minimum_density": 0.0299999301539295,
+            "minimum_pressure_eigenvalue": 0.0003675056248864692,
+            "mass": 1536.000000000001,
+            "momentum_integral": [
+              -1.0019564779307674e-05,
+              -2.514369364900794e-05,
+              -0.0003730197276960669
+            ],
+            "particle_energy": 40.65535822465364,
+            "all_finite": true,
+            "positive_pressure": true
+          }
+        ],
+        "aggregate": {
+          "minimum_density": 0.997100926446106,
+          "minimum_pressure_eigenvalue": 0.006590185585557213,
+          "mass": 3072.0000000000005,
+          "momentum_integral": [
+            8.790449577318306e-09,
+            1.338815907024648e-09,
+            -0.0007460399469309885
+          ],
+          "particle_energy": 81.30947017598366,
+          "all_finite": true,
+          "positive_pressure": true
+        },
+        "time": 2.000001000000001,
+        "frame": 1,
+        "physical_EM_energy_first_six_components": 387.6566883347592,
+        "particle_plus_physical_EM_energy": 468.9661585107429,
+        "all_eight_field_components_finite": true,
+        "other_field_components_retained_uninterpreted": [
+          6,
+          7
+        ]
+      },
+      "relative_mass_change": 0.0,
+      "relative_particle_plus_physical_EM_energy_change": -1.380544173975465e-05,
+      "all_final_species_positive": true,
+      "input_sha256": "5db75e702591ea3d1a3b89237371b23e815504fcbb3b26d36bac5df68a379714",
+      "console_sha256": "ebde79eb47e0877b6126dd6a01b17b0f1a4d312f50108ede76ec17ebf20a0f61",
+      "output_bp": [
+        {
+          "name": "smoke2_dt.bp",
+          "bytes": 30967,
+          "sha256": "b2e37548e697a7677b21588c5b286e8ea9f929291f86532e743bdd5587609a74"
+        },
+        {
+          "name": "smoke2_elc1_0.bp",
+          "bytes": 24615742,
+          "sha256": "397be17c2994d2e35826b3846116dc487e0aac2a2152fef6531d6cb933253a25"
+        },
+        {
+          "name": "smoke2_elc1_1.bp",
+          "bytes": 24615742,
+          "sha256": "04a5cfcaa0ff19e544c1517b5179482535bde084825d2b8d31401dfbc7f1bec7"
+        },
+        {
+          "name": "smoke2_elc1_intMom.bp",
+          "bytes": 34359,
+          "sha256": "ef2705b72d3b07843d794e7f491c690dffa060549c1de4b1ec8ec0ec77d38a40"
+        },
+        {
+          "name": "smoke2_elc1_intMom_restart.bp",
+          "bytes": 1220,
+          "sha256": "4730ab77e25f8e79c415232115cfe7dd2cfc662d8efb8f504756e25f6de3d711"
+        },
+        {
+          "name": "smoke2_elc1_restart.bp",
+          "bytes": 24616142,
+          "sha256": "7b98688bf726d925532b04e155df7d66639bbb2477c12dc87e997708b39ff76c"
+        },
+        {
+          "name": "smoke2_elc2_0.bp",
+          "bytes": 24615742,
+          "sha256": "d1335856f8f2189c8c5efce73c7d650a95ecc8ac039d214d6c01aec216f88ff7"
+        },
+        {
+          "name": "smoke2_elc2_1.bp",
+          "bytes": 24615742,
+          "sha256": "51c841ff817fbe0473734db7010085778c9e8bdfe95574e3402bdfd9ab666d6c"
+        },
+        {
+          "name": "smoke2_elc2_intMom.bp",
+          "bytes": 34359,
+          "sha256": "6dde4ded31237e9a4d5da74719a136a284895b4b0d611b35f6875cab9f56170b"
+        },
+        {
+          "name": "smoke2_elc2_intMom_restart.bp",
+          "bytes": 1220,
+          "sha256": "202084dd80a9e376bdd176accda0c25cb720567751839c6ec3fa290863ad45b8"
+        },
+        {
+          "name": "smoke2_elc2_restart.bp",
+          "bytes": 24616142,
+          "sha256": "802fe79e6b2d246df464d7c050d25d4a4c34c8f703ae3860ff95c7324b6814ea"
+        },
+        {
+          "name": "smoke2_fieldEnergy.bp",
+          "bytes": 33863,
+          "sha256": "b05183b44b21914e563074363a754c7d6a9b8c3fc5029aa6190f02002eddf7cb"
+        },
+        {
+          "name": "smoke2_fieldEnergy_restart.bp",
+          "bytes": 1220,
+          "sha256": "ce7bc01497235608a7715aa00dc1096da4a9adab288c89749affa727bba73809"
+        },
+        {
+          "name": "smoke2_field_0.bp",
+          "bytes": 19700594,
+          "sha256": "32c542dcef9689fb676358c9289406a852365fd0ca1eb4255b9352b0f6ecf219"
+        },
+        {
+          "name": "smoke2_field_1.bp",
+          "bytes": 19700594,
+          "sha256": "239a0a147830ccee731d6643abcbda012d63c1acb7ea41497378648440ec68fb"
+        },
+        {
+          "name": "smoke2_field_restart.bp",
+          "bytes": 19700994,
+          "sha256": "ebad960c9533445850f3d8c36d82d51ef088b48b2e2525d3d9c7e342d080c4db"
+        }
+      ]
+    }
+  ],
+  "four_control_runtime_estimate_minutes": 163.95825,
+  "runtime_estimate_limitations": "Linear scaling only; matched/noisy data, nonlinear evolution, rejected steps and output cost may change runtime. Cost probes alter tEnd/nFrame and do not establish fidelity at t300.",
+  "full_control_protocol": {
+    "time_controls_preserved": {
+      "tEnd": 600,
+      "nFrame": 60
+    },
+    "regular_output_to_compare": 30,
+    "stop_method": "native .stop after regular frame30 closes",
+    "compare_forced_final_stop_frame": false,
+    "no_full_control_started_in_this_receipt": true
+  }
+}

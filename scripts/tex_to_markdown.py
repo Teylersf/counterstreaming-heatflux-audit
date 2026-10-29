@@ -289,7 +289,11 @@ class Converter:
                 name = Path(image).stem + ".png"
                 self.figure_images.append(name)
                 self.stats["figures"] += 1
-                result = f"![Figure {number}]({self.base}{name})\n\n**Figure {number}.** {caption_md}"
+                # A revision can insert figures before an existing asset.
+                # Versioned URLs request fresh venue ingestion instead of
+                # inheriting an earlier upload's misleading numbered basename.
+                url = f"{self.base}{name}?version={self.version}&figure={number}"
+                result = f"![Figure {number}]({url})\n\n**Figure {number}.** {caption_md}"
             else:
                 result = f"**Table {number}.** {caption_md}\n\n" + self.tabular(block)
             return self.block(result)
@@ -458,7 +462,7 @@ class Converter:
 - Preserved {s['proofs']} complete proofs, {s['proposition']} propositions, {s['lemma']} lemmas and {s['corollary']} corollaries. Proof start and end marks were checked.
 - Protected {s['inline_math']} inline and {s['display_math']} display-math segments, including proof end marks. Every protected segment and block was restored exactly once. An independent parse of the final Markdown recovered all {s['parsed_math_segments']} exact formula contents, {s['parsed_code_blocks']} unchanged code blocks and no raw markup.
 - Preserved {s['tables']} tables with {s['table_data_rows']} data rows, {s['figures']} figures with full captions, {s['code_blocks']} source code blocks, and all {s['references']} compiled bibliography entries in actual numerical order.
-- Checked preservation of all {s['body_source_urls']} direct body source URLs and all {s['bibliography_urls']} bibliography URLs. Figure links use the public GitHub raw PNG paths for these actual source figures: {figure_names}.
+- Checked preservation of all {s['body_source_urls']} direct body source URLs and all {s['bibliography_urls']} bibliography URLs. Figure links use versioned public GitHub raw PNG URLs for these actual source figures: {figure_names}; versioning affects venue ingestion, not image pixels.
 - Scientific statements and qualifications come from the current TeX inputs; these conversion checks do not establish scientific correctness or supply missing experiments.
 - Taylor Kalin is the sole header author, with the website, email and ORCID from the TeX author block. No phone number was added. The separate author/methods disclosure and owner-confirmed self-funded statement are preserved.
 - No unresolved internal references, citations, custom math macros, placeholders, absolute local paths or trailing whitespace remain. Length limits are checked by the script.

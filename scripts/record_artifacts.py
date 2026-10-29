@@ -37,7 +37,7 @@ def artifact_paths():
     required = ['paper/main.pdf', 'paper/main.tex', 'paper/references.bib',
                 'paper/results-table.tex', 'submissions/manuscript.md',
                 'submissions/metadata.json', 'submissions/format-notes.md',
-                'requirements.txt', 'data/provenance.json',
+                'requirements.txt', 'requirements-bp.txt', 'data/provenance.json',
                 'data/derived/initial-profiles.csv', 'results/verification.json',
                 'results/execution.log', 'results/code-pin.json']
     paths = {ROOT / name for name in required}
@@ -53,13 +53,13 @@ def artifact_paths():
     allowlist = [
         ('paper', ('*.tex',), False),
         ('paper/sections', ('*.tex',), True),
-        ('experiments', ('*.py',), True),
+        ('experiments', ('*.py', '*.lua', '*.md'), True),
         ('scripts', ('*.py',), True),
-        ('figures', ('*.pdf', '*.png', '*.svg', '*.jpg', '*.jpeg'), True),
+        ('figures', ('*.pdf', '*.png', '*.svg', '*.jpg', '*.jpeg', '*.tex', '*.json'), True),
         ('source-excerpts', ('*.txt', '*.md', '*.json', '*.py'), True),
-        ('data', ('provenance*.json', 'README.md'), False),
+        ('data', ('*.json', '*.md'), False),
         ('data/input-decks', ('*.2d', '*.lua', '*.md', '*.json'), True),
-        ('data/derived', ('*.csv', '*.json', '*.npz', '*.txt'), True),
+        ('data/derived', ('*.csv', '*.json', '*.txt'), True),
         ('results', ('*.json', '*.log', '*.csv', '*.txt'), True),
     ]
     for directory, patterns, recursive in allowlist:

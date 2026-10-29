@@ -115,6 +115,9 @@ class Converter:
                                   ("bm", lambda x: r"\boldsymbol{" + x + "}")):
             while re.search(r"\\" + name + r"\s*\{", raw):
                 raw = replace_group_command(raw, name, replacement)
+        # TeX also allows a single unbraced token as the bold-math argument.
+        raw = re.sub(r"\\bm\b\s*([A-Za-z0-9])",
+                     lambda match: r"\boldsymbol{" + match.group(1) + "}", raw)
         raw = re.sub(r"\\R\b", lambda _: r"\mathbb{R}", raw)
         raw = re.sub(r"\\dd\b", lambda _: r"\mathrm{d}", raw)
         for name in ("tr", "diag"):

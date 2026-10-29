@@ -1,0 +1,385 @@
+{
+  "verified_at_utc": "2026-10-29T00:07:01.559417+00:00",
+  "record_url": "https://zenodo.org/records/21114117",
+  "version_doi": "10.5281/zenodo.21114117",
+  "scope": "Offline extraction and official ADIOS2 decoding of final fluid reference snapshots from the two complete size/MD5/SHA verified archives. No new solver run.",
+  "reference_snapshots": [
+    {
+      "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "archive_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+      "exact_member_name": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_300.bp",
+      "local_filename": "fluid1-electrons1_300.bp",
+      "uncompressed_bytes": 24609520,
+      "crc32": "7979de92",
+      "sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+      "archive_full_MD5": "381d3ddb5dbbfda1089a3857232af17f",
+      "archive_full_SHA256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+      "archive_size_and_publisher_MD5_verified": true,
+      "actual_time": 300.0001500000136,
+      "frame": 30,
+      "available_steps": {
+        "CartGridField": 1,
+        "frame": 1,
+        "time": 1
+      },
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "embedded_input_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "declared_tEnd_in_OmegaPe0_units": 600,
+      "declared_nFrame": 60,
+      "nominal_output_period_in_OmegaPe0_units": 10.0,
+      "numeric_export_filename": "fluid1-electrons1_300.npz",
+      "numeric_export_sha256": "83c5fbcc2e69b3b84b216ef2a9a0f22633697dc6685685d5b0ba23d5a08d82de",
+      "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+      "reader_environment": {
+        "adios2": "2.13.0.1001",
+        "numpy": "2.3.5",
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+      },
+      "variable_exports": {
+        "CartGridField": {
+          "shape": [
+            480,
+            640,
+            10
+          ],
+          "dtype": "float64"
+        },
+        "frame": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "time": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      },
+      "grid": {
+        "numCells": [
+          480,
+          640
+        ],
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "lowerGhost": 0,
+        "upperGhost": 0,
+        "polyOrder": 0
+      },
+      "recorded_build": {
+        "changeset": "9663ea594e80+",
+        "builddate": "Oct 23 2023 21:19:55"
+      },
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "archive_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+      "exact_member_name": "BgBr0point1-Beta0point1_1-e-Fluid/field_300.bp",
+      "local_filename": "fluid1-field_300.bp",
+      "uncompressed_bytes": 19694374,
+      "crc32": "3dd6f0d8",
+      "sha256": "ebd6d4b81b4ac798ca1b38b69955a1fdde0266f65acd0a2133b1f7b95b199a53",
+      "archive_full_MD5": "381d3ddb5dbbfda1089a3857232af17f",
+      "archive_full_SHA256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+      "archive_size_and_publisher_MD5_verified": true,
+      "actual_time": 300.0001500000136,
+      "frame": 30,
+      "available_steps": {
+        "CartGridField": 1,
+        "frame": 1,
+        "time": 1
+      },
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "embedded_input_sha256": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+      "declared_tEnd_in_OmegaPe0_units": 600,
+      "declared_nFrame": 60,
+      "nominal_output_period_in_OmegaPe0_units": 10.0,
+      "numeric_export_filename": "fluid1-field_300.npz",
+      "numeric_export_sha256": "98d99b62ddb20e3fd5e547dbab2c7d4174643c43fc618ed939fc853a99c47470",
+      "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+      "reader_environment": {
+        "adios2": "2.13.0.1001",
+        "numpy": "2.3.5",
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+      },
+      "variable_exports": {
+        "CartGridField": {
+          "shape": [
+            480,
+            640,
+            8
+          ],
+          "dtype": "float64"
+        },
+        "frame": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "time": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      },
+      "grid": {
+        "numCells": [
+          480,
+          640
+        ],
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "lowerGhost": 0,
+        "upperGhost": 0,
+        "polyOrder": 0
+      },
+      "recorded_build": {
+        "changeset": "9663ea594e80+",
+        "builddate": "Oct 23 2023 21:19:55"
+      },
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_300.bp",
+      "local_filename": "fluid2-electrons2_300.bp",
+      "uncompressed_bytes": 24616128,
+      "crc32": "7ee09654",
+      "sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+      "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+      "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "archive_size_and_publisher_MD5_verified": true,
+      "actual_time": 300.0499847996274,
+      "frame": 30,
+      "available_steps": {
+        "CartGridField": 1,
+        "frame": 1,
+        "time": 1
+      },
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "declared_tEnd_in_OmegaPe0_units": 600,
+      "declared_nFrame": 60,
+      "nominal_output_period_in_OmegaPe0_units": 10.0,
+      "numeric_export_filename": "fluid2-electrons2_300.npz",
+      "numeric_export_sha256": "1d4300b6b8fef1d06f1880cf86fac9898da84c0579a13f0bad441c87e2b48f05",
+      "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+      "reader_environment": {
+        "adios2": "2.13.0.1001",
+        "numpy": "2.3.5",
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+      },
+      "variable_exports": {
+        "CartGridField": {
+          "shape": [
+            480,
+            640,
+            10
+          ],
+          "dtype": "float64"
+        },
+        "frame": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "time": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      },
+      "grid": {
+        "numCells": [
+          480,
+          640
+        ],
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "lowerGhost": 0,
+        "upperGhost": 0,
+        "polyOrder": 0
+      },
+      "recorded_build": {
+        "changeset": "9663ea594e80+",
+        "builddate": "Oct 23 2023 21:19:55"
+      },
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_300.bp",
+      "local_filename": "fluid2-electrons1_300.bp",
+      "uncompressed_bytes": 24616128,
+      "crc32": "5104c676",
+      "sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+      "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+      "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "archive_size_and_publisher_MD5_verified": true,
+      "actual_time": 300.0499847996274,
+      "frame": 30,
+      "available_steps": {
+        "CartGridField": 1,
+        "frame": 1,
+        "time": 1
+      },
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "declared_tEnd_in_OmegaPe0_units": 600,
+      "declared_nFrame": 60,
+      "nominal_output_period_in_OmegaPe0_units": 10.0,
+      "numeric_export_filename": "fluid2-electrons1_300.npz",
+      "numeric_export_sha256": "28ab39cb9e3faa20af5690e6f4792e6096e4d15743a34137b8c72a42f9552f58",
+      "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+      "reader_environment": {
+        "adios2": "2.13.0.1001",
+        "numpy": "2.3.5",
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+      },
+      "variable_exports": {
+        "CartGridField": {
+          "shape": [
+            480,
+            640,
+            10
+          ],
+          "dtype": "float64"
+        },
+        "frame": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "time": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      },
+      "grid": {
+        "numCells": [
+          480,
+          640
+        ],
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "lowerGhost": 0,
+        "upperGhost": 0,
+        "polyOrder": 0
+      },
+      "recorded_build": {
+        "changeset": "9663ea594e80+",
+        "builddate": "Oct 23 2023 21:19:55"
+      },
+      "explicit_time_averaging_attribute_names": []
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/field_300.bp",
+      "local_filename": "fluid2-field_300.bp",
+      "uncompressed_bytes": 19700982,
+      "crc32": "2c98ba99",
+      "sha256": "0fa4bf1317cfd89467cd63ae4877f3f4dfc097ddd1152062185e8a3baa764bef",
+      "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+      "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "archive_size_and_publisher_MD5_verified": true,
+      "actual_time": 300.0499847996274,
+      "frame": 30,
+      "available_steps": {
+        "CartGridField": 1,
+        "frame": 1,
+        "time": 1
+      },
+      "embedded_input_byte_identical_to_posted_deck": true,
+      "embedded_input_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+      "declared_tEnd_in_OmegaPe0_units": 600,
+      "declared_nFrame": 60,
+      "nominal_output_period_in_OmegaPe0_units": 10.0,
+      "numeric_export_filename": "fluid2-field_300.npz",
+      "numeric_export_sha256": "65df707a1b4cb02fc262e411b8504363d0f5eda2b3d09731b31ebf252ff070f8",
+      "reader_script_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+      "reader_environment": {
+        "adios2": "2.13.0.1001",
+        "numpy": "2.3.5",
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+      },
+      "variable_exports": {
+        "CartGridField": {
+          "shape": [
+            480,
+            640,
+            8
+          ],
+          "dtype": "float64"
+        },
+        "frame": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "time": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      },
+      "grid": {
+        "numCells": [
+          480,
+          640
+        ],
+        "lowerBounds": [
+          -24.0,
+          -32.0
+        ],
+        "upperBounds": [
+          24.0,
+          32.0
+        ],
+        "lowerGhost": 0,
+        "upperGhost": 0,
+        "polyOrder": 0
+      },
+      "recorded_build": {
+        "changeset": "9663ea594e80+",
+        "builddate": "Oct 23 2023 21:19:55"
+      },
+      "explicit_time_averaging_attribute_names": []
+    }
+  ],
+  "time_summary": {
+    "one_fluid_frame": 30,
+    "one_fluid_time": 300.0001500000136,
+    "two_fluid_frame": 30,
+    "two_fluid_time": 300.0499847996274,
+    "difference_two_minus_one": 0.04983479961379089,
+    "nominal_output_cadence": 10.0,
+    "filename_300_meaning": "Nominal physical time label, not frame number or proof of identical physical output times."
+  },
+  "component_order_evidence": "data/gkeyll-layout-provenance.json; 10 stored moments use [rho,mx,my,mz,Mxx,Mxy,Mxz,Myy,Myz,Mzz]. Field arrays contain 8 raw components; only first six have been assigned E/B meaning; remaining components are retained uninterpreted.",
+  "build_scope": "The recorded plus-marked changeset is partial/dirty provenance, not certification of a clean exact executable.",
+  "raw_output_policy": "Keep BP, NPZ and complete metadata/embedded inputs in a nonpublic local cache or Git-ignored data/raw; only hashes and portable provenance belong in the public repository."
+}

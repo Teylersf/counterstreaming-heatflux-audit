@@ -1,0 +1,47 @@
+{
+  "checked_date": "2026-10-28",
+  "claim": "Independent official Gkeyll documentation and Postgkyl source identify the ten conserved components and the covariance-pressure recovery used by the BP reanalysis.",
+  "conserved_component_order_zero_based": [
+    "rho", "mx", "my", "mz", "Mxx", "Mxy", "Mxz", "Myy", "Myz", "Mzz"
+  ],
+  "definitions": {
+    "rho": "mass density m*n",
+    "mi": "rho*u_i",
+    "Mij": "rho*u_i*u_j + Pij",
+    "covariance_pressure": "Pij = Mij - mi*mj/rho",
+    "mass_one_charge_minus_one_current": "Jz = -mz"
+  },
+  "independent_sources": [
+    {
+      "title": "The eigensystem of the ten-moment equations",
+      "organization": "Gkeyll Team",
+      "url": "https://gkeyll.readthedocs.io/en/latest/dev/tenmom-eigensystem.html#the-eigensystem-of-the-equations-written-in-conservative-form",
+      "source_url": "https://gkeyll.readthedocs.io/en/latest/_sources/dev/tenmom-eigensystem.rst.txt",
+      "locator": "Section: The eigensystem of the equations written in conservative form; displayed q=phi(v) transformation",
+      "evidence": "Explicit ten-component conserved vector: rho, rho*u1, rho*u2, rho*u3, rho*u1*u1+P11, rho*u1*u2+P12, rho*u1*u3+P13, rho*u2*u2+P22, rho*u2*u3+P23, rho*u3*u3+P33.",
+      "publication_year": null,
+      "publication_year_status": "undated; footer copyright is not used as a publication year"
+    },
+    {
+      "title": "Postgkyl ten-moment diagnostics source",
+      "organization": "Gkeyll Team",
+      "url": "https://github.com/gkeyllorg/postgkyl/blob/main/src/postgkyl/diagnostics/mom/ten_moment.py",
+      "raw_url": "https://raw.githubusercontent.com/gkeyllorg/postgkyl/main/src/postgkyl/diagnostics/mom/ten_moment.py",
+      "locators_one_based": {
+        "module_layout_description": [1, 8],
+        "pressure_component_recovery": [43, 86],
+        "symmetric_pressure_tensor_packing": [88, 106]
+      },
+      "evidence": "The module describes stored ten-moment order and subtracts bulk-flow terms from indices 4 through 9, including Pxx=Mxx-rho*vx*vx and Pzz=Mzz-rho*vz*vz.",
+      "version_scope": "Unversioned public main source inspected on the checked date; does not identify the original simulation executable."
+    },
+    {
+      "title": "postgkyl.diagnostics.mom.ten_moment.pressure_tensor",
+      "organization": "Gkeyll Team",
+      "url": "https://gkeyll.readthedocs.io/en/latest/postgkyl/reference/api-postgkyl-diagnostics-mom-ten_moment-pressure_tensor.html",
+      "evidence": "Official API documents the recovered six-component pressure order Pxx,Pxy,Pxz,Pyy,Pyz,Pzz."
+    }
+  ],
+  "relationship_to_archived_inputs": "This layout evidence is independent of the archived embedded Lua inputs. It agrees with their return order and the pointwise initializer checks, but does not certify a clean historical executable build or an undocumented custom diagnostic.",
+  "scientific_code_or_paper_modified": false
+}

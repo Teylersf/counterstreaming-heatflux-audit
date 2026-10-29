@@ -171,6 +171,44 @@ def qcs_panel(cases, profiles, groups, output, prefix):
                 'Decomposition-dependent counter-streaming contribution from first and second moments')
 
 
+def fidelity_rows(report, cases):
+    rows = report.get('clean_unmatched_vs_archived_source', [])
+    expected = {('baseline_one_fluid', 'archived_one_fluid'),
+                ('baseline_two_fluid', 'archived_two_fluid')}
+    require(len(rows) == 2 and {(r.get('clean'), r.get('archived')) for r in rows} == expected,
+            'Both distinct clean-versus-archived baseline comparisons are required')
+    for row in rows:
+        require(row['status'] == 'computed' and row['native_frame'] == 30
+                and row['time_interpolation_performed'] is False,
+                'Baseline fidelity comparison is not a computed regular-frame result')
+        require(row['clean_actual_time'] == cases[row['clean']]['actual_time']
+                and row['archived_actual_time'] == cases[row['archived']]['actual_time']
+                and row['clean_minus_archived_time'] == row['clean_actual_time'] - row['archived_actual_time'],
+                'Baseline fidelity times differ from the actual case times')
+        values = [row['moment_quantities'][q]['full_2D_grid']['relative_L2'] for q in QUANTITIES]
+        values += [row['all_eight_stored_field_components']['full_2D_grid']['relative_L2']]
+        require(all(v is not None and np.isfinite(v) and v >= 0 for v in values),
+                'Invalid baseline fidelity norm')
+    return sorted(rows, key=lambda row: row['clean'])
+
+
+def fidelity_table(rows, output, prefix):
+    lines = [r'\begin{table}[tbp]', r'\centering\small',
+             r'\caption{Clean unmatched versus archived source-fluid output. Relative complete-grid $\ell^2$ differences are percentages, with the archived state as denominator. The final column is the combined norm of all eight stored field components, not an electromagnetic energy error. $\Delta t$ is the actual clean-minus-archived time. These norms are not uniform pointwise bounds.}',
+             r'\label{tab:baseline-fidelity}', r'\begin{tabular}{lrrrrrr}', r'\toprule',
+             r'Fluids & $\Delta t$ & $n$ & $J_z$ & $P_{xx}$ & $P_{zz}$ & Stored fields \\', r'\midrule']
+    for row in rows:
+        values = [100 * row['moment_quantities'][q]['full_2D_grid']['relative_L2'] for q in QUANTITIES]
+        values += [100 * row['all_eight_stored_field_components']['full_2D_grid']['relative_L2']]
+        label = 'One' if row['clean'].endswith('one_fluid') else 'Two'
+        lines.append(label + f" & {row['clean_minus_archived_time']:.9g} & " +
+                     ' & '.join(f'{value:.4f}' for value in values) + r' \\')
+    lines.extend([r'\bottomrule', r'\end{tabular}', r'\end{table}', ''])
+    path = output / (prefix + '-fidelity-table.tex')
+    path.write_text('\n'.join(lines), encoding='utf-8', newline='\n')
+    return path
+
+
 def table(cases, groups, output, prefix, pic_time):
     lines = [r'\begin{table}[tbp]', r'\centering\small',
              r'\caption{Complete-grid relative $\ell^2$ errors (percent) against the archived PIC snapshot at $t=' + f'{pic_time:.10g}' + r'$. Every actual fluid output time is retained; no temporal interpolation is applied.}',
@@ -200,6 +238,7 @@ def main():
     groups = GROUPS if args.mode == 'controls' else ('archived',)
     prefix = 'matched-controls' if args.mode == 'controls' else 'archived-final-diagnostics'
     cases, profiles, pic_time = validate(report, args.profiles, groups)
+    fidelity = fidelity_rows(report, cases) if args.mode == 'controls' else None
     plt.rcParams.update({'font.size': 8, 'axes.titlesize': 9, 'axes.labelsize': 8,
                          'xtick.labelsize': 7, 'ytick.labelsize': 7,
                          'axes.spines.top': False, 'axes.spines.right': False,
@@ -209,6 +248,8 @@ def main():
     paths += profile_panels(cases, profiles, groups, args.output_dir, prefix)
     paths += qcs_panel(cases, profiles, groups, args.output_dir, prefix)
     paths.append(table(cases, groups, args.output_dir, prefix, pic_time))
+    if fidelity is not None:
+        paths.append(fidelity_table(fidelity, args.output_dir, prefix))
     receipt = {'mode': args.mode, 'scope': report['scope'],
                'simulation_performed_by_this_script': False,
                'script_sha256': sha(Path(__file__)),

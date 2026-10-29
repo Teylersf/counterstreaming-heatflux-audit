@@ -1,0 +1,253 @@
+{
+  "record_url": "https://zenodo.org/records/21114117",
+  "version_doi": "10.5281/zenodo.21114117",
+  "concept_doi": "10.5281/zenodo.21114116",
+  "verified_at_utc": "2026-10-29T00:18:20.874895+00:00",
+  "scope": "Complete source ZIP byte sizes and publisher MD5 verified; full SHA-256 recorded. Exact selected members read from those verified complete ZIPs and matched to the previously used analysis hashes.",
+  "archive_count": 3,
+  "total_source_archive_bytes": 1367080859,
+  "archives": [
+    {
+      "filename": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "source_url": "https://zenodo.org/api/records/21114117/files/BgBr0point1-Beta0point1_1-e-Fluid.zip/content",
+      "bytes": 48626312,
+      "publisher_md5": "381d3ddb5dbbfda1089a3857232af17f",
+      "computed_md5": "381d3ddb5dbbfda1089a3857232af17f",
+      "computed_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+      "size_and_publisher_MD5_match": true,
+      "full_archive_checksum_verified": true,
+      "verified_at_utc": "2026-10-28T23:57:22.528009+00:00",
+      "ZIP_member_count": 5,
+      "complete_central_directory_matches_existing_inventory": true
+    },
+    {
+      "filename": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "source_url": "https://zenodo.org/api/records/21114117/files/BgBr0point1-Beta0point1_2-e-Fluid.zip/content",
+      "bytes": 80339875,
+      "publisher_md5": "024ca4759bb41b53159858f583a48432",
+      "computed_md5": "024ca4759bb41b53159858f583a48432",
+      "computed_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "size_and_publisher_MD5_match": true,
+      "full_archive_checksum_verified": true,
+      "verified_at_utc": "2026-10-28T23:57:22.693773+00:00",
+      "ZIP_member_count": 7,
+      "complete_central_directory_matches_existing_inventory": true
+    },
+    {
+      "filename": "BgBr0point1-Beta0point1_PIC.zip",
+      "source_url": "https://zenodo.org/api/records/21114117/files/BgBr0point1-Beta0point1_PIC.zip/content",
+      "bytes": 1238114672,
+      "publisher_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "size_and_publisher_MD5_match": true,
+      "full_archive_checksum_verified": true,
+      "verified_at_utc": "2026-10-29T00:17:55.839632+00:00",
+      "ZIP_member_count": 223,
+      "complete_central_directory_matches_existing_inventory": true
+    }
+  ],
+  "selected_member_count": 18,
+  "selected_member_bindings": [
+    {
+      "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "archive_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+      "exact_member_name": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_0.bp",
+      "uncompressed_bytes": 24609520,
+      "compressed_bytes": 7271538,
+      "crc32": "9861f7cd",
+      "sha256": "70dc91d89874d62e045eea62d67c9788a8f869733330eed2da6f2710f41ee452",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.543301+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+      "archive_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+      "exact_member_name": "BgBr0point1-Beta0point1_1-e-Fluid/field_0.bp",
+      "uncompressed_bytes": 19694374,
+      "compressed_bytes": 1116975,
+      "crc32": "26c7ad4f",
+      "sha256": "270eb787ab80535fe6164e40ecef6da764a1450319ccfbf5b534af2ff216bf38",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.591867+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_0.bp",
+      "uncompressed_bytes": 24616128,
+      "compressed_bytes": 7617422,
+      "crc32": "1a83eb0a",
+      "sha256": "3f63e7137d31efac2f5d281e6d7a13d6c7718dc8247bfada9a5fc82b00283254",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.680559+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/field_0.bp",
+      "uncompressed_bytes": 19700982,
+      "compressed_bytes": 1118731,
+      "crc32": "e0046423",
+      "sha256": "289efc1b62c6b3c7dbde058d6277399e731e7588556712a3c1f6049390328818",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.725641+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_0.bp",
+      "uncompressed_bytes": 24616128,
+      "compressed_bytes": 7643347,
+      "crc32": "46f9b47d",
+      "sha256": "47e5e266be22a293739a197bed4f37c01889fdc6e50e1af6f930fc3f71f5324c",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.808278+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/FLD/b2/b2-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 9522,
+      "crc32": "7fa37e9c",
+      "sha256": "65638a7bd0724c261aea70b0ef690bf2f37c76a45c7647cfdcc90b5964dde885",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.812788+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/FLD/b3/b3-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 22758,
+      "crc32": "c95fa389",
+      "sha256": "f54c57241b02400967640f10d391b4028cc3e96729f3271a967f0e4bf622e102",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.815794+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/FLD/b1/b1-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 19726,
+      "crc32": "dae38cef",
+      "sha256": "62495f1b2f22600ce06c5666a50ac163b51f84a1943e98b7e4da2d0328ad0ccb",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.818792+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 5157,
+      "crc32": "7f6d056e",
+      "sha256": "dadec55ee90d718008922f7dd8580f235b6f8a7138cec33c5a8227d7b6f9d2f3",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.822298+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 5166,
+      "crc32": "6fa55942",
+      "sha256": "4f9b7368df13948d7bbe00edd5b00d4e1a06efa2f1b6af88b5619bbf47469ef5",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.826308+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 519341,
+      "crc32": "0b8a850c",
+      "sha256": "93b5e0e2ef4a9865d4a18dd8e88acd28490087a86943c0ff53f09f02a8e8b5da",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.832827+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 516386,
+      "crc32": "4af2863d",
+      "sha256": "ddee69230c761461d48e23c05227a2be4dbedbcf2f041daa586a615d672034a8",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.838830+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 584591,
+      "crc32": "eeda3f6d",
+      "sha256": "0b5621976c73fbc2459eab5dc2672bb0958628de5abc26349a9c34fbd4bf4091",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.844351+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 586025,
+      "crc32": "64420140",
+      "sha256": "079c86ad46fbabc901b714968d97944f14de5da8d1caf0d69e661f0a2dda3364",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.850352+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 519400,
+      "crc32": "6a1bf7da",
+      "sha256": "20a1b8825e9892b79204c0c52954afd59fac204eacc1e033806b516866b41d2f",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.856867+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 516297,
+      "crc32": "724a5333",
+      "sha256": "aed88a82d8de441a35f947eef056be290e7c2ccb49c794b3f5cf7437bb5c48ef",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.862371+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 584780,
+      "crc32": "4fc2a9d1",
+      "sha256": "35dbecff8f846f897cc1ae601be059c65f22685b6ff2df41e63bc7c181c2af4b",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.868379+00:00"
+    },
+    {
+      "archive": "BgBr0point1-Beta0point1_PIC.zip",
+      "archive_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000000.h5",
+      "uncompressed_bytes": 1261744,
+      "compressed_bytes": 585981,
+      "crc32": "a30b9fa5",
+      "sha256": "432a14b40542c8ebf647a1478a354182b6f0781400c9200ceb727a4106e02a2e",
+      "matches_existing_analysis_provenance": true,
+      "verified_at_utc": "2026-10-29T00:18:20.874895+00:00"
+    }
+  ],
+  "all_three_archives_and_18_selected_inputs_verified": true,
+  "new_simulation_or_original_build_certification_claimed": false
+}

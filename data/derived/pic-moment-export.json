@@ -1,0 +1,1012 @@
+{
+  "generated_at_utc": "2026-10-29T00:19:17.476649+00:00",
+  "scope": "Archived moment export; no PIC/Gkeyll evolution or nonlinear-effect claim.",
+  "electron_mass": 1.0,
+  "electron_charge": -1.0,
+  "moment_semantics": "vfl is ordinary population mean; second/third diagnostics are unnormalized raw moments.",
+  "grid": {
+    "shape_y_x": [
+      640,
+      480
+    ],
+    "bounds_x": [
+      -24.0,
+      24.0
+    ],
+    "bounds_y": [
+      -32.0,
+      32.0
+    ],
+    "spacing_x_y": [
+      0.1,
+      0.1
+    ],
+    "moment_offset_x_y": [
+      0.5,
+      0.5
+    ]
+  },
+  "binary_layout": "[y,x,component], component fastest, then x, then y; float64 little-endian; no header",
+  "pressure_definition": "P_ij=M_ij-momentum_i*momentum_j/rho; no clipping, clamping, filtering or smoothing",
+  "qxxx_definition": "sum_s raw_v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass",
+  "archive": {
+    "filename": "BgBr0point1-Beta0point1_PIC.zip",
+    "bytes": 1238114672,
+    "publisher_md5": "89f8256fe66809412f3814dd8663c833",
+    "computed_md5": "89f8256fe66809412f3814dd8663c833",
+    "computed_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+    "full_archive_checksum_verified": true
+  },
+  "snapshots": [
+    {
+      "filename_frame_token": "000000",
+      "TIME": 0.0,
+      "ITER": 0,
+      "aggregate_moment_members": 20,
+      "raw_third_members": 0,
+      "minimum_density": 1.0,
+      "maximum_density": 1.0000000149011612,
+      "minimum_pressure_eigenvalue": 0.0069103173319117325,
+      "maximum_pressure_eigenvalue": 0.01367094486752908,
+      "qxxx_available": false,
+      "members": [
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000000.h5",
+          "quantity": "charge",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 5157,
+          "crc32": "7f6d056e",
+          "sha256": "dadec55ee90d718008922f7dd8580f235b6f8a7138cec33c5a8227d7b6f9d2f3",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000000.h5",
+          "quantity": "vfl1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 586025,
+          "crc32": "64420140",
+          "sha256": "079c86ad46fbabc901b714968d97944f14de5da8d1caf0d69e661f0a2dda3364",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000000.h5",
+          "quantity": "vfl2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 580419,
+          "crc32": "15e14b07",
+          "sha256": "7701fed0c618705ccbd93c55215955ce37616b4d5bd28385dad066a782117058",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000000.h5",
+          "quantity": "vfl3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 584591,
+          "crc32": "eeda3f6d",
+          "sha256": "0b5621976c73fbc2459eab5dc2672bb0958628de5abc26349a9c34fbd4bf4091",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000000.h5",
+          "quantity": "v1v1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 519341,
+          "crc32": "0b8a850c",
+          "sha256": "93b5e0e2ef4a9865d4a18dd8e88acd28490087a86943c0ff53f09f02a8e8b5da",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000000.h5",
+          "quantity": "v1v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 580009,
+          "crc32": "89dbeaf9",
+          "sha256": "2bf0122492e6c408eb1251e38f39870876a14b1eb948cff2fd673cc220d2fe61",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000000.h5",
+          "quantity": "v1v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 583508,
+          "crc32": "8540c930",
+          "sha256": "0ed19849fce3b306be0e3f26951cc442edbe01994499bb62332bf11820cb78a3",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000000.h5",
+          "quantity": "v2v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 509121,
+          "crc32": "71288162",
+          "sha256": "2523088a8c1e8242300bdffaebd63587d7615bb10ef9f83e38aece2c656da2ac",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000000.h5",
+          "quantity": "v2v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 580052,
+          "crc32": "cfef611f",
+          "sha256": "90928cb1ce2f558711220918b4348c76bc7adb930d02120d0f9d415e3c37867a",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000000.h5",
+          "quantity": "v3v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 516386,
+          "crc32": "4af2863d",
+          "sha256": "ddee69230c761461d48e23c05227a2be4dbedbcf2f041daa586a615d672034a8",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000000.h5",
+          "quantity": "charge",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 5166,
+          "crc32": "6fa55942",
+          "sha256": "4f9b7368df13948d7bbe00edd5b00d4e1a06efa2f1b6af88b5619bbf47469ef5",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000000.h5",
+          "quantity": "vfl1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 585981,
+          "crc32": "a30b9fa5",
+          "sha256": "432a14b40542c8ebf647a1478a354182b6f0781400c9200ceb727a4106e02a2e",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000000.h5",
+          "quantity": "vfl2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 580386,
+          "crc32": "27388422",
+          "sha256": "79a754a0e23acb8b9507f3172c788c7d1066361bd36fdf14b69a07caa25f3734",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000000.h5",
+          "quantity": "vfl3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 584780,
+          "crc32": "4fc2a9d1",
+          "sha256": "35dbecff8f846f897cc1ae601be059c65f22685b6ff2df41e63bc7c181c2af4b",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000000.h5",
+          "quantity": "v1v1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 519400,
+          "crc32": "6a1bf7da",
+          "sha256": "20a1b8825e9892b79204c0c52954afd59fac204eacc1e033806b516866b41d2f",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000000.h5",
+          "quantity": "v1v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 580090,
+          "crc32": "a3b89a16",
+          "sha256": "d34b9fcb9d24a194e6e3ac491075609eff00b25d70d0409ce5b55c4c2e92ad86",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000000.h5",
+          "quantity": "v1v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 583707,
+          "crc32": "7746fcfa",
+          "sha256": "ee19376c3f19e350e297b4969e8a5105a24b3c0d5350cfacd14acfb774f6310a",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000000.h5",
+          "quantity": "v2v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 509180,
+          "crc32": "29b2e1e0",
+          "sha256": "bbc2fc739d0bbc1eda7a9d83b22d01bb07a1d0f3fd52fd94c3935f2e9bdfc738",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000000.h5",
+          "quantity": "v2v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 580111,
+          "crc32": "ad423290",
+          "sha256": "2d00c00d1f33940b9b07c31edb3f8d45744ad40399c3bfbdc82654abd0fefea9",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000000.h5",
+          "quantity": "v3v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 516297,
+          "crc32": "724a5333",
+          "sha256": "aed88a82d8de441a35f947eef056be290e7c2ccb49c794b3f5cf7437bb5c48ef",
+          "matched_preexisting_SHA256_pin": true,
+          "TIME": 0.0,
+          "ITER": 0,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        }
+      ],
+      "smooth_fluid_label_control": {
+        "definition": "w1=.03+.47*(tanh(y+16)-tanh(y-16)); w2=1-w1; U_s=w_s*U_aggregate",
+        "original_deck_sha256": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+        "maximum_aggregate_recombination_absolute_error": 5.551115123125783e-17,
+        "matches_PIC_tagged_populations": false,
+        "matched_orders": "Density, three momentum densities and six raw second moments only; no third-moment matching.",
+        "scope": "Aggregate moment matching; common velocity; no pressure clamping or smoothing."
+      }
+    },
+    {
+      "filename_frame_token": "000300",
+      "TIME": 300.0015,
+      "ITER": 4500,
+      "aggregate_moment_members": 20,
+      "raw_third_members": 2,
+      "minimum_density": 0.8318560868501663,
+      "maximum_density": 1.2536811977624893,
+      "minimum_pressure_eigenvalue": 0.004837252808153961,
+      "maximum_pressure_eigenvalue": 0.08239588310291726,
+      "qxxx_available": true,
+      "members": [
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons1/charge/charge-electrons1-000300.h5",
+          "quantity": "charge",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 616518,
+          "crc32": "c9f13e4e",
+          "sha256": "87c1307ec36dfc2819ab946c770c01397414c7941af603a3e5b1ec75867ca80a",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl1/vfl1-electrons1-000300.h5",
+          "quantity": "vfl1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 675975,
+          "crc32": "ef6e523a",
+          "sha256": "3baf292baabd3ac01393c431f4d88e1006960065f2c839afb20ee9d5f2ee2124",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl2/vfl2-electrons1-000300.h5",
+          "quantity": "vfl2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 676076,
+          "crc32": "733da975",
+          "sha256": "e2f137ac008b72d1b82af7a15ea20f5e506bd295e7794326f70ce15e31a7e02c",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/vfl3/vfl3-electrons1-000300.h5",
+          "quantity": "vfl3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 675574,
+          "crc32": "23504111",
+          "sha256": "e6cd44e7da71f6fcea2d18558e395fa77bc42de1f331b52c29a895ede628bab7",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1/v1v1-electrons1-000300.h5",
+          "quantity": "v1v1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 628611,
+          "crc32": "832bbd6e",
+          "sha256": "84e8ab1f141ef99bf5604d6aa22bfa30e05a3a6f7589eb2ad3a8b8765c0cec34",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v2/v1v2-electrons1-000300.h5",
+          "quantity": "v1v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 687171,
+          "crc32": "94db3fa0",
+          "sha256": "92658c20fd9abdbd26ee692391f5b8804c15a057b958cb912246c910065ee0a6",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v3/v1v3-electrons1-000300.h5",
+          "quantity": "v1v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 688784,
+          "crc32": "961463b6",
+          "sha256": "e84d81b71ed8a27a313689880fc9848d761f76d25b4b34b02818328a7ca30643",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v2/v2v2-electrons1-000300.h5",
+          "quantity": "v2v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 627859,
+          "crc32": "0bcd9751",
+          "sha256": "22921103022498d2d9d1fe86b322f73918fcb4ecc7b4ee5601819c15b5f75b51",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v2v3/v2v3-electrons1-000300.h5",
+          "quantity": "v2v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 686969,
+          "crc32": "53ce3b41",
+          "sha256": "a2342b513a612ba0af4a4d4f86e64f09b3552abe1e45fced8421b94585f84d4d",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v3v3/v3v3-electrons1-000300.h5",
+          "quantity": "v3v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 629460,
+          "crc32": "0edaa18b",
+          "sha256": "1d6ccb0902f801c7cb2e7afb1dfc0c449682c219f4b002d5a1ce3489758cc280",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/DENSITY/electrons2/charge/charge-electrons2-000300.h5",
+          "quantity": "charge",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 613548,
+          "crc32": "2c5abab4",
+          "sha256": "74ed9df41c9d7a5b49a25235d3f384f05dc42d49ac0406bffc6613ba5014d4a9",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl1/vfl1-electrons2-000300.h5",
+          "quantity": "vfl1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 673712,
+          "crc32": "217265b1",
+          "sha256": "25261d4686de22d5943d868aae8f30e1c866c597abf9077f24736e119f050178",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl2/vfl2-electrons2-000300.h5",
+          "quantity": "vfl2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 672152,
+          "crc32": "6a845397",
+          "sha256": "a151b2074ade775292471b2b55cbd32e449c29cf9405d8ccd724a86321fc2aed",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/vfl3/vfl3-electrons2-000300.h5",
+          "quantity": "vfl3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 673100,
+          "crc32": "62605c89",
+          "sha256": "44f2dbcf529d248166608f9cb92896505b9d71837bc025a2a7a65142643f0ded",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1/v1v1-electrons2-000300.h5",
+          "quantity": "v1v1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 626304,
+          "crc32": "b8e1236e",
+          "sha256": "8e2724d1710845ea212061f4460461c7306040dcc790dc25b33e69458c8ded3c",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v2/v1v2-electrons2-000300.h5",
+          "quantity": "v1v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 683861,
+          "crc32": "7766815f",
+          "sha256": "05040a9b59d3c9534387f44cf3766290a52a86f71064188cd47b2648d1348785",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v3/v1v3-electrons2-000300.h5",
+          "quantity": "v1v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 685367,
+          "crc32": "ab97c9b1",
+          "sha256": "7cc3718266fbddfbf6126380424ab2b121c597dd6b86adc6804dc1bd3e66e6ab",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v2/v2v2-electrons2-000300.h5",
+          "quantity": "v2v2",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 626118,
+          "crc32": "09d052f7",
+          "sha256": "ad51505756aeb466e871be775994b51b924811097606642d4b18cc627400aed2",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v2v3/v2v3-electrons2-000300.h5",
+          "quantity": "v2v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 683707,
+          "crc32": "b586d6db",
+          "sha256": "c09667f01b0262e9c078b6dca0f5eebeaae36375674e97fba9496af8159257ec",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v3v3/v3v3-electrons2-000300.h5",
+          "quantity": "v3v3",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 626841,
+          "crc32": "07212630",
+          "sha256": "fe1561594985b859537b154d568efa7d67f7d9efdbcadb09637a9d2101e74524",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons1/v1v1v1/v1v1v1-electrons1-000300.h5",
+          "quantity": "v1v1v1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 687194,
+          "crc32": "26dcc5da",
+          "sha256": "452c0449b7890ac1d1daf4084e8ac2929d5ffa7f7c2a26a98f63a064688aceef",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        },
+        {
+          "exact_member_name": "BgBr0point1-Beta0point1/UDIST/electrons2/v1v1v1/v1v1v1-electrons2-000300.h5",
+          "quantity": "v1v1v1",
+          "uncompressed_bytes": 1261744,
+          "compressed_bytes": 684498,
+          "crc32": "bdf8418d",
+          "sha256": "37477c9afe1335d9e7a0b0b97484507a48dc360c04b9b805f12337cab48a7feb",
+          "matched_preexisting_SHA256_pin": false,
+          "TIME": 300.0015,
+          "ITER": 4500,
+          "OFFSET_X": [
+            0.5,
+            0.5
+          ],
+          "shape_y_x": [
+            640,
+            480
+          ]
+        }
+      ]
+    }
+  ],
+  "binary_outputs": [
+    {
+      "filename": "aggregate-pic-t0.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "aggregate-pic-t0-fluid1.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "1c2827a2628f56893b1e4582314aff0c820ee3055da543a001301b2f5124b6cc",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "aggregate-pic-t0-fluid2.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "f49df568683f0aa746e4c5b7d20d1b980c2055fd7ad9b2c44b2e73900e57f1a3",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "reference-pic-frame-000300-conserved.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "7effe18cf263918db5b84c37d078853f7f5f61e73d12e3430c80c2723db83940",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "reference-pic-frame-000300-observables.f64",
+      "shape": [
+        640,
+        480,
+        5
+      ],
+      "components": [
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qxxx"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 12288000,
+      "sha256": "d22cc93be7ba3e7afe53ac1920e8c825da259118b09c5719a22657144ecd5a60",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    }
+  ],
+  "available_complete_filename_frame_tokens": [
+    "000000",
+    "000300"
+  ],
+  "script_sha256": "d6f9ef0b8f24dc4c0ff11520fa4415ceadc8050b5fe1a50e388e40449abe6c1a",
+  "inventory_sha256": "25b9abe520ffee744c3881759e60a3f2e88f4ca63834eec6c619e9804af5f3f9",
+  "verification_receipt_sha256": "8d290ba3fb34711a6b3bcf7714eef4cffa73771ec8f06ff90c21a11e4a0a0e2b",
+  "numpy": "2.3.5",
+  "h5py": "3.16.0"
+}

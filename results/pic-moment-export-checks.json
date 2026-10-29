@@ -1,0 +1,213 @@
+{
+  "status": "passed",
+  "scope": "Verified archived PIC moment export only; no solver or network operation.",
+  "metadata_file": "data/derived/pic-moment-export.json",
+  "metadata_sha256": "338f62291bb619af00df07fa491b0c2879f3e5fb167c45a5f578c20f966c89bd",
+  "archive": {
+    "filename": "BgBr0point1-Beta0point1_PIC.zip",
+    "bytes": 1238114672,
+    "publisher_md5": "89f8256fe66809412f3814dd8663c833",
+    "computed_md5": "89f8256fe66809412f3814dd8663c833",
+    "computed_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+    "full_archive_checksum_verified": true
+  },
+  "snapshots": [
+    {
+      "filename_frame_token": "000000",
+      "TIME": 0.0,
+      "ITER": 0,
+      "aggregate_moment_members": 20,
+      "raw_third_members": 0,
+      "minimum_density": 1.0,
+      "minimum_pressure_eigenvalue": 0.0069103173319117325
+    },
+    {
+      "filename_frame_token": "000300",
+      "TIME": 300.0015,
+      "ITER": 4500,
+      "aggregate_moment_members": 20,
+      "raw_third_members": 2,
+      "minimum_density": 0.8318560868501663,
+      "minimum_pressure_eigenvalue": 0.004837252808153961
+    }
+  ],
+  "binary_layout": "[y,x,component], component fastest, then x, then y; float64 little-endian; no header",
+  "binary_outputs": [
+    {
+      "filename": "aggregate-pic-t0.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "aggregate-pic-t0-fluid1.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "1c2827a2628f56893b1e4582314aff0c820ee3055da543a001301b2f5124b6cc",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "aggregate-pic-t0-fluid2.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "f49df568683f0aa746e4c5b7d20d1b980c2055fd7ad9b2c44b2e73900e57f1a3",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "reference-pic-frame-000300-conserved.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "7effe18cf263918db5b84c37d078853f7f5f61e73d12e3430c80c2723db83940",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    {
+      "filename": "reference-pic-frame-000300-observables.f64",
+      "shape": [
+        640,
+        480,
+        5
+      ],
+      "components": [
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qxxx"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 12288000,
+      "sha256": "d22cc93be7ba3e7afe53ac1920e8c825da259118b09c5719a22657144ecd5a60",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    }
+  ],
+  "initial_profiles_vs_original_13_member_analysis": {
+    "density": {
+      "same_operations_bitwise_equal": true,
+      "maximum_absolute_profile_difference": 0.0
+    },
+    "Jz": {
+      "same_operations_bitwise_equal": true,
+      "maximum_absolute_profile_difference": 0.0
+    },
+    "Pxx": {
+      "same_operations_bitwise_equal": true,
+      "maximum_absolute_profile_difference": 0.0
+    },
+    "Pzz": {
+      "same_operations_bitwise_equal": true,
+      "maximum_absolute_profile_difference": 0.0
+    }
+  },
+  "direct_conserved_formula_profile_roundoff_vs_original": {
+    "Jz": 0.0,
+    "Pxx": 0.0,
+    "Pzz": 8.673617379884035e-19
+  },
+  "minimum_pressure_eigenvalues_initial_reference_split1_split2": [
+    0.0069103173319117325,
+    0.004837252808153961,
+    0.00029977475217718164,
+    0.00030255207917112597
+  ],
+  "split_recombination_max_absolute_error": 5.551115123125783e-17,
+  "split_matches_PIC_tags": false,
+  "third_moment_matching_claimed": false,
+  "first_attempt": {
+    "status": "rejected_reference_TIME_mismatch",
+    "requested_TIME": 300.0,
+    "actual_TIME": 300.0015,
+    "failure_log_retained_privately": true
+  },
+  "second_attempt": {
+    "status": "passed",
+    "requested_TIME": 300.0015,
+    "time_coercion": false,
+    "exporter_code_changed": false
+  },
+  "solver_executed": false,
+  "private_raw_binary_paths_included": false,
+  "independent_populationwise_qxxx_check": {
+    "maximum_absolute_difference": 4.85722573273506e-17,
+    "passed": true,
+    "definition": "sum_s(M3s-3*ux*M2s+3*ux^2*n_s*v_sx-ux^3*n_s)"
+  }
+}

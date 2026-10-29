@@ -117,8 +117,8 @@ def prepare(args, artifacts, packages, manifest):
     require(platform.system() == 'Linux' and platform.machine() in ('x86_64', 'AMD64'),
             'Prefix creation/build requires compatible x86_64 Linux')
     require(hasattr(tarfile, 'data_filter'), 'Host Python must provide tarfile data-filter extraction')
-    require(not any(ch.isspace() for ch in str(args.work_root)),
-            'Use a whitespace-free work root for legacy compiler/Waf prefix compatibility')
+    require(not any(ch.isspace() for ch in str(args.work_root)) and ':' not in str(args.work_root),
+            'Use a whitespace/colon-free work root for legacy compiler/Waf prefix compatibility')
     require(not args.work_root.exists() or not any(args.work_root.iterdir()),
             'Work root must be new or empty; no existing attempt is overwritten')
     for path, entry in artifacts:
@@ -173,13 +173,15 @@ def build(args, manifest):
     source_audit(source, manifest['source_files_sha256'])
     env = os.environ.copy()
     removed = ['CFLAGS', 'CXXFLAGS', 'CPPFLAGS', 'LDFLAGS', 'FCFLAGS', 'CONDA_BUILD_SYSROOT',
-               'CMAKE_SYSROOT', 'CONDA_PREFIX', 'CONDA_DEFAULT_ENV']
+               'CMAKE_SYSROOT', 'CONDA_PREFIX', 'CONDA_DEFAULT_ENV',
+               'GIT_DIR', 'GIT_WORK_TREE', 'GIT_COMMON_DIR', 'GIT_INDEX_FILE']
     for name in removed:
         env.pop(name, None)
     env.update(PATH=str(deps / 'bin') + ':' + env.get('PATH', ''),
                LD_LIBRARY_PATH=str(deps / 'lib'),
                CC=str(deps / 'bin/x86_64-conda-linux-gnu-gcc'),
-               CXX=str(deps / 'bin/x86_64-conda-linux-gnu-g++'))
+               CXX=str(deps / 'bin/x86_64-conda-linux-gnu-g++'),
+               GIT_CEILING_DIRECTORIES=str(args.work_root))
     configure = [str(deps / 'bin/python'), 'waf', 'configure', '--prefix=' + str(solver),
         '--disable-cuda', '--enable-mpi', '--luajit-inc-dir=' + str(deps / 'include/luajit-2.1'),
         '--luajit-lib-dir=' + str(deps / 'lib'), '--luajit-share-dir=' + str(deps / 'share/luajit-2.1'),
@@ -188,6 +190,7 @@ def build(args, manifest):
         '--eigen-inc-dir=' + str(deps / 'include/eigen3'), '--extra-link-libs=blosc,z,bz2']
     write(logs / 'environment.json', {'CC': env['CC'], 'CXX': env['CXX'],
         'LD_LIBRARY_PATH': env['LD_LIBRARY_PATH'], 'PATH_prepend': str(deps / 'bin'),
+        'GIT_CEILING_DIRECTORIES': env['GIT_CEILING_DIRECTORIES'],
         'inherited_flag_variables_removed': removed, 'compile_jobs': args.jobs})
     try:
         run_logged(configure, source, env, logs / 'configure.log')

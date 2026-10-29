@@ -85,7 +85,7 @@ Run from the repository root. These are reproduction examples; choose a new
 work directory rather than the directory of an existing experiment:
 
 ```sh
-GKYL_REPRO_CACHE="$PWD/gkeyll-build-cache"
+GKYL_REPRO_CACHE="$HOME/gkeyll-build-cache"
 GKYL_REPRO_WORK="$HOME/gkeyll-clean9663-reproduction"
 
 python3 experiments/build_clean_gkeyll.py plan \
@@ -109,7 +109,7 @@ the 51 dependency filenames under `compiler-packages/`. Existing final files
 must verify; they are not overwritten. Failed partial downloads remain
 untrusted evidence and are never used as complete packages.
 
-`prepare` requires a new or empty whitespace-free work root. It extracts only
+`prepare` requires a new or empty whitespace/colon-free work root. It extracts only
 the bootstrap executable and safely extracts the pinned source archive. It
 then writes an `@EXPLICIT` file containing local `file:` URIs and MD5 fragments
 for the already verified 51 packages. Micromamba performs the package
@@ -201,6 +201,13 @@ observation, not a promised build time. The codeload archive has no `.git`, so
 Waf's `git describe` emitted a nonfatal message and the new executable's
 embedded changeset string is blank. The source archive/commit and original
 file audit establish its clean base; no changeset string is fabricated.
+
+The recorded source extraction was outside a Git checkout. To keep this
+metadata behavior when a caller chooses a work directory beneath a different
+checkout, the portable wrapper removes inherited Git-directory overrides and
+sets `GIT_CEILING_DIRECTORIES` to its work root. This prevents Waf from
+mislabeling the extracted archive with an unrelated parent repository's commit.
+It is metadata isolation added by the portable wrapper, not a model change.
 
 The author executable SHA-256 is
 `8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7`.

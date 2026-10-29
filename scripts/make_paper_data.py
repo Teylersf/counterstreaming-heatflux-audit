@@ -18,7 +18,7 @@ REVISION_CODE = ("profile_sensitivity.py", "revision_data.py", "thermal_loading.
 CONTROL_CODE = ("export_pic_moments.py", "read_gkeyll_bp.py", "prepare_matched_control.py",
                 "matched_initializer.lua", "run_gkeyll_controls.py", "analyze_gkeyll_controls.py",
                 "check_matched_initial_outputs.py", "collect_completed_gkeyll_cases.py",
-                "make_control_figures.py", "build_clean_gkeyll.py")
+                "make_control_figures.py", "build_clean_gkeyll.py", "qualify_clean_gkeyll.py")
 REVISION_OUTPUTS = ("results/profile-sensitivity.json", "results/revision-data.json",
                     "results/thermal-loading.json", "data/provenance-revision.json")
 SUPPORT_OUTPUTS = ("data/full-archive-verification.json", "data/provenance-fluid-reference.json",

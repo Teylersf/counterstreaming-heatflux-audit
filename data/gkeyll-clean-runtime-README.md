@@ -275,3 +275,171 @@ plan/cache-verification modes and with isolated guard fixtures. A second
 prefix installation or full compile was not run while the authorized controls
 were active. The recorded author build, source audit and startup probes are
 documented in [`results/gkeyll-runtime-conformance.json`](../results/gkeyll-runtime-conformance.json).
+
+## A fresh build's own manifest and startup gate
+
+A new executable is expected to have its own digest. Do not replace the
+author's reference hashes or reuse the author's init gate for a differing
+runtime. [`qualify_clean_gkeyll.py`](../experiments/qualify_clean_gkeyll.py)
+provides the concrete route below. Its default `plan` action is read-only.
+
+`register` reads the completed portable builder's state and command/log
+receipts, verifies the exact source archive and every original regular source
+file (including build scripts), repeats the 1,998-file numerical/Lua audit,
+and inventories this build's installed solver, dependency shared libraries and
+actual linked system libraries. It writes its own `runtime-manifest.json`
+only into a new caller directory. It does not borrow the author's installed
+binary/library digests or claim bit-reproducible binaries.
+
+`init` is a separate explicit action: it runs exactly four native init-only
+jobs on 16 MPI ranks, with the unchanged 600/60 controls, in new copied case
+directories. It performs no time integration. Each pre-launch/final receipt
+binds the own-manifest SHA, executable, full input hashes, prepared-case
+record, actual command and runtime environment; files are checked again after
+each probe. A timeout/failure aborts the remaining probes and preserves the
+attempt. Existing or partial destinations are refused.
+
+`check` independently decodes the recorded BP files, reloads the serialized
+metadata JSON, and verifies frame0/time0 only, all ten conserved components,
+all eight field components, the positive original fluid label weights, and
+strictly positive density/pressure without clipping. It compares both
+unmatched originals with the archive and both matched cases with the exact
+PIC target/weighted splits. A successful new gate includes the actual own
+runtime-manifest SHA and executable digest. These are startup/initial-output
+checks, not certification of nonlinear evolution or the historical dirty build.
+
+### Prepare immutable scientific inputs in a new cache
+
+Use a host Python environment with the packages in `requirements-bp.txt` for
+the reader/checker, separate from the native dependency-prefix Python.
+The complete original simulation ZIPs must already be downloaded and verified
+against `data/full-archive-verification.json`; see their source URLs there.
+Keep new files outside the repository, build prefixes and any active run tree.
+
+The following example extracts only the five archived initial BP members into
+a new cache and decodes them without updating any author provenance file:
+
+```sh
+export GKYL_DATA_ARCHIVES="$HOME/original-zenodo-zips"
+export GKYL_QUAL_ROOT="$HOME/gkeyll-startup-qualification"
+export GKYL_BASELINES="$GKYL_QUAL_ROOT/archived-initial"
+python3 - <<'PY'
+from pathlib import Path
+import hashlib, json, os, zipfile
+from experiments.read_gkeyll_bp import read_file
+archive_dir = Path(os.environ['GKYL_DATA_ARCHIVES'])
+destination = Path(os.environ['GKYL_BASELINES'])
+members = json.loads(Path('data/provenance-revision.json').read_text())['selected_members']
+pins = {p['filename']: p for p in json.loads(Path('data/full-archive-verification.json').read_text())['archives']}
+def digest(path, algorithm):
+    h = hashlib.new(algorithm)
+    with path.open('rb') as stream:
+        for block in iter(lambda: stream.read(8*1024*1024), b''):
+            h.update(block)
+    return h.hexdigest()
+for name in {m['archive'] for m in members}:
+    archive, pin = archive_dir/name, pins[name]
+    if (archive.stat().st_size != pin['bytes'] or digest(archive, 'sha256') != pin['computed_sha256']
+            or digest(archive, 'md5') != pin['publisher_md5']):
+        raise ValueError('Complete source archive differs: '+name)
+destination.mkdir(parents=True, exist_ok=False)
+for item in members:
+    with zipfile.ZipFile(archive_dir/item['archive']) as archive:
+        data = archive.read(item['archive_member'])
+    if len(data) != item['uncompressed_bytes'] or hashlib.sha256(data).hexdigest() != item['sha256']:
+        raise ValueError('Selected initial member differs')
+    raw = destination/item['local_filename']
+    with raw.open('xb') as output:
+        output.write(data)
+    read_file(raw, destination)
+PY
+```
+
+Derive the aggregate target from the complete PIC ZIP into a new location:
+
+```sh
+python3 experiments/export_pic_moments.py \
+ --archive "$GKYL_DATA_ARCHIVES/BgBr0point1-Beta0point1_PIC.zip" \
+ --output-dir "$GKYL_QUAL_ROOT/pic-target" \
+ --metadata "$GKYL_QUAL_ROOT/new-export-receipt.json"
+python3 experiments/prepare_matched_control.py \
+ --export-metadata data/derived/pic-moment-export.json \
+ --aggregate-binary "$GKYL_QUAL_ROOT/pic-target/aggregate-pic-t0.f64" \
+ --output-dir "$GKYL_QUAL_ROOT/jobs"
+```
+
+For this exact-data reproduction, the preparer intentionally uses the
+immutable **canonical export metadata** while verifying that the newly
+derived binary matches its size/SHA. A newly generated export receipt has
+different timestamps/environment metadata and is retained separately. Using
+it in the prepared-job identity is a different input record and will not match
+the control runner's pinned preparation SHA. Do not edit those pins to accept
+a changed target, scientific input or preparation record.
+
+### Register, initialize, check and preflight the new runtime
+
+After the portable build has completed, use Bash variables for its actual
+paths. None of these paths refers to the author's active run:
+
+```sh
+GKYL_NEW_SOURCE="$GKYL_REPRO_WORK/source/gkyl-9663ea594e80f68eb305378e14512db390440e6b"
+GKYL_NEW_ARGS=(--source-root "$GKYL_NEW_SOURCE"
+ --source-archive "$GKYL_REPRO_CACHE/gkyl-9663ea594e80f68eb305378e14512db390440e6b.tar.gz"
+ --solver-prefix "$GKYL_REPRO_WORK/solver"
+ --dependency-prefix "$GKYL_REPRO_WORK/dependencies")
+python3 experiments/qualify_clean_gkeyll.py plan
+python3 experiments/qualify_clean_gkeyll.py register "${GKYL_NEW_ARGS[@]}" \
+ --build-state "$GKYL_REPRO_WORK/recipe-state.json" \
+ --output-root "$GKYL_QUAL_ROOT/registered"
+python3 experiments/qualify_clean_gkeyll.py init "${GKYL_NEW_ARGS[@]}" \
+ --runtime-manifest "$GKYL_QUAL_ROOT/registered/runtime-manifest.json" \
+ --jobs-root "$GKYL_QUAL_ROOT/jobs" --output-root "$GKYL_QUAL_ROOT/probes"
+python3 experiments/qualify_clean_gkeyll.py check "${GKYL_NEW_ARGS[@]}" \
+ --runtime-manifest "$GKYL_QUAL_ROOT/registered/runtime-manifest.json" \
+ --jobs-root "$GKYL_QUAL_ROOT/jobs" --probe-root "$GKYL_QUAL_ROOT/probes" \
+ --baseline-directory "$GKYL_BASELINES" \
+ --pic-export-directory "$GKYL_QUAL_ROOT/pic-target" \
+ --output-root "$GKYL_QUAL_ROOT/initial-checks"
+```
+
+Successful `check` writes
+`$GKYL_QUAL_ROOT/initial-checks/qualification-gate.json`. Only then use the
+read-only preflight below, setting the actual checked-out code commit:
+
+```sh
+GKYL_NEW_CODE_PIN="$(git rev-parse HEAD)"
+python3 experiments/qualify_clean_gkeyll.py preflight "${GKYL_NEW_ARGS[@]}" \
+ --runtime-manifest "$GKYL_QUAL_ROOT/registered/runtime-manifest.json" \
+ --jobs-root "$GKYL_QUAL_ROOT/jobs" \
+ --qualification-gate "$GKYL_QUAL_ROOT/initial-checks/qualification-gate.json" \
+ --controls-output-root "$GKYL_QUAL_ROOT/full-controls" \
+ --research-code-revision "$GKYL_NEW_CODE_PIN"
+```
+
+The wrapper first enforces the new gate/manifest binding, then calls the
+existing runner with its supported `--runtime-manifest`, `--matched-conformance`
+and `--preflight-only` options. No guard is disabled and no control is launched
+by this preflight. It prints the same full-control argv without the final
+preflight flag for a separate, intentional dynamical experiment. The runner
+will continue checking this experiment's exact runtime files between cases.
+
+### Historical readback and validation performed here
+
+The original qualification used the recorded transient launchers, not this
+new portable wrapper. Their old receipts lack the wrapper's pre-launch
+own-manifest binding. Therefore `--author-reference` registration accepts only
+the exact complete published author runtime maps, and `readback` accepts only
+the recorded historical init receipts. That mode writes
+`historical-readback.json` with `all_data_checks_passed` as its data verdict,
+but **always** sets `all_checks_passed=false` and
+`fresh_startup_qualified=false`. It never writes a fresh qualification gate and
+cannot qualify a differing executable/library set. No old receipt is rewritten
+to add absent provenance fields.
+
+During preparation of this wrapper, `plan`, read-only registration and
+independent historical readback of all four retained init datasets were
+tested in new caller directories. Full-grid data checks passed. Negative
+runtime/binding/output-directory/frame fixtures were checked separately.
+No new installation, build, MPI launch or model probe was performed in that
+validation. The future `init` route is explicit and bounded; it was not run
+against another newly compiled runtime during the active author controls.

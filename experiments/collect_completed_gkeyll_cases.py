@@ -26,6 +26,18 @@ CONTEXT_KEYS = ("controller_sha256", "research_code_revision", "source_commit", 
                 "matched_init_conformance_sha256")
 
 
+def timing_provenance(receipt: dict) -> dict:
+    started = datetime.fromisoformat(receipt["started_utc"])
+    finished = datetime.fromisoformat(receipt["finished_utc"])
+    require(started.tzinfo is not None and finished.tzinfo is not None, "Run UTC timestamps must include a timezone")
+    require(np.isfinite(receipt["elapsed_seconds"]) and receipt["elapsed_seconds"] >= 0, "Invalid recorded monotonic duration")
+    return {"source_started_utc": receipt["started_utc"], "source_finished_utc": receipt["finished_utc"],
+            "elapsed_seconds": receipt["elapsed_seconds"],
+            "elapsed_seconds_basis": "Linux time.monotonic elapsed duration; not CPU time",
+            "UTC_timestamp_difference_seconds": (finished.astimezone(timezone.utc) - started.astimezone(timezone.utc)).total_seconds(),
+            "timing_qualification": "UTC timestamp subtraction and monotonic elapsed duration use distinct clock conventions and may differ after clock adjustments. Both are preserved without correction or a CPU-time inference."}
+
+
 def validate_receipt(receipt: dict, case_name: str, species: int, expected: dict) -> dict:
     require(receipt["case"] == case_name and receipt["status"] == "completed_native_stop", "No completed-native-stop receipt")
     require(receipt["returncode"] == 0 and receipt["regular_frame30_unchanged_after_exit"], "Run exit/regular-frame integrity did not pass")
@@ -75,7 +87,11 @@ def guard_self_test() -> dict:
         except (ValueError, KeyError):
             rejected += 1
     require(rejected == 7, "A synthetic bad completed-receipt guard was accepted")
+    timing = timing_provenance({"started_utc":"2026-01-01T00:00:00+00:00", "finished_utc":"2026-01-01T00:01:30+00:00", "elapsed_seconds":74.})
+    require(timing["elapsed_seconds"] == 74 and timing["UTC_timestamp_difference_seconds"] == 90,
+            "Distinct UTC and monotonic duration provenance was changed or conflated")
     return {"synthetic_valid_receipt_accepted": True, "seven_invalid_receipt_variants_rejected": True,
+            "distinct_UTC_and_monotonic_durations_preserved": True,
             "scope": "Synthetic guard tests only, not evidence of actual solver completion."}
 
 
@@ -199,10 +215,10 @@ def main() -> int:
             require(len(initial_states) == species, "Initial population count differs")
             _, initial_aggregate_conformance = moments(sum(initial_states), native_case + " initial aggregate")
             portable = {"case": native_case, "status": "completed_native_stop", "all_decoding_checks_passed": True,
-                        "source_run_receipt_sha256": receipt_sha, "source_finished_utc": receipt["finished_utc"],
+                        "source_run_receipt_sha256": receipt_sha, **timing_provenance(receipt),
                         "runtime_context": {key: receipt[key] for key in CONTEXT_KEYS}, "input_hashes": receipt["input_hashes"],
                         "prepared_case_sha256": receipt["prepared_case_sha256"], "frame": 30, "actual_time": selected["actual_time"],
-                        "console_sha256": receipt["console_sha256"], "elapsed_seconds": receipt["elapsed_seconds"],
+                        "console_sha256": receipt["console_sha256"],
                         "collector_sha256": manifest["collector_sha256"], "reader_sha256": manifest["reader_sha256"],
                         "exports": exported, "initial_exports": initial_exported,
                         "aggregate_conformance": aggregate_conformance, "initial_aggregate_conformance": initial_aggregate_conformance,

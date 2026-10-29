@@ -128,6 +128,13 @@ time/frame across every moment and eight-component field file. Frame0 moment
 files are independently decoded for initial/final integral diagnostics. A
 forced-final or later output is never substituted for regular frame30.
 
+Portable receipts preserve the source start/finish UTC timestamps, their
+separately calculated `UTC_timestamp_difference_seconds`, and the controller's
+original `elapsed_seconds`. The latter is explicitly Linux `time.monotonic`
+elapsed duration, not CPU time. These two timing conventions can differ after
+clock adjustments; neither is silently corrected to match the other, and no
+clock or runtime setting is changed by the postprocessor.
+
 Missing, running, failed, and rejected cases remain explicit. Merely finding
 BP files or reading progress/run-started files cannot enable a case. Numeric
 arrays must be finite and all population/aggregate densities and covariance

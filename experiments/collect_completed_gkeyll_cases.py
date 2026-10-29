@@ -186,7 +186,10 @@ def main() -> int:
                 else:
                     require(not metadata_path.exists() and not npz_path.exists(), "Partial decoded cache exists; preserve it and use a fresh cache")
                     from read_gkeyll_bp import read_file
-                    metadata = read_file(source, destination)
+                    read_file(source, destination)
+                    # ADIOS attributes are NumPy arrays before serialization;
+                    # use the same normalized JSON types as the cached path.
+                    metadata = load_json(metadata_path)
                 require(metadata["time"] == native_time and metadata["frame"] == native_frame, "Decoded native time/frame differs from required initial/regular30 metadata")
                 require(sha256(source) == expected_sha, "Selected BP changed during decoding")
                 attrs = metadata["attribute_values"]

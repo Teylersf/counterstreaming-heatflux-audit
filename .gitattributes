@@ -4,3 +4,7 @@
 *.h5 binary
 data/input-decks/* -text
 source-excerpts/*.txt -text
+# Preserve the exact already-hashed native-runtime receipts, including CRLF.
+data/gkeyll-clean9663-dependencies.json -text
+data/gkeyll-clean9663-file-manifest.json -text
+results/gkeyll-runtime-conformance.json -text

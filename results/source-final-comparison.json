@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-10-29T00:39:47.457271+00:00",
-  "script_sha256": "756abb2bdc45c30328c640294f44f5f60b93a2f124ee48aa1bd56d879c1cde3b",
-  "config_sha256": "9db719c1369b71ac79fb32f54c000b7d5ed699c32c88119b5e30b4eda8603bdf",
+  "generated_at_utc": "2026-10-29T01:15:31.408942+00:00",
+  "script_sha256": "f15e637deb99a5492cdf0f85ff1eb248a71c382765cf2cb5fc463929c4743d47",
+  "config_sha256": "206e4b63f082a355bf09aaaf901450240288ce80ac6afb8b231ed83bed0cbac0",
   "numpy": "2.3.5",
   "analytic_pipeline_checks": {
     "known_norm_scaling": true,
@@ -11,6 +11,8 @@
     "inconsistent_vacuum_rejected": true,
     "paired_error_difference_and_zero_baseline_null": true,
     "Windows_repr_and_slash_form_failure_paths_redacted": true,
+    "analytic_integrated_particle_mass_energy_and_decomposition": true,
+    "analytic_direct_archive_comparison_and_zero_field_null": true,
     "negative_pressure_rejected_with_failure_record": true,
     "scope": "Small analytic pipeline checks, not solver results."
   },
@@ -89,6 +91,142 @@
         "status": "omitted_for_one_population",
         "scope": "The single-population counter-streaming contribution is identically zero; this does not assert zero full heat flux under a finite local-divergence closure."
       },
+      "particle_moment_diagnostics": {
+        "frame30_or_source_final": {
+          "actual_time": 300.0001500000136,
+          "frame": 30,
+          "integrals": {
+            "cell_area": 0.010000000000000002,
+            "per_population": [
+              {
+                "mass": 3072.0000000000005,
+                "momentum_xyz": [
+                  0.00045204335828056836,
+                  0.00023782928593315988,
+                  -5.362726946183544e-05
+                ],
+                "bulk_kinetic_energy": 15.159983523246604,
+                "internal_energy": 66.12552125160768,
+                "bulk_plus_internal_particle_energy": 81.28550477485429
+              }
+            ],
+            "sum_of_population_bulk_kinetic_energy": 15.159983523246604,
+            "sum_of_population_internal_energy": 66.12552125160768,
+            "aggregate": {
+              "mass": 3072.0000000000005,
+              "momentum_xyz": [
+                0.00045204335828056836,
+                0.00023782928593315988,
+                -5.362726946183544e-05
+              ],
+              "bulk_kinetic_energy": 15.159983523246604,
+              "internal_energy": 66.12552125160768,
+              "bulk_plus_internal_particle_energy": 81.28550477485429
+            },
+            "scope": "Complete-grid conserved particle moments only. Aggregate internal energy includes relative population drift; it differs from the sum of population internal energies. Electromagnetic energy, boundary/numerical budgets and an exact conservation assertion are not supplied."
+          }
+        },
+        "frame0": {
+          "actual_time": 0.0,
+          "frame": 0,
+          "inputs": [
+            {
+              "npz": "data/raw/revision/fluid1-electrons1_0.npz",
+              "base": "project",
+              "npz_sha256": "8d2bd5af573d555c2a7a79726985be096a9393a366d68c32525ce7d26346d544",
+              "metadata": "data/raw/revision/fluid1-electrons1_0.metadata.json",
+              "metadata_sha256": "f76457dcfa7aca28095c00bc3ced27b85b4d5dd364f9b92f5d6a7d3df4394ae6",
+              "source_BP_sha256": "70dc91d89874d62e045eea62d67c9788a8f869733330eed2da6f2710f41ee452",
+              "conformance": {
+                "label": "archived_one_fluid initial",
+                "shape": [
+                  640,
+                  480,
+                  10
+                ],
+                "nonfinite_count": 0,
+                "no_clipping_or_regularization": true,
+                "violations": [],
+                "minimum_density": 1.0,
+                "minimum_pressure_diagonal": 0.012499910808999981,
+                "minimum_pressure_eigenvalue": 0.012499910808999981,
+                "passed": true
+              }
+            }
+          ],
+          "aggregate_conformance": {
+            "label": "archived_one_fluid initial aggregate",
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "nonfinite_count": 0,
+            "no_clipping_or_regularization": true,
+            "violations": [],
+            "minimum_density": 1.0,
+            "minimum_pressure_diagonal": 0.012499910808999981,
+            "minimum_pressure_eigenvalue": 0.012499910808999981,
+            "passed": true
+          },
+          "integrals": {
+            "cell_area": 0.010000000000000002,
+            "per_population": [
+              {
+                "mass": 3072.0000000000005,
+                "momentum_xyz": [
+                  8.5314378872985e-15,
+                  0.0,
+                  0.0014650136965889094
+                ],
+                "bulk_kinetic_energy": 23.517115458383355,
+                "internal_energy": 57.599589007872,
+                "bulk_plus_internal_particle_energy": 81.11670446625536
+              }
+            ],
+            "sum_of_population_bulk_kinetic_energy": 23.517115458383355,
+            "sum_of_population_internal_energy": 57.599589007872,
+            "aggregate": {
+              "mass": 3072.0000000000005,
+              "momentum_xyz": [
+                8.5314378872985e-15,
+                0.0,
+                0.0014650136965889094
+              ],
+              "bulk_kinetic_energy": 23.517115458383355,
+              "internal_energy": 57.599589007872,
+              "bulk_plus_internal_particle_energy": 81.11670446625536
+            },
+            "scope": "Complete-grid conserved particle moments only. Aggregate internal energy includes relative population drift; it differs from the sum of population internal energies. Electromagnetic energy, boundary/numerical budgets and an exact conservation assertion are not supplied."
+          }
+        },
+        "aggregate_final_minus_initial": {
+          "mass": 0.0,
+          "momentum_xyz": [
+            0.00045204335827203694,
+            0.00023782928593315988,
+            -0.001518640966050745
+          ],
+          "bulk_kinetic_energy": -8.357131935136751,
+          "internal_energy": 8.525932243735681,
+          "bulk_plus_internal_particle_energy": 0.16880030859893225
+        },
+        "aggregate_fractional_change": {
+          "mass": 0.0,
+          "bulk_kinetic_energy": -0.35536381789364435,
+          "internal_energy": 0.14802071317853435,
+          "bulk_plus_internal_particle_energy": 0.0020809561940371155
+        }
+      },
+      "field_input": {
+        "npz": "reference-fluid/decoded/fluid1-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid1-field_300.metadata.json",
+        "npz_sha256": "98d99b62ddb20e3fd5e547dbab2c7d4174643c43fc618ed939fc853a99c47470",
+        "metadata_sha256": "184ce19a2c8b4790b701d502981c8c647eecbbc6ff0d03fc663b6f00c9cd1552",
+        "source_BP_sha256": "ebd6d4b81b4ac798ca1b38b69955a1fdde0266f65acd0a2133b1f7b95b199a53",
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      },
       "status": "compared",
       "PIC_reference_actual_time": 300.0015,
       "time_minus_PIC": -0.0013499999864166057,
@@ -100,11 +238,11 @@
           "conditional_on_unverified_third_diagnostic_normalization": false,
           "full_2D_grid": {
             "relative_L1": 0.024104556633446326,
-            "relative_L2": 0.03972532712860152,
+            "relative_L2": 0.03972532712860101,
             "reference_L1_norm": 307200.00000249123,
-            "reference_L2_norm": 554.5430665710591,
+            "reference_L2_norm": 554.5430665710667,
             "absolute_difference_L1_norm": 7404.919797854762,
-            "absolute_difference_L2_norm": 22.029404726433174,
+            "absolute_difference_L2_norm": 22.02940472643319,
             "RMS_difference": 0.0397458835902919,
             "maximum_absolute_difference": 0.40776515598769547,
             "relative_L1_null_reason": null,
@@ -128,11 +266,11 @@
           "conditional_on_unverified_third_diagnostic_normalization": false,
           "full_2D_grid": {
             "relative_L1": 0.27811770998279595,
-            "relative_L2": 0.283398677743165,
+            "relative_L2": 0.28339867774316513,
             "reference_L1_norm": 10896.453319805272,
             "reference_L2_norm": 45.5850751581403,
             "absolute_difference_L1_norm": 3030.4966442386767,
-            "absolute_difference_L2_norm": 12.91875002463976,
+            "absolute_difference_L2_norm": 12.918750024639765,
             "RMS_difference": 0.023308261888497654,
             "maximum_absolute_difference": 0.2619777001106959,
             "relative_L1_null_reason": null,
@@ -156,11 +294,11 @@
           "conditional_on_unverified_third_diagnostic_normalization": false,
           "full_2D_grid": {
             "relative_L1": 0.1697945399115449,
-            "relative_L2": 0.36357148215031226,
+            "relative_L2": 0.36357148215031243,
             "reference_L1_norm": 3995.8161355221055,
-            "reference_L2_norm": 7.652390517882605,
+            "reference_L2_norm": 7.652390517882602,
             "absolute_difference_L1_norm": 678.4677623021032,
-            "absolute_difference_L2_norm": 2.782190962579574,
+            "absolute_difference_L2_norm": 2.7821909625795747,
             "RMS_difference": 0.005019683441194566,
             "maximum_absolute_difference": 0.07654478783598377,
             "relative_L1_null_reason": null,
@@ -186,9 +324,9 @@
             "relative_L1": 0.16166078870430506,
             "relative_L2": 0.3457740173389512,
             "reference_L1_norm": 4100.876173277948,
-            "reference_L2_norm": 7.901337514554108,
+            "reference_L2_norm": 7.901337514554107,
             "absolute_difference_L1_norm": 662.9508765508053,
-            "absolute_difference_L2_norm": 2.7320772147583376,
+            "absolute_difference_L2_norm": 2.732077214758337,
             "RMS_difference": 0.004929267235586153,
             "maximum_absolute_difference": 0.08207222230651506,
             "relative_L1_null_reason": null,
@@ -319,6 +457,187 @@
           "qCSxxx_contribution_vs_tagged_PIC"
         ]
       },
+      "particle_moment_diagnostics": {
+        "frame30_or_source_final": {
+          "actual_time": 300.0499847996274,
+          "frame": 30,
+          "integrals": {
+            "cell_area": 0.010000000000000002,
+            "per_population": [
+              {
+                "mass": 1535.9999999999998,
+                "momentum_xyz": [
+                  -0.0019859938709951884,
+                  -0.0012499069104244045,
+                  0.00044786111309168025
+                ],
+                "bulk_kinetic_energy": 8.208641118448298,
+                "internal_energy": 32.892521727322105,
+                "bulk_plus_internal_particle_energy": 41.1011628457704
+              },
+              {
+                "mass": 1536.000000000001,
+                "momentum_xyz": [
+                  0.002226016462668478,
+                  0.0011266333803538866,
+                  -0.0005559078366129615
+                ],
+                "bulk_kinetic_energy": 7.852663490012635,
+                "internal_energy": 32.64179363824974,
+                "bulk_plus_internal_particle_energy": 40.494457128262376
+              }
+            ],
+            "sum_of_population_bulk_kinetic_energy": 16.061304608460933,
+            "sum_of_population_internal_energy": 65.53431536557184,
+            "aggregate": {
+              "mass": 3072.0000000000005,
+              "momentum_xyz": [
+                0.00024002259164124226,
+                -0.00012327353007329997,
+                -0.00010804672358253252
+              ],
+              "bulk_kinetic_energy": 15.06860240720034,
+              "internal_energy": 66.52701756683243,
+              "bulk_plus_internal_particle_energy": 81.59561997403277
+            },
+            "scope": "Complete-grid conserved particle moments only. Aggregate internal energy includes relative population drift; it differs from the sum of population internal energies. Electromagnetic energy, boundary/numerical budgets and an exact conservation assertion are not supplied."
+          }
+        },
+        "frame0": {
+          "actual_time": 0.0,
+          "frame": 0,
+          "inputs": [
+            {
+              "npz": "data/raw/revision/fluid2-electrons1_0.npz",
+              "base": "project",
+              "npz_sha256": "63414989c93e5b5f3376188498fd2b65515729d83bab8816353b3ad43aeb966b",
+              "metadata": "data/raw/revision/fluid2-electrons1_0.metadata.json",
+              "metadata_sha256": "38248c5dfb7f97098b01ca2053899ff215cac342dc209fa490959e229c993beb",
+              "source_BP_sha256": "3f63e7137d31efac2f5d281e6d7a13d6c7718dc8247bfada9a5fc82b00283254",
+              "conformance": {
+                "label": "archived_two_fluid initial",
+                "shape": [
+                  640,
+                  480,
+                  10
+                ],
+                "nonfinite_count": 0,
+                "no_clipping_or_regularization": true,
+                "violations": [],
+                "minimum_density": 0.030000000000013148,
+                "minimum_pressure_diagonal": 0.00037499732427016434,
+                "minimum_pressure_eigenvalue": 0.00037499732427016434,
+                "passed": true
+              }
+            },
+            {
+              "npz": "data/raw/revision/fluid2-electrons2_0.npz",
+              "base": "project",
+              "npz_sha256": "9ea5d9984fea84df407f8d321543bac0cf1238de411fa9d36a68b53526b87901",
+              "metadata": "data/raw/revision/fluid2-electrons2_0.metadata.json",
+              "metadata_sha256": "8afc1b0e1c99a193a152dbac2299801b39a0f1675b115a7b206fc6deb02c22b2",
+              "source_BP_sha256": "47e5e266be22a293739a197bed4f37c01889fdc6e50e1af6f930fc3f71f5324c",
+              "conformance": {
+                "label": "archived_two_fluid initial",
+                "shape": [
+                  640,
+                  480,
+                  10
+                ],
+                "nonfinite_count": 0,
+                "no_clipping_or_regularization": true,
+                "violations": [],
+                "minimum_density": 0.030000000000023896,
+                "minimum_pressure_diagonal": 0.0003749973242702987,
+                "minimum_pressure_eigenvalue": 0.0003749973242702987,
+                "passed": true
+              }
+            }
+          ],
+          "aggregate_conformance": {
+            "label": "archived_two_fluid initial aggregate",
+            "shape": [
+              640,
+              480,
+              10
+            ],
+            "nonfinite_count": 0,
+            "no_clipping_or_regularization": true,
+            "violations": [],
+            "minimum_density": 0.9999999999999999,
+            "minimum_pressure_diagonal": 0.012499910808999898,
+            "minimum_pressure_eigenvalue": 0.012499910808999898,
+            "passed": true
+          },
+          "integrals": {
+            "cell_area": 0.010000000000000002,
+            "per_population": [
+              {
+                "mass": 1535.9999999999998,
+                "momentum_xyz": [
+                  4.255508985210829e-15,
+                  0.0,
+                  0.000732506848298401
+                ],
+                "bulk_kinetic_energy": 11.758557729191677,
+                "internal_energy": 28.799794503935992,
+                "bulk_plus_internal_particle_energy": 40.55835223312767
+              },
+              {
+                "mass": 1536.000000000001,
+                "momentum_xyz": [
+                  6.394289568042006e-15,
+                  0.0,
+                  0.0007325068482923078
+                ],
+                "bulk_kinetic_energy": 11.758557729191672,
+                "internal_energy": 28.79979450393602,
+                "bulk_plus_internal_particle_energy": 40.55835223312769
+              }
+            ],
+            "sum_of_population_bulk_kinetic_energy": 23.51711545838335,
+            "sum_of_population_internal_energy": 57.59958900787201,
+            "aggregate": {
+              "mass": 3072.0000000000005,
+              "momentum_xyz": [
+                1.2785107754479916e-14,
+                0.0,
+                0.0014650136965887672
+              ],
+              "bulk_kinetic_energy": 23.517115458383355,
+              "internal_energy": 57.599589007872,
+              "bulk_plus_internal_particle_energy": 81.11670446625536
+            },
+            "scope": "Complete-grid conserved particle moments only. Aggregate internal energy includes relative population drift; it differs from the sum of population internal energies. Electromagnetic energy, boundary/numerical budgets and an exact conservation assertion are not supplied."
+          }
+        },
+        "aggregate_final_minus_initial": {
+          "mass": 0.0,
+          "momentum_xyz": [
+            0.00024002259162845716,
+            -0.00012327353007329997,
+            -0.0015730604201712997
+          ],
+          "bulk_kinetic_energy": -8.448513051183015,
+          "internal_energy": 8.927428558960429,
+          "bulk_plus_internal_particle_energy": 0.47891550777741543
+        },
+        "aggregate_fractional_change": {
+          "mass": 0.0,
+          "bulk_kinetic_energy": -0.3592495459799811,
+          "internal_energy": 0.15499118505412146,
+          "bulk_plus_internal_particle_energy": 0.005904030630049139
+        }
+      },
+      "field_input": {
+        "npz": "reference-fluid/decoded/fluid2-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid2-field_300.metadata.json",
+        "npz_sha256": "65df707a1b4cb02fc262e411b8504363d0f5eda2b3d09731b31ebf252ff070f8",
+        "metadata_sha256": "728fd18b720efc0dd17c80b46930b2a00826e1c71adcee96f88fff55f27f7c23",
+        "source_BP_sha256": "0fa4bf1317cfd89467cd63ae4877f3f4dfc097ddd1152062185e8a3baa764bef",
+        "actual_time": 300.0499847996274,
+        "frame": 30
+      },
       "status": "compared",
       "PIC_reference_actual_time": 300.0015,
       "time_minus_PIC": 0.048484799627374287,
@@ -330,11 +649,11 @@
           "conditional_on_unverified_third_diagnostic_normalization": false,
           "full_2D_grid": {
             "relative_L1": 0.019393642926912657,
-            "relative_L2": 0.02647536254839511,
+            "relative_L2": 0.026475362548394724,
             "reference_L1_norm": 307200.00000249123,
-            "reference_L2_norm": 554.5430665710591,
+            "reference_L2_norm": 554.5430665710667,
             "absolute_difference_L1_norm": 5957.727107195882,
-            "absolute_difference_L2_norm": 14.681728736167592,
+            "absolute_difference_L2_norm": 14.681728736167582,
             "RMS_difference": 0.026489062618735706,
             "maximum_absolute_difference": 0.22997556289893373,
             "relative_L1_null_reason": null,
@@ -358,11 +677,11 @@
           "conditional_on_unverified_third_diagnostic_normalization": false,
           "full_2D_grid": {
             "relative_L1": 0.23617783084693253,
-            "relative_L2": 0.2173649037026472,
+            "relative_L2": 0.2173649037026471,
             "reference_L1_norm": 10896.453319805272,
             "reference_L2_norm": 45.5850751581403,
             "absolute_difference_L1_norm": 2573.500708996466,
-            "absolute_difference_L2_norm": 9.9085954720271,
+            "absolute_difference_L2_norm": 9.908595472027097,
             "RMS_difference": 0.017877282072081106,
             "maximum_absolute_difference": 0.1785787875714243,
             "relative_L1_null_reason": null,
@@ -386,9 +705,9 @@
           "conditional_on_unverified_third_diagnostic_normalization": false,
           "full_2D_grid": {
             "relative_L1": 0.17385589748994942,
-            "relative_L2": 0.34260713314108093,
+            "relative_L2": 0.34260713314108104,
             "reference_L1_norm": 3995.8161355221055,
-            "reference_L2_norm": 7.652390517882605,
+            "reference_L2_norm": 7.652390517882602,
             "absolute_difference_L1_norm": 694.696200446017,
             "absolute_difference_L2_norm": 2.621763577007751,
             "RMS_difference": 0.004730237209178066,
@@ -416,9 +735,9 @@
             "relative_L1": 0.15890771329254214,
             "relative_L2": 0.31522256590760744,
             "reference_L1_norm": 4100.876173277948,
-            "reference_L2_norm": 7.901337514554108,
+            "reference_L2_norm": 7.901337514554107,
             "absolute_difference_L1_norm": 651.6608551914694,
-            "absolute_difference_L2_norm": 2.4906798854397834,
+            "absolute_difference_L2_norm": 2.490679885439783,
             "RMS_difference": 0.004493733444762015,
             "maximum_absolute_difference": 0.03949532382522111,
             "relative_L1_null_reason": null,
@@ -442,11 +761,11 @@
           "conditional_on_unverified_third_diagnostic_normalization": true,
           "full_2D_grid": {
             "relative_L1": 1.0272297821639118,
-            "relative_L2": 1.036487040596751,
+            "relative_L2": 1.0364870405967517,
             "reference_L1_norm": 86.76989890327263,
-            "reference_L2_norm": 0.44759833928281745,
+            "reference_L2_norm": 0.4475983392828176,
             "absolute_difference_L1_norm": 89.1326243487934,
-            "absolute_difference_L2_norm": 0.46392987805926794,
+            "absolute_difference_L2_norm": 0.4639298780592684,
             "RMS_difference": 0.0008370313749457145,
             "maximum_absolute_difference": 0.011317147928317667,
             "relative_L1_null_reason": null,
@@ -470,11 +789,11 @@
           "conditional_on_unverified_third_diagnostic_normalization": false,
           "full_2D_grid": {
             "relative_L1": 1.3064150531999918,
-            "relative_L2": 1.1885970739287621,
+            "relative_L2": 1.1885970739287421,
             "reference_L1_norm": 45.753711546597586,
-            "reference_L2_norm": 0.3831609870494583,
+            "reference_L2_norm": 0.38316098704945845,
             "absolute_difference_L1_norm": 59.77333750424536,
-            "absolute_difference_L2_norm": 0.45542402805064247,
+            "absolute_difference_L2_norm": 0.455424028050635,
             "RMS_difference": 0.0008216849537201941,
             "maximum_absolute_difference": 0.011197207964374874,
             "relative_L1_null_reason": null,
@@ -498,6 +817,7 @@
     }
   ],
   "paired_effects": [],
+  "clean_unmatched_vs_archived_source": [],
   "failures": [],
   "PIC_reference": {
     "metadata": "data/derived/pic-moment-export.json",

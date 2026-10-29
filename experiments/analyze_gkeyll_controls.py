@@ -158,6 +158,25 @@ def cs_contribution(populations: list[np.ndarray], aggregate: np.ndarray, *, exa
     return q
 
 
+def integrated_particle_moments(populations: list[np.ndarray], cell_area: float) -> dict:
+    """Particle-moment diagnostics, not electromagnetic total-energy budgets."""
+    def one(state):
+        rho, momentum = state[..., 0], state[..., 1:4]
+        require(np.isfinite(state).all() and np.all(rho > 0), "Invalid integrated-moment state")
+        bulk = float(.5 * cell_area * np.sum(np.sum(momentum * momentum, axis=-1) / rho, dtype=np.float64))
+        total = float(.5 * cell_area * np.sum(state[..., 4] + state[..., 7] + state[..., 9], dtype=np.float64))
+        return {"mass": float(cell_area * np.sum(rho, dtype=np.float64)),
+                "momentum_xyz": (cell_area * np.sum(momentum, axis=(0, 1), dtype=np.float64)).tolist(),
+                "bulk_kinetic_energy": bulk, "internal_energy": total - bulk,
+                "bulk_plus_internal_particle_energy": total}
+    per_population = [one(state) for state in populations]
+    return {"cell_area": cell_area, "per_population": per_population,
+            "sum_of_population_bulk_kinetic_energy": sum(p["bulk_kinetic_energy"] for p in per_population),
+            "sum_of_population_internal_energy": sum(p["internal_energy"] for p in per_population),
+            "aggregate": one(sum(populations)),
+            "scope": "Complete-grid conserved particle moments only. Aggregate internal energy includes relative population drift; it differs from the sum of population internal energies. Electromagnetic energy, boundary/numerical budgets and an exact conservation assertion are not supplied."}
+
+
 def diagnostic_tag_pressure(state: np.ndarray, label: str) -> tuple[np.ndarray, dict]:
     """Retain, rather than repair, nonphysical covariance in archived diagnostics.
 
@@ -277,16 +296,34 @@ def load_pic(config: dict, project: Path, cache: Path) -> tuple[dict, dict, dict
     return fields, provenance, meta["grid"]
 
 
-def load_case(case: dict, project: Path, cache: Path, grid: dict) -> tuple[dict, dict]:
+def load_case(case: dict, project: Path, cache: Path, grid: dict) -> tuple[dict, dict, dict]:
     populations, inputs, conformances, times, frames = [], [], [], [], []
     require(case["population_count"] in (1, 2), "Expected one or two populations")
     require(len(case["moment_exports"]) == case["population_count"], "Population count differs from moment exports")
     reference_pins = load_json(relative_path(project, case["archive_reference_provenance"]))["reference_snapshots"] if case["kind"] == "archived_source" else []
+    completion = None
+    if case["kind"] == "solver_control":
+        require(case.get("execution_status") == "completed_native_stop", "Enabled solver control must declare completed-native-stop execution")
+        require(case.get("role") in {"baseline", "matched"}, "Unknown solver-control intervention role")
+        require(bool(case.get("completion_receipt")), "Solver-control inputs require the read-only collector's completed regular30 receipt")
+        completion_path = relative_path(cache, case["completion_receipt"])
+        completion = load_json(completion_path)
+        require(completion["status"] == "completed_native_stop" and completion["all_decoding_checks_passed"]
+                and completion["source_comparison_is_regular_frame30"] and completion["frame"] == 30,
+                "Solver-control completion/regular30 receipt does not pass")
+        expected_native_case = str(case["population_count"]) + "-fluid-" + ("unmatched" if case["role"] == "baseline" else "aggregate-matched")
+        require(completion["case"] == expected_native_case, "Completed native case differs from declared intervention role/population count")
+        expected_case_id = case["role"] + ("_one_fluid" if case["population_count"] == 1 else "_two_fluid")
+        require(case["id"] == expected_case_id, "Solver-control case ID differs from its declared intervention role/population count")
     for entry in case["moment_exports"]:
         archive_binding = None
         npz_path, metadata_path = relative_path(cache, entry["npz"]), relative_path(cache, entry["metadata"])
         metadata = load_json(metadata_path)
         require(sha256(npz_path) == metadata["numeric_export_sha256"], "Decoded NPZ SHA-256 differs from reader metadata")
+        if completion is not None:
+            pin = next(p for p in completion["exports"] if p["npz"] == entry["npz"] and p["metadata"] == entry["metadata"])
+            require(pin["source_sha256"] == metadata["source_sha256"] and pin["numeric_export_sha256"] == metadata["numeric_export_sha256"]
+                    and pin["metadata_sha256"] == sha256(metadata_path), "Control decoded inputs differ from completed-case receipt")
         if reference_pins:
             pin = next(p for p in reference_pins if p["local_filename"] == metadata["source_filename"])
             require(pin["sha256"] == metadata["source_sha256"] and pin["numeric_export_sha256"] == metadata["numeric_export_sha256"], "Archived source export is not bound to reference provenance")
@@ -303,6 +340,8 @@ def load_case(case: dict, project: Path, cache: Path, grid: dict) -> tuple[dict,
             time, frame = float(z["time"].item()), int(z["frame"].item())
         require(np.isfinite(time) and time >= 0 and frame >= 0, "Invalid actual snapshot time/frame")
         require(time == metadata["time"] and frame == metadata["frame"], "NPZ timing differs from reader metadata")
+        if completion is not None:
+            require(time == completion["actual_time"] and frame == 30, "Control output differs from completed regular30 timing")
         _, conformance = moments(state, metadata["source_filename"])
         populations.append(state)
         times.append(time); frames.append(frame); conformances.append(conformance)
@@ -326,10 +365,80 @@ def load_case(case: dict, project: Path, cache: Path, grid: dict) -> tuple[dict,
                   "same_contribution_two_distinct_reference_targets": [QNAME, QTAGNAME]}
     else:
         qscope = {"status": "omitted_for_one_population", "scope": "The single-population counter-streaming contribution is identically zero; this does not assert zero full heat flux under a finite local-divergence closure."}
-    return fields, {"id": case["id"], "kind": case["kind"], "role": case.get("role"), "population_count": len(populations),
+    case_report = {"id": case["id"], "kind": case["kind"], "role": case.get("role"), "population_count": len(populations),
                     "actual_time": times[0], "frame": frames[0], "inputs": inputs,
                     "population_conformance": conformances, "aggregate_conformance": aggregate_conformance,
                     "qCS_scope": qscope}
+    if completion is not None:
+        case_report.update(runtime_context=completion["runtime_context"],
+                           completed_case_receipt={"path": case["completion_receipt"], "sha256": sha256(completion_path),
+                                                   "source_run_receipt_sha256": completion["source_run_receipt_sha256"]})
+    diagnostic = {"frame30_or_source_final": {"actual_time": times[0], "frame": frames[0],
+                  "integrals": integrated_particle_moments(populations, float(np.prod(grid["spacing_x_y"])))} }
+    if case.get("initial_moment_exports"):
+        initial_states, initial_inputs = [], []
+        initial_pins = load_json(relative_path(project, case["archive_initial_provenance"]))["decoded_numeric_exports"] if case["kind"] == "archived_source" else []
+        require(len(case["initial_moment_exports"]) == case["population_count"], "Initial population count differs")
+        for entry in case["initial_moment_exports"]:
+            base = project if entry.get("base") == "project" else cache
+            npz_path, metadata_path = relative_path(base, entry["npz"]), relative_path(base, entry["metadata"])
+            metadata = load_json(metadata_path)
+            require(sha256(npz_path) == metadata["numeric_export_sha256"], "Initial numeric export SHA differs")
+            attrs = metadata["attribute_values"]
+            require(attrs["numCells"] == list(reversed(grid["shape_y_x"])) and attrs["lowerBounds"] == [grid["bounds_x"][0], grid["bounds_y"][0]]
+                    and attrs["upperBounds"] == [grid["bounds_x"][1], grid["bounds_y"][1]] and attrs["mass"] == 1 and attrs["charge"] == -1,
+                    "Initial grid/normalization differs")
+            require(attrs["polyOrder"] == 0 and attrs["lowerGhost"] == attrs["upperGhost"] == 0, "Unexpected initial basis/ghosts")
+            if completion is not None:
+                pin = next(p for p in completion["initial_exports"] if p["npz"] == entry["npz"] and p["metadata"] == entry["metadata"])
+                require(pin["source_sha256"] == metadata["source_sha256"] and pin["numeric_export_sha256"] == metadata["numeric_export_sha256"]
+                        and pin["metadata_sha256"] == sha256(metadata_path), "Initial export differs from completed receipt")
+            if initial_pins:
+                pin = next(p for p in initial_pins if p["file"] == metadata["source_filename"])
+                require(pin["bp_sha256"] == metadata["source_sha256"] and pin["numeric_export_sha256"] == metadata["numeric_export_sha256"], "Archived initial pin differs")
+            with np.load(npz_path, allow_pickle=False) as z:
+                require(float(z["time"].item()) == 0 and int(z["frame"].item()) == 0, "Initial export is not native time0/frame0")
+                initial = np.asarray(z["CartGridField"], dtype=np.float64).transpose(1, 0, 2)
+            require(initial.shape == tuple(grid["shape_y_x"]) + (10,), "Initial state shape differs")
+            _, conformance = moments(initial, case["id"] + " initial")
+            initial_states.append(initial)
+            initial_inputs.append({"npz": entry["npz"], "base": entry.get("base", "cache"), "npz_sha256": metadata["numeric_export_sha256"],
+                                   "metadata": entry["metadata"], "metadata_sha256": sha256(metadata_path),
+                                   "source_BP_sha256": metadata["source_sha256"], "conformance": conformance})
+        _, initial_aggregate_conformance = moments(sum(initial_states), case["id"] + " initial aggregate")
+        diagnostic["frame0"] = {"actual_time": 0., "frame": 0, "inputs": initial_inputs,
+                                "aggregate_conformance": initial_aggregate_conformance,
+                                "integrals": integrated_particle_moments(initial_states, float(np.prod(grid["spacing_x_y"])))}
+    else:
+        diagnostic["frame0"] = {"status": "not_supplied", "scope": "No initial-to-final drift inferred without actual initial outputs."}
+    if "integrals" in diagnostic["frame0"]:
+        initial, final = diagnostic["frame0"]["integrals"]["aggregate"], diagnostic["frame30_or_source_final"]["integrals"]["aggregate"]
+        diagnostic["aggregate_final_minus_initial"] = {k: (np.asarray(final[k]) - np.asarray(initial[k])).tolist() for k in initial}
+        diagnostic["aggregate_fractional_change"] = {k: ((final[k] - initial[k]) / initial[k] if initial[k] != 0 else None)
+                                                     for k in ("mass", "bulk_kinetic_energy", "internal_energy", "bulk_plus_internal_particle_energy")}
+    case_report["particle_moment_diagnostics"] = diagnostic
+    auxiliary = {}
+    if case.get("field_export"):
+        entry = case["field_export"]
+        npz_path, metadata_path = relative_path(cache, entry["npz"]), relative_path(cache, entry["metadata"])
+        metadata = load_json(metadata_path)
+        require(sha256(npz_path) == metadata["numeric_export_sha256"], "Field export SHA differs")
+        if completion is not None:
+            pin = next(p for p in completion["exports"] if p["npz"] == entry["npz"] and p["metadata"] == entry["metadata"])
+            require(pin["source_sha256"] == metadata["source_sha256"] and pin["numeric_export_sha256"] == metadata["numeric_export_sha256"]
+                    and pin["metadata_sha256"] == sha256(metadata_path), "Field export differs from completed receipt")
+        if reference_pins:
+            pin = next(p for p in reference_pins if p["local_filename"] == metadata["source_filename"])
+            require(pin["sha256"] == metadata["source_sha256"] and pin["numeric_export_sha256"] == metadata["numeric_export_sha256"], "Archived field export differs from provenance")
+        with np.load(npz_path, allow_pickle=False) as z:
+            require(float(z["time"].item()) == times[0] and int(z["frame"].item()) == frames[0], "Field/moment native time/frame differs")
+            field = np.asarray(z["CartGridField"], dtype=np.float64).transpose(1, 0, 2)
+        require(field.shape == tuple(grid["shape_y_x"]) + (8,) and np.isfinite(field).all(), "Expected finite all-eight-component field array")
+        auxiliary["all_eight_fields"] = field
+        case_report["field_input"] = {"npz": entry["npz"], "metadata": entry["metadata"], "npz_sha256": metadata["numeric_export_sha256"],
+                                      "metadata_sha256": sha256(metadata_path), "source_BP_sha256": metadata["source_sha256"],
+                                      "actual_time": times[0], "frame": frames[0]}
+    return fields, case_report, auxiliary
 
 
 def paired_effects(pair: dict, fields: dict, cases: dict) -> dict:
@@ -339,6 +448,10 @@ def paired_effects(pair: dict, fields: dict, cases: dict) -> dict:
                 "reason": "Both actual valid case outputs are required; no result is imputed."}
     baseline, matched = cases[baseline_id], cases[matched_id]
     require(baseline["population_count"] == matched["population_count"], "Paired cases have different population counts")
+    if baseline.get("kind") == "solver_control" or matched.get("kind") == "solver_control":
+        require(baseline.get("kind") == matched.get("kind") == "solver_control" and baseline["runtime_context"] == matched["runtime_context"],
+                "Paired controls have different controller/research revision/executable/runtime/dependency/preparation/init-gate context")
+        require(baseline["role"] == "baseline" and matched["role"] == "matched", "Paired control intervention roles are reversed or undeclared")
     values = {}
     for quantity in sorted(set(fields[baseline_id]) & set(fields[matched_id])):
         values[quantity] = {"error_change_depends_on_unverified_third_diagnostic_normalization": quantity == QNAME,
@@ -360,6 +473,36 @@ def paired_effects(pair: dict, fields: dict, cases: dict) -> dict:
             "time_interpolation_performed": False, "negative_error_change_means_smaller_error": True, "quantities": values}
 
 
+def clean_versus_archive(specification: dict, fields: dict, auxiliary: dict, cases: dict) -> dict:
+    clean_id, archive_id = specification["clean"], specification["archived"]
+    if clean_id not in fields or archive_id not in fields:
+        return {"clean": clean_id, "archived": archive_id, "status": "not_computed",
+                "reason": "Both actual valid clean-unmatched and archived source outputs are required."}
+    clean, archived = cases[clean_id], cases[archive_id]
+    require(clean["kind"] == "solver_control" and clean["role"] == "baseline" and archived["kind"] == "archived_source", "Direct archive comparison has different roles")
+    require(clean["population_count"] == archived["population_count"] and clean["frame"] == archived["frame"] == 30,
+            "Direct comparison requires same population count and native regular frame30")
+    values = {}
+    names = ["rho", "Jz", "Pxx", "Pzz"] + ([QNAME] if QNAME in fields[clean_id] and QNAME in fields[archive_id] else [])
+    for name in names:
+        model, reference = fields[clean_id][name], fields[archive_id][name]
+        values[name] = {"full_2D_grid": error_metrics(model, reference),
+                        "x_averaged_profile": error_metrics(model.mean(axis=1), reference.mean(axis=1)),
+                        "reference": "Archived source fluid output of same population count, not PIC",
+                        "depends_on_third_diagnostic_normalization": False}
+    require("all_eight_fields" in auxiliary[clean_id] and "all_eight_fields" in auxiliary[archive_id], "Direct archive comparison lacks all-eight-component fields")
+    model, reference = auxiliary[clean_id]["all_eight_fields"], auxiliary[archive_id]["all_eight_fields"]
+    return {"clean": clean_id, "archived": archive_id, "status": "computed", "clean_actual_time": clean["actual_time"],
+            "archived_actual_time": archived["actual_time"], "clean_minus_archived_time": clean["actual_time"] - archived["actual_time"],
+            "native_frame": 30, "time_interpolation_performed": False, "moment_quantities": values,
+            "all_eight_stored_field_components": {"full_2D_grid": error_metrics(model, reference),
+                "x_averaged_profile": error_metrics(model.mean(axis=1), reference.mean(axis=1)),
+                "by_stored_component": {str(i): {"full_2D_grid": error_metrics(model[..., i], reference[..., i]),
+                    "x_averaged_profile": error_metrics(model[..., i].mean(axis=1), reference[..., i].mean(axis=1))} for i in range(8)},
+                "scope": "All eight stored components retained; vector norms include every cell/component. Component indices do not assign physical meaning to the final two values."},
+            "scope": "Direct clean-base versus archived dirty-build output agreement at actual available times, not a claim to reproduce the private original executable. qCS is only the population-recentering contribution."}
+
+
 def self_test() -> dict:
     ref = np.array([[1., -1.], [2., -2.]])
     metrics = error_metrics(2 * ref, ref)
@@ -373,6 +516,10 @@ def self_test() -> dict:
         moments(a, "analytic Gaussian population")
         states.append(a)
     require(np.array_equal(cs_contribution(states, sum(states)), np.full((2, 2), -1.5)), "Analytic two-Gaussian third-moment contribution failed")
+    integrals = integrated_particle_moments(states, 1.)
+    require(integrals["aggregate"]["mass"] == 4 and integrals["aggregate"]["bulk_plus_internal_particle_energy"] == 11
+            and integrals["aggregate"]["bulk_kinetic_energy"] == 0 and integrals["sum_of_population_bulk_kinetic_energy"] == 2,
+            "Analytic mass/particle-energy or decomposition check failed")
     exact_vacuum = np.zeros_like(states[0])
     require(np.array_equal(cs_contribution([sum(states), exact_vacuum], sum(states), exact_vacuum_allowed=True), np.zeros((2, 2))), "Exact-vacuum tag contribution was not zero")
     bad_vacuum = exact_vacuum.copy(); bad_vacuum[..., 4] = 1
@@ -396,6 +543,14 @@ def self_test() -> dict:
     change = pair["quantities"]["rho"]["full_2D_grid"]["error_changes_against_same_PIC_reference"]["relative_L2"]
     require(change["matched_minus_baseline_error"] == 1 and change["fractional_change_from_baseline_error"] is None,
             "Paired delta-error sign or zero-baseline null handling failed")
+    direct_fields = {name: {q: (2 * ref if name == "clean" else ref) for q in ("rho", "Jz", "Pxx", "Pzz")} for name in ("clean", "archive")}
+    direct_cases = {"clean": {"kind": "solver_control", "role": "baseline", "population_count": 1, "frame": 30, "actual_time": 300.1},
+                    "archive": {"kind": "archived_source", "population_count": 1, "frame": 30, "actual_time": 300.}}
+    direct_aux = {name: {"all_eight_fields": np.zeros((2, 2, 8))} for name in ("clean", "archive")}
+    direct = clean_versus_archive({"clean": "clean", "archived": "archive"}, direct_fields, direct_aux, direct_cases)
+    require(direct["moment_quantities"]["Jz"]["full_2D_grid"]["relative_L2"] == 1 and
+            direct["all_eight_stored_field_components"]["full_2D_grid"]["relative_L2"] is None,
+            "Direct archive comparison or zero-field denominator check failed")
     private_cache, private_project = Path("G:/Private Cache Redaction Check"), Path("E:/Private Project Redaction Check")
     errors = [FileNotFoundError(2, "missing", str(private_cache / "missing.npz")),
               "Missing " + str(private_cache).replace("\\", "/") + "/missing.npz",
@@ -407,6 +562,8 @@ def self_test() -> dict:
             "exact_vacuum_zero_contribution": True, "inconsistent_vacuum_rejected": True,
             "paired_error_difference_and_zero_baseline_null": True,
             "Windows_repr_and_slash_form_failure_paths_redacted": True,
+            "analytic_integrated_particle_mass_energy_and_decomposition": True,
+            "analytic_direct_archive_comparison_and_zero_field_null": True,
             "negative_pressure_rejected_with_failure_record": True, "scope": "Small analytic pipeline checks, not solver results."}
 
 
@@ -434,8 +591,8 @@ def main() -> int:
                     "x_averaged_profile": "First arithmetic x mean at each y, then one-dimensional L1/L2 errors. These are separate projected diagnostics and may cancel x structure.",
                     "zero_denominator": "Null relative error, with an explicit reason; no epsilon denominator or favorable ROI.",
                     "time": "Actual available output times retained, with offsets; no time interpolation or exact-t=300 substitution."},
-              "cases": [], "paired_effects": [], "failures": []}
-    all_fields = {}
+              "cases": [], "paired_effects": [], "clean_unmatched_vs_archived_source": [], "failures": []}
+    all_fields, all_auxiliary = {}, {}
     try:
         reference, pic, grid = load_pic(config["PIC_reference"], ROOT, args.cache_root)
         report["PIC_reference"] = pic
@@ -449,17 +606,19 @@ def main() -> int:
         print(json.dumps({"status": "failed", "stage": "PIC_reference", "failure_count": 1})); return 1
     for case in config["cases"]:
         if not case.get("enabled", True):
-            report["cases"].append({"id": case["id"], "status": "not_run", "reason": "Disabled; no actual solver output is claimed."})
+            report["cases"].append({"id": case["id"], "status": "not_run", "reason": case.get("pending_reason", "Disabled; no actual solver output is claimed."),
+                                     "execution_status": case.get("execution_status", "not_claimed")})
             continue
         try:
             require(case["kind"] in {"archived_source", "solver_control"}, "Unknown case kind")
-            fields, case_report = load_case(case, ROOT, args.cache_root, grid)
+            fields, case_report, auxiliary = load_case(case, ROOT, args.cache_root, grid)
             case_report.update({"status": "compared", "PIC_reference_actual_time": pic["snapshot"]["TIME"],
                                 "time_minus_PIC": case_report["actual_time"] - pic["snapshot"]["TIME"],
                                 "same_actual_time_as_PIC": case_report["actual_time"] == pic["snapshot"]["TIME"],
                                 "time_interpolation_performed": False, "metrics": compare_fields(fields, reference)})
             report["cases"].append(case_report)
             all_fields[case["id"]] = fields
+            all_auxiliary[case["id"]] = auxiliary
         except Exception as e:
             failure = {"id": case["id"], "status": "failed", "error_type": type(e).__name__,
                        "message": sanitize_error(e, args.cache_root)}
@@ -473,6 +632,13 @@ def main() -> int:
         except Exception as e:
             failure = {"id": pair["id"], "status": "failed", "error_type": type(e).__name__, "message": sanitize_error(e, args.cache_root)}
             report["paired_effects"].append(failure); report["failures"].append(failure)
+    for specification in config.get("direct_archived_comparisons", []):
+        try:
+            report["clean_unmatched_vs_archived_source"].append(clean_versus_archive(specification, all_fields, all_auxiliary, cases))
+        except Exception as e:
+            failure = {"clean": specification["clean"], "archived": specification["archived"], "status": "failed",
+                       "error_type": type(e).__name__, "message": sanitize_error(e, args.cache_root)}
+            report["clean_unmatched_vs_archived_source"].append(failure); report["failures"].append(failure)
     profiles = {"raw_y": grid["bounds_y"][0] + (np.arange(grid["shape_y_x"][0]) + .5) * grid["spacing_x_y"][1]}
     for name, value in reference.items():
         profiles["PIC_" + ("qxxx_CONDITIONAL_raw_third" if name == "qxxx_conditional_raw_third" else name)] = value.mean(axis=1)
@@ -491,7 +657,7 @@ def main() -> int:
     provenance = {"generated_at_utc": report["generated_at_utc"], "script_sha256": report["script_sha256"],
                   "config_sha256": report["config_sha256"], "result_sha256": sha256(args.output),
                   "profile_export_sha256": report["profile_export_sha256"], "PIC_reference": pic,
-                  "case_inputs": [{k: c[k] for k in ("id", "kind", "role", "actual_time", "frame", "inputs") if k in c} for c in report["cases"]],
+                  "case_inputs": [{k: c[k] for k in ("id", "kind", "role", "actual_time", "frame", "inputs", "field_input", "runtime_context", "completed_case_receipt", "execution_status") if k in c} for c in report["cases"]],
                   "all_actual_cases_passed": report["all_actual_cases_passed"], "failure_count": len(report["failures"]),
                   "raw_cache_paths_omitted": True, "simulation_performed_by_this_script": False}
     write_json(args.provenance_output, provenance)

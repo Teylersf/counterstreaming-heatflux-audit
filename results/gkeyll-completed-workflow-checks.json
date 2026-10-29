@@ -1,0 +1,64 @@
+{
+  "checked_at_utc": "2026-10-29T01:16:35.700910+00:00",
+  "scope": "Archived-source decoder compatibility and synthetic completion/label-guard checks only. No evidence of new control completion or new simulation metrics.",
+  "collector_sha256": "c5e79581f96461afcfbec1999d227d32fa5b2e89e7b39ed6349451e06a9f426e",
+  "analyzer_sha256": "f15e637deb99a5492cdf0f85ff1eb248a71c382765cf2cb5fc463929c4743d47",
+  "reader_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+  "synthetic_receipt_guard_checks": {
+    "synthetic_valid_receipt_accepted": true,
+    "seven_invalid_receipt_variants_rejected": true,
+    "scope": "Synthetic guard tests only, not evidence of actual solver completion."
+  },
+  "analytic_analyzer_checks": {
+    "known_norm_scaling": true,
+    "zero_denominator_null": true,
+    "analytic_unequal_temperature_qCS": true,
+    "exact_vacuum_zero_contribution": true,
+    "inconsistent_vacuum_rejected": true,
+    "paired_error_difference_and_zero_baseline_null": true,
+    "Windows_repr_and_slash_form_failure_paths_redacted": true,
+    "analytic_integrated_particle_mass_energy_and_decomposition": true,
+    "analytic_direct_archive_comparison_and_zero_field_null": true,
+    "negative_pressure_rejected_with_failure_record": true,
+    "scope": "Small analytic pipeline checks, not solver results."
+  },
+  "synthetic_intervention_label_checks": {
+    "swapped_intervention": {
+      "rejected": true,
+      "reason": "Completed native case differs from declared intervention role/population count"
+    },
+    "incorrect_case_id": {
+      "rejected": true,
+      "reason": "Solver-control case ID differs from its declared intervention role/population count"
+    },
+    "not_completed_execution": {
+      "rejected": true,
+      "reason": "Enabled solver control must declare completed-native-stop execution"
+    }
+  },
+  "actual_archived_BP_redecode": {
+    "source_filename": "fluid1-electrons1_300.bp",
+    "source_sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+    "numeric_export_sha256": "83c5fbcc2e69b3b84b216ef2a9a0f22633697dc6685685d5b0ba23d5a08d82de",
+    "numeric_export_exactly_matches_existing_reference": true,
+    "metadata_sha256": "4902e545823e515f80b4940802b6706b4b0604067f4138317fcefa54baada318",
+    "actual_time": 300.0001500000136,
+    "frame": 30,
+    "shape": [
+      480,
+      640,
+      10
+    ],
+    "reader": {
+      "adios2": "2.13.0.1001",
+      "numpy": "2.3.5",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+    }
+  },
+  "actual_archived_report_sha256": "1902570865b2b080ca9e5f0afd54f34cc74013a2d2c4c87d6e2dd71fc1f66fab",
+  "actual_archived_cases_passed": 2,
+  "new_control_completion_claimed": false,
+  "all_preparation_checks_passed": true,
+  "private_cache_paths_included": false
+}

@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-10-29T00:39:47.457271+00:00",
-  "script_sha256": "756abb2bdc45c30328c640294f44f5f60b93a2f124ee48aa1bd56d879c1cde3b",
-  "config_sha256": "9db719c1369b71ac79fb32f54c000b7d5ed699c32c88119b5e30b4eda8603bdf",
-  "result_sha256": "af023b1b1e8c23502ec5181dd0fb124baf9efe3287ed7e0676f9fa01ab3ff747",
+  "generated_at_utc": "2026-10-29T01:15:31.408942+00:00",
+  "script_sha256": "f15e637deb99a5492cdf0f85ff1eb248a71c382765cf2cb5fc463929c4743d47",
+  "config_sha256": "206e4b63f082a355bf09aaaf901450240288ce80ac6afb8b231ed83bed0cbac0",
+  "result_sha256": "1902570865b2b080ca9e5f0afd54f34cc74013a2d2c4c87d6e2dd71fc1f66fab",
   "profile_export_sha256": "8b68863221af369d8714c6cc13d144858e795e7c2eb30da8ddb3a0ae093bc2cf",
   "PIC_reference": {
     "metadata": "data/derived/pic-moment-export.json",
@@ -303,7 +303,16 @@
             "archive_size_and_publisher_MD5_verified": true
           }
         }
-      ]
+      ],
+      "field_input": {
+        "npz": "reference-fluid/decoded/fluid1-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid1-field_300.metadata.json",
+        "npz_sha256": "98d99b62ddb20e3fd5e547dbab2c7d4174643c43fc618ed939fc853a99c47470",
+        "metadata_sha256": "184ce19a2c8b4790b701d502981c8c647eecbbc6ff0d03fc663b6f00c9cd1552",
+        "source_BP_sha256": "ebd6d4b81b4ac798ca1b38b69955a1fdde0266f65acd0a2133b1f7b95b199a53",
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      }
     },
     {
       "id": "archived_two_fluid",
@@ -354,7 +363,16 @@
             "archive_size_and_publisher_MD5_verified": true
           }
         }
-      ]
+      ],
+      "field_input": {
+        "npz": "reference-fluid/decoded/fluid2-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid2-field_300.metadata.json",
+        "npz_sha256": "65df707a1b4cb02fc262e411b8504363d0f5eda2b3d09731b31ebf252ff070f8",
+        "metadata_sha256": "728fd18b720efc0dd17c80b46930b2a00826e1c71adcee96f88fff55f27f7c23",
+        "source_BP_sha256": "0fa4bf1317cfd89467cd63ae4877f3f4dfc097ddd1152062185e8a3baa764bef",
+        "actual_time": 300.0499847996274,
+        "frame": 30
+      }
     }
   ],
   "all_actual_cases_passed": true,

@@ -96,20 +96,92 @@ All fluid populations and the aggregate PIC reference pass strict positive
 density and positive-definite pressure tests. Nonfinite/negative fluid states
 are rejected with retained failure reports.
 
-## Four future control cases
+## Read-only completed-control workflow
 
-Copy `gkeyll-control-cases.example.json`, supply the actual decoded NPZ and
-metadata paths in each case's `moment_exports`, and enable only cases that
-exist. A moment export entry is:
+`experiments/collect_completed_gkeyll_cases.py` never launches or controls a
+solver and never writes into a run directory. Run it under Linux/WSL with the
+separately installed optional ADIOS2 reader. The expected hashes below must
+come from the reviewed controller/runtime/dependency/preparation records;
+observing an unreviewed run receipt alone does not authenticate those pins.
+Use explicit local paths for the existing runs, authoritative prepared jobs,
+and a separate ignored/nonpublic decoded cache:
 
-```json
-{"npz":"controls/case-electrons1.npz","metadata":"controls/case-electrons1.metadata.json"}
+```sh
+nice -n 10 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  python experiments/collect_completed_gkeyll_cases.py \
+  --runs-root "$RUNS_ROOT" --jobs-root "$JOBS_ROOT" --cache-root "$CACHE_ROOT" \
+  --expected-controller-sha256 "$CONTROLLER_SHA" \
+  --expected-executable-sha256 "$SOLVER_SHA" \
+  --expected-research-code-revision "$CODE_REVISION" \
+  --expected-runtime-manifest-sha256 "$RUNTIME_SHA" \
+  --expected-dependency-lock-sha256 "$DEPENDENCY_LOCK_SHA"
 ```
 
-Two-population cases need two such entries at the same actual time and frame.
-Use `--case-config`, `--output`, `--provenance-output`, and `--profiles-output`
-to keep new controls separate from the archived-source result. Every pair
-reports matched-minus-baseline fields and errors against the same PIC target,
-with actual time differences. Negative delta-error means smaller error. A zero
-baseline error gives a null fractional change. Missing or rejected runs remain
-explicitly not computed; no effect is imputed from a template or absent file.
+If ADIOS2 lives in an isolated target rather than a virtual environment, set
+that command's `PYTHONPATH` to its site directory. This changes only the
+postprocessor's environment. The collector requires each case's final
+`completed_native_stop` receipt, exit zero, retained native logs without the
+known numerical-failure marker, and the controller's unchanged-after-exit
+regular-frame30 check. It verifies the preparation manifest and actual copied
+inputs, selected raw-file hashes against both stop/final receipts, and decoded
+time/frame across every moment and eight-component field file. Frame0 moment
+files are independently decoded for initial/final integral diagnostics. A
+forced-final or later output is never substituted for regular frame30.
+
+Missing, running, failed, and rejected cases remain explicit. Merely finding
+BP files or reading progress/run-started files cannot enable a case. Numeric
+arrays must be finite and all population/aggregate densities and covariance
+pressures must pass strict positivity tests. The decoder preserves existing
+raw files and refuses conflicting/partial decoded caches; use a fresh cache
+when investigating one. Repeated checks reuse verified completed exports.
+
+The collector writes:
+
+* `results/gkeyll-control-decoding.json`: portable status and sanitized
+  per-case completion/decoding provenance, without private local paths.
+* `data/gkeyll-completed-control-cases.json`: both archived source cases and
+  only actual completed controls enabled. Cache-relative completion receipts
+  bind every enabled control NPZ/metadata input for the analyzer.
+
+Once actual controls have completed, produce their distinct analysis artifacts:
+
+```sh
+nice -n 10 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  python experiments/analyze_gkeyll_controls.py --cache-root "$CACHE_ROOT" \
+  --case-config data/gkeyll-completed-control-cases.json \
+  --output results/gkeyll-control-comparison.json \
+  --provenance-output data/provenance-gkeyll-control-comparison.json \
+  --profiles-output data/derived/gkeyll-control-comparison-profiles.csv
+```
+
+The case IDs are `archived_one_fluid`, `archived_two_fluid`,
+`baseline_one_fluid`, `baseline_two_fluid`, `matched_one_fluid`, and
+`matched_two_fluid`. Every valid case has ordinary moment/PIC errors and
+two-fluid contribution comparisons as qualified above. Each baseline also
+has an explicit direct comparison with its archived source counterpart,
+including complete-grid and x-profile moment/qCS errors and all eight field
+components, both combined and individually. The direct comparison records
+the actual clean-minus-archived time offset at native frame30; it does not
+certify the source's private dirty executable.
+
+Every initialization pair requires identical reviewed runtime context and
+reports matched-minus-baseline fields/errors against the same PIC target,
+with actual time differences. Negative delta-error means smaller error; zero
+baseline error gives null fractional change. Missing/rejected pairs remain
+not computed. The disabled `gkeyll-control-cases.example.json` is a planning
+template; supplying arbitrary arrays without a completed receipt cannot
+create a solver-control result.
+
+## Initial/final particle-moment diagnostics
+
+For every supplied actual frame0/final conserved state, the analyzer integrates
+mass, three momenta, bulk kinetic energy, internal energy, and their sum over
+the full domain with the uniform cell area. In source units,
+bulk energy is the integral of `|momentum|^2/(2*rho)` and the particle-energy
+sum is the integral of `(Mxx+Myy+Mzz)/2`. Internal energy is their difference.
+Per-population and aggregate values are separate: aggregate internal energy
+contains relative population drift. Initial/final differences and fractional
+changes are diagnostics only. Electromagnetic energy and boundary/numerical
+budgets are absent, so these numbers do not assert exact total-energy
+conservation. No initial-to-final change is imputed if initial outputs are
+unavailable.

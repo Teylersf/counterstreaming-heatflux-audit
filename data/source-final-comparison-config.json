@@ -15,6 +15,11 @@
       "role": "source_reference",
       "population_count": 1,
       "archive_reference_provenance": "data/provenance-fluid-reference.json",
+      "archive_initial_provenance": "data/provenance-revision.json",
+      "initial_moment_exports": [
+        {"base":"project","npz":"data/raw/revision/fluid1-electrons1_0.npz","metadata":"data/raw/revision/fluid1-electrons1_0.metadata.json"}
+      ],
+      "field_export": {"npz":"reference-fluid/decoded/fluid1-field_300.npz","metadata":"reference-fluid/decoded/fluid1-field_300.metadata.json"},
       "moment_exports": [
         {"npz": "reference-fluid/decoded/fluid1-electrons1_300.npz", "metadata": "reference-fluid/decoded/fluid1-electrons1_300.metadata.json"}
       ]
@@ -25,6 +30,12 @@
       "role": "source_reference",
       "population_count": 2,
       "archive_reference_provenance": "data/provenance-fluid-reference.json",
+      "archive_initial_provenance": "data/provenance-revision.json",
+      "initial_moment_exports": [
+        {"base":"project","npz":"data/raw/revision/fluid2-electrons1_0.npz","metadata":"data/raw/revision/fluid2-electrons1_0.metadata.json"},
+        {"base":"project","npz":"data/raw/revision/fluid2-electrons2_0.npz","metadata":"data/raw/revision/fluid2-electrons2_0.metadata.json"}
+      ],
+      "field_export": {"npz":"reference-fluid/decoded/fluid2-field_300.npz","metadata":"reference-fluid/decoded/fluid2-field_300.metadata.json"},
       "moment_exports": [
         {"npz": "reference-fluid/decoded/fluid2-electrons1_300.npz", "metadata": "reference-fluid/decoded/fluid2-electrons1_300.metadata.json"},
         {"npz": "reference-fluid/decoded/fluid2-electrons2_300.npz", "metadata": "reference-fluid/decoded/fluid2-electrons2_300.metadata.json"}

@@ -10,14 +10,26 @@ model are compared, the conversion and the target moment convention must be
 stated explicitly. The cold proper-velocity conversion alone is not a proof
 that finite-temperature moments have been matched.
 
-The measured initial mismatch does not determine the sign or size of its
-effect at the reported $t=300\omega_{pe}^{-1}$ snapshot. Reconnection may relax
-some initial differences, amplify others, or preserve the qualitative advantage
-of retaining two populations. A matched-initial-state comparison and resolution
-or relaxation-rate studies are needed to separate those possibilities. We
-therefore do not infer that correcting the drift would eliminate the reported
-single-fluid density deficit, reproduce all PIC heat flux with one fluid, or
-reverse the source's qualitative conclusion.
+The clean one-fluid endpoint contrast establishes a numerical response to
+the aggregate-moment intervention: all four tested endpoint errors decrease.
+It does not establish a physical cause of the source's reconnection differences.
+The intervention replaces the conserved moment vector through second order,
+including sampled spatial variation; it is not confined to the mean current.
+Both one-fluid saved histories have covariance
+failures, the clean unmatched two-fluid endpoint is rejected, and the matched
+two-fluid run fails before producing its comparison endpoint. A smaller
+endpoint error cannot erase those failures or substitute for realizability
+and resolution checks. We therefore do not infer that correcting the drift
+eliminates the reported density deficit, reproduces full PIC heat flux with
+one fluid, or reverses the source's physical conclusion.
+
+The archived one- and two-fluid endpoints remain positive definite under
+the same tensor test. This distinguishes an observed failure of the identified
+clean implementation from a claim about the unavailable dirty executable.
+The finite snapshot archive does not establish that the original intermediate
+trajectory was admissible, either. Identified executable provenance, full-tensor
+state checks and grid-converged controls are needed before transferring the
+numerical endpoint changes into a physical causal statement.
 
 The auxiliary homogeneous stability test supplies a separate calibration.
 Retaining population drift creates the possibility of streaming modes; it
@@ -28,9 +40,10 @@ is isotropic and the relaxation source vanishes at equilibrium. In the stated
 example the resulting growing mode is a false positive relative to the
 collisionless kinetic reference. This is a test of a model's continuum
 response, not evidence that the original simulation visibly contains that mode.
-We have not performed the source-sheet eigenanalysis or a matched-state
-reconnection rerun requested for a causal assessment. The present contribution
-is a diagnostic comment whose nonlinear significance remains undetermined.
+The new clean-source evolutions do not provide a source-sheet eigenanalysis
+or a physically validated, grid-converged matched comparison. This diagnostic
+comment quantifies numerical sensitivity and exposes validation requirements;
+the source's nonlinear physical conclusions are not thereby disproved.
 
 The pressure-source diagnostic should also distinguish a third-moment amplitude
 from its divergence. The scale proxy $p\,d_e/|q|$ used in the source is a useful

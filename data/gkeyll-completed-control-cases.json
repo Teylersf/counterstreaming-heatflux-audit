@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "scope": "Actual archived source and completed regular-frame30 clean-base control outputs only; incomplete/failed executions are explicit. Actual unequal times retained; no interpolation or causal effect imputed from missing pairs.",
+  "PIC_reference": {
+    "metadata": "data/derived/pic-moment-export.json",
+    "full_archive_receipt": "data/full-archive-verification.json",
+    "binary_directory": "pic-export-v2",
+    "filename_frame_token": "000300",
+    "tagged_export_filename": "reference-pic-frame-000300-tagged.npz"
+  },
+  "cases": [
+    {
+      "id": "archived_one_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "population_count": 1,
+      "archive_reference_provenance": "data/provenance-fluid-reference.json",
+      "archive_initial_provenance": "data/provenance-revision.json",
+      "initial_moment_exports": [
+        {
+          "base": "project",
+          "npz": "data/raw/revision/fluid1-electrons1_0.npz",
+          "metadata": "data/raw/revision/fluid1-electrons1_0.metadata.json"
+        }
+      ],
+      "field_export": {
+        "npz": "reference-fluid/decoded/fluid1-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid1-field_300.metadata.json"
+      },
+      "moment_exports": [
+        {
+          "npz": "reference-fluid/decoded/fluid1-electrons1_300.npz",
+          "metadata": "reference-fluid/decoded/fluid1-electrons1_300.metadata.json"
+        }
+      ]
+    },
+    {
+      "id": "archived_two_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "population_count": 2,
+      "archive_reference_provenance": "data/provenance-fluid-reference.json",
+      "archive_initial_provenance": "data/provenance-revision.json",
+      "initial_moment_exports": [
+        {
+          "base": "project",
+          "npz": "data/raw/revision/fluid2-electrons1_0.npz",
+          "metadata": "data/raw/revision/fluid2-electrons1_0.metadata.json"
+        },
+        {
+          "base": "project",
+          "npz": "data/raw/revision/fluid2-electrons2_0.npz",
+          "metadata": "data/raw/revision/fluid2-electrons2_0.metadata.json"
+        }
+      ],
+      "field_export": {
+        "npz": "reference-fluid/decoded/fluid2-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid2-field_300.metadata.json"
+      },
+      "moment_exports": [
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons1_300.npz",
+          "metadata": "reference-fluid/decoded/fluid2-electrons1_300.metadata.json"
+        },
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons2_300.npz",
+          "metadata": "reference-fluid/decoded/fluid2-electrons2_300.metadata.json"
+        }
+      ]
+    },
+    {
+      "id": "baseline_one_fluid",
+      "enabled": true,
+      "kind": "solver_control",
+      "role": "baseline",
+      "population_count": 1,
+      "moment_exports": [
+        {
+          "npz": "controls-decoded/1-fluid-unmatched/case_elc1_30.npz",
+          "metadata": "controls-decoded/1-fluid-unmatched/case_elc1_30.metadata.json"
+        }
+      ],
+      "initial_moment_exports": [
+        {
+          "npz": "controls-decoded/1-fluid-unmatched/case_elc1_0.npz",
+          "metadata": "controls-decoded/1-fluid-unmatched/case_elc1_0.metadata.json"
+        }
+      ],
+      "execution_status": "completed_native_stop",
+      "field_export": {
+        "npz": "controls-decoded/1-fluid-unmatched/case_field_30.npz",
+        "metadata": "controls-decoded/1-fluid-unmatched/case_field_30.metadata.json"
+      },
+      "completion_receipt": "controls-decoded/1-fluid-unmatched/completed-case.json"
+    },
+    {
+      "id": "baseline_two_fluid",
+      "enabled": false,
+      "kind": "solver_control",
+      "role": "baseline",
+      "population_count": 2,
+      "moment_exports": [],
+      "initial_moment_exports": [],
+      "execution_status": "completed_native_rejected",
+      "pending_reason": "Native execution completed, but its state failed strict conformance; no comparison metrics accepted.",
+      "native_execution_status": "completed_native_stop",
+      "source_run_receipt_sha256": "77ba0c7796bc4e340acf27a4e7870c7fc27a117ef83b2be723694ce657775de7",
+      "conformance_failure": {
+        "label": "2-fluid-unmatched case_elc1_30.bp",
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "nonfinite_count": 0,
+        "no_clipping_or_regularization": true,
+        "violations": [
+          "Covariance pressure is not strictly positive definite"
+        ],
+        "minimum_density": 0.027122664766693172,
+        "minimum_pressure_diagonal": 0.0001271898358709356,
+        "minimum_pressure_eigenvalue": -0.0014125968011872057
+      }
+    },
+    {
+      "id": "matched_one_fluid",
+      "enabled": true,
+      "kind": "solver_control",
+      "role": "matched",
+      "population_count": 1,
+      "moment_exports": [
+        {
+          "npz": "controls-decoded/1-fluid-aggregate-matched/case_elc1_30.npz",
+          "metadata": "controls-decoded/1-fluid-aggregate-matched/case_elc1_30.metadata.json"
+        }
+      ],
+      "initial_moment_exports": [
+        {
+          "npz": "controls-decoded/1-fluid-aggregate-matched/case_elc1_0.npz",
+          "metadata": "controls-decoded/1-fluid-aggregate-matched/case_elc1_0.metadata.json"
+        }
+      ],
+      "execution_status": "completed_native_stop",
+      "field_export": {
+        "npz": "controls-decoded/1-fluid-aggregate-matched/case_field_30.npz",
+        "metadata": "controls-decoded/1-fluid-aggregate-matched/case_field_30.metadata.json"
+      },
+      "completion_receipt": "controls-decoded/1-fluid-aggregate-matched/completed-case.json"
+    },
+    {
+      "id": "matched_two_fluid",
+      "enabled": false,
+      "kind": "solver_control",
+      "role": "matched",
+      "population_count": 2,
+      "moment_exports": [],
+      "initial_moment_exports": [],
+      "execution_status": "failed_native_execution",
+      "native_execution_status": "failed",
+      "native_returncode": 1,
+      "source_run_receipt_sha256": "fdaf5bf781a76811e4d5b94e2c2596e2f1b7122f39de014617c0a227a8ed95ab",
+      "last_closed_regular_frame": 22,
+      "last_closed_regular_time": 220.00011000001655,
+      "failure_receipt": "controls-decoded/2-fluid-aggregate-matched/native-execution-failure.json",
+      "failure_receipt_sha256": "d1a8622350d996725010bf59c93cc31b20f0ddab0d13b81296eb49d5fc71e093",
+      "pending_reason": "Native execution failed before a guarded endpoint; no regular30 metric or full31-snapshot history is supplied."
+    }
+  ],
+  "direct_archived_comparisons": [
+    {
+      "clean": "baseline_one_fluid",
+      "archived": "archived_one_fluid"
+    },
+    {
+      "clean": "baseline_two_fluid",
+      "archived": "archived_two_fluid"
+    }
+  ],
+  "pairs": [
+    {
+      "id": "one_fluid_initialization_effect",
+      "baseline": "baseline_one_fluid",
+      "matched": "matched_one_fluid"
+    },
+    {
+      "id": "two_fluid_initialization_effect",
+      "baseline": "baseline_two_fluid",
+      "matched": "matched_two_fluid"
+    }
+  ]
+}

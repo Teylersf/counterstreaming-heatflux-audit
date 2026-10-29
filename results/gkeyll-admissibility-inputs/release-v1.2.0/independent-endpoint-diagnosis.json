@@ -1,0 +1,129 @@
+{
+  "independent_diagnosis_completed": true,
+  "scope": "Second actual clean unmatched baseline; diagnostic characterization only, not successful scientific conformance or a matched-state effect.",
+  "observed_utc": "2026-10-29T02:43:26.912324+00:00",
+  "script_sha256": "9a5360a8f676839f0dc600ac8e46ddef9c158359e0c5a7ea8c6bfd47d1ad6c18",
+  "native_receipt_sha256": "77ba0c7796bc4e340acf27a4e7870c7fc27a117ef83b2be723694ce657775de7",
+  "native_status": "completed_native_stop",
+  "native_returncode": 0,
+  "actual_time": 300.04383248285376,
+  "frame": 30,
+  "inputs": [
+    {
+      "filename": "case_elc1_30.bp",
+      "raw_sha256": "76e26139d5aafae73f08d8f296ca05ca908283509bd87b28134fe03c7f7fd87a",
+      "NPZ_sha256": "52e89c21b36cba7fd7c57385f285dfd3cd3645a8b83b6a3bbdc5420b72cb3bff"
+    },
+    {
+      "filename": "case_elc2_30.bp",
+      "raw_sha256": "50b298f6efa22d992684b21d5f51c687735aec41d2486a4e52a3c7f51b84a340",
+      "NPZ_sha256": "134ee082c08eeba4ea6d6e424b71df62ea5a26a970403a6bfc694a67746e5a81"
+    },
+    {
+      "filename": "case_field_30.bp",
+      "raw_sha256": "b0954dbce9ca71e368bb3d2656b3622dc6fc72432eaa07ad756702c78170fb52",
+      "NPZ_sha256": "efa5dc09b0fd03cf86cb4a15320e4a194f201a965f15e419806ce3cdd1122ed2"
+    }
+  ],
+  "pressure_checks": {
+    "population1": {
+      "all_values_finite": true,
+      "minimum_density": 0.027122664766693172,
+      "minimum_pressure_diagonal": 0.0001271898358709356,
+      "minimum_pressure_eigenvalue": -0.001412596801187202,
+      "negative_eigenvalue_cell_count": 16,
+      "eigenvalue_below_minus_1e_12_cell_count": 16,
+      "strict_positive_definite": false,
+      "worst_native_x_y_indices": [
+        324,
+        136
+      ],
+      "worst_cell_center_x_y": [
+        8.450000000000003,
+        -18.35
+      ],
+      "worst_conserved_vector": [
+        0.1132767556884321,
+        0.026763363650815112,
+        -0.006554183427233498,
+        0.02066113009372145,
+        0.00937796772716382,
+        -0.003708697797455535,
+        0.0017751312679368243,
+        0.0065089326834402795,
+        -0.001770674660816388,
+        0.005180045487363191
+      ],
+      "worst_density": 0.1132767556884321,
+      "worst_velocity": [
+        0.23626527338431008,
+        -0.057859914749507746,
+        0.18239514336506885
+      ],
+      "worst_pressure_matrix": [
+        [
+          0.00305471429752028,
+          -0.0021601718582092986,
+          -0.0031063762820850702
+        ],
+        [
+          -0.0021601718582092986,
+          0.006129708189087913,
+          -0.000575223434965176
+        ],
+        [
+          -0.0031063762820850702,
+          -0.000575223434965176,
+          0.0014115557018345285
+        ]
+      ],
+      "worst_eigenvalues": [
+        -0.0014125968011872052,
+        0.0045738467961512225,
+        0.007434728193478702
+      ],
+      "worst_minimum_eigenvector": [
+        -0.6292251301260394,
+        -0.2366754839618317,
+        -0.740311050106171
+      ],
+      "worst_Rayleigh_quotient": -0.0014125968011872055,
+      "worst_principal_2x2_minors": {
+        "xy": 1.4058164787834579e-05,
+        "xz": -5.337674221760456e-06,
+        "yz": 8.32154254475571e-06
+      },
+      "worst_explicit_3x3_determinant": -4.8035788919956144e-08,
+      "worst_numpy_determinant": -4.803578891995603e-08,
+      "no_clipping_smoothing_or_gate_relaxation": true
+    },
+    "population2": {
+      "all_values_finite": true,
+      "minimum_density": 0.02707961649504798,
+      "minimum_pressure_diagonal": 0.00026548625815576114,
+      "minimum_pressure_eigenvalue": 0.00023020078107684986,
+      "negative_eigenvalue_cell_count": 0,
+      "eigenvalue_below_minus_1e_12_cell_count": 0,
+      "strict_positive_definite": true,
+      "no_clipping_smoothing_or_gate_relaxation": true
+    },
+    "aggregate": {
+      "all_values_finite": true,
+      "minimum_density": 0.8891678305909523,
+      "minimum_pressure_diagonal": 0.008283477203413506,
+      "minimum_pressure_eigenvalue": 0.008171737389142265,
+      "negative_eigenvalue_cell_count": 0,
+      "eigenvalue_below_minus_1e_12_cell_count": 0,
+      "strict_positive_definite": true,
+      "no_clipping_smoothing_or_gate_relaxation": true
+    }
+  },
+  "all_population_pressure_conformance_passed": false,
+  "aggregate_pressure_conformance_passed": true,
+  "no_analyzer_helper_imported": true,
+  "solver_or_raw_input_changed": false,
+  "conformance_gate_relaxed": false,
+  "source_full_record_sha256": "9d9740467e6f680a0fae37bfeb41ad8a020af16488b6417eb4fa94b2d3d2366c",
+  "public_exporter_script_sha256": "457dcbc79005dbc91d03bd4b270eb83bfad02eed8896ae387ffe2e3f449217bb",
+  "public_export_scope": "Selected portable metadata; only the single endpoint witness and small invalid-index/eigenvalue list retain physical arrays. Full source record hash is preserved."
+}

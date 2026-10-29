@@ -510,13 +510,22 @@ def disabled_case_record(case: dict) -> dict:
     status = {"completed_native_rejected": "rejected_state_conformance",
               "running_without_completed_receipt": "pending_native_completion",
               "not_started": "not_attempted",
+              "failed_native_execution": "failed_native_execution",
               "failed_validation_or_execution": "unavailable_validation_or_execution_failure"}.get(execution, "not_run")
     result = {"id": case["id"], "status": status, "execution_status": execution, "metrics_accepted": False,
+              "endpoint_metrics_eligible":False if execution in {"completed_native_rejected","failed_native_execution","failed_validation_or_execution"} else None,
               "reason": case.get("pending_reason", "Disabled; no actual solver output is claimed.")}
     if execution == "completed_native_rejected":
         result.update(native_execution_status=case["native_execution_status"], native_execution_completed=True,
+                      native_outcome_terminal=True,
                       source_run_receipt_sha256=case["source_run_receipt_sha256"], conformance_failure=case["conformance_failure"],
                       comparison_scope="Completed native outcome rejected; no comparison metrics accepted.")
+    if execution == "failed_native_execution":
+        result.update(native_execution_status=case["native_execution_status"],native_outcome_terminal=True,native_execution_successful=False,
+                      native_returncode=case["native_returncode"],source_run_receipt_sha256=case["source_run_receipt_sha256"],
+                      last_closed_regular_frame=case["last_closed_regular_frame"],last_closed_regular_time=case["last_closed_regular_time"],
+                      failure_receipt={"path":case["failure_receipt"],"sha256":case["failure_receipt_sha256"]},
+                      comparison_scope="Terminal native failure; no guarded regular30 endpoint or comparison metric is supplied. Last saved time is not the exact abort time.")
     return result
 
 
@@ -574,6 +583,11 @@ def self_test() -> dict:
             and disabled_case_record({"id":"pending","execution_status":"running_without_completed_receipt"})["status"] == "pending_native_completion"
             and disabled_case_record({"id":"unattempted","execution_status":"not_started"})["status"] == "not_attempted",
             "Completed rejection, pending execution and unattempted case labels were conflated")
+    failed={"id":"analytic_native_failure","execution_status":"failed_native_execution","native_execution_status":"failed","native_returncode":1,
+            "source_run_receipt_sha256":"synthetic","last_closed_regular_frame":22,"last_closed_regular_time":220.,
+            "failure_receipt":"synthetic/native-execution-failure.json","failure_receipt_sha256":"synthetic"}
+    require(disabled_case_record(failed)["status"] == "failed_native_execution" and "metrics" not in disabled_case_record(failed)
+            and disabled_case_record(failed)["endpoint_metrics_eligible"] is False,"Native failure was conflated with unattempted run or accepted metrics")
     private_cache, private_project = Path("G:/Private Cache Redaction Check"), Path("E:/Private Project Redaction Check")
     errors = [FileNotFoundError(2, "missing", str(private_cache / "missing.npz")),
               "Missing " + str(private_cache).replace("\\", "/") + "/missing.npz",
@@ -588,6 +602,7 @@ def self_test() -> dict:
             "analytic_integrated_particle_mass_energy_and_decomposition": True,
             "analytic_direct_archive_comparison_and_zero_field_null": True,
             "rejection_pending_and_unattempted_labels_distinct": True,
+            "terminal_native_failure_has_no_endpoint_metrics": True,
             "negative_pressure_rejected_with_failure_record": True, "scope": "Small analytic pipeline checks, not solver results."}
 
 
@@ -636,6 +651,7 @@ def main() -> int:
             require(case["kind"] in {"archived_source", "solver_control"}, "Unknown case kind")
             fields, case_report, auxiliary = load_case(case, ROOT, args.cache_root, grid)
             case_report.update({"status": "compared", "PIC_reference_actual_time": pic["snapshot"]["TIME"],
+                                "endpoint_metrics_eligible":True,
                                 "time_minus_PIC": case_report["actual_time"] - pic["snapshot"]["TIME"],
                                 "same_actual_time_as_PIC": case_report["actual_time"] == pic["snapshot"]["TIME"],
                                 "time_interpolation_performed": False, "metrics": compare_fields(fields, reference),

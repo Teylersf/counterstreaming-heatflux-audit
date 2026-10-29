@@ -91,7 +91,9 @@ shape width or perturbation is fitted to the archived values. Quadrature
 orders 12, 20, 32 and 48 agree in the quadratic mean to about
 $5\times10^{-16}c$; an independent Cartesian quadrature checks the reduced
 moment calculation to $1.73\times10^{-15}$ in the tested quantities.
-This explains the scale of the additional reduction below the cold value.
+This is a conditional consistency check of the scale of the additional
+reduction below the cold value. Agreement does not identify the historical
+loader or the custom diagnostic kernel.
 The standard public deposition kernel is not verified as the original
 custom velocity diagnostic's kernel, so the pointwise prediction and shape
 sensitivity remain distinct. Neither is a new PIC run or a confidence
@@ -230,7 +232,8 @@ Lua file. This checks the input used in the saved output, rather than assuming
 that the separate prescription was executed unchanged.
 
 The ten stored components are $\rho$, the three $\rho u_i$, and the six
-symmetric raw second moments. Their order is checked against every returned
+symmetric raw second moments. Their order independently matches the official
+Gkeyll conservative-variable layout~\cite{gkeylllayout} and is checked against every returned
 initializer component over all 307,200 cells, including off-diagonal moments
 and the field components. The largest one-fluid component error is
 $4.38\times10^{-16}$; the summed two-fluid state differs from the one-fluid
@@ -273,9 +276,10 @@ The original PIC executable remains unidentified. The current public OSIRIS
 code inspected for documentation does not expose the
 authors' custom \texttt{vfl}/third-moment diagnostic implementation.
 Our diagnostic interpretation follows their explicit dataset definitions
-and file metadata. All selected files are at $t=0$. The present calculation
-is a reproducible reanalysis of those files, with no new PIC or Gkeyll run
-and no causal attribution of the source's later nonlinear results.
+and file metadata. The selected files in this section are initial snapshots.
+Their archived-data reanalysis is distinct from the new clean-source fluid
+evolutions in Section~\ref{sec:controls}; it supplies no causal attribution
+of the source's later nonlinear results by itself.
 
 \begin{figure}[tbp]
 \centering

@@ -1,0 +1,15 @@
+\begin{table}[tbp]
+\centering\small
+\caption{Native outcomes and saved-state admissibility. Endpoint eligibility uses the unchanged initial/final covariance checks. Eigenvalues are in units of $m_en_0c^2$. For successful runs, non-PSD counts are population--snapshot instances out of $31N_s$, not distinct spatial cells or every accepted timestep. The failed run has no regular-frame-30 endpoint or full-history audit; its missing entries are not zero failures. A numerical endpoint contrast does not validate a physical trajectory.}
+\label{tab:control-outcomes}
+\begin{tabular}{lrrrr}
+\toprule
+Case & Actual $t$ & Endpoint & Non-PSD samples & Minimum $\lambda(P_s)$ \\
+\midrule
+Unmatched, one & 300.000150 & eligible & 3/31 & $-0.00172355$ \\
+Unmatched, two & 300.043832 & rejected & 3/62 & $-0.0014126$ \\
+Matched, one & 300.000150 & eligible & 5/31 & $-0.00532074$ \\
+Matched, two & --- & no frame 30 & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}

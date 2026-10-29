@@ -384,7 +384,7 @@ class Converter:
         metadata = {
             "title": title, "abstract": abstract,
             "keywords": ["counter-streaming heat flux", "magnetic reconnection", "moment closures",
-                         "initial-state matching", "plasma stability", "reproducibility"],
+                         "initial-state matching", "pressure realizability", "plasma stability", "reproducibility"],
             "authors": [{"name": "Taylor Kalin", "orcid": orcid, "email": email, "website": website}],
             "date": self.date, "version": self.version, "source_version": "arXiv:2607.07106v1",
             "manuscript_characters": len(markdown),

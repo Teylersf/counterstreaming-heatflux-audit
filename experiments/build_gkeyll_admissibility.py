@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 from datetime import datetime, timezone
 import json
 import math
@@ -58,7 +59,10 @@ def export_public_inputs(args) -> None:
                   "minimum_density","minimum_pressure_diagonal","minimum_pressure_eigenvalue","negative_eigenvalue_cell_count",
                   "worst_native_zero_based_x_y","worst_raw_center_x_y")
             selected["frames"]=[{key:row[key] for key in keys if key in row} for row in selected["frames"]]
-        if kind in {"diagnosis","details","predicate","intermediate"}:
+        elif kind == "native_failure":
+            for entry in selected.get("source_predicate_proofs",[]):
+                entry.pop("text",None)
+        if kind in {"diagnosis","details","predicate","intermediate","native_failure"}:
             selected["source_full_record_sha256"] = original.get("source_full_record_sha256",sha256(source))
             selected["public_exporter_script_sha256"] = exporter_sha
             selected["public_export_scope"] = "Selected portable metadata; only the single endpoint witness and small invalid-index/eigenvalue list retain physical arrays. Full source record hash is preserved."
@@ -84,6 +88,7 @@ def export_public_inputs(args) -> None:
     for role,filename,kind in roles:
         setattr(args,role,write_one(getattr(args,role),filename,kind))
     args.intermediate_proof=[write_one(path,f"independent-intermediate-{i+1}.json","intermediate") for i,path in enumerate(args.intermediate_proof)]
+    args.native_failure_proof=[write_one(path,f"independent-native-failure-{i+1}.json","native_failure") for i,path in enumerate(args.native_failure_proof)]
 
 
 def source_predicate_record(path: Path, expected: dict, diagnosis_sha: str, runtime_manifest: dict) -> dict:
@@ -116,6 +121,7 @@ def main() -> int:
     parser.add_argument("--independent-details", type=Path, required=True)
     parser.add_argument("--predicate-provenance", type=Path, required=True)
     parser.add_argument("--intermediate-proof", action="append", type=Path, default=[])
+    parser.add_argument("--native-failure-proof", action="append", type=Path, default=[])
     parser.add_argument("--evidence-directory", type=Path, required=True, help="Fresh project-local selected evidence directory under data/ or results/")
     parser.add_argument("--runtime-file-manifest", type=Path, default=ROOT/"data/gkeyll-clean9663-file-manifest.json")
     parser.add_argument("--public-scan-directory", type=Path, default=ROOT/"results/gkeyll-saved-state-scans")
@@ -123,7 +129,7 @@ def main() -> int:
     args = parser.parse_args()
     require(not args.output.is_symlink() and not args.output.with_suffix(args.output.suffix + ".tmp").is_symlink(), "Output may not be a leaf symlink")
     args.output = args.output.resolve(); runs_root = args.runs_root.resolve()
-    inputs = [args.collector_manifest, args.expected_context, args.independent_diagnosis, args.independent_details, args.predicate_provenance,args.runtime_file_manifest] + args.intermediate_proof
+    inputs = [args.collector_manifest, args.expected_context, args.independent_diagnosis, args.independent_details, args.predicate_provenance,args.runtime_file_manifest] + args.intermediate_proof + args.native_failure_proof
     require(not args.output.is_relative_to(runs_root) and args.output not in {p.resolve() for p in inputs}
             and not args.output.exists(), "Output must be fresh and outside native/input evidence")
     export_public_inputs(args)
@@ -153,6 +159,9 @@ def main() -> int:
     for i,path in enumerate(args.intermediate_proof):
         report["input_bindings"][f"intermediate_proof_{i+1}"] = {"path":path.resolve().relative_to(ROOT.resolve()).as_posix(),"filename":path.name,
                                                                "sha256":sha256(path),"source_full_record_sha256":full_source_sha(path)}
+    for i,path in enumerate(args.native_failure_proof):
+        report["input_bindings"][f"native_failure_proof_{i+1}"]={"path":path.resolve().relative_to(ROOT.resolve()).as_posix(),"filename":path.name,
+                                                                 "sha256":sha256(path),"source_full_record_sha256":full_source_sha(path)}
     scans = {}
     for native_case, case_id, population_count, role in CASES:
         receipt_path = runs_root / native_case / "run-receipt.json"
@@ -173,6 +182,44 @@ def main() -> int:
                        **timing_provenance(receipt), native_output_inventory=receipt.get("output_bp_files", []),
                        native_failure_markers=receipt.get("native_numerical_failure_markers", []))
         if receipt["status"] != "completed_native_stop":
+            decision=next(c for c in collection["cases"] if c["case"]==native_case)
+            require(decision["status"]=="failed_native_execution" and decision["source_run_receipt_sha256"]==receipt_sha,
+                    "Native failure lacks an explicit matching collector failure decision")
+            failure=decision["failure_receipt"]
+            canonical=(json.dumps(failure,indent=2,allow_nan=False)+"\n").encode("utf-8")
+            require(hashlib.sha256(canonical).hexdigest()==decision["failure_receipt_sha256"] and failure["case"]==native_case
+                    and failure["status"]=="failed_native_execution" and failure["native_status"]==receipt["status"]
+                    and failure["native_returncode"]==receipt["returncode"]!=0 and failure["source_run_receipt_sha256"]==receipt_sha
+                    and failure["runtime_context"]==expected and failure["native_stop_requested"] is False and receipt["native_stop"] is None
+                    and failure["regular30_endpoint_accepted"] is False and failure["regular30_frame_files_present"] is False
+                    and failure["metrics_accepted"] is False,"Portable native-failure proof binding/scope differs")
+            inventory={p["filename"]:p for p in receipt["output_bp_files"]}
+            require(failure["last_closed_regular_frame"]==receipt["last_recorded_regular_frame"]
+                    and all(inventory[b["filename"]]["sha256"]==b["sha256"] and inventory[b["filename"]]["bytes"]==b["bytes"]
+                            and b["frame"]==failure["last_closed_regular_frame"] and b["actual_time"]==failure["last_closed_regular_time"]
+                            for b in failure["last_closed_regular_bindings"])
+                    and failure["console_sha256"]==receipt["console_sha256"] and failure["console_bytes"]>0,
+                    "Failed last-closed metadata or console binding differs")
+            proof_path=next((p for p in args.native_failure_proof if load_json(p)["native_case"]==native_case),None)
+            require(proof_path is not None,"Independent native-failure proof is required")
+            proof=load_json(proof_path)
+            require(proof["independent_failed_native_outcome_verified"] and proof["source_run_receipt_sha256"]==receipt_sha
+                    and proof["native_status"]==receipt["status"] and proof["returncode"]==failure["native_returncode"]
+                    and proof["native_stop"] is None and proof["last_recorded_regular_frame"]==failure["last_closed_regular_frame"]
+                    and proof["last_closed_saved_time"]==failure["last_closed_regular_time"] and proof["console_sha256"]==failure["console_sha256"]
+                    and proof["no_tensor_scan_or_endpoint_metrics"] and proof["last_saved_time_is_not_exact_abort_time"],
+                    "Independent native-failure proof differs from collector/native evidence")
+            require({(b["filename"],b["sha256"],b["bytes"]) for b in proof["last_closed_BP_bindings"]}
+                    =={(b["filename"],b["sha256"],b["bytes"]) for b in failure["last_closed_regular_bindings"]},"Independent last-closed raw bindings differ")
+            proof_binding=next(v for k,v in report["input_bindings"].items() if k.startswith("native_failure_proof_") and v["sha256"]==sha256(proof_path))
+            outcome.update(last_closed_regular_frame=failure["last_closed_regular_frame"],last_closed_regular_time=failure["last_closed_regular_time"])
+            outcome["failure_evidence"]={key:failure[key] for key in ("native_status","native_returncode","source_run_receipt_sha256",
+                "native_stop_requested","regular30_endpoint_accepted","regular30_frame_files_present","metrics_accepted",
+                "last_closed_regular_frame","last_closed_regular_time","last_closed_regular_bindings","console_sha256","console_bytes",
+                "assertion_failures","native_numerical_failure_markers","native_numerical_failure_markers_scope",
+                "last_saved_time_is_not_exact_abort_time","no_failed_transient_population_or_split_operator_inferred")}
+            outcome["failure_evidence"].update(portable_failure_receipt_sha256=decision["failure_receipt_sha256"],
+                selected_independent_proof_path=proof_binding["path"],selected_independent_proof_sha256=proof_binding["sha256"])
             outcome["collector_decision"] = {"status":"not_accepted_native_execution_failure", "metrics_accepted":False}
             outcome.update(endpoint_metrics_eligible=False,collector_decision_resolved=True,saved_snapshot_diagnostic_resolved=True,
                            saved_snapshot_diagnostic={"status":"not_applicable_native_execution_failed","scope":"No successful regular30 endpoint or complete31-snapshot diagnostic is inferred."})
@@ -222,6 +269,8 @@ def main() -> int:
                 else:
                     with public_scan.open("xb") as stream: stream.write(scan_path.read_bytes())
                 outcome["saved_snapshot_diagnostic"] = {"status":"completed_regular0_through30", "filename":native_case+".json", "path":public_scan.relative_to(ROOT.resolve()).as_posix(), "sha256":sha256(scan_path),
+                    "recorded_scanner_sha256":scan["scanner_sha256"],"recorded_collector_guard_sha256":scan["collector_guard_sha256"],
+                    "recorded_IO_helper_sha256":scan["IO_helper_sha256"],
                     "actual_saved_times":[{"frame":f["frame"],"actual_time":f["actual_time"]} for f in scan["frames"]],
                     "summary":scan["summary"], "all_scanned_populations_PSD":scan["all_scanned_populations_PSD"],
                     "all_scanned_populations_strict_PD":scan["all_scanned_populations_strict_PD"],
@@ -315,6 +364,11 @@ def main() -> int:
     report["all_four_native_outcomes_observed"] = report["observed_terminal_native_outcome_count"] == 4
     report["all_four_collector_decisions_resolved"] = all(o["collector_decision_resolved"] for o in report["native_outcomes"])
     report["all_four_saved_snapshot_diagnostics_resolved"] = all(o["saved_snapshot_diagnostic_resolved"] for o in report["native_outcomes"])
+    report["all_terminal_outcomes_and_required_histories_bound"] = (report["all_four_native_outcomes_observed"] and
+        report["all_four_collector_decisions_resolved"] and report["all_four_saved_snapshot_diagnostics_resolved"] and
+        all((o["native_status"]=="completed_native_stop" and o["saved_snapshot_diagnostic"]["status"]=="completed_regular0_through30")
+            or (o["native_status"] in {"failed","failed_controller_guard"} and o["endpoint_metrics_eligible"] is False and
+                o["saved_snapshot_diagnostic"]["status"]=="not_applicable_native_execution_failed") for o in report["native_outcomes"]))
     report["native_regular30_completion_count"] = report["native_completed_outcome_count"]
     report["endpoint_admissible_case_ids"] = [o["analysis_case_id"] for o in report["native_outcomes"] if o["collector_decision"]["status"] == "accepted_initial_and_regular30_states"]
     report["endpoint_eligible_case_ids"] = [o["analysis_case_id"] for o in report["native_outcomes"] if o["endpoint_metrics_eligible"] is True]

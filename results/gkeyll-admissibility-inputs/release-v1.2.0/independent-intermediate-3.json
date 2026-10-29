@@ -1,0 +1,128 @@
+{
+  "independent_intermediate_failure_confirmed": true,
+  "scope": "Five actual regular saved matched1 snapshots only; these failures do not identify first loss time/operator or a current-only cause. Endpoint norms remain numerical contrasts only.",
+  "observed_utc": "2026-10-29T03:23:50.022837+00:00",
+  "producer_script_sha256": "f4c5c8c19eb6b3acd0e22fc33074f9da2403ee94d512f14dc7b7bb636044d2bf",
+  "native_case": "1-fluid-aggregate-matched",
+  "native_receipt_sha256": "5269967ec1ad66c35fbf1fc4ffeb12fc426bf114d7736e8a957d7ed7c331c94d",
+  "native_receipt_before_after_and_prior_endpoint_binding_passed": true,
+  "endpoint_check_sha256": "2b5c9b70c45d1a7b980a7a39ccd1085776d1c74b7f089389a86f874df7a52032",
+  "component_order": [
+    "rho",
+    "rho_ux",
+    "rho_uy",
+    "rho_uz",
+    "Mxx",
+    "Mxy",
+    "Mxz",
+    "Myy",
+    "Myz",
+    "Mzz"
+  ],
+  "index_convention": "Native [x,y,component], zero based; raw centers x=-24+(ix+.5)*.1,y=-32+(iy+.5)*.1.",
+  "centering": "Independent long-double raw-second minus rho*velocity_i*velocity_j, symmetric assignment; no scanner/analyzer tensor function reused.",
+  "frames": [
+    {
+      "frame": 22,
+      "actual_time": 220.00011000001655,
+      "source_BP_sha256": "bfe337efb0dc29330f03035d9097a778793384dfeb9ac00b3147ea9d4853119b",
+      "source_BP_bytes": 24587010,
+      "numeric_export_sha256": "0507657d314a5146d5afcb74cb4f99a94f7e32092d240a3181572198335d9948",
+      "minimum_density": 0.8840661401372815,
+      "minimum_pressure_diagonal": 0.00011581892170041408,
+      "minimum_pressure_eigenvalue": -0.001486182160958821,
+      "negative_eigenvalue_cell_count": 5,
+      "worst_native_zero_based_x_y": [
+        337,
+        478
+      ],
+      "worst_raw_center_x_y": [
+        9.75,
+        15.850000000000001
+      ]
+    },
+    {
+      "frame": 23,
+      "actual_time": 230.00011500001852,
+      "source_BP_sha256": "2b79a95d4e2f82446d597cd18e6c91babf389aa3c2664070905b3506ce8ee429",
+      "source_BP_bytes": 24587010,
+      "numeric_export_sha256": "36d5c14d4561075f22923bbb2e92e3d40499253d0d0f4fe13226d9fb363136a8",
+      "minimum_density": 0.9053747615273493,
+      "minimum_pressure_diagonal": 0.0007431593560139338,
+      "minimum_pressure_eigenvalue": -0.00404830767917879,
+      "negative_eigenvalue_cell_count": 23,
+      "worst_native_zero_based_x_y": [
+        341,
+        478
+      ],
+      "worst_raw_center_x_y": [
+        10.149999999999999,
+        15.850000000000001
+      ]
+    },
+    {
+      "frame": 24,
+      "actual_time": 240.0001200000205,
+      "source_BP_sha256": "ec3cbe644ce4f8255f4f804e62268b957704d1d1e0fb0c2a81923cdd4aa5284d",
+      "source_BP_bytes": 24587010,
+      "numeric_export_sha256": "602f1956c5155ad37f9e7f299e3b400a3559c69b68cb53825fa19ad890434369",
+      "minimum_density": 0.9158110749330216,
+      "minimum_pressure_diagonal": 0.0020986833024340054,
+      "minimum_pressure_eigenvalue": -0.0034419466622849257,
+      "negative_eigenvalue_cell_count": 47,
+      "worst_native_zero_based_x_y": [
+        320,
+        475
+      ],
+      "worst_raw_center_x_y": [
+        8.050000000000004,
+        15.550000000000004
+      ]
+    },
+    {
+      "frame": 25,
+      "actual_time": 250.00012500002248,
+      "source_BP_sha256": "55d90791c1d2397a88f491308b0807e698e78b859600a1598fc3ba570963b19f",
+      "source_BP_bytes": 24587010,
+      "numeric_export_sha256": "deca6d3392f8564b115032d7fba724130b5d3394af5bf7e81d9f44220fdc692c",
+      "minimum_density": 0.9065580896724884,
+      "minimum_pressure_diagonal": 0.0011493272828315415,
+      "minimum_pressure_eigenvalue": -0.005320737901897977,
+      "negative_eigenvalue_cell_count": 30,
+      "worst_native_zero_based_x_y": [
+        58,
+        153
+      ],
+      "worst_raw_center_x_y": [
+        -18.15,
+        -16.65
+      ]
+    },
+    {
+      "frame": 26,
+      "actual_time": 260.00013000002275,
+      "source_BP_sha256": "dafde2139c09279787b90e211c979f0bd0073058ae986ee1757bc52bee2b2016",
+      "source_BP_bytes": 24587010,
+      "numeric_export_sha256": "d276ac35844a023a1a3e567939c85ff85cdae693c714a7e12477f70518143a07",
+      "minimum_density": 0.8939592137060699,
+      "minimum_pressure_diagonal": 0.002734729539181052,
+      "minimum_pressure_eigenvalue": -0.0034376404852916485,
+      "negative_eigenvalue_cell_count": 5,
+      "worst_native_zero_based_x_y": [
+        32,
+        151
+      ],
+      "worst_raw_center_x_y": [
+        -20.75,
+        -16.85
+      ]
+    }
+  ],
+  "physical_saved_trajectory_admissibility_established": false,
+  "endpoint_PD_does_not_certify_saved_trajectory": true,
+  "no_clipping_repair_or_gate_change": true,
+  "no_performance_metrics_or_solver_action": true,
+  "source_full_record_sha256": "f33c86419a0a4efbf0d1f8d45b3ec31f8bbc632c63e9c6584f5494c50f677246",
+  "public_exporter_script_sha256": "457dcbc79005dbc91d03bd4b270eb83bfad02eed8896ae387ffe2e3f449217bb",
+  "public_export_scope": "Selected portable metadata; only the single endpoint witness and small invalid-index/eigenvalue list retain physical arrays. Full source record hash is preserved."
+}

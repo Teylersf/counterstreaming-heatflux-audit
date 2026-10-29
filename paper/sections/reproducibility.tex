@@ -12,21 +12,27 @@ The inspected Zenodo record is identified by the record-specific DOI
 the source's concept DOI is
 \href{https://doi.org/10.5281/zenodo.21114116}{10.5281/zenodo.21114116}.
 Both resolve to this dataset family.
-The registration agency is DataCite, whose API identifies the record DOI as
-findable; a Crossref-only lookup returns no record. The direct repository
+The \href{https://doi.org/ra/10.5281/zenodo.21114117}{DOI agency lookup}
+identifies DataCite, whose
+\href{https://api.datacite.org/dois/10.5281/zenodo.21114117}{authoritative API record}
+identifies the DOI as findable. A Crossref-only lookup returns no record;
+this is a registration-agency coverage difference. The direct repository
 link is \url{https://zenodo.org/records/21114117}. These identifiers do not
 denote two different simulations or a replacement data source.
 
 \input{results-table}
 
-The data retriever requests only selected ZIP members from the public Zenodo
-archive. It requires bounded HTTP partial responses, checks member lengths
-and CRC32 against the ZIP directory, and records SHA-256 hashes of the
-extracted inputs. The published checksum of the complete archive is identified
-as publisher-supplied; a partial retrieval does not verify that whole-archive
-checksum. Small derived profiles and provenance are included with their
-attribution. The original paper and full simulation archives are not
-redistributed by this project.
+The initial analysis used selected ZIP members from the public Zenodo
+archives, with bounded partial responses, member lengths, CRC32 and SHA-256
+checks. The final revision additionally retrieved all three complete source
+ZIPs, totaling 1,367,080,859 bytes. Each full byte count and publisher-declared
+MD5 matches; a full SHA-256 was also computed and recorded. All 13 original
+PIC HDF5 and five initial fluid BP inputs were then read by exact name from
+those verified complete ZIPs and matched to their earlier member hashes.
+The portable whole-archive receipt supplements the retained historical
+selective-retrieval records; it does not silently change the analyzed inputs.
+Small derived profiles and provenance are included with attribution.
+The original paper and full simulation archives are not redistributed here.
 
 Numerical checks preserve the exact mixture identities rather than treating
 them as errors. The linear calculation is checked independently through an
@@ -43,10 +49,13 @@ execution evidence, not third-party certification or independent human peer
 review. The accompanying verification script reports actual failures instead
 of silently replacing absent inputs with synthetic data.
 
-No OSIRIS or Gkeyll reconnection run was performed for this study. The
-published input decks and archived diagnostics do not uniquely identify the
+New clean-source Gkeyll evolutions and their endpoint/history checks are
+reported in Section~\ref{sec:controls}. No new OSIRIS simulation was run.
+The published input decks and archived diagnostics do not uniquely identify the
 authors' exact executable builds. In particular, the documented custom
 velocity diagnostics are interpreted using the authors' explicit data
 dictionary; we do not assert that a present public source checkout is the
 private build that produced them. This limits claims about implementation
 internals while leaving the documented archived-moment comparison testable.
+The new numerical contrasts are conditional on the identified clean runtime;
+saved pressure failures are retained rather than clipped, masked or repaired.

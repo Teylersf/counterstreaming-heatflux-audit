@@ -272,12 +272,122 @@ def saved_history(outcome, scan, context):
             "saved_snapshots_only": True, "continuous_trajectory_certified": False}
 
 
+def native_failure_state(outcome, decision, context, input_bindings):
+    """Bind a terminal process failure without promoting it to a missing endpoint."""
+    proof = decision.get("failure_receipt", {})
+    portable_sha = hashlib.sha256((json.dumps(proof, indent=2, allow_nan=False) + "\n").encode()).hexdigest()
+    evidence = outcome.get("failure_evidence", {})
+    require(decision.get("status") == "failed_native_execution"
+            and decision.get("failure_receipt_sha256") == portable_sha
+            and evidence.get("portable_failure_receipt_sha256") == portable_sha,
+            "Native failure lacks its exact classified portable failure proof")
+    copied = ("native_status", "native_returncode", "source_run_receipt_sha256", "native_stop_requested",
+        "regular30_endpoint_accepted", "regular30_frame_files_present", "metrics_accepted",
+        "last_closed_regular_frame", "last_closed_regular_time", "last_closed_regular_bindings",
+        "console_sha256", "console_bytes", "assertion_failures", "native_numerical_failure_markers",
+        "native_numerical_failure_markers_scope", "last_saved_time_is_not_exact_abort_time",
+        "no_failed_transient_population_or_split_operator_inferred")
+    require(all(key in proof and evidence.get(key) == proof[key] for key in copied),
+            "Copied terminal-failure evidence differs from its exact portable proof")
+    require(proof.get("status") == "failed_native_execution" and proof.get("case") == outcome["native_case"]
+            and proof.get("native_status") == outcome["native_status"] == "failed"
+            and proof.get("native_returncode") == outcome.get("native_returncode")
+            and isinstance(proof.get("native_returncode"), int) and proof["native_returncode"] != 0
+            and proof.get("runtime_context") == context
+            and proof.get("source_run_receipt_sha256") == outcome["source_run_receipt_sha256"]
+            and proof.get("input_hashes") == outcome.get("input_hashes")
+            and proof.get("last_saved_time_is_not_exact_abort_time") is True
+            and proof.get("no_failed_transient_population_or_split_operator_inferred") is True
+            and all(proof.get(key) is False for key in ("native_stop_requested", "regular30_endpoint_accepted",
+                "regular30_frame_files_present", "metrics_accepted")),
+            "Classified failure proof differs from actual native status/runtime/no-endpoint policy")
+    frame, stamp = proof.get("last_closed_regular_frame"), proof.get("last_closed_regular_time")
+    require(isinstance(frame, int) and 0 <= frame < 30 and isinstance(stamp, (int, float))
+            and math.isfinite(stamp) and 0 <= stamp < 300
+            and outcome.get("last_closed_regular_frame") == frame and outcome.get("last_closed_regular_time") == stamp,
+            "Last closed failure output is not an actual pre-regular30 scalar observation")
+    rows = outcome.get("native_output_inventory", [])
+    inventory = {row["filename"]: row for row in rows}
+    require(len(rows) == len(inventory) and bool(rows), "Failure native output inventory is empty/duplicated")
+    bindings = proof.get("last_closed_regular_bindings", [])
+    names = {f"case_elc{index}_{frame}.bp" for index in range(1, outcome["population_count"] + 1)} | {f"case_field_{frame}.bp"}
+    require(len(bindings) == len(names) and {row.get("filename") for row in bindings} == names
+            and not any(re.fullmatch(r"case_(?:elc[12]|field)_30\.bp", name) for name in inventory),
+            "Failure proof invents a regular30 output or omits last-closed members")
+    for row in bindings:
+        actual = inventory.get(row["filename"], {})
+        require(digest_is_valid(row.get("sha256")) and actual.get("sha256") == row["sha256"]
+                and isinstance(row.get("bytes"), int) and row["bytes"] > 0 and actual.get("bytes") == row["bytes"]
+                and row.get("frame") == frame and row.get("actual_time") == stamp,
+                "Last-closed failure output differs from the exact native inventory")
+    require(digest_is_valid(proof.get("console_sha256")) and isinstance(proof.get("console_bytes"), int)
+            and proof["console_bytes"] > 0 and isinstance(proof.get("assertion_failures"), list)
+            and bool(proof["assertion_failures"])
+            and bool(proof.get("native_numerical_failure_markers_scope"))
+            and proof.get("native_numerical_failure_markers") == outcome.get("native_failure_markers"),
+            "Native failure lacks log hashes/classification or changes the narrow failure-marker evidence")
+    selected = [(role, binding) for role, binding in input_bindings.items()
+        if role.startswith("native_failure_proof_") and binding.get("path") == evidence.get("selected_independent_proof_path")
+        and binding.get("sha256") == evidence.get("selected_independent_proof_sha256")]
+    require(len(selected) == 1, "Native failure lacks its exact selected independent proof input")
+    return {"portable_failure_receipt_sha256": portable_sha,
+        "selected_independent_proof_path": evidence["selected_independent_proof_path"],
+        "selected_independent_proof_sha256": evidence["selected_independent_proof_sha256"],
+        "last_closed_regular_frame": frame, "last_closed_regular_time": stamp,
+        "console_sha256": proof["console_sha256"], "console_bytes": proof["console_bytes"],
+        "assertion_failures": proof["assertion_failures"], "native_returncode": proof["native_returncode"],
+        "native_numerical_failure_markers_scope": proof["native_numerical_failure_markers_scope"],
+        "native_stop_requested": False, "regular30_endpoint_accepted": False,
+        "full_pressure_history_available": False}
+
+
+def validate_independent_failure_proof(independent, portable):
+    """Cross-check selected independent scalar/log/BP observations, without arrays."""
+    frame, stamp = portable["last_closed_regular_frame"], portable["last_closed_regular_time"]
+    require(independent.get("independent_failed_native_outcome_verified") is True
+            and independent.get("native_case") == portable["case"]
+            and independent.get("source_run_receipt_sha256") == portable["source_run_receipt_sha256"]
+            and independent.get("native_status") == portable["native_status"]
+            and independent.get("returncode") == portable["native_returncode"]
+            and "native_stop" in independent and independent["native_stop"] is None
+            and independent.get("last_recorded_regular_frame") == frame
+            and independent.get("last_closed_saved_time") == stamp
+            and independent.get("console_sha256") == portable["console_sha256"]
+            and independent.get("last_saved_time_is_not_exact_abort_time") is True
+            and independent.get("no_tensor_scan_or_endpoint_metrics") is True,
+            "Selected independent failure proof differs from the portable native/log/time observations")
+    expected = {row["filename"]: {key: row[key] for key in ("filename", "bytes", "sha256")}
+                for row in portable["last_closed_regular_bindings"]}
+    rows = independent.get("last_closed_BP_bindings", [])
+    require(len(rows) == len(expected) and {row["filename"]: row for row in rows} == expected,
+            "Independent failure raw BP hashes/sizes differ")
+    metadata = independent.get("last_closed_BP_metadata", [])
+    require(len(metadata) == len(expected) and {row["filename"] for row in metadata} == set(expected)
+            and all(row.get("frame") == frame and row.get("actual_time") == stamp
+                    and row.get("numCells") == [480, 640] for row in metadata),
+            "Independent failure scalar BP metadata differs")
+    indices = independent.get("output_regular_frame_indices", {})
+    require(set(indices) == {name.rsplit("_", 1)[0] for name in expected}
+            and all(values == list(range(frame + 1)) for values in indices.values()),
+            "Independent failure inventory claims missing or invented regular frames")
+    occurrences = sum(row.get("occurrences", 0) for row in portable["assertion_failures"])
+    require(occurrences > 0 and independent.get("console_repeated_assertion_count") == occurrences
+            and any(Path(row["source_relative_path"]).name + ":" + str(row["source_line"])
+                    in str(independent.get("console_assertion_line")) for row in portable["assertion_failures"])
+            and independent.get("specific_timestep_collapse_marker_absent") is (not bool(portable["native_numerical_failure_markers"]))
+            and independent.get("empty_specific_marker_list_is_not_a_clean_log_claim") is True,
+            "Independent assertion/narrow-marker observations differ from the classified log proof")
+
+
 def admissibility_state(record, result, receipts_by_sha, scans, state):
     """Bind numerical endpoint subsets without changing the historical full-set gate."""
     defaults = {"admissibility_result_supplied": record is not None,
         "all_four_native_outcomes_completed": False, "all_four_saved_snapshot_scans_complete": False,
         "all_four_native_outcomes_observed": False, "all_four_collector_decisions_resolved": False,
         "all_four_saved_snapshot_diagnostics_resolved": False,
+        "all_terminal_outcomes_and_required_histories_bound": False,
+        "all_successful_native_saved_snapshot_scans_complete": False,
+        "successful_native_outcome_count": 0, "failed_terminal_native_case_ids": [],
         "native_outcomes": {}, "saved_snapshot_histories": {}, "endpoint_admissible_numerical_pairs": {},
         "eligible_endpoint_analysis_case_ids": [], "valid_endpoint_pair_ids": [],
         "numerical_endpoint_subset_evidence_bound": False, "physical_trajectory_validation_claimed": False,
@@ -394,7 +504,16 @@ def admissibility_state(record, result, receipts_by_sha, scans, state):
                 require(outcome["native_status"] in {"failed", "failed_controller_guard"}
                         and decision["status"] == "not_accepted_native_execution_failure" and decision.get("metrics_accepted") is False,
                         "Unsuccessful native outcome cannot supply primary metrics")
-                item["rejection_reason"] = {"native_status": outcome["native_status"], "failure_markers": outcome.get("native_failure_markers", [])}
+                require(outcome.get("actual_regular30_time") is None and outcome.get("native_regular_frame") != 30
+                        and not outcome.get("regular30_raw_output_bindings")
+                        and outcome["saved_snapshot_diagnostic"]["status"] == "not_applicable_native_execution_failed",
+                        "Terminal native failure cannot claim a regular30 endpoint or a complete saved history")
+                failure = native_failure_state(outcome, source_decision, context, record.get("input_bindings", {}))
+                item.update(failure_evidence=failure, last_closed_regular_frame=failure["last_closed_regular_frame"],
+                            last_closed_regular_time=failure["last_closed_regular_time"])
+                item["rejection_reason"] = {"native_status": outcome["native_status"], "native_returncode": failure["native_returncode"],
+                    "assertion_failures": failure["assertion_failures"], "failure_markers": outcome.get("native_failure_markers", []),
+                    "scope": "Terminal native execution failure; last closed output does not identify the failing transient/species/time."}
         eligibility = True if identifier in accepted else False if identifier in rejected or decision["status"] == "not_accepted_native_execution_failure" else None
         collector_resolved = decision["status"] in {"accepted_initial_and_regular30_states", "rejected_nonconforming_state", "not_accepted_native_execution_failure"}
         history_resolved = outcome["saved_snapshot_diagnostic"]["status"] in {"completed_regular0_through30", "scanner_failed", "not_applicable_native_execution_failed"}
@@ -408,6 +527,16 @@ def admissibility_state(record, result, receipts_by_sha, scans, state):
         if identifier not in accepted:
             require(case.get("status") != "compared" and "metrics" not in case and case.get("metrics_accepted") is not True,
                     "Ineligible/rejected endpoint contains primary comparison metrics")
+            if outcome["native_status"] == "failed" and result is not None:
+                failure = item["failure_evidence"]
+                require(case.get("status") == "failed_native_execution" and case.get("metrics_accepted") is False
+                        and case.get("native_execution_successful") is False
+                        and case.get("source_run_receipt_sha256") == item["source_run_receipt_sha256"]
+                        and case.get("native_returncode") == item["native_returncode"]
+                        and case.get("last_closed_regular_frame") == failure["last_closed_regular_frame"]
+                        and case.get("last_closed_regular_time") == failure["last_closed_regular_time"]
+                        and case.get("failure_receipt", {}).get("sha256") == failure["portable_failure_receipt_sha256"],
+                        "Comparison report hides or misbinds the terminal native execution failure")
         elif case.get("status") == "compared":
             binding = case.get("completed_case_receipt", {})
             require(case.get("runtime_context") == context and case.get("actual_time") == item["actual_time"]
@@ -473,19 +602,30 @@ def admissibility_state(record, result, receipts_by_sha, scans, state):
             "saved_snapshot_history_statuses": {name: histories[name]["status"] for name in (baseline, matched)},
             "saved_snapshot_PSD_violations_present": any(histories[name].get("all_scanned_populations_PSD") is False for name in (baseline, matched)),
             "scope": "Endpoint-admissible NUMERICAL sensitivity only; no physical-trajectory, causal or convergence validation."}
+    failed_native = {name for name, outcome in native.items()
+                     if outcome["native_outcome_terminal"] and outcome["native_status"] != "completed_native_stop"}
+    successful_scans = all(histories[name]["status"] == "completed_regular0_through30" for name in complete)
+    terminal_coverage = (terminal_count == 4 and (set(complete) | failed_native) == set(CONTROL_IDS)
+        and all(item["collector_decision_resolved"] for item in native.values())
+        and all(item["saved_snapshot_diagnostic_resolved"] for item in native.values())
+        and successful_scans
+        and all(histories[name]["status"] == "not_applicable_native_execution_failed" for name in failed_native))
+    require(record.get("all_terminal_outcomes_and_required_histories_bound", terminal_coverage) is terminal_coverage,
+            "Terminal-outcome/history coverage claim differs from the actual evidence")
     return {**defaults, "native_outcomes": native, "saved_snapshot_histories": histories,
         "all_four_native_outcomes_completed": len(complete) == 4,
         "all_four_saved_snapshot_scans_complete": scan_count == 4,
         "all_four_native_outcomes_observed": terminal_count == 4,
         "all_four_collector_decisions_resolved": all(item["collector_decision_resolved"] for item in native.values()),
         "all_four_saved_snapshot_diagnostics_resolved": all(item["saved_snapshot_diagnostic_resolved"] for item in native.values()),
+        "all_terminal_outcomes_and_required_histories_bound": terminal_coverage,
+        "all_successful_native_saved_snapshot_scans_complete": successful_scans,
+        "successful_native_outcome_count": len(complete), "failed_terminal_native_case_ids": sorted(failed_native),
         "endpoint_collector_accepted_case_ids": sorted(accepted), "endpoint_collector_rejected_case_ids": sorted(rejected),
         "endpoint_admissible_numerical_pairs": pairs,
         "eligible_endpoint_analysis_case_ids": sorted(name for name in accepted if native[name]["primary_metrics_accepted"]),
         "valid_endpoint_pair_ids": sorted(pairs),
-        "numerical_endpoint_subset_evidence_bound": (len(complete) == 4 and scan_count == 4 and bool(pairs)
-            and all(item["collector_decision_resolved"] for item in native.values())
-            and all(item["saved_snapshot_diagnostic_resolved"] for item in native.values())),
+        "numerical_endpoint_subset_evidence_bound": terminal_coverage and bool(pairs),
         "admissibility_native_runtime_context": context}
 
 
@@ -531,7 +671,11 @@ def load_admissibility_evidence(path, receipts_by_sha, commit=None):
         name = outcome["native_case"]
         require(name in {item[0] for item in CONTROL_IDS.values()}
                 and diagnostic.get("filename") == name + ".json", "Unexpected portable saved-snapshot filename")
-        scan_entry = evidence_entry("results/gkeyll-saved-state-scans/" + diagnostic["filename"], commit, diagnostic["sha256"])
+        scan_path = diagnostic.get("path", "results/gkeyll-saved-state-scans/" + diagnostic["filename"])
+        resolved_scan = (ROOT / scan_path).resolve()
+        require(resolved_scan.is_relative_to((ROOT / "results/gkeyll-saved-state-scans").resolve())
+                and resolved_scan.name == diagnostic["filename"], "Saved-snapshot path leaves its portable evidence subtree")
+        scan_entry = evidence_entry(scan_path, commit, diagnostic["sha256"])
         entries[scan_entry["path"]] = scan_entry
         scans[name] = read(ROOT / scan_entry["path"])
         require(scans[name].get("scanner_sha256") == record["scanner_sha256"], "Saved-snapshot scanner bytes differ")
@@ -547,6 +691,18 @@ def load_admissibility_evidence(path, receipts_by_sha, commit=None):
         require(dependencies[role]["sha256"] == digest, "Admissibility input role/hash differs: " + role)
     require(read(ROOT / dependencies["expected_context"]["path"]) == record.get("runtime_context"),
             "Selected expected context differs from the actual runtime context")
+    collection = receipts_by_sha[record["collector_manifest_sha256"]]
+    for outcome in record.get("native_outcomes", []):
+        if outcome.get("native_status") != "failed":
+            continue
+        evidence = outcome.get("failure_evidence", {})
+        matches = [binding for role, binding in dependencies.items() if role.startswith("native_failure_proof_")
+            and binding["path"] == evidence.get("selected_independent_proof_path")
+            and binding["sha256"] == evidence.get("selected_independent_proof_sha256")]
+        require(len(matches) == 1, "Selected independent failure input is missing or ambiguous")
+        decision = next((item for item in collection["cases"] if item["case"] == outcome["native_case"]), {})
+        require(decision.get("status") == "failed_native_execution", "Independent failure proof has no classified collector counterpart")
+        validate_independent_failure_proof(read(ROOT / matches[0]["path"]), decision["failure_receipt"])
     evidence_shas = {item["sha256"] for item in entries.values()}
     for digest in (witness.get("independent_diagnosis_sha256"), witness.get("independent_details_sha256"),
                    predicate.get("independent_evidence_sha256")):
@@ -583,6 +739,9 @@ def validate_numerical_subset_evidence(comparison_path, decoding_paths, admissib
     hashes are checked; an explicit commit additionally pins every evidence byte
     read here. This never runs native code or writes a derived artifact. CSV/norm
     verification and publication source-pin coverage remain caller obligations.
+    Final numerical subsets require all four terminal outcomes, resolved decisions,
+    full saved scans for successful cases, explicit unavailable failed histories,
+    and an actual same-runtime endpoint pair. Failure never supplies an endpoint.
     """
     result_entry = evidence_entry(comparison_path, commit)
     result = read(ROOT / result_entry["path"])
@@ -696,11 +855,24 @@ def execution_text(pin, result, code_pin_sha, output_manifest_sha):
     if state.get("admissibility_result_supplied"):
         outcomes = state["native_outcomes"]
         completed_count = sum(item["native_status"] == "completed_native_stop" for item in outcomes.values())
+        failed_native = state["failed_terminal_native_case_ids"]
         rejected = state["endpoint_collector_rejected_case_ids"]
         lines += [f"The separate admissibility record retains all four native outcomes: {completed_count} "
-                  f"normal native completions and {len(rejected)} endpoints rejected by the strict state guard "
+                  f"normal regular30 completions, {len(failed_native)} terminal execution failures, and "
+                  f"{len(rejected)} endpoints rejected by the strict state guard "
                   "in the supplied evidence. Native completion and positive-definite endpoint eligibility are "
                   "separate facts. Rejected endpoints have no accepted primary comparison metrics."]
+        if failed_native:
+            lines += ["The failed native cases are " + ", ".join(r"\nolinkurl{" + name + "}" for name in failed_native)
+                + ". They supply no accepted regular30 endpoint or comparison metrics. Their pressure histories "
+                "are explicitly unavailable; no regular0--30 scan is inferred from the available earlier outputs."]
+            for identifier in failed_native:
+                failure = outcomes[identifier]["failure_evidence"]
+                lines += [r"\nolinkurl{" + identifier + "}: its last closed regular output is frame "
+                    + str(failure["last_closed_regular_frame"]) + r" at $t\omega_{pe}="
+                    + repr(failure["last_closed_regular_time"]) + "$. The exact native/portable receipt and console "
+                    "hashes are retained with the selected independent failure proof. This scalar observation "
+                    "does not identify the failing transient, species or update time."]
         if rejected:
             lines += ["The rejected endpoint cases are " + ", ".join(r"\nolinkurl{" + name + "}" for name in rejected) + "."]
         pairs = state["endpoint_admissible_numerical_pairs"]
@@ -713,7 +885,8 @@ def execution_text(pin, result, code_pin_sha, output_manifest_sha):
             lines += ["No endpoint-admissible paired numerical contrast is established by the supplied evidence."]
         for identifier, history in state["saved_snapshot_histories"].items():
             if history["status"] != "completed_regular0_through30":
-                lines += [r"\nolinkurl{" + identifier + "}: its completed regular0--30 saved-history diagnostic is unavailable."]
+                qualification = " following terminal native failure" if history["status"] == "not_applicable_native_execution_failed" else ""
+                lines += [r"\nolinkurl{" + identifier + "}: its regular0--30 pressure-history diagnostic is unavailable" + qualification + "."]
                 continue
             failed = history["non_PSD_saved_frames"]
             if failed:

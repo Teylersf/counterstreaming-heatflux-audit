@@ -3,8 +3,10 @@
 Default controls mode requires all six archived/clean/matched cases. Source
 mode is only for the actual archived outputs and uses different output names.
 The input profile hash and every plotted profile norm are checked first.
-Explicit subset mode additionally binds all four native outcomes and saved
-histories; its figures describe numerical endpoints, not physical validation.
+Explicit subset mode additionally binds all four terminal native outcomes and
+the full saved histories of successful runs. Failed runs are explicitly
+unavailable, not invented endpoints or histories. Its figures describe
+numerical endpoints, not physical validation.
 """
 from __future__ import annotations
 
@@ -126,6 +128,7 @@ def metric_bars(cases, groups, output, prefix, subset=False):
                         transform=ax.get_xaxis_transform())
         ax.set_title(symbol)
         ax.set_xticks(x, [GROUP_LABELS[GROUPS.index(group)] for group in groups])
+        ax.set_xlim(-.55, len(groups) - .45)
         ax.set_ylabel('Full-grid relative L2 error (%)')
         ax.set_ylim(bottom=0, top=ax.get_ylim()[1] * 1.17)
         ax.grid(axis='y', alpha=.2, zorder=0)
@@ -260,7 +263,7 @@ def table(cases, groups, output, prefix, pic_time, outcomes=None):
 
 def outcome_table(outcomes, output, prefix):
     lines = [r'\begin{table}[tbp]', r'\centering\small',
-             r'\caption{Native outcomes and saved-state admissibility. Endpoint eligibility uses the unchanged initial/final covariance checks. Non-PSD counts are population--snapshot instances out of $31N_s$, not distinct spatial cells or every accepted timestep. A numerical endpoint contrast does not validate a physical trajectory. Withheld errors are not zero errors.}',
+             r'\caption{Native outcomes and saved-state admissibility. Endpoint eligibility uses the unchanged initial/final covariance checks. Eigenvalues are in units of $m_en_0c^2$. For successful runs, non-PSD counts are population--snapshot instances out of $31N_s$, not distinct spatial cells or every accepted timestep. The failed run has no regular-frame-30 endpoint or full-history audit; its missing entries are not zero failures. A numerical endpoint contrast does not validate a physical trajectory.}',
              r'\label{tab:control-outcomes}', r'\begin{tabular}{lrrrr}', r'\toprule',
              r'Case & Actual $t$ & Endpoint & Non-PSD samples & Minimum $\lambda(P_s)$ \\', r'\midrule']
     for group in ('baseline', 'matched'):
@@ -272,6 +275,11 @@ def outcome_table(outcomes, output, prefix):
             eligible = item.get('endpoint_metrics_eligible')
             require(eligible in (True, False), 'Unresolved endpoint eligibility')
             history = item['saved_snapshot_diagnostic']
+            if history['status'] == 'not_applicable_native_execution_failed':
+                require(item['native_status'] == 'failed' and eligible is False and stamp is None,
+                        'A failed run cannot claim an eligible regular30 endpoint')
+                lines.append(label + r' & --- & no frame 30 & --- & --- \\')
+                continue
             require(history['status'] == 'completed_regular0_through30', 'Unresolved saved-state scan')
             populations = [v for k, v in history['summary'].items() if k.startswith('population')]
             require(len(populations) == item['population_count'], 'Saved-state population count differs')
@@ -298,6 +306,15 @@ def pressure_history_plot(outcomes, scan_directory, output, prefix):
         for group, label in (('baseline', 'Unmatched'), ('matched', 'Aggregate-matched')):
             item = outcomes[group + '_' + model]
             entry = item['saved_snapshot_diagnostic']
+            if entry['status'] == 'not_applicable_native_execution_failed':
+                require(item['native_status'] == 'failed'
+                        and item['endpoint_metrics_eligible'] is False
+                        and item.get('actual_regular30_time') is None,
+                        'A failed history cannot carry endpoint metrics')
+                ax.text(.98, .5, label + ' run failed;\nfull history unavailable',
+                        ha='right', va='center', fontsize=6.4, color='#555555', transform=ax.transAxes)
+                continue
+            require(entry['status'] == 'completed_regular0_through30', 'Unresolved saved-state scan')
             name = entry['filename']
             require(Path(name).name == name, 'Saved-scan filename must be portable')
             scan_path = scan_directory / name
@@ -359,10 +376,8 @@ def main():
         from make_paper_data import validate_numerical_subset_evidence
         subset_state = validate_numerical_subset_evidence(args.report, [args.decoding_receipt], args.admissibility)
         require(subset_state['numerical_endpoint_subset_evidence_bound'] is True
-                and subset_state['all_four_native_outcomes_completed'] is True
-                and subset_state['all_four_saved_snapshot_scans_complete'] is True
                 and subset_state['valid_endpoint_pair_ids'],
-                'All four outcomes/scans and an actual eligible endpoint pair are required')
+                'All four terminal outcomes/resolved diagnostics and an actual eligible endpoint pair are required')
         outcome_record = json.loads(args.admissibility.read_text(encoding='utf-8'))
         outcomes = {c['analysis_case_id']: c for c in outcome_record['native_outcomes']}
         expected_native_ids = {group + '_' + model for group in ('baseline', 'matched')

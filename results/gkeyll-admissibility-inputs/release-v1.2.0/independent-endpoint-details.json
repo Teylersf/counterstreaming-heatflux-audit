@@ -1,0 +1,573 @@
+{
+  "independent_details_complete": true,
+  "scope": "Diagnostic pressure-realizability evidence, not accepted comparison metrics for rejected populations.",
+  "checked_utc": "2026-10-29T02:46:14.837096+00:00",
+  "script_sha256": "ae1f08387007e0ec0f0faf7e1d33ad940f3a9dc5ac3c1cd329e0dad2aa20e266",
+  "previous_independent_diagnosis_sha256": "9d9740467e6f680a0fae37bfeb41ad8a020af16488b6417eb4fa94b2d3d2366c",
+  "component_order": [
+    "rho",
+    "rho_ux",
+    "rho_uy",
+    "rho_uz",
+    "Mxx",
+    "Mxy",
+    "Mxz",
+    "Myy",
+    "Myz",
+    "Mzz"
+  ],
+  "index_convention": "Native CartGridField[x,y,component], indices zero based. Analysis [y,x] is explicitly listed. raw y is shifted by32 for paper Y.",
+  "clean_time": 300.04383248285376,
+  "archived_time": 300.0499847996274,
+  "clean_minus_archived_time": -0.006152316773636812,
+  "centering": "Long-double rho*outer(velocity,velocity) intermediate; float64 eigensolver. No clipping or reinterpretation.",
+  "summary": {
+    "clean_population1": {
+      "minimum_density": 0.027122664766693172,
+      "minimum_diagonal": 0.0001271898358709356,
+      "minimum_eigenvalue": -0.001412596801187202,
+      "negative_eigenvalue_cell_count": 16,
+      "nonfinite_conserved_count": 0
+    },
+    "clean_population2": {
+      "minimum_density": 0.02707961649504798,
+      "minimum_diagonal": 0.00026548625815576114,
+      "minimum_eigenvalue": 0.00023020078107684986,
+      "negative_eigenvalue_cell_count": 0,
+      "nonfinite_conserved_count": 0
+    },
+    "clean_aggregate": {
+      "minimum_density": 0.8891678305909523,
+      "minimum_diagonal": 0.008283477203413506,
+      "minimum_eigenvalue": 0.008171737389142265,
+      "negative_eigenvalue_cell_count": 0,
+      "nonfinite_conserved_count": 0
+    },
+    "archived_population1": {
+      "minimum_density": 0.027339945905393424,
+      "minimum_diagonal": 0.0002661632954687487,
+      "minimum_eigenvalue": 0.0002508431408743179,
+      "negative_eigenvalue_cell_count": 0,
+      "nonfinite_conserved_count": 0
+    },
+    "archived_population2": {
+      "minimum_density": 0.02706802839130923,
+      "minimum_diagonal": 0.00026443849166113886,
+      "minimum_eigenvalue": 0.0002295567291023874,
+      "negative_eigenvalue_cell_count": 0,
+      "nonfinite_conserved_count": 0
+    },
+    "archived_aggregate": {
+      "minimum_density": 0.9006512000064415,
+      "minimum_diagonal": 0.008326914348591827,
+      "minimum_eigenvalue": 0.008219197601283194,
+      "negative_eigenvalue_cell_count": 0,
+      "nonfinite_conserved_count": 0
+    }
+  },
+  "archived_reference_bindings": [
+    {
+      "population": 1,
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_300.bp",
+      "source_BP_sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+      "numeric_export_sha256": "28ab39cb9e3faa20af5690e6f4792e6096e4d15743a34137b8c72a42f9552f58"
+    },
+    {
+      "population": 2,
+      "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+      "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+      "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_300.bp",
+      "source_BP_sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+      "numeric_export_sha256": "1d4300b6b8fef1d06f1880cf86fac9898da84c0579a13f0bad441c87e2b48f05"
+    }
+  ],
+  "invalid_clean_population1_cells": [
+    {
+      "native_zero_based_x_y": [
+        320,
+        137
+      ],
+      "analysis_zero_based_y_x": [
+        137,
+        320
+      ],
+      "raw_center_x_y": [
+        8.050000000000004,
+        -18.25
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -3.881912058660578e-05,
+            0.005924869229760669,
+            0.008564539551147178
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0007865940595151703,
+            0.005937047287059834,
+            0.007789212893888979
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        323,
+        136
+      ],
+      "analysis_zero_based_y_x": [
+        136,
+        323
+      ],
+      "raw_center_x_y": [
+        8.350000000000001,
+        -18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.0005306390116083192,
+            0.005182899396367131,
+            0.0075931490947098055
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0006431283550682445,
+            0.0044237241866555595,
+            0.007347648405444293
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        323,
+        141
+      ],
+      "analysis_zero_based_y_x": [
+        141,
+        323
+      ],
+      "raw_center_x_y": [
+        8.350000000000001,
+        -17.85
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -5.269747547049326e-05,
+            0.007006979222699239,
+            0.009438248978055196
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0023998253333104673,
+            0.006416459652840508,
+            0.008258112757975486
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        324,
+        136
+      ],
+      "analysis_zero_based_y_x": [
+        136,
+        324
+      ],
+      "raw_center_x_y": [
+        8.450000000000003,
+        -18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.001412596801187202,
+            0.004573846796151224,
+            0.007434728193478701
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0006558005157849592,
+            0.004631017529712815,
+            0.007874006689942849
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        325,
+        136
+      ],
+      "analysis_zero_based_y_x": [
+        136,
+        325
+      ],
+      "raw_center_x_y": [
+        8.550000000000004,
+        -18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.0008760104639055468,
+            0.005014050266374378,
+            0.008003383098603751
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0008378397666054689,
+            0.005139301624765103,
+            0.009005529903933383
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        326,
+        136
+      ],
+      "analysis_zero_based_y_x": [
+        136,
+        326
+      ],
+      "raw_center_x_y": [
+        8.649999999999999,
+        -18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.0005950487885972794,
+            0.005226283741879973,
+            0.009280260160047227
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.001100547539698526,
+            0.00565488146882006,
+            0.009690930303513933
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        327,
+        136
+      ],
+      "analysis_zero_based_y_x": [
+        136,
+        327
+      ],
+      "raw_center_x_y": [
+        8.75,
+        -18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -1.4675151855621015e-05,
+            0.005718171823423035,
+            0.012716692657629178
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0017037889353862996,
+            0.005967981173283683,
+            0.009717411875568509
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        335,
+        150
+      ],
+      "analysis_zero_based_y_x": [
+        150,
+        335
+      ],
+      "raw_center_x_y": [
+        9.550000000000004,
+        -16.95
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.0002660923425810659,
+            0.006607114797665664,
+            0.01564599878790595
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.003732242265368606,
+            0.007952493422900811,
+            0.015031210462719005
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        376,
+        487
+      ],
+      "analysis_zero_based_y_x": [
+        487,
+        376
+      ],
+      "raw_center_x_y": [
+        13.649999999999999,
+        16.75
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.00026588872208448366,
+            0.006652187504636042,
+            0.015883348189981793
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0023579757026009384,
+            0.010156367369009017,
+            0.01889338331216502
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        377,
+        487
+      ],
+      "analysis_zero_based_y_x": [
+        487,
+        377
+      ],
+      "raw_center_x_y": [
+        13.75,
+        16.75
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.0005504228971769125,
+            0.006507252382013149,
+            0.016404289075053063
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.002501117698057891,
+            0.008874559204889965,
+            0.01931117414459148
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        392,
+        503
+      ],
+      "analysis_zero_based_y_x": [
+        503,
+        392
+      ],
+      "raw_center_x_y": [
+        15.25,
+        18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -6.924918424928533e-05,
+            0.005800090652240632,
+            0.010769568958469361
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0016799967399416893,
+            0.005981749041455058,
+            0.009862280719201668
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        393,
+        503
+      ],
+      "analysis_zero_based_y_x": [
+        503,
+        393
+      ],
+      "raw_center_x_y": [
+        15.350000000000001,
+        18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.00023071861477013466,
+            0.005841717775238061,
+            0.01049531897004327
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.000938062909599425,
+            0.005549903093927237,
+            0.00933326394607578
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        394,
+        503
+      ],
+      "analysis_zero_based_y_x": [
+        503,
+        394
+      ],
+      "raw_center_x_y": [
+        15.450000000000003,
+        18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.0003299855741673208,
+            0.005298541728576746,
+            0.008436809505925454
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0009032774272663955,
+            0.00495853430987639,
+            0.008408459419994416
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        395,
+        503
+      ],
+      "analysis_zero_based_y_x": [
+        503,
+        395
+      ],
+      "raw_center_x_y": [
+        15.550000000000004,
+        18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.000348636816685749,
+            0.005131222465928414,
+            0.007776242435584667
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0007892571946848752,
+            0.004657214777850305,
+            0.00767628576747715
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        396,
+        503
+      ],
+      "analysis_zero_based_y_x": [
+        503,
+        396
+      ],
+      "raw_center_x_y": [
+        15.650000000000006,
+        18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.00020441827141871776,
+            0.005014502662470303,
+            0.007529562772729578
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0007251015597892149,
+            0.004550688208184307,
+            0.00733230319240264
+          ]
+        }
+      }
+    },
+    {
+      "native_zero_based_x_y": [
+        397,
+        503
+      ],
+      "analysis_zero_based_y_x": [
+        503,
+        397
+      ],
+      "raw_center_x_y": [
+        15.75,
+        18.35
+      ],
+      "states": {
+        "clean_population1": {
+          "pressure_eigenvalues": [
+            -0.00019512883018336875,
+            0.0046967534686552966,
+            0.007271277588796735
+          ]
+        },
+        "archived_population1": {
+          "pressure_eigenvalues": [
+            0.0005939263645223725,
+            0.004715809225268479,
+            0.0071032846789923255
+          ]
+        }
+      }
+    }
+  ],
+  "no_conformance_gate_relaxed": true,
+  "no_rejected_case_performance_metrics_generated": true,
+  "source_full_record_sha256": "511e12dac614c3f23f67ac631c7c47df27baec67b794d821d909a337980c9a16",
+  "public_exporter_script_sha256": "457dcbc79005dbc91d03bd4b270eb83bfad02eed8896ae387ffe2e3f449217bb",
+  "public_export_scope": "Selected portable metadata; only the single endpoint witness and small invalid-index/eigenvalue list retain physical arrays. Full source record hash is preserved."
+}

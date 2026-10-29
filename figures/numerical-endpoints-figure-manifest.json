@@ -1,0 +1,746 @@
+{
+  "mode": "numerical-endpoint-subset",
+  "scope": "Actual archived source and completed regular-frame30 clean-base control outputs only; incomplete/failed executions are explicit. Actual unequal times retained; no interpolation or causal effect imputed from missing pairs.",
+  "simulation_performed_by_this_script": false,
+  "script_sha256": "4d852b3c32cd07983302125cf2b9f3148e4ea3b26d29841f5ede219ee7c61a3c",
+  "input_report_sha256": "305b20abddd38d0d7df3031b8100d3ed5f14abd84cf080158b1a1124c7cea5dc",
+  "PIC_reference_actual_time": 300.0015,
+  "input_profiles_sha256": "25c8a7fb81b346c1f7b19ac85524d2345e3c04f58a619653cfe01e6d25c9afa0",
+  "actual_cases_plotted": [
+    "archived_one_fluid",
+    "archived_two_fluid",
+    "baseline_one_fluid",
+    "matched_one_fluid"
+  ],
+  "numerical_endpoint_subset_state": {
+    "comparison_result_supplied": true,
+    "valid_compared_case_count": 2,
+    "compared_cases": {
+      "baseline_one_fluid": {
+        "native_case": "1-fluid-unmatched",
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      },
+      "matched_one_fluid": {
+        "native_case": "1-fluid-aggregate-matched",
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      }
+    },
+    "compared_archived_cases": {
+      "archived_one_fluid": {
+        "native_case": null,
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      },
+      "archived_two_fluid": {
+        "native_case": null,
+        "actual_time": 300.0499847996274,
+        "frame": 30
+      }
+    },
+    "both_clean_versus_archive_comparisons_computed": false,
+    "validated_native_completion_count": 2,
+    "completed_native_times": {
+      "1-fluid-unmatched": 300.0001500000136,
+      "1-fluid-aggregate-matched": 300.0001500000136
+    },
+    "all_four_completed_and_compared": false,
+    "result_reports_all_actual_cases_passed": true,
+    "missing_control_comparison_ids": [
+      "baseline_two_fluid",
+      "matched_two_fluid"
+    ],
+    "actual_times_retained_without_interpolation": true,
+    "native_runtime_context": {
+      "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+      "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+      "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+      "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+      "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+      "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+      "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+      "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+    },
+    "original_dirty_executable_certified": false,
+    "admissibility_result_supplied": true,
+    "all_four_native_outcomes_completed": false,
+    "all_four_saved_snapshot_scans_complete": false,
+    "all_four_native_outcomes_observed": true,
+    "all_four_collector_decisions_resolved": true,
+    "all_four_saved_snapshot_diagnostics_resolved": true,
+    "all_terminal_outcomes_and_required_histories_bound": true,
+    "all_successful_native_saved_snapshot_scans_complete": true,
+    "successful_native_outcome_count": 3,
+    "failed_terminal_native_case_ids": [
+      "matched_two_fluid"
+    ],
+    "native_outcomes": {
+      "baseline_one_fluid": {
+        "native_case": "1-fluid-unmatched",
+        "native_status": "completed_native_stop",
+        "native_outcome_terminal": true,
+        "endpoint_collector_status": "accepted_initial_and_regular30_states",
+        "primary_metrics_accepted": true,
+        "source_run_receipt_sha256": "2939a800ea9a721821ff25da822b5deafc20fc2e20b0f5c8802e3bb8bfbcec34",
+        "native_returncode": 0,
+        "actual_time": 300.0001500000136,
+        "portable_decoding_receipt_sha256": "7b5910b1d0f0f33b59a7f9fdbefc799b1d3bc6eac1b509cee425d7fb762bdcf1",
+        "endpoint_metrics_eligible": true,
+        "collector_decision_resolved": true,
+        "saved_snapshot_diagnostic_resolved": true
+      },
+      "baseline_two_fluid": {
+        "native_case": "2-fluid-unmatched",
+        "native_status": "completed_native_stop",
+        "native_outcome_terminal": true,
+        "endpoint_collector_status": "rejected_nonconforming_state",
+        "primary_metrics_accepted": false,
+        "source_run_receipt_sha256": "77ba0c7796bc4e340acf27a4e7870c7fc27a117ef83b2be723694ce657775de7",
+        "native_returncode": 0,
+        "actual_time": 300.04383248285376,
+        "rejection_reason": {
+          "label": "2-fluid-unmatched case_elc1_30.bp",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [
+            "Covariance pressure is not strictly positive definite"
+          ],
+          "minimum_density": 0.027122664766693172,
+          "minimum_pressure_diagonal": 0.0001271898358709356,
+          "minimum_pressure_eigenvalue": -0.0014125968011872057
+        },
+        "endpoint_metrics_eligible": false,
+        "collector_decision_resolved": true,
+        "saved_snapshot_diagnostic_resolved": true
+      },
+      "matched_one_fluid": {
+        "native_case": "1-fluid-aggregate-matched",
+        "native_status": "completed_native_stop",
+        "native_outcome_terminal": true,
+        "endpoint_collector_status": "accepted_initial_and_regular30_states",
+        "primary_metrics_accepted": true,
+        "source_run_receipt_sha256": "5269967ec1ad66c35fbf1fc4ffeb12fc426bf114d7736e8a957d7ed7c331c94d",
+        "native_returncode": 0,
+        "actual_time": 300.0001500000136,
+        "portable_decoding_receipt_sha256": "eb715002eea9fcc3171b954f767f648abd9a342356f90ea9226dfaf3dbbb02d0",
+        "endpoint_metrics_eligible": true,
+        "collector_decision_resolved": true,
+        "saved_snapshot_diagnostic_resolved": true
+      },
+      "matched_two_fluid": {
+        "native_case": "2-fluid-aggregate-matched",
+        "native_status": "failed",
+        "native_outcome_terminal": true,
+        "endpoint_collector_status": "not_accepted_native_execution_failure",
+        "primary_metrics_accepted": false,
+        "source_run_receipt_sha256": "fdaf5bf781a76811e4d5b94e2c2596e2f1b7122f39de014617c0a227a8ed95ab",
+        "native_returncode": 1,
+        "failure_evidence": {
+          "portable_failure_receipt_sha256": "d1a8622350d996725010bf59c93cc31b20f0ddab0d13b81296eb49d5fc71e093",
+          "selected_independent_proof_path": "results/gkeyll-admissibility-inputs/release-v1.2.0/independent-native-failure-1.json",
+          "selected_independent_proof_sha256": "017c21b0ebbe14975f520b5af7d1c535f541081829472940ff7fc9c71921cf6e",
+          "last_closed_regular_frame": 22,
+          "last_closed_regular_time": 220.00011000001655,
+          "console_sha256": "da230eeeaee344eadbbfd0bc819a2b40f37889e6f9a2647ca009042d184cf820",
+          "console_bytes": 4405,
+          "assertion_failures": [
+            {
+              "source_relative_path": "App/Species/MomentSpecies.lua",
+              "source_line": 495,
+              "occurrences": 16,
+              "console_line_numbers": [
+                51,
+                53,
+                55,
+                57,
+                59,
+                61,
+                63,
+                65,
+                67,
+                69,
+                71,
+                73,
+                75,
+                77,
+                79,
+                81
+              ],
+              "message": "assertion failed"
+            }
+          ],
+          "native_returncode": 1,
+          "native_numerical_failure_markers_scope": "Exact timestep-collapse pattern only; an empty list does not imply absence of other errors.",
+          "native_stop_requested": false,
+          "regular30_endpoint_accepted": false,
+          "full_pressure_history_available": false
+        },
+        "last_closed_regular_frame": 22,
+        "last_closed_regular_time": 220.00011000001655,
+        "rejection_reason": {
+          "native_status": "failed",
+          "native_returncode": 1,
+          "assertion_failures": [
+            {
+              "source_relative_path": "App/Species/MomentSpecies.lua",
+              "source_line": 495,
+              "occurrences": 16,
+              "console_line_numbers": [
+                51,
+                53,
+                55,
+                57,
+                59,
+                61,
+                63,
+                65,
+                67,
+                69,
+                71,
+                73,
+                75,
+                77,
+                79,
+                81
+              ],
+              "message": "assertion failed"
+            }
+          ],
+          "failure_markers": [],
+          "scope": "Terminal native execution failure; last closed output does not identify the failing transient/species/time."
+        },
+        "endpoint_metrics_eligible": false,
+        "collector_decision_resolved": true,
+        "saved_snapshot_diagnostic_resolved": true
+      }
+    },
+    "saved_snapshot_histories": {
+      "baseline_one_fluid": {
+        "status": "completed_regular0_through30",
+        "scan_sha256": "6f6a413e9738388fd281df87f5882221695126f3ec8662052b894a5194b05a46",
+        "all_scanned_populations_PSD": false,
+        "all_scanned_populations_strict_PD": false,
+        "summary": {
+          "population1": {
+            "saved_snapshots_scanned": 31,
+            "saved_snapshots_not_PSD": 3,
+            "first_non_PSD_saved_frame": 22,
+            "first_non_PSD_saved_time": 220.00011000001655,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": -0.0017235454297221575,
+            "maximum_negative_eigenvalue_cell_count": 18,
+            "all_saved_snapshots_PSD": false,
+            "all_saved_snapshots_strict_PD": false
+          },
+          "aggregate": {
+            "saved_snapshots_scanned": 31,
+            "saved_snapshots_not_PSD": 3,
+            "first_non_PSD_saved_frame": 22,
+            "first_non_PSD_saved_time": 220.00011000001655,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": -0.0017235454297221575,
+            "maximum_negative_eigenvalue_cell_count": 18,
+            "all_saved_snapshots_PSD": false,
+            "all_saved_snapshots_strict_PD": false
+          }
+        },
+        "non_PSD_saved_frames": [
+          {
+            "frame": 22,
+            "actual_time": 220.00011000001655,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 9,
+                "minimum_pressure_eigenvalue": -0.0008061782095516818,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 9,
+                "minimum_pressure_eigenvalue": -0.0008061782095516818,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 23,
+            "actual_time": 230.00011500001852,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 18,
+                "minimum_pressure_eigenvalue": -0.0017235454297221575,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 18,
+                "minimum_pressure_eigenvalue": -0.0017235454297221575,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 24,
+            "actual_time": 240.0001200000205,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 7,
+                "minimum_pressure_eigenvalue": -0.0015254407752198036,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 7,
+                "minimum_pressure_eigenvalue": -0.0015254407752198036,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          }
+        ],
+        "saved_snapshots_only": true,
+        "continuous_trajectory_certified": false
+      },
+      "baseline_two_fluid": {
+        "status": "completed_regular0_through30",
+        "scan_sha256": "3bf512b0b4e190bf461ec93a42f9906f716571166b0c96a2fd80bb4b42e06040",
+        "all_scanned_populations_PSD": false,
+        "all_scanned_populations_strict_PD": false,
+        "summary": {
+          "population1": {
+            "saved_snapshots_scanned": 31,
+            "saved_snapshots_not_PSD": 3,
+            "first_non_PSD_saved_frame": 19,
+            "first_non_PSD_saved_time": 190.00009500001062,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": -0.0014125968011872055,
+            "maximum_negative_eigenvalue_cell_count": 16,
+            "all_saved_snapshots_PSD": false,
+            "all_saved_snapshots_strict_PD": false
+          },
+          "population2": {
+            "saved_snapshots_scanned": 31,
+            "saved_snapshots_not_PSD": 0,
+            "first_non_PSD_saved_frame": null,
+            "first_non_PSD_saved_time": null,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": 0.00019853043842171905,
+            "maximum_negative_eigenvalue_cell_count": 0,
+            "all_saved_snapshots_PSD": true,
+            "all_saved_snapshots_strict_PD": true
+          },
+          "aggregate": {
+            "saved_snapshots_scanned": 31,
+            "saved_snapshots_not_PSD": 0,
+            "first_non_PSD_saved_frame": null,
+            "first_non_PSD_saved_time": null,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": 0.0077787309128013364,
+            "maximum_negative_eigenvalue_cell_count": 0,
+            "all_saved_snapshots_PSD": true,
+            "all_saved_snapshots_strict_PD": true
+          }
+        },
+        "non_PSD_saved_frames": [
+          {
+            "frame": 19,
+            "actual_time": 190.00009500001062,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 2,
+                "minimum_pressure_eigenvalue": -0.0001840403148385608,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 22,
+            "actual_time": 220.00011000001655,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 2,
+                "minimum_pressure_eigenvalue": -0.00011956703766550773,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 30,
+            "actual_time": 300.04383248285376,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 16,
+                "minimum_pressure_eigenvalue": -0.0014125968011872055,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          }
+        ],
+        "saved_snapshots_only": true,
+        "continuous_trajectory_certified": false
+      },
+      "matched_one_fluid": {
+        "status": "completed_regular0_through30",
+        "scan_sha256": "27a2975c9d1b034f1687bda1c1d7b2c99fa6a270d5bd194e394eb8e822a27ab1",
+        "all_scanned_populations_PSD": false,
+        "all_scanned_populations_strict_PD": false,
+        "summary": {
+          "population1": {
+            "saved_snapshots_scanned": 31,
+            "saved_snapshots_not_PSD": 5,
+            "first_non_PSD_saved_frame": 22,
+            "first_non_PSD_saved_time": 220.00011000001655,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": -0.005320737901897977,
+            "maximum_negative_eigenvalue_cell_count": 47,
+            "all_saved_snapshots_PSD": false,
+            "all_saved_snapshots_strict_PD": false
+          },
+          "aggregate": {
+            "saved_snapshots_scanned": 31,
+            "saved_snapshots_not_PSD": 5,
+            "first_non_PSD_saved_frame": 22,
+            "first_non_PSD_saved_time": 220.00011000001655,
+            "minimum_pressure_eigenvalue_over_saved_snapshots": -0.005320737901897977,
+            "maximum_negative_eigenvalue_cell_count": 47,
+            "all_saved_snapshots_PSD": false,
+            "all_saved_snapshots_strict_PD": false
+          }
+        },
+        "non_PSD_saved_frames": [
+          {
+            "frame": 22,
+            "actual_time": 220.00011000001655,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 5,
+                "minimum_pressure_eigenvalue": -0.001486182160958821,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 5,
+                "minimum_pressure_eigenvalue": -0.001486182160958821,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 23,
+            "actual_time": 230.00011500001852,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 23,
+                "minimum_pressure_eigenvalue": -0.00404830767917879,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 23,
+                "minimum_pressure_eigenvalue": -0.00404830767917879,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 24,
+            "actual_time": 240.0001200000205,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 47,
+                "minimum_pressure_eigenvalue": -0.0034419466622849257,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 47,
+                "minimum_pressure_eigenvalue": -0.0034419466622849257,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 25,
+            "actual_time": 250.00012500002248,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 30,
+                "minimum_pressure_eigenvalue": -0.005320737901897977,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 30,
+                "minimum_pressure_eigenvalue": -0.005320737901897977,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          },
+          {
+            "frame": 26,
+            "actual_time": 260.00013000002275,
+            "states": {
+              "population1": {
+                "negative_eigenvalue_cell_count": 5,
+                "minimum_pressure_eigenvalue": -0.0034376404852916485,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              },
+              "aggregate": {
+                "negative_eigenvalue_cell_count": 5,
+                "minimum_pressure_eigenvalue": -0.0034376404852916485,
+                "nonfinite_conserved_cell_count": 0,
+                "covariance_undefined_cell_count": 0
+              }
+            }
+          }
+        ],
+        "saved_snapshots_only": true,
+        "continuous_trajectory_certified": false
+      },
+      "matched_two_fluid": {
+        "status": "not_applicable_native_execution_failed",
+        "saved_snapshots_only": true,
+        "continuous_trajectory_certified": false
+      }
+    },
+    "endpoint_admissible_numerical_pairs": {
+      "one_fluid_initialization_effect": {
+        "baseline": "baseline_one_fluid",
+        "matched": "matched_one_fluid",
+        "runtime_context": {
+          "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+          "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+          "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+          "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+          "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+          "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+          "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+          "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+        },
+        "baseline_actual_time": 300.0001500000136,
+        "matched_actual_time": 300.0001500000136,
+        "endpoint_receipt_bindings": {
+          "baseline_one_fluid": {
+            "source_run_receipt_sha256": "2939a800ea9a721821ff25da822b5deafc20fc2e20b0f5c8802e3bb8bfbcec34",
+            "portable_decoding_receipt_sha256": "7b5910b1d0f0f33b59a7f9fdbefc799b1d3bc6eac1b509cee425d7fb762bdcf1"
+          },
+          "matched_one_fluid": {
+            "source_run_receipt_sha256": "5269967ec1ad66c35fbf1fc4ffeb12fc426bf114d7736e8a957d7ed7c331c94d",
+            "portable_decoding_receipt_sha256": "eb715002eea9fcc3171b954f767f648abd9a342356f90ea9226dfaf3dbbb02d0"
+          }
+        },
+        "clean_versus_archive": {
+          "clean": "baseline_one_fluid",
+          "archived": "archived_one_fluid",
+          "clean_actual_time": 300.0001500000136,
+          "archived_actual_time": 300.0001500000136,
+          "time_interpolation_performed": false
+        },
+        "saved_snapshot_history_statuses": {
+          "baseline_one_fluid": "completed_regular0_through30",
+          "matched_one_fluid": "completed_regular0_through30"
+        },
+        "saved_snapshot_PSD_violations_present": true,
+        "scope": "Endpoint-admissible NUMERICAL sensitivity only; no physical-trajectory, causal or convergence validation."
+      }
+    },
+    "eligible_endpoint_analysis_case_ids": [
+      "baseline_one_fluid",
+      "matched_one_fluid"
+    ],
+    "valid_endpoint_pair_ids": [
+      "one_fluid_initialization_effect"
+    ],
+    "numerical_endpoint_subset_evidence_bound": true,
+    "physical_trajectory_validation_claimed": false,
+    "saved_histories_certify_between_output_states": false,
+    "endpoint_collector_accepted_case_ids": [
+      "baseline_one_fluid",
+      "matched_one_fluid"
+    ],
+    "endpoint_collector_rejected_case_ids": [
+      "baseline_two_fluid"
+    ],
+    "admissibility_native_runtime_context": {
+      "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+      "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+      "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+      "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+      "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+      "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+      "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+      "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+    },
+    "read_only_evidence_bindings": [
+      {
+        "path": "results/gkeyll-control-comparison.json",
+        "sha256": "305b20abddd38d0d7df3031b8100d3ed5f14abd84cf080158b1a1124c7cea5dc"
+      },
+      {
+        "path": "data/gkeyll-completed-control-cases.json",
+        "sha256": "25f69d8a389519be9f2992046413b7ddedc3224d70b538cac213a3882bc9980e"
+      },
+      {
+        "path": "experiments/analyze_gkeyll_controls.py",
+        "sha256": "0671842c29e5abe24e9b62200547cfb08adbaa3bf1788704c53cd987f07f9b09"
+      },
+      {
+        "path": "scripts/make_paper_data.py",
+        "sha256": "b4f5b24d5cb1815a4b90e10d43ebd6cb9c5d3915ee532b446ef9bffc6a2e41f8"
+      },
+      {
+        "path": "results/gkeyll-control-decoding.json",
+        "sha256": "d9d1c272e7094a090bb0ebebe6cdb6310acda196034513285c5041f51989bc79"
+      },
+      {
+        "path": "results/gkeyll-admissibility.json",
+        "sha256": "8e53a5c39a3ac5429b5f2240d7d15a95eec7028d0f7af847ae91850659170a7c"
+      },
+      {
+        "path": "experiments/build_gkeyll_admissibility.py",
+        "sha256": "457dcbc79005dbc91d03bd4b270eb83bfad02eed8896ae387ffe2e3f449217bb"
+      },
+      {
+        "path": "experiments/scan_gkeyll_saved_states.py",
+        "sha256": "86269af0916439c2eb57a84ec35fc0e983cceb1ead6c913a2accd3ef7bc40898"
+      },
+      {
+        "path": "experiments/collect_completed_gkeyll_cases.py",
+        "sha256": "73ae46bc4abe88265f38cfe6de356948cdffbe865456fdd30512d7900afbfecc"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/collector-inventory.json",
+        "sha256": "d9d1c272e7094a090bb0ebebe6cdb6310acda196034513285c5041f51989bc79"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/expected-runtime-context.json",
+        "sha256": "af08eb4855bfd228b463bd16aa9c50e04e11e8fe11cb84d58b62474fe9c60b9d"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/independent-endpoint-diagnosis.json",
+        "sha256": "f5898e0903b5dc5bbf4db24ee32e2ad3354d7eafead8a1367add5e8af5a55e9b"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/independent-endpoint-details.json",
+        "sha256": "84e8a46ee796b7a0d63131062ab2ed80daaa2e3e3d98363f92adee3ef062e17e"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/native-predicate-provenance.json",
+        "sha256": "08bd299b02e8a6cc4ced669e01b9c0287f7a88cfa3b452d37b92d40201b9d55a"
+      },
+      {
+        "path": "data/gkeyll-clean9663-file-manifest.json",
+        "sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/independent-intermediate-1.json",
+        "sha256": "479c6ea8c732ed738c2e07a1d14410d31d46df270d0cd41efa469357de60f746"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/independent-intermediate-2.json",
+        "sha256": "ba0614e5ce3952d96204f11df1c70260fd163c57e822eaf7df35e24cb4a47d6a"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/independent-intermediate-3.json",
+        "sha256": "16a8cdd416c150438a5b0cdea82aee1900f30994ad0844763416032934a5e8de"
+      },
+      {
+        "path": "results/gkeyll-admissibility-inputs/release-v1.2.0/independent-native-failure-1.json",
+        "sha256": "017c21b0ebbe14975f520b5af7d1c535f541081829472940ff7fc9c71921cf6e"
+      },
+      {
+        "path": "results/gkeyll-saved-state-scans/1-fluid-unmatched.json",
+        "sha256": "6f6a413e9738388fd281df87f5882221695126f3ec8662052b894a5194b05a46"
+      },
+      {
+        "path": "results/gkeyll-saved-state-scans/2-fluid-unmatched.json",
+        "sha256": "3bf512b0b4e190bf461ec93a42f9906f716571166b0c96a2fd80bb4b42e06040"
+      },
+      {
+        "path": "results/gkeyll-saved-state-scans/1-fluid-aggregate-matched.json",
+        "sha256": "27a2975c9d1b034f1687bda1c1d7b2c99fa6a270d5bd194e394eb8e822a27ab1"
+      },
+      {
+        "path": "experiments/run_gkeyll_controls.py",
+        "sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83"
+      },
+      {
+        "path": "data/gkeyll-clean9663-dependencies.json",
+        "sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232"
+      },
+      {
+        "path": "results/gkeyll-matched-init-conformance.json",
+        "sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+      }
+    ]
+  },
+  "admissibility_record_sha256": "8e53a5c39a3ac5429b5f2240d7d15a95eec7028d0f7af847ae91850659170a7c",
+  "physical_trajectory_validation_claimed": false,
+  "outputs": [
+    {
+      "filename": "numerical-endpoints-errors.pdf",
+      "bytes": 23762,
+      "sha256": "96f8f28175c0ee0b29f8f6233cbba8563c93337de65ef074fa7c58e7ffe2bfa3"
+    },
+    {
+      "filename": "numerical-endpoints-errors.png",
+      "bytes": 107261,
+      "sha256": "607a64a61a49cc44c60cd3d9e9781cd5f50d1df293f79354de26241cc058041c"
+    },
+    {
+      "filename": "numerical-endpoints-profiles.pdf",
+      "bytes": 51084,
+      "sha256": "adaebe1ded27eade5c39b66794989feabc552d389635a8528a81024be62189b4"
+    },
+    {
+      "filename": "numerical-endpoints-profiles.png",
+      "bytes": 232866,
+      "sha256": "c596259a3a41eddcc459d67f4f166aea373e95acdfb79cb773530e0eb3656304"
+    },
+    {
+      "filename": "numerical-endpoints-qcs.pdf",
+      "bytes": 25547,
+      "sha256": "eb6c26c3ee0ca9e5b705c7093a0d4fb9a00386e7496e1550511b700b3922f704"
+    },
+    {
+      "filename": "numerical-endpoints-qcs.png",
+      "bytes": 67454,
+      "sha256": "21b9a27deafb6e9e0e53fa79bde105732ea6b5f635b440c5d2a160f1e28a9cf6"
+    },
+    {
+      "filename": "numerical-endpoints-table.tex",
+      "bytes": 916,
+      "sha256": "7672245feeaf396a1a2744a6f19d9877fcac2b053da3c66076906bc46fa0f272"
+    },
+    {
+      "filename": "numerical-endpoints-fidelity-table.tex",
+      "bytes": 721,
+      "sha256": "1bad9674eea8cef936dba35e164903c4e08cc94ead0485e0a74a1acd104f52f3"
+    },
+    {
+      "filename": "numerical-endpoints-outcomes-table.tex",
+      "bytes": 957,
+      "sha256": "befe9c887bee4f59652c94de197e881505f112e1ecdfde3eeef02dd9ff158d2a"
+    },
+    {
+      "filename": "numerical-endpoints-pressure-history.pdf",
+      "bytes": 28815,
+      "sha256": "296f3f7a7ec8a723c0939f0d0c563e67075dcd09a4a80b52612cdb70c28eb2d7"
+    },
+    {
+      "filename": "numerical-endpoints-pressure-history.png",
+      "bytes": 87875,
+      "sha256": "6206308d98cdcb8e17b7508203d4ac9872eba8498ba8f37a405c807d27fc9c50"
+    }
+  ]
+}

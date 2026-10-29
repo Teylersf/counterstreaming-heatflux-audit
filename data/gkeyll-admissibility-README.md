@@ -6,6 +6,10 @@ the strict collector accepted its initial/final state, and whether covariance
 PSD held in the available regular saved moment snapshots0--30. Pending cases
 have null endpoint eligibility. A rejected completed case has no primary
 comparison metrics; it is not described as an unattempted run or a zero error.
+A terminal failed execution is also distinct: it has no eligible regular30
+endpoint and its full-history diagnostic is explicitly
+`not_applicable_native_execution_failed`. This is an unavailable audit, not a
+PSD certificate, zero failures or a claim that31 snapshots were scanned.
 
 Accepted comparisons and pairs are **NUMERICAL endpoint comparisons only**.
 An admissible final covariance does not certify earlier states. A complete
@@ -74,6 +78,27 @@ Consumers must distinguish these fields:
   every run successfully reached the guarded regular30 endpoint.
 * `all_four_saved_snapshot_scans_complete`: all31 requested snapshots were
   checked for every case, independent of whether their covariance passed.
+
+These literal all-four success/full-scan flags remain false in the released
+experiment: three native cases complete and one fails before regular30.
+Numerical subset readiness instead requires all four terminal outcomes and
+resolved collector/history decisions, a full scan of each successfully
+completed native run, and at least one genuine eligible same-runtime endpoint
+pair. A terminal failure cannot enable a metric or substitute for a full scan.
+The failed matched two-fluid run's last closed regular output is22 at
+220.00011000001655; the assertion occurs afterward at an unrecorded exact
+time. Its transient state, species and numerical cause are not established.
+The saved-history audit was added after the first rejected endpoint; it is
+not described as a prespecified primary performance measurement.
+
+Each scan preserves the actual scanner and IO-helper hashes used to produce
+it. The later terminal-failure classification branch changes the collector
+and analyzer file hashes without changing the pressure or error formulas.
+The scan IO versions are available at public commit
+`b2e763e46eb24b87db03a4315d16dd0f74549960`; the release code pin identifies
+the final classification helpers separately. Fresh baseline rescans reproduce
+all 31 scientific frame records and their summaries exactly. Historical stamps
+are retained rather than rewritten to the later helper version.
 
 `endpoint_eligible_pairs` includes actual endpoint times, runtime context and
 raw/receipt/scan anchors, with no physical-trajectory claim. Consumers should

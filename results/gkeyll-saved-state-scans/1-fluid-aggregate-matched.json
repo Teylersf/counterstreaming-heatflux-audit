@@ -1,0 +1,2148 @@
+{
+  "status": "completed_saved_snapshot_scan",
+  "started_utc": "2026-10-29T03:18:39.968503+00:00",
+  "frames": [
+    {
+      "frame": 0,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_0.bp",
+          "bytes": 24587010,
+          "sha256": "044e8fa2d1f2da4b8be216be9d22169230ad4fb6600588c819c121afefa3e36d",
+          "frame": 0,
+          "actual_time": 0.0
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 1.0,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.006979083429632937,
+        "minimum_pressure_eigenvalue": 0.0069103173319117325,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          324,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          8.450000000000003,
+          -16.15
+        ]
+      },
+      "actual_time": 0.0,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 1.0,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.006979083429632937,
+        "minimum_pressure_eigenvalue": 0.0069103173319117325,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          324,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          8.450000000000003,
+          -16.15
+        ]
+      }
+    },
+    {
+      "frame": 1,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_1.bp",
+          "bytes": 24587010,
+          "sha256": "8e40c85ba0cfbd42b0c371e4b6ed60cf6f4f799f1421da8dfe18c81009e726ea",
+          "frame": 1,
+          "actual_time": 10.00000500000001
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.960028080921928,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007263431588127478,
+        "minimum_pressure_eigenvalue": 0.007198845750862952,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          65,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -17.45,
+          -16.15
+        ]
+      },
+      "actual_time": 10.00000500000001,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.960028080921928,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007263431588127478,
+        "minimum_pressure_eigenvalue": 0.007198845750862952,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          65,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -17.45,
+          -16.15
+        ]
+      }
+    },
+    {
+      "frame": 2,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_2.bp",
+          "bytes": 24587010,
+          "sha256": "1aade507d37f4721ee3bcbf593ec9ce64deac2bdc112241d08c68e34e5854f92",
+          "frame": 2,
+          "actual_time": 20.000010000000014
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9611912158244962,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007175160269015762,
+        "minimum_pressure_eigenvalue": 0.006926404694633558,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          336,
+          157
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          9.649999999999999,
+          -16.25
+        ]
+      },
+      "actual_time": 20.000010000000014,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9611912158244962,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007175160269015762,
+        "minimum_pressure_eigenvalue": 0.006926404694633558,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          336,
+          157
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          9.649999999999999,
+          -16.25
+        ]
+      }
+    },
+    {
+      "frame": 3,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_3.bp",
+          "bytes": 24587010,
+          "sha256": "7800f873d8418e0feedbe5943cd680d6885a6f9a177920fcc39d9f3523904820",
+          "frame": 3,
+          "actual_time": 30.00001499999986
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.966994312820946,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00713081547334357,
+        "minimum_pressure_eigenvalue": 0.006992523164844628,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          285,
+          480
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          4.550000000000001,
+          16.050000000000004
+        ]
+      },
+      "actual_time": 30.00001499999986,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.966994312820946,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00713081547334357,
+        "minimum_pressure_eigenvalue": 0.006992523164844628,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          285,
+          480
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          4.550000000000001,
+          16.050000000000004
+        ]
+      }
+    },
+    {
+      "frame": 4,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_4.bp",
+          "bytes": 24587010,
+          "sha256": "5039fc1f6ca08ea15c3fe6220c1988a4a006ab8d92d0de7ec93122d6b2133b32",
+          "frame": 4,
+          "actual_time": 40.00001999999971
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9606365909349004,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007339875817305017,
+        "minimum_pressure_eigenvalue": 0.007284523852704421,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          221,
+          480
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -1.8499999999999979,
+          16.050000000000004
+        ]
+      },
+      "actual_time": 40.00001999999971,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9606365909349004,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007339875817305017,
+        "minimum_pressure_eigenvalue": 0.007284523852704421,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          221,
+          480
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -1.8499999999999979,
+          16.050000000000004
+        ]
+      }
+    },
+    {
+      "frame": 5,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_5.bp",
+          "bytes": 24587010,
+          "sha256": "f661a65a52acbdec72233416901f7b3396e607f992e865d1f740a3caf07309de",
+          "frame": 5,
+          "actual_time": 50.00002499999955
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9576301142223947,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00772717429626477,
+        "minimum_pressure_eigenvalue": 0.007045286282553433,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          403,
+          155
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          16.35,
+          -16.45
+        ]
+      },
+      "actual_time": 50.00002499999955,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9576301142223947,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00772717429626477,
+        "minimum_pressure_eigenvalue": 0.007045286282553433,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          403,
+          155
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          16.35,
+          -16.45
+        ]
+      }
+    },
+    {
+      "frame": 6,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_6.bp",
+          "bytes": 24587010,
+          "sha256": "e939f35b0a8693a2b8e7d87d8870183920ed7c95ca20c0d11e498e4d22bf54fc",
+          "frame": 6,
+          "actual_time": 60.0000299999994
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.965454740584227,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007860279123899996,
+        "minimum_pressure_eigenvalue": 0.007077715557222056,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          395,
+          154
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          15.550000000000004,
+          -16.549999999999997
+        ]
+      },
+      "actual_time": 60.0000299999994,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.965454740584227,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007860279123899996,
+        "minimum_pressure_eigenvalue": 0.007077715557222056,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          395,
+          154
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          15.550000000000004,
+          -16.549999999999997
+        ]
+      }
+    },
+    {
+      "frame": 7,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_7.bp",
+          "bytes": 24587010,
+          "sha256": "76b73456b2dc36307f3572669438e6e0dbec49315169e9ad70da55a52b9c397f",
+          "frame": 7,
+          "actual_time": 70.00003499999924
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9617560199490687,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007969599378422464,
+        "minimum_pressure_eigenvalue": 0.006650894322352968,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          381,
+          154
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          14.149999999999999,
+          -16.549999999999997
+        ]
+      },
+      "actual_time": 70.00003499999924,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9617560199490687,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007969599378422464,
+        "minimum_pressure_eigenvalue": 0.006650894322352968,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          381,
+          154
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          14.149999999999999,
+          -16.549999999999997
+        ]
+      }
+    },
+    {
+      "frame": 8,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_8.bp",
+          "bytes": 24587010,
+          "sha256": "f4cb3450d85e5938b6a857308df234d136cf90839dc4d4952d05e64409710709",
+          "frame": 8,
+          "actual_time": 80.00003999999909
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9360993497795431,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007936276964232079,
+        "minimum_pressure_eigenvalue": 0.007265663658267653,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          461,
+          155
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          22.150000000000006,
+          -16.45
+        ]
+      },
+      "actual_time": 80.00003999999909,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9360993497795431,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007936276964232079,
+        "minimum_pressure_eigenvalue": 0.007265663658267653,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          461,
+          155
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          22.150000000000006,
+          -16.45
+        ]
+      }
+    },
+    {
+      "frame": 9,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_9.bp",
+          "bytes": 24587010,
+          "sha256": "530698a05c7a701c8ad955aac1b882e159b67814a3fcad514d3fe75d21c790e5",
+          "frame": 9,
+          "actual_time": 90.00004499999893
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9625581715434082,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007876570949625367,
+        "minimum_pressure_eigenvalue": 0.007628526977704391,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          440,
+          487
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          20.050000000000004,
+          16.75
+        ]
+      },
+      "actual_time": 90.00004499999893,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9625581715434082,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007876570949625367,
+        "minimum_pressure_eigenvalue": 0.007628526977704391,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          440,
+          487
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          20.050000000000004,
+          16.75
+        ]
+      }
+    },
+    {
+      "frame": 10,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_10.bp",
+          "bytes": 24587010,
+          "sha256": "dac89a4cf65a2aa7b9d54f3aa301cea14e75c4187e0ce771e503fa0e0e8d1507",
+          "frame": 10,
+          "actual_time": 100.00004999999878
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9318761231087618,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007899723612776702,
+        "minimum_pressure_eigenvalue": 0.007834580612921372,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          282,
+          157
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          4.25,
+          -16.25
+        ]
+      },
+      "actual_time": 100.00004999999878,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9318761231087618,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007899723612776702,
+        "minimum_pressure_eigenvalue": 0.007834580612921372,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          282,
+          157
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          4.25,
+          -16.25
+        ]
+      }
+    },
+    {
+      "frame": 11,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_11.bp",
+          "bytes": 24587010,
+          "sha256": "be6a9f737c85a9376e467809869afe24f3188ece48fad7609433e7c993ea8d64",
+          "frame": 11,
+          "actual_time": 110.00005499999862
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9479502346695461,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00801241561620903,
+        "minimum_pressure_eigenvalue": 0.00789163895686072,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          477,
+          160
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          23.75,
+          -15.95
+        ]
+      },
+      "actual_time": 110.00005499999862,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9479502346695461,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00801241561620903,
+        "minimum_pressure_eigenvalue": 0.00789163895686072,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          477,
+          160
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          23.75,
+          -15.95
+        ]
+      }
+    },
+    {
+      "frame": 12,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_12.bp",
+          "bytes": 24587010,
+          "sha256": "ea6b32fee9af7eb7036649162aa0a8ac75007dfb137d9fa1dc6d2af4dff31161",
+          "frame": 12,
+          "actual_time": 120.00005999999847
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.941977229136846,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007943156413797546,
+        "minimum_pressure_eigenvalue": 0.007755566797693618,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          105,
+          162
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -13.45,
+          -15.75
+        ]
+      },
+      "actual_time": 120.00005999999847,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.941977229136846,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007943156413797546,
+        "minimum_pressure_eigenvalue": 0.007755566797693618,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          105,
+          162
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -13.45,
+          -15.75
+        ]
+      }
+    },
+    {
+      "frame": 13,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_13.bp",
+          "bytes": 24587010,
+          "sha256": "bbb768eff2d625a54a70eefcc3319e9840f91caa12bf56247fcc88d25d476b3c",
+          "frame": 13,
+          "actual_time": 130.00006499999876
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9182164365609831,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007920712534211002,
+        "minimum_pressure_eigenvalue": 0.007731877730221434,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          105,
+          162
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -13.45,
+          -15.75
+        ]
+      },
+      "actual_time": 130.00006499999876,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9182164365609831,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007920712534211002,
+        "minimum_pressure_eigenvalue": 0.007731877730221434,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          105,
+          162
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -13.45,
+          -15.75
+        ]
+      }
+    },
+    {
+      "frame": 14,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_14.bp",
+          "bytes": 24587010,
+          "sha256": "f47ffe7188e05881a50c714ef52d98da7336a31d2419219d3a263aaefd4bbcda",
+          "frame": 14,
+          "actual_time": 140.00007000000073
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9209400420077458,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.008015431284522563,
+        "minimum_pressure_eigenvalue": 0.007945412314081777,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          106,
+          162
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -13.35,
+          -15.75
+        ]
+      },
+      "actual_time": 140.00007000000073,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9209400420077458,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.008015431284522563,
+        "minimum_pressure_eigenvalue": 0.007945412314081777,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          106,
+          162
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -13.35,
+          -15.75
+        ]
+      }
+    },
+    {
+      "frame": 15,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_15.bp",
+          "bytes": 24587010,
+          "sha256": "1924761e84700f9d274c02573146449ec39a3ca58011be158a7ebd5547e3227e",
+          "frame": 15,
+          "actual_time": 150.0000750000027
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9082281800098264,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007936549848427687,
+        "minimum_pressure_eigenvalue": 0.007926386583608338,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          52,
+          161
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -18.75,
+          -15.849999999999998
+        ]
+      },
+      "actual_time": 150.0000750000027,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9082281800098264,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007936549848427687,
+        "minimum_pressure_eigenvalue": 0.007926386583608338,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          52,
+          161
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -18.75,
+          -15.849999999999998
+        ]
+      }
+    },
+    {
+      "frame": 16,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_16.bp",
+          "bytes": 24587010,
+          "sha256": "ebf5af817e24e9e886b73067ed5c0516675232e29e91b2484d253570afeae278",
+          "frame": 16,
+          "actual_time": 160.0000800000047
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9030395952110504,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.008043749161333174,
+        "minimum_pressure_eigenvalue": 0.008038710725572015,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          447,
+          159
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          20.75,
+          -16.049999999999997
+        ]
+      },
+      "actual_time": 160.0000800000047,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9030395952110504,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.008043749161333174,
+        "minimum_pressure_eigenvalue": 0.008038710725572015,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          447,
+          159
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          20.75,
+          -16.049999999999997
+        ]
+      }
+    },
+    {
+      "frame": 17,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_17.bp",
+          "bytes": 24587010,
+          "sha256": "ab6bec66a995a2619824c2060842326391eec5ec6931d4fd9936ae4d738eb1d1",
+          "frame": 17,
+          "actual_time": 170.00008500000666
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8994412407103494,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.008114436352160921,
+        "minimum_pressure_eigenvalue": 0.00799516370147223,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          89,
+          161
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -15.049999999999999,
+          -15.849999999999998
+        ]
+      },
+      "actual_time": 170.00008500000666,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8994412407103494,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.008114436352160921,
+        "minimum_pressure_eigenvalue": 0.00799516370147223,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          89,
+          161
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -15.049999999999999,
+          -15.849999999999998
+        ]
+      }
+    },
+    {
+      "frame": 18,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_18.bp",
+          "bytes": 24587010,
+          "sha256": "18cce223b6642756e9ddd597a963848d9def8f71bfc7249598d2beab10d689bd",
+          "frame": 18,
+          "actual_time": 180.00009000000864
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8922836590990882,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00783684958609579,
+        "minimum_pressure_eigenvalue": 0.0076593223758941,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          335,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          9.550000000000004,
+          -16.15
+        ]
+      },
+      "actual_time": 180.00009000000864,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8922836590990882,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00783684958609579,
+        "minimum_pressure_eigenvalue": 0.0076593223758941,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          335,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          9.550000000000004,
+          -16.15
+        ]
+      }
+    },
+    {
+      "frame": 19,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_19.bp",
+          "bytes": 24587010,
+          "sha256": "b15e8325b198e4ed6d1bc7d288d1ecd6ad70e108fec92cdc73335658e430b3e5",
+          "frame": 19,
+          "actual_time": 190.00009500001062
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8804320352775623,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.0070780365627623465,
+        "minimum_pressure_eigenvalue": 0.007068174483543346,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          345,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          10.550000000000004,
+          -16.15
+        ]
+      },
+      "actual_time": 190.00009500001062,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8804320352775623,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.0070780365627623465,
+        "minimum_pressure_eigenvalue": 0.007068174483543346,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          345,
+          158
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          10.550000000000004,
+          -16.15
+        ]
+      }
+    },
+    {
+      "frame": 20,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_20.bp",
+          "bytes": 24587010,
+          "sha256": "e748a3dbee6be03c20f67c26826213576d690abc39de58eaa573992b1186fddd",
+          "frame": 20,
+          "actual_time": 200.0001000000126
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8850275487456228,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.003117843021756994,
+        "minimum_pressure_eigenvalue": 0.0028577593255072263,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          357,
+          480
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          11.75,
+          16.050000000000004
+        ]
+      },
+      "actual_time": 200.0001000000126,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8850275487456228,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.003117843021756994,
+        "minimum_pressure_eigenvalue": 0.0028577593255072263,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          357,
+          480
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          11.75,
+          16.050000000000004
+        ]
+      }
+    },
+    {
+      "frame": 21,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_21.bp",
+          "bytes": 24587010,
+          "sha256": "c16c686d369ab3aff85361296027d23ff64069c84b3048ab7a3c1907636c0f8a",
+          "frame": 21,
+          "actual_time": 210.00010500001457
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8899575326014354,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.001019478325143361,
+        "minimum_pressure_eigenvalue": 0.0003573551968290489,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          391,
+          161
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          15.150000000000006,
+          -15.849999999999998
+        ]
+      },
+      "actual_time": 210.00010500001457,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8899575326014354,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.001019478325143361,
+        "minimum_pressure_eigenvalue": 0.0003573551968290489,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          391,
+          161
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          15.150000000000006,
+          -15.849999999999998
+        ]
+      }
+    },
+    {
+      "frame": 22,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_22.bp",
+          "bytes": 24587010,
+          "sha256": "bfe337efb0dc29330f03035d9097a778793384dfeb9ac00b3147ea9d4853119b",
+          "frame": 22,
+          "actual_time": 220.00011000001655
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8840661401372815,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 5,
+        "negative_eigenvalue_cell_count": 5,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 5,
+        "minimum_pressure_diagonal": 0.00011581892170041408,
+        "minimum_pressure_eigenvalue": -0.001486182160958821,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          337,
+          478
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          9.75,
+          15.850000000000001
+        ]
+      },
+      "actual_time": 220.00011000001655,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8840661401372815,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 5,
+        "negative_eigenvalue_cell_count": 5,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 5,
+        "minimum_pressure_diagonal": 0.00011581892170041408,
+        "minimum_pressure_eigenvalue": -0.001486182160958821,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          337,
+          478
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          9.75,
+          15.850000000000001
+        ]
+      }
+    },
+    {
+      "frame": 23,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_23.bp",
+          "bytes": 24587010,
+          "sha256": "2b79a95d4e2f82446d597cd18e6c91babf389aa3c2664070905b3506ce8ee429",
+          "frame": 23,
+          "actual_time": 230.00011500001852
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9053747615273493,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 23,
+        "negative_eigenvalue_cell_count": 23,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 23,
+        "minimum_pressure_diagonal": 0.0007431593560139338,
+        "minimum_pressure_eigenvalue": -0.00404830767917879,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          341,
+          478
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          10.149999999999999,
+          15.850000000000001
+        ]
+      },
+      "actual_time": 230.00011500001852,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9053747615273493,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 23,
+        "negative_eigenvalue_cell_count": 23,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 23,
+        "minimum_pressure_diagonal": 0.0007431593560139338,
+        "minimum_pressure_eigenvalue": -0.00404830767917879,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          341,
+          478
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          10.149999999999999,
+          15.850000000000001
+        ]
+      }
+    },
+    {
+      "frame": 24,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_24.bp",
+          "bytes": 24587010,
+          "sha256": "ec3cbe644ce4f8255f4f804e62268b957704d1d1e0fb0c2a81923cdd4aa5284d",
+          "frame": 24,
+          "actual_time": 240.0001200000205
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9158110749330216,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 47,
+        "negative_eigenvalue_cell_count": 47,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 47,
+        "minimum_pressure_diagonal": 0.0020986833024340054,
+        "minimum_pressure_eigenvalue": -0.0034419466622849257,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          320,
+          475
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          8.050000000000004,
+          15.550000000000004
+        ]
+      },
+      "actual_time": 240.0001200000205,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9158110749330216,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 47,
+        "negative_eigenvalue_cell_count": 47,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 47,
+        "minimum_pressure_diagonal": 0.0020986833024340054,
+        "minimum_pressure_eigenvalue": -0.0034419466622849257,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          320,
+          475
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          8.050000000000004,
+          15.550000000000004
+        ]
+      }
+    },
+    {
+      "frame": 25,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_25.bp",
+          "bytes": 24587010,
+          "sha256": "55d90791c1d2397a88f491308b0807e698e78b859600a1598fc3ba570963b19f",
+          "frame": 25,
+          "actual_time": 250.00012500002248
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9065580896724884,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 30,
+        "negative_eigenvalue_cell_count": 30,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 30,
+        "minimum_pressure_diagonal": 0.0011493272828315415,
+        "minimum_pressure_eigenvalue": -0.005320737901897977,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          58,
+          153
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -18.15,
+          -16.65
+        ]
+      },
+      "actual_time": 250.00012500002248,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9065580896724884,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 30,
+        "negative_eigenvalue_cell_count": 30,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 30,
+        "minimum_pressure_diagonal": 0.0011493272828315415,
+        "minimum_pressure_eigenvalue": -0.005320737901897977,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          58,
+          153
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -18.15,
+          -16.65
+        ]
+      }
+    },
+    {
+      "frame": 26,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_26.bp",
+          "bytes": 24587010,
+          "sha256": "dafde2139c09279787b90e211c979f0bd0073058ae986ee1757bc52bee2b2016",
+          "frame": 26,
+          "actual_time": 260.00013000002275
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8939592137060699,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 5,
+        "negative_eigenvalue_cell_count": 5,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 5,
+        "minimum_pressure_diagonal": 0.002734729539181052,
+        "minimum_pressure_eigenvalue": -0.0034376404852916485,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          32,
+          151
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -20.75,
+          -16.85
+        ]
+      },
+      "actual_time": 260.00013000002275,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8939592137060699,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 5,
+        "negative_eigenvalue_cell_count": 5,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 5,
+        "minimum_pressure_diagonal": 0.002734729539181052,
+        "minimum_pressure_eigenvalue": -0.0034376404852916485,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          32,
+          151
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -20.75,
+          -16.85
+        ]
+      }
+    },
+    {
+      "frame": 27,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_27.bp",
+          "bytes": 24587010,
+          "sha256": "84b8986f25685fb1455b117d5e55fec943ea95667220e26a2a38595ede9cf7f1",
+          "frame": 27,
+          "actual_time": 270.00013500002046
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8385506470606678,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.0050913830133481955,
+        "minimum_pressure_eigenvalue": 0.0018885800996066302,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          15,
+          149
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -22.45,
+          -17.049999999999997
+        ]
+      },
+      "actual_time": 270.00013500002046,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.8385506470606678,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.0050913830133481955,
+        "minimum_pressure_eigenvalue": 0.0018885800996066302,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          15,
+          149
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -22.45,
+          -17.049999999999997
+        ]
+      }
+    },
+    {
+      "frame": 28,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_28.bp",
+          "bytes": 24587010,
+          "sha256": "4f1510d73e6c25176acf09d438a1cc6bce14db42eaf3e530104cb24436b83e14",
+          "frame": 28,
+          "actual_time": 280.0001400000182
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.7643292228435398,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.006669783775484002,
+        "minimum_pressure_eigenvalue": 0.0046512715162641575,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          205,
+          468
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -3.4499999999999993,
+          14.850000000000001
+        ]
+      },
+      "actual_time": 280.0001400000182,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.7643292228435398,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.006669783775484002,
+        "minimum_pressure_eigenvalue": 0.0046512715162641575,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          205,
+          468
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -3.4499999999999993,
+          14.850000000000001
+        ]
+      }
+    },
+    {
+      "frame": 29,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_29.bp",
+          "bytes": 24587010,
+          "sha256": "b7944224ac6c3021419e4a031a4e79b8dd24a09212cfe8774717b23def80d870",
+          "frame": 29,
+          "actual_time": 290.0001450000159
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.7405335251803964,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00692563666257404,
+        "minimum_pressure_eigenvalue": 0.006150347720653348,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          365,
+          496
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          12.550000000000004,
+          17.650000000000006
+        ]
+      },
+      "actual_time": 290.0001450000159,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.7405335251803964,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.00692563666257404,
+        "minimum_pressure_eigenvalue": 0.006150347720653348,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          365,
+          496
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          12.550000000000004,
+          17.650000000000006
+        ]
+      }
+    },
+    {
+      "frame": 30,
+      "population_source_bindings": [
+        {
+          "filename": "case_elc1_30.bp",
+          "bytes": 24587010,
+          "sha256": "5ff71b8020742a6ecd9c2950fcbbeb60994e2f6e7d88072e9b11edf23e91110a",
+          "frame": 30,
+          "actual_time": 300.0001500000136
+        }
+      ],
+      "population1": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.7620600811644448,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007165870196967353,
+        "minimum_pressure_eigenvalue": 0.005384427984969873,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          365,
+          136
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          12.550000000000004,
+          -18.35
+        ]
+      },
+      "actual_time": 300.0001500000136,
+      "aggregate": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.7620600811644448,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.007165870196967353,
+        "minimum_pressure_eigenvalue": 0.005384427984969873,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          365,
+          136
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          12.550000000000004,
+          -18.35
+        ]
+      }
+    }
+  ],
+  "scanner_sha256": "86269af0916439c2eb57a84ec35fc0e983cceb1ead6c913a2accd3ef7bc40898",
+  "collector_guard_sha256": "b7568428ae800192f74fceefc72ea312f066386d18beddf0b9f4d4610a2eedee",
+  "IO_helper_sha256": "8cedbcdb6ae922422c59318247c843167d054e32151f1683ae95d83d07571dae",
+  "analytic_scanner_tests": {
+    "positive_diagonal_indefinite_tensor_rejected": true,
+    "PSD_distinguished_from_PD": true,
+    "undefined_density_and_nonfinite_cells_retained": true,
+    "missing_runtime_pins_rejected": true,
+    "scope": "Analytic scanner tests, not solver outcomes."
+  },
+  "scope": "Completed-case regular saved moment snapshots0--30 only; not every timestep or a continuous-trajectory admissibility certificate. Frame31/later outputs are excluded. No raw arrays exported, no comparison metrics, clipping, threshold or repair.",
+  "native_array_order": "[x,y,conserved_component]",
+  "covariance_definition": "M_ij-rho*u_i*u_j, with u_i=momentum_i/rho",
+  "covariance_PSD_criterion": "Every eigenvalue>=0 and every conserved value finite with strictly positive density; exact zero is distinguished from strict PD.",
+  "aggregate_PSD_does_not_override_population_failure": true,
+  "all_requested_saved_frames_scanned": true,
+  "failures": [],
+  "private_paths_included": false,
+  "native_case": "1-fluid-aggregate-matched",
+  "native_execution_status": "completed_native_stop",
+  "source_run_receipt_sha256": "5269967ec1ad66c35fbf1fc4ffeb12fc426bf114d7736e8a957d7ed7c331c94d",
+  "expected_context_sha256": "af08eb4855bfd228b463bd16aa9c50e04e11e8fe11cb84d58b62474fe9c60b9d",
+  "runtime_context": {
+    "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+    "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+    "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+    "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+    "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+    "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+    "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+    "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+  },
+  "actual_regular30_time": 300.0001500000136,
+  "native_elapsed_seconds": 1960.2522195029997,
+  "source_started_utc": "2026-10-29T02:40:41.521443+00:00",
+  "source_finished_utc": "2026-10-29T03:16:33.632487+00:00",
+  "reader_environment": {
+    "adios2": "2.13.0.1001",
+    "numpy": "2.3.5"
+  },
+  "finished_utc": "2026-10-29T03:20:25.739073+00:00",
+  "summary": {
+    "population1": {
+      "saved_snapshots_scanned": 31,
+      "saved_snapshots_not_PSD": 5,
+      "first_non_PSD_saved_frame": 22,
+      "first_non_PSD_saved_time": 220.00011000001655,
+      "minimum_pressure_eigenvalue_over_saved_snapshots": -0.005320737901897977,
+      "maximum_negative_eigenvalue_cell_count": 47,
+      "all_saved_snapshots_PSD": false,
+      "all_saved_snapshots_strict_PD": false
+    },
+    "aggregate": {
+      "saved_snapshots_scanned": 31,
+      "saved_snapshots_not_PSD": 5,
+      "first_non_PSD_saved_frame": 22,
+      "first_non_PSD_saved_time": 220.00011000001655,
+      "minimum_pressure_eigenvalue_over_saved_snapshots": -0.005320737901897977,
+      "maximum_negative_eigenvalue_cell_count": 47,
+      "all_saved_snapshots_PSD": false,
+      "all_saved_snapshots_strict_PD": false
+    }
+  },
+  "all_scanned_populations_PSD": false,
+  "all_scanned_populations_strict_PD": false
+}

@@ -1,4 +1,4 @@
-# Initial-state matching and stability diagnostics for a counter-streaming electron-fluid closure
+# Initial-state matching and pressure realizability in counter-streaming electron-fluid comparisons
 
 **Author: Taylor Kalin**
 
@@ -8,18 +8,25 @@
 
 A reproducible diagnostic comment on **arXiv:2607.07106v1**, using the original
 authors' input decks, archived initial PIC moments and reloaded initial fluid
-output, together with explicit continuum closure tests. Version **1.1.0**
-contains the 19-page manuscript and additional archived-data checks.
+output, new clean-source fluid evolutions, and explicit continuum closure
+tests. Version **1.2.0** adds complete-archive verification and reports all four
+attempted aggregate-initialization controls: three completed native runs and
+one failed execution. Native completion, endpoint eligibility and saved
+pressure-tensor histories are separate results.
 
-**Revision in progress:** the `revision/matched-controls` branch additionally
-contains complete-archive verification, a clean-source Gkeyll build recipe,
-and the four-case aggregate-initialization protocol. The four native cases
-started sequentially on 29 October 2026 at 01:06 UTC (28 October Pacific).
-Their final comparisons are pending; the released PDF remains v1.1.0.
+The same-time one-fluid numerical endpoint errors improve under matching,
+but both saved histories contain non-realizable pressure tensors. The clean
+unmatched two-fluid endpoint fails the population covariance check and
+receives no primary performance metrics. The matched two-fluid run fails
+with an invariant-check assertion before regular frame 30; its last closed
+regular output is frame 22 at time 220.00011000001655, which is not its exact
+failure time. No final metric or full pressure-history audit is invented for
+that run.
 The [runtime recipe](data/gkeyll-clean-runtime-README.md),
 [prespecified protocol](experiments/matched-control-plan.md), and
 [complete-archive receipt](data/full-archive-verification.json) document this
-work without representing a running process as a completed result.
+the inputs, implementation and integrity checks. The original historical
+dirty executable remains unidentified.
 
 ## Findings and scope
 
@@ -30,7 +37,8 @@ work without representing a running process as a completed result.
   state to roundoff. PIC and fluid current profiles differ by **9.87%** in the
   full-domain x-averaged relative L2 norm; central pressures differ by about
   **20% in Pxx** and **38.4% in Pzz**. A conditional public-loader calculation
-  accounts for the size of the extra finite-temperature drift reduction.
+  is a consistency check for the extra finite-temperature drift reduction;
+  it does not identify the historical private diagnostic implementation.
 - A homogeneous two-Maxwellian reference is stable to **longitudinal
   electrostatic** perturbations by the Penrose criterion, while the stated
   finite-isotropization fluid model has a growing mode. This is a separate
@@ -38,10 +46,22 @@ work without representing a running process as a completed result.
 - Zero velocity at a symmetry plane does not block density accumulation:
   continuity depends on flux divergence. A relative heat-flux bound also needs
   an imbalance/cancellation condition in addition to a speed ratio.
+- Matching aggregate moments changes one-fluid full-grid errors in density,
+  Jz, Pxx and Pzz from **3.9763%, 28.3046%, 36.2872%, 34.6557%** to
+  **3.4774%, 26.5123%, 28.8547%, 30.7718%**, respectively. These are numerical
+  endpoint contrasts, not validated physical trajectories. The unmatched
+  one-fluid run has three non-PSD saved snapshots and the matched run has five.
+- The identified clean implementation's density/diagonal-pressure predicate
+  does not enforce full covariance positivity. Its unmatched two-fluid endpoint
+  has 16 indefinite population-1 cells, despite positive diagonals. Both
+  original archived endpoints pass the full tensor check. Clean-source failures
+  do not establish failures of the unavailable original intermediate history.
 
 The original mixture identities are correct. These findings do not establish
 that correcting the initial state would reverse the original nonlinear result.
-Matched-state reruns would be needed for that causal conclusion. The current
+The new clean-source numerical endpoint contrasts do not establish that
+causal conclusion: saved covariance failures, the unidentified original dirty
+build and the absence of a resolution study remain material limits. The current
 is a physical moment diagnostic rather than the code's native deposited
 current; no such current file is identifiable in the complete PIC inventory.
 The homogeneous test does not establish a mode in the source's inhomogeneous
@@ -55,6 +75,9 @@ sheet or refute its application-specific instability capability claim.
 - [Data definitions and retrieval](data/README.md)
 - [Archived fluid checks and optional BP reader](data/revision-README.md)
 - [Verification results](results/verification.json) and [execution log](results/execution.log)
+- [Numerical endpoint comparisons](results/gkeyll-control-comparison.json)
+- [All native outcomes and admissibility](results/gkeyll-admissibility.json)
+- [Covariance scan definitions](data/gkeyll-admissibility-README.md)
 - [Publication status](submissions/publication-status.json)
 
 ```sh

@@ -10,12 +10,13 @@ population asymmetry can generate a substantial aggregate third moment even
 when each population has little intrinsic heat flux. Evolving additional
 population moments is therefore physically motivated.
 
-The principal contribution of this diagnostic comment is an initial-state
-audit of the public inputs and archived moments. Equal nominal drift and
+The principal contributions are an initial-state audit and clean-source
+numerical tests with explicit covariance-realizability checks. Equal nominal drift and
 temperature parameters need not specify equal laboratory-frame moments in a
 relativistic particle initializer and a nonrelativistic fluid initializer.
-This identifies controls needed to interpret the comparison; it does not
-determine their effect on its later nonlinear outcome.
+The new evolutions quantify numerical endpoint sensitivity, while their
+saved-state failures limit physical interpretation and do not identify the
+source's unavailable historical executable.
 
 Our first result uses the authors' publicly archived initial moments and input
 decks~\cite{dataset}. Identical nominal drift expressions enter a proper-momentum
@@ -24,6 +25,14 @@ The recorded initial moments show a current and pressure mismatch consistent
 with that distinction. This is a reproducible control issue for interpreting
 the nonlinear comparison; its eventual dynamical effect cannot be determined
 from initial-state analysis alone.
+
+Four prescribed clean-source cases extend that audit. Matching aggregate
+PIC moments reduces one-fluid endpoint errors, but both one-fluid histories
+contain non-realizable saved covariance tensors. The clean unmatched
+two-fluid endpoint also fails the full covariance check. Its primary error
+metrics are withheld. The implementation's diagonal-only acceptance test
+does not detect these failures. We therefore distinguish numerical endpoint
+contrasts from validation of a physically admissible trajectory.
 
 An auxiliary result is a controlled longitudinal stability test of the stated
 continuum isotropization closure. A positive two-Maxwellian equilibrium is
@@ -65,7 +74,7 @@ Work on heat-flux closure for nonlinear electrostatic two-stream systems
 claims that no fluid closure can capture non-Maxwellian counter-streaming.
 It does not establish prior use of the specific tagged-population closure in
 electron-only reconnection. Our analysis therefore addresses explicit
-initialization, continuity and stability statements, and preserves the
+initialization, realizability, continuity and stability statements, and preserves the
 source's application-specific empirical evidence.
 
 \subsection{Audited version and available evidence}

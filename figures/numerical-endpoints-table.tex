@@ -1,0 +1,17 @@
+\begin{table}[tbp]
+\centering\small
+\caption{Numerical endpoint complete-grid relative $\ell^2$ errors (percent) against the archived PIC snapshot at $t=300.0015$. Every actual fluid output time is retained; no temporal interpolation is applied. Endpoint agreement does not validate a physical trajectory. Withheld entries are not zero errors.}
+\label{tab:control-errors}
+\begin{tabular}{lrrrrr}
+\toprule
+Case & Actual $t$ & $n$ & $J_z$ & $P_{xx}$ & $P_{zz}$ \\
+\midrule
+Archived source, one & 300.000150 & 3.973 & 28.340 & 36.357 & 34.577 \\
+Archived source, two & 300.049985 & 2.648 & 21.736 & 34.261 & 31.522 \\
+Clean baseline, one & 300.000150 & 3.976 & 28.305 & 36.287 & 34.656 \\
+Clean baseline, two (withheld) & 300.043832 & --- & --- & --- & --- \\
+Matched, one & 300.000150 & 3.477 & 26.512 & 28.855 & 30.772 \\
+Matched, two (withheld) & --- & --- & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}

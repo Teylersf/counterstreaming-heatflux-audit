@@ -1,0 +1,482 @@
+{
+  "generated_at_utc": "2026-10-29T04:07:03.496874+00:00",
+  "script_sha256": "0671842c29e5abe24e9b62200547cfb08adbaa3bf1788704c53cd987f07f9b09",
+  "config_sha256": "25f69d8a389519be9f2992046413b7ddedc3224d70b538cac213a3882bc9980e",
+  "result_sha256": "305b20abddd38d0d7df3031b8100d3ed5f14abd84cf080158b1a1124c7cea5dc",
+  "profile_export_sha256": "25c8a7fb81b346c1f7b19ac85524d2345e3c04f58a619653cfe01e6d25c9afa0",
+  "PIC_reference": {
+    "metadata": "data/derived/pic-moment-export.json",
+    "metadata_sha256": "5f4427888373620a62135b19aa41dea83be9552f6d59ad94a5b824ed6d501b58",
+    "full_archive_receipt": "data/full-archive-verification.json",
+    "full_archive_receipt_sha256": "8d290ba3fb34711a6b3bcf7714eef4cffa73771ec8f06ff90c21a11e4a0a0e2b",
+    "archive": {
+      "filename": "BgBr0point1-Beta0point1_PIC.zip",
+      "bytes": 1238114672,
+      "publisher_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_md5": "89f8256fe66809412f3814dd8663c833",
+      "computed_sha256": "1c9fd4da1e879aa2620556e6eeca3b0f853aaa5a0cc75a14a5c6955c0a363bf0",
+      "full_archive_checksum_verified": true
+    },
+    "conserved_export": {
+      "filename": "reference-pic-frame-000300-conserved.f64",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "components": [
+        "rho",
+        "rho_ux",
+        "rho_uy",
+        "rho_uz",
+        "Mxx",
+        "Mxy",
+        "Mxz",
+        "Myy",
+        "Myz",
+        "Mzz"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 24576000,
+      "sha256": "7effe18cf263918db5b84c37d078853f7f5f61e73d12e3430c80c2723db83940",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    "observable_export": {
+      "filename": "reference-pic-frame-000300-observables.f64",
+      "shape": [
+        640,
+        480,
+        6
+      ],
+      "components": [
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "qxxx_conditional_raw_third"
+      ],
+      "dtype": "<f8",
+      "order": "C",
+      "bytes": 14745600,
+      "sha256": "c65ffd75caca06bafd6704a99db7aaa731212803c7b79365c81c46ecfdd990e8",
+      "linear_index": "((iy*nx+ix)*ncomponent+component)",
+      "byte_order": "little-endian"
+    },
+    "tagged_export": {
+      "filename": "reference-pic-frame-000300-tagged.npz",
+      "bytes": 50081708,
+      "sha256": "e82abaa34a4d519ffaa59480487213c9ecc78ce9b8d4d6de39cb56188094c8d7",
+      "array_keys": [
+        "conserved_tag1",
+        "pressure_tag1",
+        "conserved_tag2",
+        "pressure_tag2",
+        "density",
+        "Jz",
+        "Pxx",
+        "Pzz",
+        "qCSxxx",
+        "raw_third_diagnostic_tag1",
+        "raw_third_diagnostic_tag2",
+        "qxxx_conditional_raw_third",
+        "TIME",
+        "ITER",
+        "x",
+        "y",
+        "conserved_component_order"
+      ],
+      "array_shapes": {
+        "conserved_tag1": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag1": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "conserved_tag2": [
+          640,
+          480,
+          10
+        ],
+        "pressure_tag2": [
+          640,
+          480,
+          3,
+          3
+        ],
+        "density": [
+          640,
+          480
+        ],
+        "Jz": [
+          640,
+          480
+        ],
+        "Pxx": [
+          640,
+          480
+        ],
+        "Pzz": [
+          640,
+          480
+        ],
+        "qCSxxx": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag1": [
+          640,
+          480
+        ],
+        "raw_third_diagnostic_tag2": [
+          640,
+          480
+        ],
+        "qxxx_conditional_raw_third": [
+          640,
+          480
+        ],
+        "TIME": [],
+        "ITER": [],
+        "x": [
+          480
+        ],
+        "y": [
+          640
+        ],
+        "conserved_component_order": [
+          10
+        ]
+      },
+      "array_dtypes": {
+        "conserved_tag1": "float64",
+        "pressure_tag1": "float64",
+        "conserved_tag2": "float64",
+        "pressure_tag2": "float64",
+        "density": "float64",
+        "Jz": "float64",
+        "Pxx": "float64",
+        "Pzz": "float64",
+        "qCSxxx": "float64",
+        "raw_third_diagnostic_tag1": "float64",
+        "raw_third_diagnostic_tag2": "float64",
+        "qxxx_conditional_raw_third": "float64",
+        "TIME": "float64",
+        "ITER": "int64",
+        "x": "float64",
+        "y": "float64",
+        "conserved_component_order": "<U6"
+      }
+    },
+    "snapshot": {
+      "filename_frame_token": "000300",
+      "TIME": 300.0015,
+      "ITER": 4500,
+      "aggregate_moment_members": 20,
+      "raw_third_members": 2,
+      "conditional_qxxx_available": true
+    },
+    "grid": {
+      "shape_y_x": [
+        640,
+        480
+      ],
+      "bounds_x": [
+        -24.0,
+        24.0
+      ],
+      "bounds_y": [
+        -32.0,
+        32.0
+      ],
+      "spacing_x_y": [
+        0.1,
+        0.1
+      ],
+      "moment_offset_x_y": [
+        0.5,
+        0.5
+      ]
+    },
+    "moment_semantics": "vfl is documented ordinary population mean; second diagnostics are documented unnormalized raw moments. Third-diagnostic normalization is unverified.",
+    "conditional_qxxx_definition": "Assuming unnormalized third diagnostics: sum_s v1v1v1_s-3*u_x*Mxx+2*rho*u_x^3, unit electron mass; arithmetic validation is not normalization validation.",
+    "conformance": {
+      "label": "PIC reference",
+      "shape": [
+        640,
+        480,
+        10
+      ],
+      "nonfinite_count": 0,
+      "no_clipping_or_regularization": true,
+      "violations": [],
+      "minimum_density": 0.8318560868501663,
+      "minimum_pressure_diagonal": 0.005273416726742493,
+      "minimum_pressure_eigenvalue": 0.004837252808153961,
+      "passed": true
+    },
+    "tagged_qCS_interpretation": {
+      "definition": "sum_s[3*(u_sx-u_x)*P_sxx+n_s*(u_sx-u_x)^3]; exact vacuum contributes zero without a density floor or pressure clamping.",
+      "depends_on_third_diagnostic": false,
+      "population_decomposition": "Actual deposited PIC tag1/tag2 first and second moments, not a synthetic split of the aggregate.",
+      "tag_covariance_conformance": [
+        {
+          "label": "PIC tag1",
+          "minimum_density": -0.0,
+          "exact_vacuum_cell_count": 125431,
+          "minimum_pressure_diagonal": -2.1810619499698647e-11,
+          "negative_pressure_diagonal_count": 2184,
+          "minimum_pressure_eigenvalue": -3.837403475566135e-11,
+          "negative_pressure_eigenvalue_count": 3149,
+          "covariance_nonnegative_passed": false,
+          "no_clipping_or_regularization": true,
+          "scope": "Archived diagnostic covariance; failed nonnegativity is retained, not accepted as a conforming solver state. Algebraic moment-recentering comparisons do not certify positive-semidefinite tagged pressure."
+        },
+        {
+          "label": "PIC tag2",
+          "minimum_density": -0.0,
+          "exact_vacuum_cell_count": 126279,
+          "minimum_pressure_diagonal": -1.9100416100105086e-11,
+          "negative_pressure_diagonal_count": 2172,
+          "minimum_pressure_eigenvalue": -2.2536371245273213e-11,
+          "negative_pressure_eigenvalue_count": 3041,
+          "covariance_nonnegative_passed": false,
+          "no_clipping_or_regularization": true,
+          "scope": "Archived diagnostic covariance; failed nonnegativity is retained, not accepted as a conforming solver state. Algebraic moment-recentering comparisons do not certify positive-semidefinite tagged pressure."
+        }
+      ],
+      "all_tag_covariances_nonnegative": false,
+      "independent_recovery_max_absolute_difference": {
+        "tag1_pressure": 0.0,
+        "tag2_pressure": 0.0,
+        "qCSxxx_tagged_NPZ": 3.469446951953614e-18,
+        "qCSxxx_observable_binary": 3.469446951953614e-18,
+        "conditional_qxxx_NPZ": 0.0
+      },
+      "qualification": "The algebraic qCS reference uses documented first/second diagnostics. Small negative recovered tagged covariance values are retained without clipping and do not pass strict nonnegativity; this diagnostic comparison is not a physical-state conformance certificate or a full heat-flux comparison."
+    },
+    "central_qxxx_interpretation": {
+      "normalization_verified": false,
+      "assumption": "The v1v1v1 population diagnostics are unnormalized raw third moments.",
+      "qualification": "The deposit explicitly defines first/second diagnostics, but third HDF5 LABEL/UNITS do not distinguish normalization and the exact custom implementation is unavailable. Every comparison using exported central qxxx is conditional; density/current/pressure are unaffected."
+    },
+    "primitive_recovery_max_absolute_difference": {
+      "rho": 0.0,
+      "Jz": 0.0,
+      "Pxx": 0.0,
+      "Pzz": 0.0
+    }
+  },
+  "case_inputs": [
+    {
+      "id": "archived_one_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "actual_time": 300.0001500000136,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "reference-fluid/decoded/fluid1-electrons1_300.npz",
+          "npz_sha256": "83c5fbcc2e69b3b84b216ef2a9a0f22633697dc6685685d5b0ba23d5a08d82de",
+          "metadata": "reference-fluid/decoded/fluid1-electrons1_300.metadata.json",
+          "metadata_sha256": "efa5ea299a835de4300cc01783a53af7dc3f3ae89e9d0fa95ec0678150ebd8e4",
+          "source_BP_filename": "fluid1-electrons1_300.bp",
+          "source_BP_sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+          "actual_time": 300.0001500000136,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_1-e-Fluid.zip",
+            "archive_sha256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+            "exact_member_name": "BgBr0point1-Beta0point1_1-e-Fluid/electrons1_300.bp",
+            "sha256": "dc35db915628b538095c4013cb0b826ae6da31ed334b7397722f2531c2686281",
+            "archive_full_MD5": "381d3ddb5dbbfda1089a3857232af17f",
+            "archive_full_SHA256": "156934fbfb100685c33b5238e4418239968682fc622af0a48361b279944465fc",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        }
+      ],
+      "field_input": {
+        "npz": "reference-fluid/decoded/fluid1-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid1-field_300.metadata.json",
+        "npz_sha256": "98d99b62ddb20e3fd5e547dbab2c7d4174643c43fc618ed939fc853a99c47470",
+        "metadata_sha256": "184ce19a2c8b4790b701d502981c8c647eecbbc6ff0d03fc663b6f00c9cd1552",
+        "source_BP_sha256": "ebd6d4b81b4ac798ca1b38b69955a1fdde0266f65acd0a2133b1f7b95b199a53",
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      }
+    },
+    {
+      "id": "archived_two_fluid",
+      "kind": "archived_source",
+      "role": "source_reference",
+      "actual_time": 300.0499847996274,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons1_300.npz",
+          "npz_sha256": "28ab39cb9e3faa20af5690e6f4792e6096e4d15743a34137b8c72a42f9552f58",
+          "metadata": "reference-fluid/decoded/fluid2-electrons1_300.metadata.json",
+          "metadata_sha256": "436da3d3a2b9b16834a4cf5abd3fb0c5e28b99e48784056b9da2ba500af2bfd2",
+          "source_BP_filename": "fluid2-electrons1_300.bp",
+          "source_BP_sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+          "actual_time": 300.0499847996274,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+            "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons1_300.bp",
+            "sha256": "286fcaa4b054eee2f2d7687fa8078aea6379dc280e1bb37875cfe1741f9e6ce0",
+            "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+            "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        },
+        {
+          "npz": "reference-fluid/decoded/fluid2-electrons2_300.npz",
+          "npz_sha256": "1d4300b6b8fef1d06f1880cf86fac9898da84c0579a13f0bad441c87e2b48f05",
+          "metadata": "reference-fluid/decoded/fluid2-electrons2_300.metadata.json",
+          "metadata_sha256": "727618ed3a24373bfb11636f69eb9a08d811e8e13e9dfca6b13aeeedd6ba15d3",
+          "source_BP_filename": "fluid2-electrons2_300.bp",
+          "source_BP_sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+          "actual_time": 300.0499847996274,
+          "frame": 30,
+          "recorded_changeset": "9663ea594e80+",
+          "recorded_builddate": "Oct 23 2023 21:19:55",
+          "verified_archive_member_binding": {
+            "archive": "BgBr0point1-Beta0point1_2-e-Fluid.zip",
+            "archive_sha256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "exact_member_name": "BgBr0point1-Beta0point1_2-e-Fluid/electrons2_300.bp",
+            "sha256": "47865beeb126672623efbc1ad164928d9a20bed8fc7937523f43a759d4a3cca7",
+            "archive_full_MD5": "024ca4759bb41b53159858f583a48432",
+            "archive_full_SHA256": "f4d865adb9fe965f74164b89957654fa646bf31cfeb078acbb547b2c9d4185a4",
+            "archive_size_and_publisher_MD5_verified": true
+          }
+        }
+      ],
+      "field_input": {
+        "npz": "reference-fluid/decoded/fluid2-field_300.npz",
+        "metadata": "reference-fluid/decoded/fluid2-field_300.metadata.json",
+        "npz_sha256": "65df707a1b4cb02fc262e411b8504363d0f5eda2b3d09731b31ebf252ff070f8",
+        "metadata_sha256": "728fd18b720efc0dd17c80b46930b2a00826e1c71adcee96f88fff55f27f7c23",
+        "source_BP_sha256": "0fa4bf1317cfd89467cd63ae4877f3f4dfc097ddd1152062185e8a3baa764bef",
+        "actual_time": 300.0499847996274,
+        "frame": 30
+      }
+    },
+    {
+      "id": "baseline_one_fluid",
+      "kind": "solver_control",
+      "role": "baseline",
+      "actual_time": 300.0001500000136,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "controls-decoded/1-fluid-unmatched/case_elc1_30.npz",
+          "npz_sha256": "1f5c874249467eeb81c2dc90dd7a7939ffe687cdbd1bffffbff401db53770428",
+          "metadata": "controls-decoded/1-fluid-unmatched/case_elc1_30.metadata.json",
+          "metadata_sha256": "a6c56ceef1336e1653a81cefc6345acc5348791923f0ce9bd0fa2b02a3d52a0e",
+          "source_BP_filename": "case_elc1_30.bp",
+          "source_BP_sha256": "6c35556d53b3c6fb563b7734f0cd62859377e1f08068a6f14435aaceac584e36",
+          "actual_time": 300.0001500000136,
+          "frame": 30,
+          "recorded_changeset": null,
+          "recorded_builddate": null,
+          "verified_archive_member_binding": null
+        }
+      ],
+      "field_input": {
+        "npz": "controls-decoded/1-fluid-unmatched/case_field_30.npz",
+        "metadata": "controls-decoded/1-fluid-unmatched/case_field_30.metadata.json",
+        "npz_sha256": "e3c960879645d9633b3e2a237879816464544a7c9cb9d05b98257fc55031c4f4",
+        "metadata_sha256": "6d8b2f6f05a35527faf10c41a1a9cf0565bca84b0885a0836518487c6474fbd3",
+        "source_BP_sha256": "d67f9ef92dfb623682ad2eb48a5a012aa6424634f29a2618df3c93718f258c6b",
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      },
+      "runtime_context": {
+        "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+        "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+        "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+        "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+        "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+        "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+        "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+        "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+      },
+      "completed_case_receipt": {
+        "path": "controls-decoded/1-fluid-unmatched/completed-case.json",
+        "sha256": "7b5910b1d0f0f33b59a7f9fdbefc799b1d3bc6eac1b509cee425d7fb762bdcf1",
+        "source_run_receipt_sha256": "2939a800ea9a721821ff25da822b5deafc20fc2e20b0f5c8802e3bb8bfbcec34"
+      }
+    },
+    {
+      "id": "baseline_two_fluid",
+      "execution_status": "completed_native_rejected"
+    },
+    {
+      "id": "matched_one_fluid",
+      "kind": "solver_control",
+      "role": "matched",
+      "actual_time": 300.0001500000136,
+      "frame": 30,
+      "inputs": [
+        {
+          "npz": "controls-decoded/1-fluid-aggregate-matched/case_elc1_30.npz",
+          "npz_sha256": "15497c9c29a68364ea0d816a18070c39f43256c28ae9578e17c07108733fa9db",
+          "metadata": "controls-decoded/1-fluid-aggregate-matched/case_elc1_30.metadata.json",
+          "metadata_sha256": "dcb044cdb0572e2bc8028faea31e8fc9116322a90ed166404af7e72bf50bc993",
+          "source_BP_filename": "case_elc1_30.bp",
+          "source_BP_sha256": "5ff71b8020742a6ecd9c2950fcbbeb60994e2f6e7d88072e9b11edf23e91110a",
+          "actual_time": 300.0001500000136,
+          "frame": 30,
+          "recorded_changeset": null,
+          "recorded_builddate": null,
+          "verified_archive_member_binding": null
+        }
+      ],
+      "field_input": {
+        "npz": "controls-decoded/1-fluid-aggregate-matched/case_field_30.npz",
+        "metadata": "controls-decoded/1-fluid-aggregate-matched/case_field_30.metadata.json",
+        "npz_sha256": "1db727fe215d1ca53554c44f173310b1b8d0e9d76b125cae1ae134c89e55436c",
+        "metadata_sha256": "065fd62aa444afbfc536cdb5f8f5448f3ecca3a7c4179ec4202443c9bf4c3a55",
+        "source_BP_sha256": "0d3f2d313b436469153fac9fe3cdab666df08af7f2e0c0f7dc71db9344ab3ed0",
+        "actual_time": 300.0001500000136,
+        "frame": 30
+      },
+      "runtime_context": {
+        "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+        "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+        "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+        "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+        "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+        "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+        "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+        "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+      },
+      "completed_case_receipt": {
+        "path": "controls-decoded/1-fluid-aggregate-matched/completed-case.json",
+        "sha256": "eb715002eea9fcc3171b954f767f648abd9a342356f90ea9226dfaf3dbbb02d0",
+        "source_run_receipt_sha256": "5269967ec1ad66c35fbf1fc4ffeb12fc426bf114d7736e8a957d7ed7c331c94d"
+      }
+    },
+    {
+      "id": "matched_two_fluid",
+      "execution_status": "failed_native_execution"
+    }
+  ],
+  "all_actual_cases_passed": true,
+  "failure_count": 0,
+  "raw_cache_paths_omitted": true,
+  "simulation_performed_by_this_script": false
+}

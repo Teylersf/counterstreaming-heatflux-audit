@@ -1,0 +1,172 @@
+{
+  "independent_failed_native_outcome_verified": true,
+  "checked_utc": "2026-10-29T03:58:28.768478+00:00",
+  "producer_script_sha256": "4c95207ecf7e5da13eb8363987fcfe1150313d56b7c13c5f73be0ed6026f70de",
+  "native_case": "2-fluid-aggregate-matched",
+  "source_run_receipt_sha256": "fdaf5bf781a76811e4d5b94e2c2596e2f1b7122f39de014617c0a227a8ed95ab",
+  "native_status": "failed",
+  "returncode": 1,
+  "native_stop": null,
+  "last_recorded_regular_frame": 22,
+  "last_closed_saved_time": 220.00011000001655,
+  "last_closed_BP_metadata": [
+    {
+      "filename": "case_elc1_22.bp",
+      "frame": 22,
+      "actual_time": 220.00011000001655,
+      "numCells": [
+        480,
+        640
+      ]
+    },
+    {
+      "filename": "case_elc2_22.bp",
+      "frame": 22,
+      "actual_time": 220.00011000001655,
+      "numCells": [
+        480,
+        640
+      ]
+    },
+    {
+      "filename": "case_field_22.bp",
+      "frame": 22,
+      "actual_time": 220.00011000001655,
+      "numCells": [
+        480,
+        640
+      ]
+    }
+  ],
+  "last_closed_BP_bindings": [
+    {
+      "filename": "case_elc1_22.bp",
+      "bytes": 24587010,
+      "sha256": "695da9dc1bf92606b38e77fac6ea74aa4eacabe602f0dba620d8dfff312c6949"
+    },
+    {
+      "filename": "case_elc2_22.bp",
+      "bytes": 24587010,
+      "sha256": "58432641799eb50190ef72bc6ae025c1406bd53bd779976466a5e9eaef1ee1e1"
+    },
+    {
+      "filename": "case_field_22.bp",
+      "bytes": 19671862,
+      "sha256": "a2d7b01c00f9c3ecbdf625dcf52a18f8969863e5a864337040ed9f39118d7089"
+    }
+  ],
+  "output_regular_frame_indices": {
+    "case_elc1": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "case_elc2": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "case_field": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  "console_sha256": "da230eeeaee344eadbbfd0bc819a2b40f37889e6f9a2647ca009042d184cf820",
+  "native_rank_log_sha256": "59e5f49c1ee5d2c790610b951f0b20c60c6a393180c442f4d8b4aa8fcfee51f4",
+  "console_assertion_line": "MomentSpecies.lua:495: assertion failed!",
+  "console_repeated_assertion_count": 16,
+  "specific_timestep_collapse_marker_absent": true,
+  "empty_specific_marker_list_is_not_a_clean_log_claim": true,
+  "source_predicate_semantics": "Line495 asserts the input-state checkInv after directional boundary conditions and before the directional update. checkInv combines the equation predicate over cells and MPI ranks. TenMoment.isPositive rejects NaN/negative density or recovered coordinate pressures only; no full-SPD test. The precise transient state, population, accepted failure time and originating split operator are not identified by this assertion.",
+  "source_predicate_proofs": [
+    {
+      "path": "Eq/TenMoment.lua",
+      "source_sha256": "2dc5dff301f064f8be20f0e8dc6079dd04d6e9aa9f1179b7fdbef59273212c7c",
+      "installed_sha256": "2dc5dff301f064f8be20f0e8dc6079dd04d6e9aa9f1179b7fdbef59273212c7c",
+      "first_line": 128,
+      "last_line": 136
+    },
+    {
+      "path": "App/Species/MomentSpecies.lua",
+      "source_sha256": "c9737c5fc03d1044f56bd062e4655dce43c411281681963a182cde084b204da9",
+      "installed_sha256": "c9737c5fc03d1044f56bd062e4655dce43c411281681963a182cde084b204da9",
+      "first_line": 490,
+      "last_line": 512
+    },
+    {
+      "path": "App/Species/MomentSpecies.lua",
+      "source_sha256": "c9737c5fc03d1044f56bd062e4655dce43c411281681963a182cde084b204da9",
+      "installed_sha256": "c9737c5fc03d1044f56bd062e4655dce43c411281681963a182cde084b204da9",
+      "first_line": 631,
+      "last_line": 649
+    }
+  ],
+  "scope": "Failed native execution, not an inadmissible t300 endpoint. No regular30 or full31-frame history, endpoint errors, causal pressure-history inference, clipping or rerun is supplied.",
+  "last_saved_time_is_not_exact_abort_time": true,
+  "pressure_history_status": "not_applicable_native_execution_failed",
+  "no_tensor_scan_or_endpoint_metrics": true,
+  "source_full_record_sha256": "fa2e4e8b9c91c5b2394c1615d0b7311ea209086b81525bbce89bf558c2c055dd",
+  "public_exporter_script_sha256": "457dcbc79005dbc91d03bd4b270eb83bfad02eed8896ae387ffe2e3f449217bb",
+  "public_export_scope": "Selected portable metadata; only the single endpoint witness and small invalid-index/eigenvalue list retain physical arrays. Full source record hash is preserved."
+}

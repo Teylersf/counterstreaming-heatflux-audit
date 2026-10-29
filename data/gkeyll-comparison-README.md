@@ -182,6 +182,27 @@ not computed. The disabled `gkeyll-control-cases.example.json` is a planning
 template; supplying arbitrary arrays without a completed receipt cannot
 create a solver-control result.
 
+## Numerical subset and terminal failures
+
+The default figure mode and the historical all-four-completed-and-compared
+gate still require the full valid set. The explicitly selected
+`numerical-endpoint-subset` mode can instead report a genuine eligible pair
+when all four native outcomes and their collector/history decisions are
+terminal and bound. Every successfully completed native case must retain its
+full regular0--30 covariance scan. A failed native run has no regular30
+measurement and an explicit `not_applicable_native_execution_failed` full
+history status; it is never counted as a successful run or complete31-frame
+scan. Its missing values and curves are unavailable, not zero.
+
+In the reported experiment three native runs completed and matched two-fluid
+failed with returncode1 after an invariant-check assertion. The one-fluid
+endpoints are eligible numerical measurements, while the unmatched two-fluid
+endpoint is rejected for indefinite population pressure. The original full
+valid-case gate therefore remains false. Saved one-fluid history failures
+remain attached to the numerical pair and prevent a physical-trajectory
+validation claim. See `gkeyll-admissibility-README.md` for the separate native,
+endpoint and history records.
+
 ## Initial/final particle-moment diagnostics
 
 For every supplied actual frame0/final conserved state, the analyzer integrates

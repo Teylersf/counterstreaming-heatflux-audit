@@ -1,0 +1,106 @@
+{
+  "source_predicate_provenance_verified": true,
+  "observed_utc": "2026-10-29T02:54:42.997438+00:00",
+  "producer_script_sha256": "419bfaf3d16acb414c4fbab76c04cf6a22b49bfca96dbc80b03125a3c6230d32",
+  "clean_source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+  "published_runtime_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+  "verification_method": "Direct SHA256/readback of clean source and installed Lua via WSL Python, crosschecked against published maps; no Lua/model/probe execution.",
+  "files": [
+    {
+      "path": "Eq/TenMoment.lua",
+      "source_sha256": "2dc5dff301f064f8be20f0e8dc6079dd04d6e9aa9f1179b7fdbef59273212c7c",
+      "installed_relative_path": "bin/Eq/TenMoment.lua",
+      "installed_sha256": "2dc5dff301f064f8be20f0e8dc6079dd04d6e9aa9f1179b7fdbef59273212c7c",
+      "published_source_and_installed_maps_match": true,
+      "primary_versioned_source_url": "https://github.com/liangwang0734/gkyl/blob/9663ea594e80f68eb305378e14512db390440e6b/Eq/TenMoment.lua",
+      "line_anchors": [
+        {
+          "first_line": 128,
+          "last_line": 136,
+          "url": "https://github.com/liangwang0734/gkyl/blob/9663ea594e80f68eb305378e14512db390440e6b/Eq/TenMoment.lua#L128-L136"
+        }
+      ]
+    },
+    {
+      "path": "App/Species/MomentSpecies.lua",
+      "source_sha256": "c9737c5fc03d1044f56bd062e4655dce43c411281681963a182cde084b204da9",
+      "installed_relative_path": "bin/App/Species/MomentSpecies.lua",
+      "installed_sha256": "c9737c5fc03d1044f56bd062e4655dce43c411281681963a182cde084b204da9",
+      "published_source_and_installed_maps_match": true,
+      "primary_versioned_source_url": "https://github.com/liangwang0734/gkyl/blob/9663ea594e80f68eb305378e14512db390440e6b/App/Species/MomentSpecies.lua",
+      "line_anchors": [
+        {
+          "first_line": 490,
+          "last_line": 512,
+          "url": "https://github.com/liangwang0734/gkyl/blob/9663ea594e80f68eb305378e14512db390440e6b/App/Species/MomentSpecies.lua#L490-L512"
+        },
+        {
+          "first_line": 631,
+          "last_line": 649,
+          "url": "https://github.com/liangwang0734/gkyl/blob/9663ea594e80f68eb305378e14512db390440e6b/App/Species/MomentSpecies.lua#L631-L649"
+        }
+      ]
+    }
+  ],
+  "independent_tensor_diagnosis_sha256": "9d9740467e6f680a0fae37bfeb41ad8a020af16488b6417eb4fa94b2d3d2366c",
+  "native_case": "2-fluid-unmatched",
+  "frame": 30,
+  "actual_time": 300.04383248285376,
+  "witness": {
+    "native_zero_based_x_y": [
+      324,
+      136
+    ],
+    "raw_center_x_y": [
+      8.450000000000003,
+      -18.35
+    ],
+    "density": 0.1132767556884321,
+    "conserved_component_order": [
+      "rho",
+      "rho_ux",
+      "rho_uy",
+      "rho_uz",
+      "Mxx",
+      "Mxy",
+      "Mxz",
+      "Myy",
+      "Myz",
+      "Mzz"
+    ],
+    "conserved_components": [
+      0.1132767556884321,
+      0.026763363650815112,
+      -0.006554183427233498,
+      0.02066113009372145,
+      0.00937796772716382,
+      -0.003708697797455535,
+      0.0017751312679368243,
+      0.0065089326834402795,
+      -0.001770674660816388,
+      0.005180045487363191
+    ],
+    "diagonal_pressures_evaluated_like_Lua": [
+      0.00305471429752028,
+      0.006129708189087913,
+      0.001411555701834529
+    ],
+    "all_conserved_values_finite": true,
+    "diagonal_only_predicate_accepts_witness": true,
+    "full_pressure_minimum_eigenvalue": -0.0014125968011872052,
+    "xz_principal_minor": -5.337674221760456e-06,
+    "explicit_full_determinant": -4.8035788919956144e-08
+  },
+  "predicate_scope": "isPositive rejects NaN/negative density and NaN/negative diagonal pressure only, using <0 rather than a strict >0 test; no offdiagonal, principal-minor, determinant or eigenvalue check occurs in this predicate.",
+  "caller_scope": "MomentSpecies.checkInv scans local cells using equation:isPositive and MPI.LAND. updateInDirection uses the same predicate for incoming state and Roe/invariant-Lax fallback acceptance.",
+  "inference": "Normal native completion is consistent with this witness passing the code predicate even though full pressure covariance is indefinite.",
+  "limits": [
+    "This is the tested clean build only; the original dirty executable/check is not identified.",
+    "The readback does not identify the timestep or split operator that first lost SPD, or establish a unique loss mechanism.",
+    "It is not a claim that the source authors archived an indefinite state; independently checked archived final populations remain SPD.",
+    "No model code, raw state, conformance gate or comparison criterion was changed."
+  ],
+  "source_full_record_sha256": "0a2bb836f138791cdcf7f6bd6d34695009a329d49d3112fc4bd463a6c10d9f2f",
+  "public_exporter_script_sha256": "457dcbc79005dbc91d03bd4b270eb83bfad02eed8896ae387ffe2e3f449217bb",
+  "public_export_scope": "Selected portable metadata; only the single endpoint witness and small invalid-index/eigenvalue list retain physical arrays. Full source record hash is preserved."
+}

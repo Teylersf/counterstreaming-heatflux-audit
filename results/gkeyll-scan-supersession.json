@@ -1,0 +1,45 @@
+{
+  "record_type": "saved_scan_provenance_supersession",
+  "record_assembly": "Author-assembled metadata from SHA256 and exact JSON frame/summary comparison; no unavailable private builder is asserted.",
+  "observed_utc": "2026-10-29T03:46:48.743853+00:00",
+  "current_reviewed_IO_helper_commit": "b2e763e46eb24b87db03a4315d16dd0f74549960",
+  "native_model_rerun_performed": false,
+  "numerical_formula_or_raw_state_changed": false,
+  "promotion_status": "reviewed_final_compact_scans_promoted_with_prior_backups",
+  "supersessions": [
+    {
+      "native_case": "1-fluid-unmatched",
+      "prior_diagnostic_sha256": "8ebc0aaf606a9e5bbfdba47728351f5dbde9d092f48e24592ffd2199a509d20a",
+      "prior_collector_guard_sha256": "23f4e13199a291172a8987d9eb572cc1d3d545bcc0bd18f80481c484f134d199",
+      "prior_IO_helper_sha256": "f15e637deb99a5492cdf0f85ff1eb248a71c382765cf2cb5fc463929c4743d47",
+      "final_diagnostic_sha256": "6f6a413e9738388fd281df87f5882221695126f3ec8662052b894a5194b05a46",
+      "final_collector_guard_sha256": "b7568428ae800192f74fceefc72ea312f066386d18beddf0b9f4d4610a2eedee",
+      "final_IO_helper_sha256": "8cedbcdb6ae922422c59318247c843167d054e32151f1683ae95d83d07571dae",
+      "scanner_sha256": "86269af0916439c2eb57a84ec35fc0e983cceb1ead6c913a2accd3ef7bc40898",
+      "native_receipt_sha256": "2939a800ea9a721821ff25da822b5deafc20fc2e20b0f5c8802e3bb8bfbcec34",
+      "all31_scientific_frame_records_identical": true,
+      "summary_identical": true,
+      "prior_diagnostic_preserved_without_rewrite": true
+    },
+    {
+      "native_case": "2-fluid-unmatched",
+      "prior_diagnostic_sha256": "821d728f13accb22515396e580f6324ba8e1c2ecd68477a6e2f38e9c827d3b9a",
+      "prior_collector_guard_sha256": "23f4e13199a291172a8987d9eb572cc1d3d545bcc0bd18f80481c484f134d199",
+      "prior_IO_helper_sha256": "f15e637deb99a5492cdf0f85ff1eb248a71c382765cf2cb5fc463929c4743d47",
+      "final_diagnostic_sha256": "3bf512b0b4e190bf461ec93a42f9906f716571166b0c96a2fd80bb4b42e06040",
+      "final_collector_guard_sha256": "b7568428ae800192f74fceefc72ea312f066386d18beddf0b9f4d4610a2eedee",
+      "final_IO_helper_sha256": "8cedbcdb6ae922422c59318247c843167d054e32151f1683ae95d83d07571dae",
+      "scanner_sha256": "86269af0916439c2eb57a84ec35fc0e983cceb1ead6c913a2accd3ef7bc40898",
+      "native_receipt_sha256": "77ba0c7796bc4e340acf27a4e7870c7fc27a117ef83b2be723694ce657775de7",
+      "all31_scientific_frame_records_identical": true,
+      "summary_identical": true,
+      "prior_diagnostic_preserved_without_rewrite": true
+    }
+  ],
+  "scope": "Fresh read-only baseline diagnostics bind final released IO/guard helpers after metadata/display fixes. Earlier diagnostics and their actual historical stamps remain preserved. All31 scientific snapshot records are exactly equal.",
+  "final_classification_helper_hashes": {
+    "experiments/analyze_gkeyll_controls.py": "0671842c29e5abe24e9b62200547cfb08adbaa3bf1788704c53cd987f07f9b09",
+    "experiments/collect_completed_gkeyll_cases.py": "73ae46bc4abe88265f38cfe6de356948cdffbe865456fdd30512d7900afbfecc"
+  },
+  "provenance_note": "Actual b2e763e scan IO module stamps are preserved. Later terminal-failure classification has separate hashes and changed no numerical frame values; no stamps or native states were rewritten."
+}

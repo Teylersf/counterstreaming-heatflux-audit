@@ -10,6 +10,7 @@ import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import re
 import numpy as np
 
 from analyze_gkeyll_controls import (ROOT, ConformanceError, load_json, moments,
@@ -59,6 +60,67 @@ def validate_receipt(receipt: dict, case_name: str, species: int, expected: dict
     require(all(name in final and final[name]["sha256"] == digest for name, digest in hashes.items()), "Stop and final receipt hashes differ")
     return {"names": sorted(names), "sha256": hashes, "actual_time": metadata[0]["time"],
             "bytes": {name: final[name]["bytes"] for name in names}}
+
+
+def failed_native_evidence(receipt: dict, receipt_sha: str, directory: Path,
+                           native_case: str, species: int, expected: dict, prepared: dict) -> dict:
+    """Bind terminal failure and last-closed scalar metadata; never read tensors."""
+    require(receipt["case"] == native_case and receipt["status"] in {"failed","failed_controller_guard"}
+            and isinstance(receipt["returncode"],int) and receipt["returncode"] != 0,
+            "Native-failure evidence requires an actual terminal nonzero execution")
+    require(all(receipt[key] == value for key,value in expected.items()) and receipt["native_stop"] is None,
+            "Failed native runtime context/stop policy differs")
+    require(receipt["time_controls"] == {"tEnd":600,"nFrame":60} and receipt["mpi_ranks"] == 16 and receipt["decomposition"] == [4,4],
+            "Failed native case controls differ")
+    require(load_json(directory/"prepared-case.json") == prepared and sha256(directory/"prepared-case.json") == receipt["prepared_case_sha256"],
+            "Failed native preparation record differs")
+    inputs={"posted-input.lua":prepared["original_deck_sha256"],"case.lua":prepared["wrapper_sha256"]}
+    if prepared["aggregate_matched"]:
+        inputs.update({"aggregate-pic-t0.f64":prepared["aggregate_binary_sha256"],"matched_initializer.lua":prepared["matched_initializer_sha256"]})
+    require(receipt["input_hashes"] == inputs and all(sha256(directory/name) == digest for name,digest in inputs.items()),
+            "Failed native inputs differ from authoritative preparation")
+    pins={item["filename"]:item for item in receipt["output_bp_files"]}
+    require(not any(f"case_elc{i}_30.bp" in pins for i in range(1,species+1)) and "case_field_30.bp" not in pins,
+            "This explicit pre-endpoint failure route requires absent regular30 members")
+    last=int(receipt["last_recorded_regular_frame"])
+    require(-1 <= last < 30,"Failed last-closed regular frame is outside the pre-endpoint route")
+    bindings=[]; last_time=None
+    if last >= 0:
+        import adios2
+        names=[f"case_elc{i}_{last}.bp" for i in range(1,species+1)]+[f"case_field_{last}.bp"]
+        for name in names:
+            require(name in pins,"Failed receipt lacks a last-closed group member")
+            source=directory/name; pin=pins[name]
+            require(source.stat().st_size==pin["bytes"] and sha256(source)==pin["sha256"],"Failed last-closed BP differs from final receipt")
+            with adios2.FileReader(str(source)) as reader:
+                frame=int(np.asarray(reader.read("frame")).item()); stamp=float(np.asarray(reader.read("time")).item())
+                cells=np.asarray(reader.read_attribute("numCells")).ravel().tolist()
+            require(frame==last and np.isfinite(stamp) and stamp>=0 and cells==[480,640] and sha256(source)==pin["sha256"],
+                    "Failed last-closed scalar metadata/raw binding differs")
+            bindings.append({"filename":name,"bytes":pin["bytes"],"sha256":pin["sha256"],"frame":frame,"actual_time":stamp})
+        require(len({item["actual_time"] for item in bindings})==1,"Failed last-closed member times differ")
+        last_time=bindings[0]["actual_time"]
+    console=directory/"console.log"
+    require(sha256(console)==receipt["console_sha256"],"Failed console log differs from native receipt")
+    assertions={}
+    for number,line in enumerate(console.read_text(encoding="utf-8",errors="replace").splitlines(),1):
+        match=re.search(r"(App/Species/[A-Za-z0-9_.]+\.lua):(\d+):\s*(assertion failed!?)",line)
+        if match:
+            key=(match[1],int(match[2]))
+            assertions.setdefault(key,[]).append(number)
+    assertion_rows=[{"source_relative_path":path,"source_line":line,"occurrences":len(numbers),"console_line_numbers":numbers,
+                     "message":"assertion failed"} for (path,line),numbers in assertions.items()]
+    require(sha256(console)==receipt["console_sha256"],"Failed console changed during readback")
+    return {"case":native_case,"status":"failed_native_execution","native_status":receipt["status"],
+            "native_returncode":receipt["returncode"],"source_run_receipt_sha256":receipt_sha,"runtime_context":{key:receipt[key] for key in CONTEXT_KEYS},
+            **timing_provenance(receipt),"input_hashes":inputs,"prepared_case_sha256":receipt["prepared_case_sha256"],
+            "native_stop_requested":False,"regular30_endpoint_accepted":False,"regular30_frame_files_present":False,"metrics_accepted":False,
+            "last_closed_regular_frame":last if last>=0 else None,"last_closed_regular_time":last_time,"last_closed_regular_bindings":bindings,
+            "console_sha256":receipt["console_sha256"],"console_bytes":console.stat().st_size,"native_rank_log_present":receipt["native_rank_log_present"],
+            "assertion_failures":assertion_rows,"native_numerical_failure_markers":receipt["native_numerical_failure_markers"],
+            "native_numerical_failure_markers_scope":"Exact timestep-collapse pattern only; an empty list does not imply absence of other errors.",
+            "last_saved_time_is_not_exact_abort_time":True,"no_failed_transient_population_or_split_operator_inferred":True,
+            "scope":"Terminal native failure and metadata-only last-closed-state readback. No tensor scan, repaired state, regular30 value or endpoint comparison is supplied."}
 
 
 def guard_self_test() -> dict:
@@ -156,6 +218,20 @@ def main() -> int:
             receipt_sha = sha256(receipt_path)
             receipt = load_json(receipt_path)
             status["source_run_receipt_sha256"] = receipt_sha
+            if receipt["status"] in {"failed","failed_controller_guard"}:
+                prepared=next(c for c in preparation["cases"] if c["case"]==native_case)
+                failure=failed_native_evidence(receipt,receipt_sha,directory,native_case,species,expected,prepared)
+                local_relative=Path("controls-decoded")/native_case
+                failure_path=args.cache_root/local_relative/"native-execution-failure.json"
+                write_json(failure_path,failure)
+                require(sha256(receipt_path)==receipt_sha,"Failed native receipt changed during readback")
+                status.update(status="failed_native_execution",failure_receipt=failure,failure_receipt_sha256=sha256(failure_path))
+                case.update(execution_status="failed_native_execution",native_execution_status=receipt["status"],native_returncode=receipt["returncode"],
+                            source_run_receipt_sha256=receipt_sha,last_closed_regular_frame=failure["last_closed_regular_frame"],
+                            last_closed_regular_time=failure["last_closed_regular_time"],
+                            failure_receipt=(local_relative/"native-execution-failure.json").as_posix(),failure_receipt_sha256=sha256(failure_path),
+                            pending_reason="Native execution failed before a guarded endpoint; no regular30 metric or full31-snapshot history is supplied.")
+                config["cases"].append(case);manifest["cases"].append(status);continue
             selected = validate_receipt(receipt, native_case, species, expected)
             all_raw_pins = {p["filename"]: p for p in receipt["output_bp_files"]}
             selections = [(name, 30, selected["actual_time"], selected["sha256"][name], selected["bytes"][name]) for name in selected["names"]]
@@ -245,6 +321,7 @@ def main() -> int:
         config["cases"].append(case); manifest["cases"].append(status)
     manifest["completed_case_count"] = sum(c["enabled"] for c in config["cases"] if c["kind"] == "solver_control")
     manifest["any_case_failed_validation_or_execution"] = any(c["status"] == "failed_validation_or_execution" for c in manifest["cases"])
+    manifest["terminal_native_execution_failure_count"] = sum(c["status"] == "failed_native_execution" for c in manifest["cases"])
     write_json(args.config_output, config); manifest["case_config_sha256"] = sha256(args.config_output)
     write_json(args.manifest_output, manifest)
     print(json.dumps({"completed_and_decoded": manifest["completed_case_count"],

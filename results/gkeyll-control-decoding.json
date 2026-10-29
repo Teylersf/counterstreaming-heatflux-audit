@@ -1,0 +1,478 @@
+{
+  "generated_at_utc": "2026-10-29T04:05:42.265891+00:00",
+  "collector_sha256": "73ae46bc4abe88265f38cfe6de356948cdffbe865456fdd30512d7900afbfecc",
+  "reader_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+  "analysis_helper_sha256": "0671842c29e5abe24e9b62200547cfb08adbaa3bf1788704c53cd987f07f9b09",
+  "synthetic_guard_checks": {
+    "synthetic_valid_receipt_accepted": true,
+    "seven_invalid_receipt_variants_rejected": true,
+    "distinct_UTC_and_monotonic_durations_preserved": true,
+    "scope": "Synthetic guard tests only, not evidence of actual solver completion."
+  },
+  "expected_runtime_context": {
+    "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+    "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+    "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+    "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+    "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+    "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+    "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+    "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+  },
+  "cases": [
+    {
+      "case": "1-fluid-unmatched",
+      "analysis_case_id": "baseline_one_fluid",
+      "status": "completed_and_decoded",
+      "source_run_receipt_sha256": "2939a800ea9a721821ff25da822b5deafc20fc2e20b0f5c8802e3bb8bfbcec34",
+      "receipt": {
+        "case": "1-fluid-unmatched",
+        "status": "completed_native_stop",
+        "all_decoding_checks_passed": true,
+        "source_run_receipt_sha256": "2939a800ea9a721821ff25da822b5deafc20fc2e20b0f5c8802e3bb8bfbcec34",
+        "source_started_utc": "2026-10-29T01:06:27.751696+00:00",
+        "source_finished_utc": "2026-10-29T01:45:37.288719+00:00",
+        "elapsed_seconds": 2215.470234703,
+        "elapsed_seconds_basis": "Linux time.monotonic elapsed duration; not CPU time",
+        "UTC_timestamp_difference_seconds": 2349.537023,
+        "timing_qualification": "UTC timestamp subtraction and monotonic elapsed duration use distinct clock conventions and may differ after clock adjustments. Both are preserved without correction or a CPU-time inference.",
+        "runtime_context": {
+          "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+          "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+          "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+          "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+          "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+          "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+          "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+          "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+        },
+        "input_hashes": {
+          "posted-input.lua": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+          "case.lua": "a52ca6c0d2b93142fccd33e739eb7342d514239f5942e4a9263021b5b3960fe9"
+        },
+        "prepared_case_sha256": "6c60a2249e466d39f754c6300da4abfa343650afc4b82c20fced1406660c1918",
+        "frame": 30,
+        "actual_time": 300.0001500000136,
+        "console_sha256": "9190ffe09630fb5988b3732261702a983022de00e27bc30c5d704eff8f04dbf9",
+        "collector_sha256": "73ae46bc4abe88265f38cfe6de356948cdffbe865456fdd30512d7900afbfecc",
+        "reader_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+        "exports": [
+          {
+            "filename": "case_elc1_30.bp",
+            "source_bytes": 24586714,
+            "source_sha256": "6c35556d53b3c6fb563b7734f0cd62859377e1f08068a6f14435aaceac584e36",
+            "npz": "controls-decoded/1-fluid-unmatched/case_elc1_30.npz",
+            "numeric_export_sha256": "1f5c874249467eeb81c2dc90dd7a7939ffe687cdbd1bffffbff401db53770428",
+            "metadata": "controls-decoded/1-fluid-unmatched/case_elc1_30.metadata.json",
+            "metadata_sha256": "a6c56ceef1336e1653a81cefc6345acc5348791923f0ce9bd0fa2b02a3d52a0e",
+            "actual_time": 300.0001500000136,
+            "frame": 30,
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "state_conformance": {
+              "label": "1-fluid-unmatched case_elc1_30.bp",
+              "shape": [
+                640,
+                480,
+                10
+              ],
+              "nonfinite_count": 0,
+              "no_clipping_or_regularization": true,
+              "violations": [],
+              "minimum_density": 0.7334852301440686,
+              "minimum_pressure_diagonal": 0.007121790937649437,
+              "minimum_pressure_eigenvalue": 0.005783233070633661,
+              "passed": true
+            }
+          },
+          {
+            "filename": "case_field_30.bp",
+            "source_bytes": 19671566,
+            "source_sha256": "d67f9ef92dfb623682ad2eb48a5a012aa6424634f29a2618df3c93718f258c6b",
+            "npz": "controls-decoded/1-fluid-unmatched/case_field_30.npz",
+            "numeric_export_sha256": "e3c960879645d9633b3e2a237879816464544a7c9cb9d05b98257fc55031c4f4",
+            "metadata": "controls-decoded/1-fluid-unmatched/case_field_30.metadata.json",
+            "metadata_sha256": "6d8b2f6f05a35527faf10c41a1a9cf0565bca84b0885a0836518487c6474fbd3",
+            "actual_time": 300.0001500000136,
+            "frame": 30,
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "finite_eight_component_field_passed": true
+          }
+        ],
+        "initial_exports": [
+          {
+            "filename": "case_elc1_0.bp",
+            "source_bytes": 24586714,
+            "source_sha256": "8e9487e6c24cd80a0559d49758c14a7ec41a90d71acee57ea75356c8bd376879",
+            "npz": "controls-decoded/1-fluid-unmatched/case_elc1_0.npz",
+            "numeric_export_sha256": "8d2bd5af573d555c2a7a79726985be096a9393a366d68c32525ce7d26346d544",
+            "metadata": "controls-decoded/1-fluid-unmatched/case_elc1_0.metadata.json",
+            "metadata_sha256": "024081667cb33aaa87469f060cf67b9574d213691e722d5f1b1d10872c10f47d",
+            "actual_time": 0.0,
+            "frame": 0,
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "state_conformance": {
+              "label": "1-fluid-unmatched case_elc1_0.bp",
+              "shape": [
+                640,
+                480,
+                10
+              ],
+              "nonfinite_count": 0,
+              "no_clipping_or_regularization": true,
+              "violations": [],
+              "minimum_density": 1.0,
+              "minimum_pressure_diagonal": 0.012499910808999981,
+              "minimum_pressure_eigenvalue": 0.012499910808999981,
+              "passed": true
+            }
+          }
+        ],
+        "aggregate_conformance": {
+          "label": "1-fluid-unmatched aggregate",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 0.7334852301440686,
+          "minimum_pressure_diagonal": 0.007121790937649437,
+          "minimum_pressure_eigenvalue": 0.005783233070633661,
+          "passed": true
+        },
+        "initial_aggregate_conformance": {
+          "label": "1-fluid-unmatched initial aggregate",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 1.0,
+          "minimum_pressure_diagonal": 0.012499910808999981,
+          "minimum_pressure_eigenvalue": 0.012499910808999981,
+          "passed": true
+        },
+        "later_frame_numbers_excluded": [
+          31
+        ],
+        "later_frame_kind_not_inferred_from_index": true,
+        "original_dirty_build_reproduced": false,
+        "source_comparison_is_regular_frame30": true
+      },
+      "portable_receipt_sha256": "7b5910b1d0f0f33b59a7f9fdbefc799b1d3bc6eac1b509cee425d7fb762bdcf1"
+    },
+    {
+      "case": "2-fluid-unmatched",
+      "analysis_case_id": "baseline_two_fluid",
+      "status": "failed_validation_or_execution",
+      "source_run_receipt_sha256": "77ba0c7796bc4e340acf27a4e7870c7fc27a117ef83b2be723694ce657775de7",
+      "error_type": "ConformanceError",
+      "message": "Covariance pressure is not strictly positive definite",
+      "conformance_failure": {
+        "label": "2-fluid-unmatched case_elc1_30.bp",
+        "shape": [
+          640,
+          480,
+          10
+        ],
+        "nonfinite_count": 0,
+        "no_clipping_or_regularization": true,
+        "violations": [
+          "Covariance pressure is not strictly positive definite"
+        ],
+        "minimum_density": 0.027122664766693172,
+        "minimum_pressure_diagonal": 0.0001271898358709356,
+        "minimum_pressure_eigenvalue": -0.0014125968011872057
+      }
+    },
+    {
+      "case": "1-fluid-aggregate-matched",
+      "analysis_case_id": "matched_one_fluid",
+      "status": "completed_and_decoded",
+      "source_run_receipt_sha256": "5269967ec1ad66c35fbf1fc4ffeb12fc426bf114d7736e8a957d7ed7c331c94d",
+      "receipt": {
+        "case": "1-fluid-aggregate-matched",
+        "status": "completed_native_stop",
+        "all_decoding_checks_passed": true,
+        "source_run_receipt_sha256": "5269967ec1ad66c35fbf1fc4ffeb12fc426bf114d7736e8a957d7ed7c331c94d",
+        "source_started_utc": "2026-10-29T02:40:41.521443+00:00",
+        "source_finished_utc": "2026-10-29T03:16:33.632487+00:00",
+        "elapsed_seconds": 1960.2522195029997,
+        "elapsed_seconds_basis": "Linux time.monotonic elapsed duration; not CPU time",
+        "UTC_timestamp_difference_seconds": 2152.111044,
+        "timing_qualification": "UTC timestamp subtraction and monotonic elapsed duration use distinct clock conventions and may differ after clock adjustments. Both are preserved without correction or a CPU-time inference.",
+        "runtime_context": {
+          "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+          "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+          "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+          "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+          "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+          "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+          "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+          "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+        },
+        "input_hashes": {
+          "posted-input.lua": "a716823d81a8abdb119326537b2289e819381683919803a35c50c24765884a7d",
+          "case.lua": "c14ffc94e1c52f1c7e70a5a95dd425dbd54df3590f5559c91e58b0bedc77097a",
+          "aggregate-pic-t0.f64": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85",
+          "matched_initializer.lua": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4"
+        },
+        "prepared_case_sha256": "a662a48ed0a8ec8d497f0d8f256a2768fd60e5c37e1296af6807cb71e007c968",
+        "frame": 30,
+        "actual_time": 300.0001500000136,
+        "console_sha256": "9414eb3421e5a78d7b56165b775daf1cbc5d288731892c3a4fa2bc6e57339c42",
+        "collector_sha256": "73ae46bc4abe88265f38cfe6de356948cdffbe865456fdd30512d7900afbfecc",
+        "reader_sha256": "e5023d380d463bb84afe98b15eef64b03357ef7fb9fe19511f543d40feb966c0",
+        "exports": [
+          {
+            "filename": "case_elc1_30.bp",
+            "source_bytes": 24587010,
+            "source_sha256": "5ff71b8020742a6ecd9c2950fcbbeb60994e2f6e7d88072e9b11edf23e91110a",
+            "npz": "controls-decoded/1-fluid-aggregate-matched/case_elc1_30.npz",
+            "numeric_export_sha256": "15497c9c29a68364ea0d816a18070c39f43256c28ae9578e17c07108733fa9db",
+            "metadata": "controls-decoded/1-fluid-aggregate-matched/case_elc1_30.metadata.json",
+            "metadata_sha256": "dcb044cdb0572e2bc8028faea31e8fc9116322a90ed166404af7e72bf50bc993",
+            "actual_time": 300.0001500000136,
+            "frame": 30,
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "state_conformance": {
+              "label": "1-fluid-aggregate-matched case_elc1_30.bp",
+              "shape": [
+                640,
+                480,
+                10
+              ],
+              "nonfinite_count": 0,
+              "no_clipping_or_regularization": true,
+              "violations": [],
+              "minimum_density": 0.7620600811644448,
+              "minimum_pressure_diagonal": 0.007165870196967357,
+              "minimum_pressure_eigenvalue": 0.005384427984969872,
+              "passed": true
+            }
+          },
+          {
+            "filename": "case_field_30.bp",
+            "source_bytes": 19671862,
+            "source_sha256": "0d3f2d313b436469153fac9fe3cdab666df08af7f2e0c0f7dc71db9344ab3ed0",
+            "npz": "controls-decoded/1-fluid-aggregate-matched/case_field_30.npz",
+            "numeric_export_sha256": "1db727fe215d1ca53554c44f173310b1b8d0e9d76b125cae1ae134c89e55436c",
+            "metadata": "controls-decoded/1-fluid-aggregate-matched/case_field_30.metadata.json",
+            "metadata_sha256": "065fd62aa444afbfc536cdb5f8f5448f3ecca3a7c4179ec4202443c9bf4c3a55",
+            "actual_time": 300.0001500000136,
+            "frame": 30,
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "finite_eight_component_field_passed": true
+          }
+        ],
+        "initial_exports": [
+          {
+            "filename": "case_elc1_0.bp",
+            "source_bytes": 24587010,
+            "source_sha256": "044e8fa2d1f2da4b8be216be9d22169230ad4fb6600588c819c121afefa3e36d",
+            "npz": "controls-decoded/1-fluid-aggregate-matched/case_elc1_0.npz",
+            "numeric_export_sha256": "d4770a6746a0de233a9c52cbe91649c1b7d8c4625a639db885d0b7e16bdc1e2b",
+            "metadata": "controls-decoded/1-fluid-aggregate-matched/case_elc1_0.metadata.json",
+            "metadata_sha256": "6d275b0b5b730b340f6f47fd42d36fc701963b9ee243b2d8759cf48e8093d116",
+            "actual_time": 0.0,
+            "frame": 0,
+            "reader": {
+              "adios2": "2.13.0.1001",
+              "numpy": "2.3.5",
+              "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+              "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+            },
+            "state_conformance": {
+              "label": "1-fluid-aggregate-matched case_elc1_0.bp",
+              "shape": [
+                640,
+                480,
+                10
+              ],
+              "nonfinite_count": 0,
+              "no_clipping_or_regularization": true,
+              "violations": [],
+              "minimum_density": 1.0,
+              "minimum_pressure_diagonal": 0.006979083429632937,
+              "minimum_pressure_eigenvalue": 0.0069103173319117325,
+              "passed": true
+            }
+          }
+        ],
+        "aggregate_conformance": {
+          "label": "1-fluid-aggregate-matched aggregate",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 0.7620600811644448,
+          "minimum_pressure_diagonal": 0.007165870196967357,
+          "minimum_pressure_eigenvalue": 0.005384427984969872,
+          "passed": true
+        },
+        "initial_aggregate_conformance": {
+          "label": "1-fluid-aggregate-matched initial aggregate",
+          "shape": [
+            640,
+            480,
+            10
+          ],
+          "nonfinite_count": 0,
+          "no_clipping_or_regularization": true,
+          "violations": [],
+          "minimum_density": 1.0,
+          "minimum_pressure_diagonal": 0.006979083429632937,
+          "minimum_pressure_eigenvalue": 0.0069103173319117325,
+          "passed": true
+        },
+        "later_frame_numbers_excluded": [
+          31
+        ],
+        "later_frame_kind_not_inferred_from_index": true,
+        "original_dirty_build_reproduced": false,
+        "source_comparison_is_regular_frame30": true
+      },
+      "portable_receipt_sha256": "eb715002eea9fcc3171b954f767f648abd9a342356f90ea9226dfaf3dbbb02d0"
+    },
+    {
+      "case": "2-fluid-aggregate-matched",
+      "analysis_case_id": "matched_two_fluid",
+      "status": "failed_native_execution",
+      "source_run_receipt_sha256": "fdaf5bf781a76811e4d5b94e2c2596e2f1b7122f39de014617c0a227a8ed95ab",
+      "failure_receipt": {
+        "case": "2-fluid-aggregate-matched",
+        "status": "failed_native_execution",
+        "native_status": "failed",
+        "native_returncode": 1,
+        "source_run_receipt_sha256": "fdaf5bf781a76811e4d5b94e2c2596e2f1b7122f39de014617c0a227a8ed95ab",
+        "runtime_context": {
+          "controller_sha256": "1e8eddd6f5bf40c5f10d7315d192f69ca47639323679446ad2e5715e223ddf83",
+          "research_code_revision": "fba895a3989b0855186b38c2e77d8c9d23aac94c",
+          "source_commit": "9663ea594e80f68eb305378e14512db390440e6b",
+          "executable_sha256": "8207720b3fa7a1fee47041374b8e6935b7f51cb1792a9875e1d239922e1f32d7",
+          "runtime_file_manifest_sha256": "a29f66bbf1c0651d58d748e85cb9350490bfbb1b146bd44cdd6c3e574695d8f3",
+          "dependency_lock_sha256": "486c0ddcb4b06333365eb14f767a10430bf5f32207fdf1dbdccd3669456f4232",
+          "preparation_receipt_sha256": "26681aceffaf2b2ac0dcf303e52bc2cef5d7f210c633f9675caa10872386831a",
+          "matched_init_conformance_sha256": "26a9c8eb27aa641528e96a45e5396bdc714cc71774012e9efe77755a8a63b8fe"
+        },
+        "source_started_utc": "2026-10-29T03:16:37.267149+00:00",
+        "source_finished_utc": "2026-10-29T03:55:14.424400+00:00",
+        "elapsed_seconds": 2113.947744962,
+        "elapsed_seconds_basis": "Linux time.monotonic elapsed duration; not CPU time",
+        "UTC_timestamp_difference_seconds": 2317.157251,
+        "timing_qualification": "UTC timestamp subtraction and monotonic elapsed duration use distinct clock conventions and may differ after clock adjustments. Both are preserved without correction or a CPU-time inference.",
+        "input_hashes": {
+          "posted-input.lua": "f9cc244a6e52522d03aa1a127a1f79ff35506b0f9b98b1abe8973a3c6ff4bf69",
+          "case.lua": "ce01997246eabcffd2a8ebbade8fbf2f33632da2dead6d0cb1a1c883ade961f8",
+          "aggregate-pic-t0.f64": "3d9f19caa19265199b0463901d3e995708005fd62ac158b64f4e7af134003b85",
+          "matched_initializer.lua": "e46ffb1000a7428e369425fc4a9481c1d455bce9b13b489bd1dcbfd054a475c4"
+        },
+        "prepared_case_sha256": "9ea9706fed8aaa1cea195205dbac47fc78392239e433e2af37db02a5f1f85d3b",
+        "native_stop_requested": false,
+        "regular30_endpoint_accepted": false,
+        "regular30_frame_files_present": false,
+        "metrics_accepted": false,
+        "last_closed_regular_frame": 22,
+        "last_closed_regular_time": 220.00011000001655,
+        "last_closed_regular_bindings": [
+          {
+            "filename": "case_elc1_22.bp",
+            "bytes": 24587010,
+            "sha256": "695da9dc1bf92606b38e77fac6ea74aa4eacabe602f0dba620d8dfff312c6949",
+            "frame": 22,
+            "actual_time": 220.00011000001655
+          },
+          {
+            "filename": "case_elc2_22.bp",
+            "bytes": 24587010,
+            "sha256": "58432641799eb50190ef72bc6ae025c1406bd53bd779976466a5e9eaef1ee1e1",
+            "frame": 22,
+            "actual_time": 220.00011000001655
+          },
+          {
+            "filename": "case_field_22.bp",
+            "bytes": 19671862,
+            "sha256": "a2d7b01c00f9c3ecbdf625dcf52a18f8969863e5a864337040ed9f39118d7089",
+            "frame": 22,
+            "actual_time": 220.00011000001655
+          }
+        ],
+        "console_sha256": "da230eeeaee344eadbbfd0bc819a2b40f37889e6f9a2647ca009042d184cf820",
+        "console_bytes": 4405,
+        "native_rank_log_present": true,
+        "assertion_failures": [
+          {
+            "source_relative_path": "App/Species/MomentSpecies.lua",
+            "source_line": 495,
+            "occurrences": 16,
+            "console_line_numbers": [
+              51,
+              53,
+              55,
+              57,
+              59,
+              61,
+              63,
+              65,
+              67,
+              69,
+              71,
+              73,
+              75,
+              77,
+              79,
+              81
+            ],
+            "message": "assertion failed"
+          }
+        ],
+        "native_numerical_failure_markers": [],
+        "native_numerical_failure_markers_scope": "Exact timestep-collapse pattern only; an empty list does not imply absence of other errors.",
+        "last_saved_time_is_not_exact_abort_time": true,
+        "no_failed_transient_population_or_split_operator_inferred": true,
+        "scope": "Terminal native failure and metadata-only last-closed-state readback. No tensor scan, repaired state, regular30 value or endpoint comparison is supplied."
+      },
+      "failure_receipt_sha256": "d1a8622350d996725010bf59c93cc31b20f0ddab0d13b81296eb49d5fc71e093"
+    }
+  ],
+  "scope": "Read-only processing of completed regular30 BP members. No solver action or numerical result is inferred from progress files. Pending/failed cases are not measurements.",
+  "private_run_paths_included": false,
+  "completed_case_count": 2,
+  "any_case_failed_validation_or_execution": true,
+  "terminal_native_execution_failure_count": 1,
+  "case_config_sha256": "25f69d8a389519be9f2992046413b7ddedc3224d70b538cac213a3882bc9980e"
+}

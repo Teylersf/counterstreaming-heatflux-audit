@@ -1,0 +1,90 @@
+{
+  "independent_intermediate_failure_confirmed": true,
+  "scope": "Three actual regular saved baseline1 snapshots only; these failures do not identify first loss time/operator or the historical intermediate trajectory.",
+  "observed_utc": "2026-10-29T03:01:08.828371+00:00",
+  "producer_script_sha256": "e25b9ae7cae3e727a8194dcfd4a22178d488c0c9622d2aaccd1e351f2ce07535",
+  "native_case": "1-fluid-unmatched",
+  "native_receipt_sha256": "2939a800ea9a721821ff25da822b5deafc20fc2e20b0f5c8802e3bb8bfbcec34",
+  "native_receipt_before_after_and_prior_endpoint_binding_passed": true,
+  "endpoint_check_sha256": "ec8e254aa99e3683da8bb046f77cbd8d6912d0838c50503bf06a069a6d2122ce",
+  "component_order": [
+    "rho",
+    "rho_ux",
+    "rho_uy",
+    "rho_uz",
+    "Mxx",
+    "Mxy",
+    "Mxz",
+    "Myy",
+    "Myz",
+    "Mzz"
+  ],
+  "index_convention": "Native [x,y,component], zero based; raw centers x=-24+(ix+.5)*.1,y=-32+(iy+.5)*.1.",
+  "centering": "Independent long-double raw-second minus rho*velocity_i*velocity_j, symmetric assignment; no scanner/analyzer tensor function reused.",
+  "frames": [
+    {
+      "frame": 22,
+      "actual_time": 220.00011000001655,
+      "source_BP_sha256": "017db8b32f836d8b77304d22003fce6a3ec0100644beb35743deac8c77e22b18",
+      "source_BP_bytes": 24586714,
+      "numeric_export_sha256": "7bb60ed2ef9e4e7b57b01943f07137d123aeec67b20e73723cb926e01f5d1540",
+      "minimum_density": 0.9198844096622688,
+      "minimum_pressure_diagonal": 0.003458310513074783,
+      "minimum_pressure_eigenvalue": -0.0008061782095516818,
+      "negative_eigenvalue_cell_count": 9,
+      "worst_native_zero_based_x_y": [
+        333,
+        477
+      ],
+      "worst_raw_center_x_y": [
+        9.350000000000001,
+        15.75
+      ]
+    },
+    {
+      "frame": 23,
+      "actual_time": 230.00011500001852,
+      "source_BP_sha256": "8f0bae7145dbb69f76936ffe562dab53abb4e6dd2f741bd747308a0a897a39ed",
+      "source_BP_bytes": 24586714,
+      "numeric_export_sha256": "390fc0c30e2e2eb59bcf11ea90707305eb22606940c7c41be27acc51a7f35f24",
+      "minimum_density": 0.9173068379898669,
+      "minimum_pressure_diagonal": 0.005719707422269016,
+      "minimum_pressure_eigenvalue": -0.0017235454297221575,
+      "negative_eigenvalue_cell_count": 18,
+      "worst_native_zero_based_x_y": [
+        395,
+        164
+      ],
+      "worst_raw_center_x_y": [
+        15.550000000000004,
+        -15.55
+      ]
+    },
+    {
+      "frame": 24,
+      "actual_time": 240.0001200000205,
+      "source_BP_sha256": "d8d13e2acec8495ac702d6cd7f9578b0431993200a428f8c21f7f82d03f72afd",
+      "source_BP_bytes": 24586714,
+      "numeric_export_sha256": "a661bf239dcbc181781ceb5055c5fb291e14aa8521c1a36e937a8864bd7286bd",
+      "minimum_density": 0.9133279279486916,
+      "minimum_pressure_diagonal": 0.006968741931121625,
+      "minimum_pressure_eigenvalue": -0.0015254407752198036,
+      "negative_eigenvalue_cell_count": 7,
+      "worst_native_zero_based_x_y": [
+        162,
+        485
+      ],
+      "worst_raw_center_x_y": [
+        -7.75,
+        16.550000000000004
+      ]
+    }
+  ],
+  "physical_saved_trajectory_admissibility_established": false,
+  "endpoint_PD_does_not_certify_saved_trajectory": true,
+  "no_clipping_repair_or_gate_change": true,
+  "no_performance_metrics_or_solver_action": true,
+  "source_full_record_sha256": "66e937c231c12d50064d83448a1235dff3ec8025ad2e99bfb22f4c222df81cd0",
+  "public_exporter_script_sha256": "457dcbc79005dbc91d03bd4b270eb83bfad02eed8896ae387ffe2e3f449217bb",
+  "public_export_scope": "Selected portable metadata; only the single endpoint witness and small invalid-index/eigenvalue list retain physical arrays. Full source record hash is preserved."
+}

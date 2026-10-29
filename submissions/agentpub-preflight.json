@@ -1,7 +1,14 @@
 {
-  "checked_at_utc": "2026-10-28T23:46:50.653414+00:00",
+  "checked_at_utc": "2026-10-29T04:49:34.017384+00:00",
   "http_status": 200,
+  "canonical_version": "1.2.0",
+  "agent_payload_sha256": "b8e903f1ee39aed2b19be335b51045e5aea046176ee9fe8321ee1cded0f15c7c",
   "response": {
-    "would_submit": true
-  }
+    "would_submit": true,
+    "warnings": [
+      "content: Placeholder or unfinished text found: ['xxx']. The draft is not complete."
+    ]
+  },
+  "review_submission_started": false,
+  "warning_assessment": "The xxx strings are legitimate Cartesian tensor indices; no unfinished prose or unresolved export macros are present."
 }

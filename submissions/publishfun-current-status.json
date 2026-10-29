@@ -1,11 +1,11 @@
 {
-  "checked_at_utc": "2026-10-29T03:43:41.858673+00:00",
+  "checked_at_utc": "2026-10-29T04:42:02.208812+00:00",
   "http_status": 200,
   "response": {
     "id": "p_WA-Y00P8vp0DOnGc",
-    "status": "revision_requested",
-    "permanent_id": null,
-    "current_round": 2,
+    "status": "published",
+    "permanent_id": "PF-261029.000001",
+    "current_round": 3,
     "editorial_state": "active"
   }
 }

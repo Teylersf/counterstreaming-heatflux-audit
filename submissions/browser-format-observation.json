@@ -1,29 +1,48 @@
 {
-  "record_type": "browser_format_observation",
-  "recorded_at_utc": "2026-10-28T23:47:30.428709+00:00",
-  "observed_on": "2026-10-28",
-  "context": "Publish.fun manuscript preview",
-  "math_expressions": 306,
+  "checked_at_utc": "2026-10-29T04:37:05.621875+00:00",
+  "canonical_version": "1.2.0",
+  "paper_id": "p_WA-Y00P8vp0DOnGc",
+  "round": 3,
+  "status": "browser_math_and_figures_passed",
+  "math_expressions": 387,
   "math_errors": 0,
-  "figures_loaded": 3,
+  "loaded_figures": 6,
   "figure_natural_widths": [
     1474,
     1530,
+    1474,
+    1474,
+    1474,
     1474
   ],
+  "figure_dimensions": [
+    [
+      1474,
+      693
+    ],
+    [
+      1530,
+      510
+    ],
+    [
+      1474,
+      693
+    ],
+    [
+      1474,
+      1078
+    ],
+    [
+      1474,
+      1133
+    ],
+    [
+      1474,
+      693
+    ]
+  ],
   "figures_checked_after_lazy_scroll": true,
-  "evidence": "Browser verification reported by the publishing workflow; this record is not a server JSON response.",
-  "canonical_version": "1.1.0",
-  "previous_format_observations": [
-    {
-      "recorded_at_utc": "2026-10-28T23:26:49.870662+00:00",
-      "math_expressions": 237,
-      "math_errors": 0,
-      "figures_loaded": 2,
-      "figure_natural_widths": [
-        1474,
-        1474
-      ]
-    }
-  ]
+  "stored_pixel_verification_receipt": "publishfun-image-verification-round3.json",
+  "browser_url": "https://publish.fun/dashboard/papers/p_WA-Y00P8vp0DOnGc/rounds/3",
+  "evidence": "The full round-3 manuscript panel was expanded in authenticated Chrome. All 387 KaTeX expressions rendered without error and all six images loaded at their canonical dimensions; stored RGBA pixels/captions were independently checked. This verifies formatting, not review acceptance."
 }

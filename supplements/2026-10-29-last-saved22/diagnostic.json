@@ -1,0 +1,357 @@
+{
+  "diagnostic_type": "single_postacceptance_last_saved22_covariance",
+  "observed_utc": "2026-10-29T04:46:05.728411+00:00",
+  "producer_script_sha256": "18cb560488161771bce5feb003d3d1c227043c58165399ba33c766ceefa74b9d",
+  "public_pressure_function": "experiments/scan_gkeyll_saved_states.py::tensor_diagnostic",
+  "pinned_public_scanner_sha256": "86269af0916439c2eb57a84ec35fc0e983cceb1ead6c913a2accd3ef7bc40898",
+  "pressure_formula": "M_ij-rho*u_i*u_j, u=momentum/rho; native [x,y,10] order",
+  "conserved_component_order": [
+    "rho",
+    "rho_ux",
+    "rho_uy",
+    "rho_uz",
+    "Mxx",
+    "Mxy",
+    "Mxz",
+    "Myy",
+    "Myz",
+    "Mzz"
+  ],
+  "source_run_receipt_sha256": "fdaf5bf781a76811e4d5b94e2c2596e2f1b7122f39de014617c0a227a8ed95ab",
+  "native_status": "failed",
+  "native_returncode": 1,
+  "native_stop": null,
+  "native_frame": 22,
+  "actual_saved_time": 220.00011000001655,
+  "source_bindings": [
+    {
+      "filename": "case_elc1_22.bp",
+      "bytes": 24587010,
+      "sha256": "695da9dc1bf92606b38e77fac6ea74aa4eacabe602f0dba620d8dfff312c6949",
+      "native_frame": 22,
+      "actual_saved_time": 220.00011000001655,
+      "native_array_shape": [
+        480,
+        640,
+        10
+      ],
+      "mass": 1.0,
+      "charge": -1.0
+    },
+    {
+      "filename": "case_elc2_22.bp",
+      "bytes": 24587010,
+      "sha256": "58432641799eb50190ef72bc6ae025c1406bd53bd779976466a5e9eaef1ee1e1",
+      "native_frame": 22,
+      "actual_saved_time": 220.00011000001655,
+      "native_array_shape": [
+        480,
+        640,
+        10
+      ],
+      "mass": 1.0,
+      "charge": -1.0
+    }
+  ],
+  "results": {
+    "population1": {
+      "diagnostic": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.02897738684952415,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": false,
+        "strict_covariance_PD_passed": false,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 6,
+        "negative_eigenvalue_cell_count": 6,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 6,
+        "minimum_pressure_diagonal": 0.00031968601823151305,
+        "minimum_pressure_eigenvalue": -0.00032116040544036,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          176,
+          157
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -6.349999999999998,
+          -16.25
+        ]
+      },
+      "worst_cell_witness": {
+        "native_zero_based_x_y": [
+          176,
+          157
+        ],
+        "analysis_zero_based_y_x": [
+          157,
+          176
+        ],
+        "raw_center_x_y": [
+          -6.349999999999998,
+          -16.25
+        ],
+        "conserved_components": [
+          0.16416923212706197,
+          -0.03518663511888556,
+          0.0006743098693892043,
+          0.07420782725683359,
+          0.008637149916448032,
+          -5.99782511103801e-05,
+          -0.013035281032551537,
+          0.002837164302104109,
+          0.00024731937438472935,
+          0.03905217196306402
+        ],
+        "density": 0.16416923212706197,
+        "mean_velocity": [
+          -0.2143314838169687,
+          0.004107407098470858,
+          0.45202031035510354
+        ],
+        "pressure_matrix": [
+          [
+            0.0010955462008910288,
+            8.45475837482344e-05,
+            0.0028697926942388985
+          ],
+          [
+            8.45475837482344e-05,
+            0.002834394636960011,
+            -5.748238205208813e-05
+          ],
+          [
+            0.0028697926942388985,
+            -5.748238205208813e-05,
+            0.0055087268556521934
+          ]
+        ],
+        "pressure_eigenvalues": [
+          -0.00032116040544036,
+          0.0028375936788941204,
+          0.006922234420049474
+        ],
+        "minimum_eigenvalue_direction": [
+          0.8966025405158897,
+          -0.03206853397579856,
+          -0.4416735145660143
+        ],
+        "Rayleigh_quotient": -0.00032116040544035996,
+        "principal_2x2_minors": {
+          "xy": 3.0980619824297824e-06,
+          "xz": -2.200645329450813e-06,
+          "yz": 1.5610601631891778e-05
+        },
+        "determinant": -6.308389613603108e-09,
+        "witness_eigenanalysis_max_difference_from_batch_minimum": 0.0
+      }
+    },
+    "population2": {
+      "diagnostic": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.028942644680711466,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.0001555755507232099,
+        "minimum_pressure_eigenvalue": 8.680127993524309e-05,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          351,
+          163
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          11.149999999999999,
+          -15.649999999999999
+        ]
+      },
+      "worst_cell_witness": {
+        "native_zero_based_x_y": [
+          351,
+          163
+        ],
+        "analysis_zero_based_y_x": [
+          163,
+          351
+        ],
+        "raw_center_x_y": [
+          11.149999999999999,
+          -15.649999999999999
+        ],
+        "conserved_components": [
+          0.18230336187524174,
+          0.04910698099617479,
+          0.0037493590531183845,
+          0.06289815184628288,
+          0.01338350265943427,
+          0.0006436388841929053,
+          0.017257314483487853,
+          0.0023526335941892735,
+          0.0011003691286936115,
+          0.03247030867632136
+        ],
+        "density": 0.18230336187524174,
+        "mean_velocity": [
+          0.26936958534961564,
+          0.020566593037841162,
+          0.34501915488166846
+        ],
+        "pressure_matrix": [
+          [
+            0.0001555755507232099,
+            -0.0003663244092724214,
+            0.00031446540139747417
+          ],
+          [
+            -0.0003663244092724214,
+            0.0022755220523910423,
+            -0.0001932315631612263
+          ],
+          [
+            0.00031446540139747417,
+            -0.0001932315631612263,
+            0.010769241482697988
+          ]
+        ],
+        "pressure_eigenvalues": [
+          8.680127993524307e-05,
+          0.0023300895847682595,
+          0.010783448221108737
+        ],
+        "minimum_eigenvalue_direction": [
+          0.9863180581821768,
+          0.16277585047923157,
+          -0.026090431282428744
+        ],
+        "Rayleigh_quotient": 8.680127993524305e-05,
+        "principal_2x2_minors": {
+          "xy": 2.198220236547568e-07,
+          "xz": 1.5765421858659024e-06,
+          "yz": 2.4468308044401948e-05
+        },
+        "determinant": 2.1810037138345264e-09,
+        "witness_eigenanalysis_max_difference_from_batch_minimum": 1.3552527156068805e-20
+      }
+    },
+    "aggregate": {
+      "diagnostic": {
+        "nonfinite_conserved_value_count": 0,
+        "nonfinite_conserved_cell_count": 0,
+        "nonpositive_finite_density_cell_count": 0,
+        "minimum_finite_density": 0.9193319669814826,
+        "covariance_undefined_cell_count": 0,
+        "total_cell_count": 307200,
+        "no_clipping_repair_or_density_floor": true,
+        "covariance_PSD_passed": true,
+        "strict_covariance_PD_passed": true,
+        "nonfinite_covariance_value_count": 0,
+        "eigenanalysis_status": "computed_without_threshold_or_regularization",
+        "negative_eigenvalue_count": 0,
+        "negative_eigenvalue_cell_count": 0,
+        "zero_eigenvalue_count": 0,
+        "nonpositive_eigenvalue_cell_count": 0,
+        "minimum_pressure_diagonal": 0.008252210169013396,
+        "minimum_pressure_eigenvalue": 0.007874876506513464,
+        "minimum_eigenvalue_native_zero_based_x_y": [
+          108,
+          160
+        ],
+        "minimum_eigenvalue_raw_center_x_y": [
+          -13.149999999999999,
+          -15.95
+        ]
+      },
+      "worst_cell_witness": {
+        "native_zero_based_x_y": [
+          108,
+          160
+        ],
+        "analysis_zero_based_y_x": [
+          160,
+          108
+        ],
+        "raw_center_x_y": [
+          -13.149999999999999,
+          -15.95
+        ],
+        "conserved_components": [
+          0.9693634360947407,
+          -0.16599071761379375,
+          -0.01529124757714899,
+          0.3298805032630392,
+          0.04705396731991936,
+          0.0030500983741403734,
+          -0.0544177685898227,
+          0.010303526418461632,
+          -0.005113665335129612,
+          0.12053368508703083
+        ],
+        "density": 0.9693634360947407,
+        "mean_velocity": [
+          -0.1712368255630911,
+          -0.015774524814709947,
+          0.3403063195699062
+        ],
+        "pressure_matrix": [
+          [
+            0.018630243762793847,
+            0.0004316736801300725,
+            0.002069921604095047
+          ],
+          [
+            0.0004316736801300725,
+            0.010062314254108022,
+            9.004284948220531e-05
+          ],
+          [
+            0.002069921604095047,
+            9.004284948220531e-05,
+            0.008273265123717524
+          ]
+        ],
+        "pressure_eigenvalues": [
+          0.007874876506513464,
+          0.01004070643930298,
+          0.019050240194802944
+        ],
+        "minimum_eigenvalue_direction": [
+          -0.1888637345200897,
+          -0.0031518231639762195,
+          0.9819982463293238
+        ],
+        "Rayleigh_quotient": 0.007874876506513454,
+        "principal_2x2_minors": {
+          "xy": 0.00018727702520575056,
+          "xz": 0.00014984837052197885,
+          "yz": 8.324008586765474e-05
+        },
+        "determinant": 1.506289599908543e-06,
+        "witness_eigenanalysis_max_difference_from_batch_minimum": 0.0
+      }
+    }
+  },
+  "reader_environment": {
+    "adios2": "2.13.0.1001",
+    "numpy": "2.3.5",
+    "python": "3.12.3"
+  },
+  "scope": "Exactly the two retained regular22 moment arrays and their sum. This is a last-saved snapshot, not an established last valid state, exact abort time, failing transient/population/operator, regular30 endpoint, full0--22 history or new comparison metric.",
+  "no_clipping_repair_or_state_change": true,
+  "no_solver_action": true,
+  "no_canonical_paper_or_core_evidence_change": true,
+  "full31_history_and_failed_endpoint_classifications_unchanged": true,
+  "private_paths_included": false
+}

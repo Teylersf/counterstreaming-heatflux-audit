@@ -1,0 +1,198 @@
+{
+  "record_type": "publishfun_stored_figure_pixel_verification",
+  "checked_at_utc": "2026-10-29T04:34:18.877617+00:00",
+  "paper_id": "p_WA-Y00P8vp0DOnGc",
+  "round": 3,
+  "canonical_version": "1.2.0",
+  "canonical_manuscript": "submissions/manuscript.md",
+  "canonical_manuscript_sha256": "4e5ab34278c429eec04d373aaed736205ee1433a6abdc710a4cc5f9b91011b57",
+  "stored_content_md_sha256": "44677d56a41c993d173f7d7c87c7b3a1b7ef74e8d381d991fb7fe74713cd7126",
+  "all_six_stored_images_available": true,
+  "figure_order_preserved": true,
+  "all_caption_text_identical": true,
+  "all_decoded_RGBA_pixels_identical": true,
+  "figures": [
+    {
+      "figure": 1,
+      "caption_label": "Figure 1",
+      "canonical_image": "figures/initial-state.png",
+      "stored_url": "https://files.publish.fun/uploads/up_OpSH28VIOyPCC4-z/figures/figure-1.png",
+      "stored_request_url_sha256": "e7b80d628c9b2a15a8fc7d53d9b077d1c81498ff796484348a9b851673fe4468",
+      "stored_query_omitted": false,
+      "HTTP_status": 200,
+      "stored_bytes": 129535,
+      "stored_encoded_sha256": "ca3e6c9b28626acef73d23622298c9a71a76da2c29194d11983f77df400121f8",
+      "canonical_encoded_sha256": "647761f35db2ae9296de71a710a4909cd3f1d2248ef251017896cbf9c901b60c",
+      "stored_dimensions": [
+        1474,
+        693
+      ],
+      "canonical_dimensions": [
+        1474,
+        693
+      ],
+      "decoded_mode": "RGBA",
+      "RGBA_pixels_equal": true,
+      "stored_RGBA_sha256": "5ddde6a68689c290c663d3a074f1dd12a02813250ebdda34836493fab7f471fd",
+      "canonical_RGBA_sha256": "5ddde6a68689c290c663d3a074f1dd12a02813250ebdda34836493fab7f471fd",
+      "encoded_bytes_equal": false,
+      "caption_label_equal": true,
+      "caption_text_equal": true,
+      "canonical_caption_UTF8_sha256": "5e96308f5e4db477ab55e63b8441a0dc36c10ae78ae3142d95e8b0c1b23b1dfb",
+      "stored_caption_UTF8_sha256": "5e96308f5e4db477ab55e63b8441a0dc36c10ae78ae3142d95e8b0c1b23b1dfb",
+      "caption_characters": 561
+    },
+    {
+      "figure": 2,
+      "caption_label": "Figure 2",
+      "canonical_image": "figures/profile-sensitivity.png",
+      "stored_url": "https://files.publish.fun/uploads/up_gv_4FNCjOT5A-Ivi/figures/figure-2.png",
+      "stored_request_url_sha256": "2b04f62ff54c9d421cffe5b0aea45b427579279057d8bc4b0a214e8d604af0db",
+      "stored_query_omitted": false,
+      "HTTP_status": 200,
+      "stored_bytes": 114070,
+      "stored_encoded_sha256": "d15da7b04934301e762a0e78e070c0f4d079fc61873433deaf5b9f6a997311cf",
+      "canonical_encoded_sha256": "0a5a2f0c6dc8368a7929089a28419b5a5d4e57d3ea1fcdb0dc217cf9933041ba",
+      "stored_dimensions": [
+        1530,
+        510
+      ],
+      "canonical_dimensions": [
+        1530,
+        510
+      ],
+      "decoded_mode": "RGBA",
+      "RGBA_pixels_equal": true,
+      "stored_RGBA_sha256": "d7a30bf0ec29b53bd5af115abdc5c30d23d957f84fa273d6267fb922601b018a",
+      "canonical_RGBA_sha256": "d7a30bf0ec29b53bd5af115abdc5c30d23d957f84fa273d6267fb922601b018a",
+      "encoded_bytes_equal": false,
+      "caption_label_equal": true,
+      "caption_text_equal": true,
+      "canonical_caption_UTF8_sha256": "3dd863d65249c7f3d99609812fd32cf0f355c1c4054598c9760822a7eecb9b42",
+      "stored_caption_UTF8_sha256": "3dd863d65249c7f3d99609812fd32cf0f355c1c4054598c9760822a7eecb9b42",
+      "caption_characters": 397
+    },
+    {
+      "figure": 3,
+      "caption_label": "Figure 3",
+      "canonical_image": "figures/numerical-endpoints-pressure-history.png",
+      "stored_url": "https://files.publish.fun/uploads/up_cTukmFgvB9O2cQHF/figures/figure-3.png",
+      "stored_request_url_sha256": "ba83fba68b014dc01c00c8f8e32e56db94f9f9c462f81ecfa0841a176c2e8993",
+      "stored_query_omitted": false,
+      "HTTP_status": 200,
+      "stored_bytes": 104468,
+      "stored_encoded_sha256": "770367cfc7b0597a694bbb0754e724ff3db6eb1077a202344762a1ab17f79cc2",
+      "canonical_encoded_sha256": "6206308d98cdcb8e17b7508203d4ac9872eba8498ba8f37a405c807d27fc9c50",
+      "stored_dimensions": [
+        1474,
+        693
+      ],
+      "canonical_dimensions": [
+        1474,
+        693
+      ],
+      "decoded_mode": "RGBA",
+      "RGBA_pixels_equal": true,
+      "stored_RGBA_sha256": "630ee8699fc1992c5c068ba1876086a14d6b5e770dcc5892596c5c0fdf1a4d82",
+      "canonical_RGBA_sha256": "630ee8699fc1992c5c068ba1876086a14d6b5e770dcc5892596c5c0fdf1a4d82",
+      "encoded_bytes_equal": false,
+      "caption_label_equal": true,
+      "caption_text_equal": true,
+      "canonical_caption_UTF8_sha256": "bdd2c51bdd178c2080bb4acfb63d97e7eb84cd89eb2a16738b6d5b636fdf590e",
+      "stored_caption_UTF8_sha256": "bdd2c51bdd178c2080bb4acfb63d97e7eb84cd89eb2a16738b6d5b636fdf590e",
+      "caption_characters": 573
+    },
+    {
+      "figure": 4,
+      "caption_label": "Figure 4",
+      "canonical_image": "figures/numerical-endpoints-errors.png",
+      "stored_url": "https://files.publish.fun/uploads/up_cTukmFgvB9O2cQHF/figures/figure-4.png",
+      "stored_request_url_sha256": "261500ab61d91ac88eec585275ca6fcf76a288a88e82c2776bfe62fb58d8f87b",
+      "stored_query_omitted": false,
+      "HTTP_status": 200,
+      "stored_bytes": 123816,
+      "stored_encoded_sha256": "d742e49090b379e78a5e4921b2ca5251b80101e4d388f385f06f1a5c3d13ecc1",
+      "canonical_encoded_sha256": "607a64a61a49cc44c60cd3d9e9781cd5f50d1df293f79354de26241cc058041c",
+      "stored_dimensions": [
+        1474,
+        1078
+      ],
+      "canonical_dimensions": [
+        1474,
+        1078
+      ],
+      "decoded_mode": "RGBA",
+      "RGBA_pixels_equal": true,
+      "stored_RGBA_sha256": "d539a2d27313e373669e61d9d3b39f5013b15c3899bc40a4c44d39f93e02ae7a",
+      "canonical_RGBA_sha256": "d539a2d27313e373669e61d9d3b39f5013b15c3899bc40a4c44d39f93e02ae7a",
+      "encoded_bytes_equal": false,
+      "caption_label_equal": true,
+      "caption_text_equal": true,
+      "canonical_caption_UTF8_sha256": "a5480a54a0ece35541feb121379de422c4a07ccde7507c51d9d6382e17a742a8",
+      "stored_caption_UTF8_sha256": "a5480a54a0ece35541feb121379de422c4a07ccde7507c51d9d6382e17a742a8",
+      "caption_characters": 417
+    },
+    {
+      "figure": 5,
+      "caption_label": "Figure 5",
+      "canonical_image": "figures/numerical-endpoints-profiles.png",
+      "stored_url": "https://files.publish.fun/uploads/up_cTukmFgvB9O2cQHF/figures/figure-5.png",
+      "stored_request_url_sha256": "340dd5e80564d04bf5424686c4b11bc727c03dc321987dca0023b17ca959397a",
+      "stored_query_omitted": false,
+      "HTTP_status": 200,
+      "stored_bytes": 254358,
+      "stored_encoded_sha256": "217a06ccaab922816d371c265ba17c4dd05eedccd8e61629a38402a75c269c1f",
+      "canonical_encoded_sha256": "c596259a3a41eddcc459d67f4f166aea373e95acdfb79cb773530e0eb3656304",
+      "stored_dimensions": [
+        1474,
+        1133
+      ],
+      "canonical_dimensions": [
+        1474,
+        1133
+      ],
+      "decoded_mode": "RGBA",
+      "RGBA_pixels_equal": true,
+      "stored_RGBA_sha256": "06c276433af907f9b3e67a8edeadbc15b1845db1edba5f36c8d8f63af5165f66",
+      "canonical_RGBA_sha256": "06c276433af907f9b3e67a8edeadbc15b1845db1edba5f36c8d8f63af5165f66",
+      "encoded_bytes_equal": false,
+      "caption_label_equal": true,
+      "caption_text_equal": true,
+      "canonical_caption_UTF8_sha256": "9e6fd9ead1402c97ac718a8ea8bf597c9b12d468c509b09f93ebf44ce3facec5",
+      "stored_caption_UTF8_sha256": "9e6fd9ead1402c97ac718a8ea8bf597c9b12d468c509b09f93ebf44ce3facec5",
+      "caption_characters": 359
+    },
+    {
+      "figure": 6,
+      "caption_label": "Figure 6",
+      "canonical_image": "figures/stability.png",
+      "stored_url": "https://files.publish.fun/uploads/up_OpSH28VIOyPCC4-z/figures/figure-2.png",
+      "stored_request_url_sha256": "2d1f8d62c9f2d77108f90fe2f0c966d3c2101b5e939b2e4d8c38e77add500604",
+      "stored_query_omitted": false,
+      "HTTP_status": 200,
+      "stored_bytes": 85258,
+      "stored_encoded_sha256": "30642340dbce4189dc6b58d09b64701c7e61ebd232eb18f747d593ddb1b06038",
+      "canonical_encoded_sha256": "e9715497cdcf3e7836d727ad214ecbb0bcaa09bf93ac3024a142431efe96f02f",
+      "stored_dimensions": [
+        1474,
+        693
+      ],
+      "canonical_dimensions": [
+        1474,
+        693
+      ],
+      "decoded_mode": "RGBA",
+      "RGBA_pixels_equal": true,
+      "stored_RGBA_sha256": "a1abd0bd7144c8eadcda4c744c8890c696844d845f4ac715c215314a7791fe97",
+      "canonical_RGBA_sha256": "a1abd0bd7144c8eadcda4c744c8890c696844d845f4ac715c215314a7791fe97",
+      "encoded_bytes_equal": false,
+      "caption_label_equal": true,
+      "caption_text_equal": true,
+      "canonical_caption_UTF8_sha256": "8afd29df60f721aff89e9a2a3e41c8bd2253f0c7eb22596fc815bad0b56e9c3d",
+      "stored_caption_UTF8_sha256": "8afd29df60f721aff89e9a2a3e41c8bd2253f0c7eb22596fc815bad0b56e9c3d",
+      "caption_characters": 544
+    }
+  ],
+  "method": "Anonymous bounded HTTP GET of the six current content_md image URLs, in canonical Markdown order. Pillow decodes each stored and local PNG to RGBA; dimensions and every RGBA byte are compared exactly. Alt labels and the following caption paragraphs are compared exactly. Encoded bytes may differ after server re-encoding.",
+  "scope": "Stored figure assets and caption identity only; no browser-render or editorial outcome assertion."
+}

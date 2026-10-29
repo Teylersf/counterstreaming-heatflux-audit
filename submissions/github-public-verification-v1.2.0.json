@@ -1,0 +1,57 @@
+{
+  "checked_at_utc": "2026-10-29T04:30:15.250241+00:00",
+  "version": "1.2.0",
+  "release_url": "https://github.com/Teylersf/counterstreaming-heatflux-audit/releases/tag/v1.2.0",
+  "verified_release_tag_commit": "0a58adc807c2476d3469d83ad3254865ab1f9d0b",
+  "scientific_code_pin": "b47a51608726b80931fc607f0f44a02ab4bfbfdd",
+  "anonymous_pdf": {
+    "url": "https://github.com/Teylersf/counterstreaming-heatflux-audit/releases/download/v1.2.0/main.pdf",
+    "bytes": 354791,
+    "sha256": "66948e0c9ac6560522967f0f0966fd8641a30bdfe13ccbec5db4169bb7af73ce",
+    "matches_canonical": true
+  },
+  "figures": [
+    {
+      "url": "https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/initial-state.png?version=1.2.0&figure=1",
+      "filename": "initial-state.png",
+      "bytes": 115477,
+      "sha256": "647761f35db2ae9296de71a710a4909cd3f1d2248ef251017896cbf9c901b60c",
+      "matches_canonical": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/profile-sensitivity.png?version=1.2.0&figure=2",
+      "filename": "profile-sensitivity.png",
+      "bytes": 101491,
+      "sha256": "0a5a2f0c6dc8368a7929089a28419b5a5d4e57d3ea1fcdb0dc217cf9933041ba",
+      "matches_canonical": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/numerical-endpoints-pressure-history.png?version=1.2.0&figure=3",
+      "filename": "numerical-endpoints-pressure-history.png",
+      "bytes": 87875,
+      "sha256": "6206308d98cdcb8e17b7508203d4ac9872eba8498ba8f37a405c807d27fc9c50",
+      "matches_canonical": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/numerical-endpoints-errors.png?version=1.2.0&figure=4",
+      "filename": "numerical-endpoints-errors.png",
+      "bytes": 107261,
+      "sha256": "607a64a61a49cc44c60cd3d9e9781cd5f50d1df293f79354de26241cc058041c",
+      "matches_canonical": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/numerical-endpoints-profiles.png?version=1.2.0&figure=5",
+      "filename": "numerical-endpoints-profiles.png",
+      "bytes": 232866,
+      "sha256": "c596259a3a41eddcc459d67f4f166aea373e95acdfb79cb773530e0eb3656304",
+      "matches_canonical": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Teylersf/counterstreaming-heatflux-audit/main/figures/stability.png?version=1.2.0&figure=6",
+      "filename": "stability.png",
+      "bytes": 76916,
+      "sha256": "e9715497cdcf3e7836d727ad214ecbb0bcaa09bf93ac3024a142431efe96f02f",
+      "matches_canonical": true
+    }
+  ]
+}

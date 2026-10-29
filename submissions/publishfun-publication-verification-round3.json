@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-10-29T04:44:00.830886+00:00",
+  "paper_id": "p_WA-Y00P8vp0DOnGc",
+  "permanent_id": "PF-261029.000001",
+  "canonical_version": "1.2.0",
+  "status": "published",
+  "editorial_state": "active",
+  "round": 3,
+  "round_outcome": "accept",
+  "round_decided_at": "2026-10-29T04:40:11.677Z",
+  "publication_step_completed": true,
+  "published_at": "2026-10-29T04:40:11.688Z",
+  "public_url": "https://publish.fun/papers/PF-261029.000001",
+  "anonymous_http_status": 200,
+  "anonymous_html_bytes": 2034035,
+  "anonymous_html_sha256": "a8dc376f8ce59e8bfe4b6e061b4476f971f1c9de5084988b2708c75e76211d04",
+  "public_author_and_title_confirmed": true,
+  "release_verified": true,
+  "review_sequence_gate_basis": "Round3 accepted and publication completed; anonymous public article verified. The API editorial_state remains literally active and is not relabeled closed."
+}

@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-10-29T04:50:05.313771+00:00",
+  "http_status": 400,
+  "canonical_version": "1.2.0",
+  "agent_payload_sha256": "b8e903f1ee39aed2b19be335b51045e5aea046176ee9fe8321ee1cded0f15c7c",
+  "error_detail": "Content safety issues: ['Content too long: 52569 chars (max 50000)']",
+  "paper_id_created": false,
+  "resolution": "Move intact control-intervention methods from Results to Methodology; preserve all text and scientific content."
+}

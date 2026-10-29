@@ -1,0 +1,303 @@
+{
+  "record_type": "independent_postacceptance_last_saved_covariance_verification",
+  "checked_utc": "2026-10-29T04:50:39.364105+00:00",
+  "all_checks_passed": true,
+  "independent_script_sha256": "51fd570ee2b84e397bd3f30ca727fb9f49564cced81dd01558b4082e56d137c6",
+  "primary_script_sha256": "18cb560488161771bce5feb003d3d1c227043c58165399ba33c766ceefa74b9d",
+  "primary_result_sha256": "904142e46b066efca208b1f3fa8f2df2852e0c599291b2eac9baecbd9af28723",
+  "source_run_receipt_sha256": "fdaf5bf781a76811e4d5b94e2c2596e2f1b7122f39de014617c0a227a8ed95ab",
+  "native_case": "2-fluid-aggregate-matched",
+  "native_status": "failed",
+  "native_returncode": 1,
+  "native_frame": 22,
+  "actual_saved_time": 220.00011000001655,
+  "bindings": [
+    {
+      "filename": "case_elc1_22.bp",
+      "bytes": 24587010,
+      "sha256": "695da9dc1bf92606b38e77fac6ea74aa4eacabe602f0dba620d8dfff312c6949",
+      "native_frame": 22,
+      "actual_saved_time": 220.00011000001655,
+      "native_array_shape": [
+        480,
+        640,
+        10
+      ],
+      "mass": 1.0,
+      "charge": -1.0
+    },
+    {
+      "filename": "case_elc2_22.bp",
+      "bytes": 24587010,
+      "sha256": "58432641799eb50190ef72bc6ae025c1406bd53bd779976466a5e9eaef1ee1e1",
+      "native_frame": 22,
+      "actual_saved_time": 220.00011000001655,
+      "native_array_shape": [
+        480,
+        640,
+        10
+      ],
+      "mass": 1.0,
+      "charge": -1.0
+    }
+  ],
+  "results": {
+    "population1": {
+      "all_primary_counts_and_witness_checks_passed": true,
+      "nonfinite_conserved_value_count": 0,
+      "nonfinite_conserved_cell_count": 0,
+      "nonpositive_finite_density_cell_count": 0,
+      "covariance_undefined_cell_count": 0,
+      "nonfinite_covariance_value_count": 0,
+      "total_cell_count": 307200,
+      "negative_eigenvalue_count": 6,
+      "negative_eigenvalue_cell_count": 6,
+      "zero_eigenvalue_count": 0,
+      "nonpositive_eigenvalue_cell_count": 6,
+      "minimum_density": 0.02897738684952415,
+      "minimum_pressure_diagonal": 0.00031968601823151305,
+      "minimum_pressure_eigenvalue": -0.00032116040544036327,
+      "native_zero_based_x_y": [
+        176,
+        157
+      ],
+      "analysis_zero_based_y_x": [
+        157,
+        176
+      ],
+      "raw_center_x_y": [
+        -6.349999999999998,
+        -16.25
+      ],
+      "worst_conserved_components": [
+        0.16416923212706197,
+        -0.03518663511888556,
+        0.0006743098693892043,
+        0.07420782725683359,
+        0.008637149916448032,
+        -5.99782511103801e-05,
+        -0.013035281032551537,
+        0.002837164302104109,
+        0.00024731937438472935,
+        0.03905217196306402
+      ],
+      "worst_pressure_matrix": [
+        [
+          0.001095546200891028,
+          8.45475837482344e-05,
+          0.002869792694238902
+        ],
+        [
+          8.45475837482344e-05,
+          0.002834394636960011,
+          -5.748238205208813e-05
+        ],
+        [
+          0.002869792694238902,
+          -5.748238205208813e-05,
+          0.0055087268556521934
+        ]
+      ],
+      "worst_pressure_eigenvalues": [
+        -0.00032116040544036305,
+        0.00283759367889412,
+        0.0069222344200494754
+      ],
+      "independent_minimum_direction": [
+        0.8966025405158895,
+        -0.03206853397579856,
+        -0.4416735145660144
+      ],
+      "independent_Rayleigh_quotient": -0.00032116040544036343,
+      "principal_2x2_minors": {
+        "xy": 3.09806198242978e-06,
+        "xz": -2.200645329450836e-06,
+        "yz": 1.5610601631891778e-05
+      },
+      "explicit_determinant": -6.3083896136031715e-09,
+      "covariance_PSD_passed": false,
+      "strict_covariance_PD_passed": false,
+      "equivalent_formula_max_pressure_difference": 5.551115123125783e-17,
+      "equivalent_formula_max_eigenvalue_difference": 4.85722573273506e-17,
+      "equivalent_formula_negative_cell_count": 6
+    },
+    "population2": {
+      "all_primary_counts_and_witness_checks_passed": true,
+      "nonfinite_conserved_value_count": 0,
+      "nonfinite_conserved_cell_count": 0,
+      "nonpositive_finite_density_cell_count": 0,
+      "covariance_undefined_cell_count": 0,
+      "nonfinite_covariance_value_count": 0,
+      "total_cell_count": 307200,
+      "negative_eigenvalue_count": 0,
+      "negative_eigenvalue_cell_count": 0,
+      "zero_eigenvalue_count": 0,
+      "nonpositive_eigenvalue_cell_count": 0,
+      "minimum_density": 0.028942644680711466,
+      "minimum_pressure_diagonal": 0.00015557555072321337,
+      "minimum_pressure_eigenvalue": 8.680127993524646e-05,
+      "native_zero_based_x_y": [
+        351,
+        163
+      ],
+      "analysis_zero_based_y_x": [
+        163,
+        351
+      ],
+      "raw_center_x_y": [
+        11.149999999999999,
+        -15.649999999999999
+      ],
+      "worst_conserved_components": [
+        0.18230336187524174,
+        0.04910698099617479,
+        0.0037493590531183845,
+        0.06289815184628288,
+        0.01338350265943427,
+        0.0006436388841929053,
+        0.017257314483487853,
+        0.0023526335941892735,
+        0.0011003691286936115,
+        0.03247030867632136
+      ],
+      "worst_pressure_matrix": [
+        [
+          0.00015557555072321337,
+          -0.0003663244092724214,
+          0.00031446540139747417
+        ],
+        [
+          -0.0003663244092724214,
+          0.0022755220523910423,
+          -0.0001932315631612263
+        ],
+        [
+          0.00031446540139747417,
+          -0.0001932315631612263,
+          0.010769241482697992
+        ]
+      ],
+      "worst_pressure_eigenvalues": [
+        8.680127993524646e-05,
+        0.002330089584768261,
+        0.01078344822110874
+      ],
+      "independent_minimum_direction": [
+        0.9863180581821765,
+        0.1627758504792317,
+        -0.026090431282428772
+      ],
+      "independent_Rayleigh_quotient": 8.680127993524641e-05,
+      "principal_2x2_minors": {
+        "xy": 2.198220236547647e-07,
+        "xz": 1.5765421858659403e-06,
+        "yz": 2.4468308044401954e-05
+      },
+      "explicit_determinant": 2.1810037138346104e-09,
+      "covariance_PSD_passed": true,
+      "strict_covariance_PD_passed": true,
+      "equivalent_formula_max_pressure_difference": 5.551115123125783e-17,
+      "equivalent_formula_max_eigenvalue_difference": 4.163336342344337e-17,
+      "equivalent_formula_negative_cell_count": 0
+    },
+    "aggregate": {
+      "all_primary_counts_and_witness_checks_passed": true,
+      "nonfinite_conserved_value_count": 0,
+      "nonfinite_conserved_cell_count": 0,
+      "nonpositive_finite_density_cell_count": 0,
+      "covariance_undefined_cell_count": 0,
+      "nonfinite_covariance_value_count": 0,
+      "total_cell_count": 307200,
+      "negative_eigenvalue_count": 0,
+      "negative_eigenvalue_cell_count": 0,
+      "zero_eigenvalue_count": 0,
+      "nonpositive_eigenvalue_cell_count": 0,
+      "minimum_density": 0.9193319669814826,
+      "minimum_pressure_diagonal": 0.008252210169013396,
+      "minimum_pressure_eigenvalue": 0.007874876506513459,
+      "native_zero_based_x_y": [
+        108,
+        160
+      ],
+      "analysis_zero_based_y_x": [
+        160,
+        108
+      ],
+      "raw_center_x_y": [
+        -13.149999999999999,
+        -15.95
+      ],
+      "worst_conserved_components": [
+        0.9693634360947407,
+        -0.16599071761379375,
+        -0.01529124757714899,
+        0.3298805032630392,
+        0.04705396731991936,
+        0.0030500983741403734,
+        -0.0544177685898227,
+        0.010303526418461632,
+        -0.005113665335129612,
+        0.12053368508703083
+      ],
+      "worst_pressure_matrix": [
+        [
+          0.01863024376279384,
+          0.0004316736801300721,
+          0.002069921604095047
+        ],
+        [
+          0.0004316736801300721,
+          0.010062314254108022,
+          9.004284948220531e-05
+        ],
+        [
+          0.002069921604095047,
+          9.004284948220531e-05,
+          0.008273265123717524
+        ]
+      ],
+      "worst_pressure_eigenvalues": [
+        0.00787487650651346,
+        0.010040706439302983,
+        0.01905024019480294
+      ],
+      "independent_minimum_direction": [
+        -0.1888637345200899,
+        -0.0031518231639752203,
+        0.981998246329324
+      ],
+      "independent_Rayleigh_quotient": 0.007874876506513459,
+      "principal_2x2_minors": {
+        "xy": 0.0001872770252057505,
+        "xz": 0.0001498483705219788,
+        "yz": 8.324008586765474e-05
+      },
+      "explicit_determinant": 1.5062895999085442e-06,
+      "covariance_PSD_passed": true,
+      "strict_covariance_PD_passed": true,
+      "equivalent_formula_max_pressure_difference": 1.1102230246251565e-16,
+      "equivalent_formula_max_eigenvalue_difference": 1.1449174941446927e-16,
+      "equivalent_formula_negative_cell_count": 0
+    }
+  },
+  "no_primary_or_canonical_analysis_functions_imported": true,
+  "pressure_formula": "P_ij=M_ij-m_i*m_j/rho; separately cross-checked against M_ij-rho*(m_i/rho)*(m_j/rho)",
+  "eigenvalue_classification_boundary": "Strict zero, without clipping, tolerance or regularization",
+  "numeric_comparison_tolerance_only": "Primary/independent agreement uses rtol1e-12 and atol1e-15 (principal minors/determinant atol1e-18); these do not alter classification",
+  "reader_environment": {
+    "adios2": "2.13.0.1001",
+    "numpy": "2.3.5",
+    "python": "3.12.3"
+  },
+  "frozen_core_before_after_sha256": {
+    "paper/main.pdf": "66948e0c9ac6560522967f0f0966fd8641a30bdfe13ccbec5db4169bb7af73ce",
+    "results/code-pin.json": "4d85d5c0aed7f7cf7f0495e08ab1189d19d51f0ea51e4912277d863ce72d95b0",
+    "results/execution-output-manifest.json": "55a9c92b3b9c7ca0b099e19ba794c145da54fe2108790ed8bd346eccb7a87a7f",
+    "results/gkeyll-admissibility.json": "8e53a5c39a3ac5429b5f2240d7d15a95eec7028d0f7af847ae91850659170a7c",
+    "results/gkeyll-control-comparison.json": "305b20abddd38d0d7df3031b8100d3ed5f14abd84cf080158b1a1124c7cea5dc",
+    "results/gkeyll-control-decoding.json": "d9d1c272e7094a090bb0ebebe6cdb6310acda196034513285c5041f51989bc79"
+  },
+  "scope": "Independent verification of exactly two retained regular22 moment arrays and their conserved sum after acceptance. This is not a regular30 endpoint, full history, last-valid-state proof, exact abort time, failing transient/species/operator identification, model rerun or comparison metric. Frozen v1.2 paper/core evidence/code pin are unchanged.",
+  "private_paths_included": false,
+  "no_solver_or_state_change": true
+}
